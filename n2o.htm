@@ -1,0 +1,117 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+    <title>N2O Protocol</title>
+    <link rel="stylesheet" href="deposits.css" />
+</head>
+<body>
+<div class=menu>
+<a href="index.htm">articles</a>
+</div>
+<hr>
+<div class=app>
+
+<div class=message>
+
+<h2>N2O WebSocket Protocol</h2>
+
+<p>If you put regular JSON on the wire sooner or later you will discover
+your own wire protocol. Here is description of ours N2O. N2O also has ASN.1 formal description.</p>
+
+<h3>Core</h3>
+
+<p>The core protocols shipped with N2O provide very basic but yet
+powerful functionality such as reconnects, page constructor
+initialization and common client/server messaging. The core is enough for
+binary upload/download, games construction and SPA appliactions.</p>
+
+<h4>heart</h4>
+
+<p>The heart protocol defined client originated messages N2O, PING and
+server originated messages IO and NOP.</p>
+
+<div class=note><pre>1. IO tuple {io,EVAL,DATA}
+2. NOP <<>>
+3. N2O init marker <<"N2O,",Rest/binary>>
+4. PING message <<"PING">>
+</pre></div>
+
+<h4>spa</h4>
+
+<p>The spa protocol defined client originated messages CLIENT and
+server originated messages SERVER and NOP.</p>
+
+<div class=note><pre>1. CLIENT tuple {client,DATA}
+2. SERVER tuple {server,DATA}
+</pre></div>
+
+
+<h4>bin</h4>
+
+<p>The bin protocol defined client originated messages BIN and
+server originated messages BINARY and NOP.</p>
+
+<div class=note><pre>1. BIN tuple {bin,DATA}
+2. BINARY tuple {binary,_,_,_,_,_,_,_,_,_,_}
+</pre></div>
+
+<h3>Extensions</h3>
+
+<h4>nitrogen</h4>
+
+<p>The nitrogen protocol defined client originated messages PICKLE/EV and
+server originated messages IO and NOP.</p>
+
+<div class=note><pre>1. PICKLE tuple {pickle,_,_,_}
+2. EV tuple {ev,_,_,_,_}
+</pre></div>
+
+<h4>bus</h4>
+
+<p>The Pub/Sub Protocol defined client originated messages SUB, UNSUB, PUB
+and server originated messages MSG.</p>
+
+<div class=note><pre>1. SUB tuple {sub,DATA}
+2. UNSUB tuple {unsub,DATA}
+3. PUB tuple {pub,DATA}
+4. MSG tuple {msg,From,To,DATA}
+</pre></div>
+
+<h4>roster</h4>
+
+<p>The roster protocol defined client originated messages AUTH, ADD, CONFIRM,
+CREATE, JOIN, MESSAGE, TYPING,  and server originated messages PERSON,
+PRESENCE</p>.
+
+<p><div class=note><pre>
+AUTH {auth,USER,TOKEN,SERVICES}
+PERSON {person,ID,NAMES,SURNAMES,STATUS}
+PRESENCE {presence,SIZE,USERS}
+ADD {add_roster,USER,STATUS}
+CONFIRM {confirm,USER,TYPE}
+MESSAGE {message,ID,AUTHOR,BODY,STATUS}
+TYPING {message,AUTHOR}
+</pre></div></p>
+
+<h4>muc</h4>
+
+<p>The multi-user chat protocol defined client originated messages JOIN
+and server originated messages ROOM, ROOMEVENT, ROOMMESSAGE</p>.
+
+<p><div class=note><pre>
+ROOM {room,ID,NAME}
+ROOMEVENT {room,ID,ROOM,AUTHOR,BODY}
+ROOMMESSAGE {room,ID,AUTHOR,ROOM,BODY,STATUS}
+JOIN {join,USER,ROOM,ANSWER}
+</pre></div></p>
+
+
+</div>
+</div>
+
+</body>
+</html>
