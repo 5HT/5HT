@@ -40,6 +40,7 @@ N2O provides definition support for several unoverlapped sub-protocols:</p>
     <li>spa</li>
     <li>bin</li>
     <li>nitrogen</li>
+    <li>bpe</li>
     <li>roster</li>
     <li>muc</li></b></ul>
 
@@ -232,6 +233,22 @@ and server originated messages MSG.</p>
 14. MSG tuple {msg,FROM,TO,DATA}
 </pre></div>
 
+<h4>bpe</h4>
+
+<p>The bpe protocol defined client originated messages
+GET, COMPLETE, RUN, UNTIL, AMEND, EVENT and ANY server originated
+messages.</p>
+
+<p><div class=note><pre>15. GET {get}
+16a. COMPLETE 1-tuple {complete}
+16b. COMPLETE 2-tuple {complete,Stage}
+17. RUN {run}
+18. UNTIL {until,Task}
+19a. AMEND 2-tuple {amend,Form}
+19b. AMEND 3-tuple {amend,Form,true}
+20. EVENT {event,Event}
+</pre></div>
+
 <h4>roster</h4>
 
 <p>The roster protocol defined client originated messages AUTH, ADD, CONFIRM,
@@ -239,13 +256,13 @@ CREATE, JOIN, MESSAGE, TYPING,  and server originated messages PERSON,
 PRESENCE</p>.
 
 <p><div class=note><pre>
-15. AUTH {auth,USER,TOKEN,SERVICES}
-16. PERSON {person,ID,NAMES,SURNAMES,STATUS}
-17. PRESENCE {presence,SIZE,USERS}
-18. ADD {add_roster,USER,STATUS}
-19. CONFIRM {confirm,USER,TYPE}
-20. MESSAGE {message,ID,AUTHOR,BODY,STATUS}
-21. TYPING {message,AUTHOR}
+21. AUTH {auth,USER,TOKEN,SERVICES}
+22. PERSON {person,ID,NAMES,SURNAMES,STATUS}
+23. PRESENCE {presence,SIZE,USERS}
+24. ADD {add_roster,USER,STATUS}
+25. CONFIRM {confirm,USER,TYPE}
+26. MESSAGE {message,ID,AUTHOR,BODY,STATUS}
+27. TYPING {message,AUTHOR}
 </pre></div></p>
 
 <h4>muc</h4>
@@ -254,10 +271,10 @@ PRESENCE</p>.
 and server originated messages ROOM, ROOMEVENT, ROOMMESSAGE</p>.
 
 <p><div class=note><pre>
-22. ROOM {room,ID,NAME}
-23. ROOMEVENT {room,ID,ROOM,AUTHOR,BODY}
-24. ROOMMESSAGE {room,ID,AUTHOR,ROOM,BODY,STATUS}
-25. JOIN {join,USER,ROOM,ANSWER}
+28. ROOM {room,ID,NAME}
+29. ROOMEVENT {room,ID,ROOM,AUTHOR,BODY}
+30. ROOMMESSAGE {room,ID,AUTHOR,ROOM,BODY,STATUS}
+31. JOIN {join,USER,ROOM,ANSWER}
 </pre></div></p>
 
 
