@@ -18,21 +18,30 @@
 <div class=message>
 
 <h2>N2O WebSocket Protocol</h2>
+<h5>Namdak Tonpa, 1 March 2015</h5>
 
 <p>If you put regular JSON on the wire sooner or later you will discover
-your own wire protocol. Here is description of ours N2O. N2O also has ASN.1 formal description.</p>
+your own wire protocol. Here is description of our N2O open binary precise protocol.
+N2O also has ASN.1 formal description, however here we will touch it freely.</p>
 
 <h3>Core</h3>
 
 <p>The core protocols shipped with N2O provide very basic but yet
-powerful functionality such as reconnects, page constructor
-initialization and common client/server messaging. The core is enough for
-binary upload/download, games construction and SPA appliactions.</p>
+powerful functionality such as reconnects, page initialization
+and common client/server messaging. The core is enough for
+binary upload/download, games construction and SPA applications.</p>
 
 <h4>heart</h4>
 
 <p>The heart protocol defined client originated messages N2O, PING and
-server originated messages IO and NOP.</p>
+server originated messages IO and NOP. IO message contains EVAL that
+contains UTF-8 JavaScript string and DATA reply contains any binary string.
+"PING" and "N2O," are defined as text 4-bytes messages and N2O could be
+followed by any text string. NOP is 0-byte acknowledging packet. This is 
+heart essence protocol which is enough for any rpc and code
+transfering interface. Normally heart protocol is not for active
+client usage but for supporting active connection with notifications
+and possibly DOM updates.</p>
 
 <div class=note><pre>1. IO tuple {io,EVAL,DATA}
 2. NOP <<>>
@@ -40,45 +49,68 @@ server originated messages IO and NOP.</p>
 4. PING message <<"PING">>
 </pre></div>
 
+<br>
+<p>Heartbeat protocol is essential WebSocket application
+level protocol for PING and N2O initialization. It pings
+every 4-5 seconds from client-side to server thus allowing
+to determine client online presence. On reconnection or
+initial connect client sends N2O init marker telling to
+server to reinitialize the context.</p>
+
 <h4>spa</h4>
 
 <p>The spa protocol defined client originated messages CLIENT and
-server originated messages SERVER and NOP.</p>
+server originated messages SERVER and NOP. This protocol should be used
+for normal data transfer as enveloping protocol. Client and server DATA
+message should be specified for both server and client.</p>
 
-<div class=note><pre>1. CLIENT tuple {client,DATA}
-2. SERVER tuple {server,DATA}
+<div class=note><pre>5. CLIENT tuple {client,DATA}
+6. SERVER tuple {server,DATA}
 </pre></div>
 
+<br>
+<p>Client messages usually originated at client and
+represent the Client API Requests:</p>
 
 <h4>bin</h4>
 
 <p>The bin protocol defined client originated messages BIN and
-server originated messages BINARY and NOP.</p>
+server originated messages BINARY and NOP. This protocol part is
+dedicated to huge file transfers in binary form.</p>
 
-<div class=note><pre>1. BIN tuple {bin,DATA}
-2. BINARY tuple {binary,_,_,_,_,_,_,_,_,_,_}
+<div class=note><pre>7. BIN tuple {bin,DATA}
+8. BINARY tuple {binary,_,_,_,_,_,_,_,_,_,_}
 </pre></div>
 
 <h3>Extensions</h3>
 
+<p>N2O protocol is not something statically defined. It contains
+unintersected protocol sections, each defines its own complete
+part of functionality. You may extend the protocol sections by
+implementing you own protocol with its own envelop formatter.</p>
+
 <h4>nitrogen</h4>
 
 <p>The nitrogen protocol defined client originated messages PICKLE/EV and
-server originated messages IO and NOP.</p>
+server originated messages IO and NOP. This is something taken with
+historicaly reasons and roots in Rusty's Nitrogen Web Framework. This
+framework is transfering RPC events to page controllers though pickle
+envelop, which could also provide ciphering. N2O supports AES/CBC cypher.
+EV message contains RPC specification: module, function and arguments.</p>
 
-<div class=note><pre>1. PICKLE tuple {pickle,_,_,_}
-2. EV tuple {ev,_,_,_,_}
+<div class=note><pre>9. PICKLE tuple {pickle,_,_,_}
+10. EV tuple {ev,_,_,_,_}
 </pre></div>
 
-<h4>bus</h4>
+<h4>mq</h4>
 
-<p>The Pub/Sub Protocol defined client originated messages SUB, UNSUB, PUB
+<p>The mq protocol defined client originated messages SUB, UNSUB, PUB
 and server originated messages MSG.</p>
 
-<div class=note><pre>1. SUB tuple {sub,DATA}
-2. UNSUB tuple {unsub,DATA}
-3. PUB tuple {pub,DATA}
-4. MSG tuple {msg,From,To,DATA}
+<div class=note><pre>11. SUB tuple {sub,DATA}
+12. UNSUB tuple {unsub,DATA}
+13. PUB tuple {pub,DATA}
+14. MSG tuple {msg,FROM,TO,DATA}
 </pre></div>
 
 <h4>roster</h4>
@@ -88,13 +120,13 @@ CREATE, JOIN, MESSAGE, TYPING,  and server originated messages PERSON,
 PRESENCE</p>.
 
 <p><div class=note><pre>
-AUTH {auth,USER,TOKEN,SERVICES}
-PERSON {person,ID,NAMES,SURNAMES,STATUS}
-PRESENCE {presence,SIZE,USERS}
-ADD {add_roster,USER,STATUS}
-CONFIRM {confirm,USER,TYPE}
-MESSAGE {message,ID,AUTHOR,BODY,STATUS}
-TYPING {message,AUTHOR}
+15. AUTH {auth,USER,TOKEN,SERVICES}
+16. PERSON {person,ID,NAMES,SURNAMES,STATUS}
+17. PRESENCE {presence,SIZE,USERS}
+18. ADD {add_roster,USER,STATUS}
+19. CONFIRM {confirm,USER,TYPE}
+20. MESSAGE {message,ID,AUTHOR,BODY,STATUS}
+21. TYPING {message,AUTHOR}
 </pre></div></p>
 
 <h4>muc</h4>
@@ -103,10 +135,10 @@ TYPING {message,AUTHOR}
 and server originated messages ROOM, ROOMEVENT, ROOMMESSAGE</p>.
 
 <p><div class=note><pre>
-ROOM {room,ID,NAME}
-ROOMEVENT {room,ID,ROOM,AUTHOR,BODY}
-ROOMMESSAGE {room,ID,AUTHOR,ROOM,BODY,STATUS}
-JOIN {join,USER,ROOM,ANSWER}
+22. ROOM {room,ID,NAME}
+23. ROOMEVENT {room,ID,ROOM,AUTHOR,BODY}
+24. ROOMMESSAGE {room,ID,AUTHOR,ROOM,BODY,STATUS}
+25. JOIN {join,USER,ROOM,ANSWER}
 </pre></div></p>
 
 
