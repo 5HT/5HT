@@ -21,13 +21,27 @@
 <h5>Namdak Tonpa, 1 March 2015</h5>
 
 <p>If you put regular JSON on the wire sooner or later you will discover
-your own wire protocol. Here is description of our N2O open binary precise protocol.
+your own wire protocol. Here is description of our N2O binary precise protocol.
 N2O also has ASN.1 formal description, however here we will speak on it freely.</p>
 
 <p>The only thing I want to add is that N2O protocol was created
 naturally with niminal efforts, all modifications were
 applied targetly and atomically. The evolution of the protocol
 is open for a deeper discussion with interested party or protocol users.</p>
+
+<p>You may find N2O protocol similar to extensible XML-based XMPP, and JSON-based WAMP.
+N2O protocol doesn't strict you to use a particular formatter.
+N2O protocol has its own reference implementation in Erlang
+which is widely used in production applications. And
+experimental implementation in Haskell which is also using BERT formatter.
+N2O provides definition support for several unoverlapped sub-protocols:</p>
+
+<ul><b><li>heart</li>
+    <li>spa</li>
+    <li>bin</li>
+    <li>nitrogen</li>
+    <li>roster</li>
+    <li>muc</li></b></ul>
 
 <p>N2O should not define any particular set of formatters.
 Application developers could choose their own formatter per protocol.
@@ -38,6 +52,7 @@ formatter should be specified somehow.</p>
 
 <ul><li>TEXT</li>
     <li>JSON</li>
+    <li>XML</li>
     <li>BERT</li>
     <li>MessagePack</li></ul>
 
