@@ -22,7 +22,24 @@
 
 <p>If you put regular JSON on the wire sooner or later you will discover
 your own wire protocol. Here is description of our N2O open binary precise protocol.
-N2O also has ASN.1 formal description, however here we will touch it freely.</p>
+N2O also has ASN.1 formal description, however here we will speak on it freely.</p>
+
+<p>The only thing I want to add is that N2O protocol was created
+naturally with niminal efforts, all modifications where
+applied targetly and atomically. The evolution of the protocol
+is open for a deeper discussion with interested party or protocol users.</p>
+
+<p>N2O should not define any particular set of formatters.
+Application developers could choose their own formatter per protocol.
+E.g. N2O uses TEXT formatting for <<"PING">> and <<"N2O,">> protocol
+messages, across versions N2O used to have IO message formatted with JSON and BERT both.
+All other protocol messages where BERT from origin. The only thing is that protocol
+formatter should be specified somehow.</p>
+
+<blockquote><ul><li>TEXT</li>
+    <li>JSON</li>
+    <li>BERT</li>
+    <li>MessagePack</li></ul></blockquote>
 
 <h3>Core</h3>
 
@@ -59,8 +76,8 @@ server to reinitialize the context.</p>
 
 <h4>spa</h4>
 
-<p>The spa protocol defined client originated messages CLIENT and
-server originated messages SERVER and NOP. This protocol should be used
+<p>The spa protocol defined client originated messages CLIENT, SERVER and
+server originated messages SERVER, IO and NOP. This protocol should be used
 for normal data transfer as enveloping protocol. Client and server DATA
 message should be specified for both server and client.</p>
 
