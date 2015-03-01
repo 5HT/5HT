@@ -36,10 +36,10 @@ messages, across versions N2O used to have IO message formatted with JSON and BE
 All other protocol messages were BERT from origin. The only thing is that protocol
 formatter should be specified somehow.</p>
 
-<blockquote><ul><li>TEXT</li>
+<ul><li>TEXT</li>
     <li>JSON</li>
     <li>BERT</li>
-    <li>MessagePack</li></ul></blockquote>
+    <li>MessagePack</li></ul>
 
 <h3>Core</h3>
 
@@ -74,6 +74,25 @@ to determine client online presence. On reconnection or
 initial connect client sends N2O init marker telling to
 server to reinitialize the context.</p>
 
+<div class=note><pre>    ws.send('PING');
+    ws.send('N2O,');
+</pre></div>
+
+<br>
+<p>IO events are containers for data and codata.
+Third element of a tuple will be directly evaluated in WebBrowser.
+IO events are normally not constructed on client.</p>
+
+<blockquote>Haskell:</blockquote>
+<div class=note><pre>
+TupleTerm [AtomTerm "io", BinaryTerm data, BinaryTerm eval]
+</pre></div>
+
+<blockquote>Erlang:</blockquote>
+<div class=note><pre>
+{io,_,_}
+</pre></div>
+
 <h4>spa</h4>
 
 <p>The spa protocol defined client originated messages CLIENT, SERVER and
@@ -88,6 +107,22 @@ message should be specified for both server and client.</p>
 <br>
 <p>Client messages usually originated at client and
 represent the Client API Requests:</p>
+
+<blockquote>JavaScript:</blockquote>
+<div class=note><pre>
+ws.send(enc(tuple(
+      atom('client'),
+      tuple(atom('join_game'),1000001))));
+</pre></div>
+
+
+<blockquote>Haskell:</blockquote>
+<div class=note><pre>
+TupleTerm [AtomTerm "client", Term body]</pre></div>
+
+<blockquote>Erlang:</blockquote>
+<p><div class=note><pre>
+{client,_}</pre></div></p>
 
 <h4>bin</h4>
 
@@ -113,10 +148,62 @@ server originated messages IO and NOP. This is something taken with
 historicaly reasons and roots in Rusty's Nitrogen Web Framework. This
 framework is transfering RPC events to page controllers though pickle
 envelop, which could also provide ciphering. N2O supports AES/CBC cypher.
-EV message contains RPC specification: module, function and arguments.</p>
+</p>
 
 <div class=note><pre>9. PICKLE tuple {pickle,_,_,_}
 10. EV tuple {ev,_,_,_,_}
+</pre></div>
+
+<br><p>You may think of nitrogen as a RPC secured protocol. If is very
+handy in enterprise to use FORMS with N2O application server,
+in those cases we use nitrogen as RPC protocol with nitogen-compatible pages.</p>
+
+<blockquote>JavaScript:</blockquote>
+<div class=note><pre>
+JS> enc(tuple(atom('pickle'),
+              atom('deposits'),
+              tuple(atom('ev'),
+                    atom('deposits'),
+                    tuple(atom('error'),'6189'),
+                    atom('#next'),
+                    atom('event')),
+              [tuple(atom('user'),'maxim'),
+               tuple(atom('pass'),'token')]);
+</pre></div>
+
+<blockquote>Erlang:</blockquote>
+<div class=note><pre>
+{pickle,_,_,_}
+
+      ERL> {pickle,deposits,
+                   {ev,deposits,
+                       {error,"6189"},
+                       '#next',
+                       event},
+                   [{user,<<"maxim">>},
+                    {pass,<<"token">>}].
+</pre></div>
+
+<br>
+<p>PICKLE events are being sent pickled by server side picklers.
+N2O supports following picklers:
+
+<ul><li>PLAIN binary BERT encoding of the event or</li>
+<li>AES/CBC encrypted event for sensitive information about the API.</li></ul></p>
+
+<p>EV message contains RPC specification: target module,
+originated module, event arguments and name of controller
+function, for nitrogen the default type is <b>event</b>.</p>
+
+<blockquote>Haskell:</blockquote>
+<div class=note><pre>
+TupleTerm [AtomTerm "ev", AtomTerm to, Term body,
+                          AtomTerm from, AtomTerm type]
+</pre></div>
+
+<blockquote>Erlang:</blockquote>
+<div class=note><pre>
+{ev,_,_,_,_}
 </pre></div>
 
 <h4>mq</h4>
