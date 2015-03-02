@@ -38,14 +38,16 @@ which is widely used in production applications. And
 experimental implementation in Haskell which is also using BERT formatter.
 N2O provides definition support for several unoverlapped sub-protocols:</p>
 
-<ul><b><li>heart</li>
+<!--ul><b><li>heart</li>
     <li>spa</li>
     <li>bin</li>
     <li>nitrogen</li>
     <li>bpe</li>
     <li>roster</li>
     <li>muc</li>
-    <li>rest</li></b></ul>
+    <li>rest</li></b></ul-->
+
+<p><center>Picture 1. Protocol Messages<br><br><img src="img/protocols.svg" width=500></center><br></p>
 
 <p>N2O should not define any particular set of formatters.
 Application developers could choose their own formatter per protocol.
@@ -55,11 +57,21 @@ All other protocol messages were BERT from origin. The only thing is that protoc
 formatter should be specified somehow.</p>
 
 <ul><li>TEXT</li>
-    <li>URL</li>
     <li>JSON</li>
     <li>XML</li>
     <li>BERT</li>
     <li>MessagePack</li></ul>
+
+<p>All this formattes format message which comes directly to TCP WebSocket.
+However there are some endpoints which are not TCP sockets, even non-sockets,
+like gen_server endpoint, HTTP REST endpoint, which is non-WebSocket endpoint,
+and there is a room for other endpoint types. Here is a list of types of
+endpoints which arise in multi-protocol discussions:
+</p>
+
+<ul><li>gen_server</li>
+    <li>ws</li>
+    <li>http</li></ul>
 
 <h3>Core</h3>
 
