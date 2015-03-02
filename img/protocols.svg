@@ -13,7 +13,7 @@
                 </text>
             </g>
             <text id="ping,-n2o" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
-                <tspan x="387" y="70">ping, n2o</tspan>
+                <tspan x="387" y="70">ping, n2o, io</tspan>
             </text>
             <text id="client,-server" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
                 <tspan x="387" y="198">client, server</tspan>
