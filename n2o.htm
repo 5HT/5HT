@@ -31,8 +31,13 @@ N2O also has ASN.1 formal description, however here we will speak on it freely.<
 
 <p>The only thing I want to add is that N2O protocol was created
 naturally with niminal efforts, all modifications were
-applied targetly and atomically. The evolution of the protocol
-is open for a deeper discussion with interested party or protocol users.</p>
+applied targetly and atomically. The current version of the protocol 2.3
+is totally compatible with earlier versions up to 1.5
+the <b>synrc/games</b> version, which was very progressive at the time.
+Versions prior to 1.5 had very basic and naive but stable and fast
+implementation of the core. All N2O releases are known to be stable
+and supported half-year back. The evolution of the protocol is open
+for a deeper discussion with interested party or protocol users.</p>
 
 <p>You may find N2O protocol similar to extensible XML-based XMPP, and JSON-based WAMP.
 N2O protocol doesn't strict you to use a particular formatter.
@@ -95,7 +100,7 @@ transfering interface. Normally heart protocol is not for active
 client usage but for supporting active connection with notifications
 and possibly DOM updates.</p>
 
-<div class=note><pre>1. IO tuple {io,EVAL,DATA}
+<div class=note style="width:600px;"><pre>1. IO tuple {io,EVAL,DATA}
 2. NOP <<>>
 3. N2O init marker <<"N2O,",AttachSession/binary>>
 4. PING message <<"PING">>
@@ -109,8 +114,8 @@ to determine client online presence. On reconnection or
 initial connect client sends N2O init marker telling to
 server to reinitialize the context.</p>
 
-<div class=note><pre>    ws.send('PING');
-    ws.send('N2O,');
+<div class=note style="width:220px;"><pre>ws.send('PING');
+ws.send('N2O,');
 </pre></div>
 
 <br>
@@ -124,7 +129,7 @@ TupleTerm [AtomTerm "io", BinaryTerm data, BinaryTerm eval]
 </pre></div>
 
 <blockquote>Erlang:</blockquote>
-<div class=note><pre>
+<div class=note style="width:150px;"><pre>
 {io,_,_}
 </pre></div>
 
@@ -135,7 +140,7 @@ server originated messages SERVER, IO and NOP. This protocol should be used
 for normal data transfer as enveloping protocol. Client and server DATA
 message should be specified for both server and client.</p>
 
-<div class=note><pre>5. CLIENT tuple {client,DATA}
+<div class=note style="width:400px;"><pre>5. CLIENT tuple {client,DATA}
 6. SERVER tuple {server,DATA}
 </pre></div>
 
@@ -144,7 +149,7 @@ message should be specified for both server and client.</p>
 represent the Client API Requests:</p>
 
 <blockquote>JavaScript:</blockquote>
-<div class=note><pre>
+<div class=note style="width:550px;"><pre>
 ws.send(enc(tuple(
       atom('client'),
       tuple(atom('join_game'),1000001))));
@@ -152,11 +157,11 @@ ws.send(enc(tuple(
 
 
 <blockquote>Haskell:</blockquote>
-<div class=note><pre>
+<div class=note style="width:550px;"><pre>
 TupleTerm [AtomTerm "client", Term body]</pre></div>
 
 <blockquote>Erlang:</blockquote>
-<p><div class=note><pre>
+<p><div class=note style="width:150px;"><pre>
 {client,_}</pre></div></p>
 
 <h4>bin</h4>

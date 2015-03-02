@@ -80,18 +80,20 @@ Shark, J2, jBPM. Создавая тогда свою систему на .NET 1
 gen_server и gen_fsm. И решил не использовать gen_fsm вообще
 никогда. Это broken by design elrnag otp behaviour.</p>
 
-<div><center>Listing 2. Boundary Event</center><pre></p>  process_event(Event, Proc) ->
-      Targets = bpe_task:targets(Event#messageEvent.name,Proc),
-      {Status,{Reason,Target},ProcState} =
+<center>Listing 2. Boundary Event</center><br>
+<div class=note><pre>process_event(Event, Proc) ->
+    Targets = bpe_task:targets(Event#messageEvent.name,Proc),
+    {Status,{Reason,Target},ProcState} =
            bpe_event:handle_event(Event,
               bpe_task:find_flow(Targets),Proc),
-      NewProcState = ProcState#process{task = Target},
-      FlowReply = fix_reply({Status,{Reason,Target},NewProcState}),
-      kvs:put(NewProcState),
-      FlowReply.
-</p></pre></div>
+    NewProcState = ProcState#process{task = Target},
+    FlowReply = fix_reply({Status,{Reason,Target},NewProcState}),
+    kvs:put(NewProcState),
+    FlowReply.
+</pre></div></p>
 
-<div><center>Listing 3. Flow Processing</center><pre></p>  process_flow(Proc) ->
+<center>Listing 3. Flow Processing</center><br>
+<div class=note><pre>process_flow(Proc) ->
     Curr = Proc#process.task,
     Term = [],
     Task = bpe:task(Curr,Proc),
@@ -115,20 +117,20 @@ gen_server и gen_fsm. И решил не использовать gen_fsm во�
     FlowReply = fix_reply({Status,{Reason,Target},NewProcState}),
     kvs:put(NewProcState),
     FlowReply.
-</p></pre></div>
+</pre></div>
+<br>
+<center>Listing 4. gen_server BPE protocol</center><br>
+<div class=note style="width:300px;"><pre>{get}
+{run}
+{until,_}
+{complete}
+{complete,_}
+{amend,_}
+{amend,_,_}
+{event,_}
+</pre></div>
 
-
-<div><center>Listing 4. gen_server BPE protocol</center><pre></p>
-  {get}
-  {complete}
-  {run}
-  {until,Task}
-  {complete,Stage}
-  {amend,Form}
-  {amend,Form,true}
-  {event,Event}
-</p></pre></div>
-
+<br>
 <p>In business process management the key feature of is a
 compact process definitions. Here is example of Deposit Opening process
 definition in simple and clean language. The web application is an
