@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="1692px" height="1127px" viewBox="0 0 1692 1127" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg width="1759px" height="1259px" viewBox="0 0 1759 1259" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
     <title>Group</title>
     <desc>Created with Sketch.</desc>
@@ -12,7 +12,7 @@
                     <tspan x="32" y="70">heart</tspan>
                 </text>
             </g>
-            <text id="ping,-n2o" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
+            <text id="ping,-n2o,-io" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
                 <tspan x="387" y="70">ping, n2o, io</tspan>
             </text>
             <text id="client,-server" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
@@ -36,7 +36,7 @@
             <text id="get,-post,-exists,-p" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
                 <tspan x="390" y="1097">get, post, exists, put, options, delete</tspan>
             </text>
-            <text id="add,-confirm,-privat" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
+            <text id="friend,-confirm,-pri" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
                 <tspan x="390" y="838">friend, confirm, private, typing, presence</tspan>
             </text>
             <g id="Rectangle-2-+-spa" transform="translate(142.000000, 127.000000)">
@@ -73,6 +73,15 @@
                 <rect id="Rectangle-8" stroke="#979797" stroke-width="2" fill="#F9F9F9" sketch:type="MSShapeGroup" x="0" y="0" width="213" height="105"></rect>
                 <text id="muc" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
                     <tspan x="46" y="72">muc</tspan>
+                </text>
+            </g>
+            <text id="mark,-query" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
+                <tspan x="390" y="1223">mark, query</tspan>
+            </text>
+            <g id="Rectangle-8-+-muc-2" transform="translate(47.000000, 1154.000000)">
+                <rect id="Rectangle-8" stroke="#979797" stroke-width="2" fill="#F9F9F9" sketch:type="MSShapeGroup" x="0" y="0" width="277" height="105"></rect>
+                <text id="search" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
+                    <tspan x="31" y="75">search</tspan>
                 </text>
             </g>
             <g id="Rectangle-9-+-rest" transform="translate(113.000000, 1022.000000)">
