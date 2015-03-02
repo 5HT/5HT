@@ -28,7 +28,7 @@
                 <tspan x="387" y="582">run, complete, amend, until, start</tspan>
             </text>
             <text id="pub,-sub,-unsub,-msg" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
-                <tspan x="390" y="710">pub, sub, unsub, msg</tspan>
+                <tspan x="390" y="710">pub, sub, unsub, msg, resume, suspend</tspan>
             </text>
             <text id="join,-room,-public,-" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
                 <tspan x="390" y="966">join, room, public, leave</tspan>

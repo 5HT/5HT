@@ -248,13 +248,15 @@ TupleTerm [AtomTerm "ev", AtomTerm to, Term body,
 
 <h4>mq</h4>
 
-<p>The mq protocol defined client originated messages SUB, UNSUB, PUB
+<p>The mq protocol defined client originated messages SUB, UNSUB, PUB, SUSPEND, RESUME
 and server originated messages MSG.</p>
 
-<div class=note><pre>11. SUB tuple {sub,DATA}
-12. UNSUB tuple {unsub,DATA}
-13. PUB tuple {pub,DATA}
-14. MSG tuple {msg,FROM,TO,DATA}
+<div class=note><pre>11. SUB tuple {sub,NAME,OPTIONS}
+12. UNSUB tuple {unsub,NAME}
+13. PUB tuple {pub,NAME,DATA}
+14. SUSPEND tuple {suspend,NAME}
+15. RESUME tuple {suspend,NAME}
+16. MSG tuple {msg,FROM,TO,DATA}
 </pre></div>
 
 <h4>bpe</h4>
@@ -263,16 +265,16 @@ and server originated messages MSG.</p>
 GET, COMPLETE, RUN, UNTIL, AMEND, EVENT and ANY server originated
 messages.</p>
 
-<p><div class=note><pre>15. GET {get}
-16. RUN {run}
-17. UNTIL {until,Task}
-18. EVENT {event,Event}
-19. AMEND 2-tuple {amend,Form}
+<p><div class=note><pre>17. GET {get}
+18. RUN {run}
+19. UNTIL {until,Task}
+20. EVENT {event,Event}
+21. AMEND 2-tuple {amend,Form}
           3-tuple {amend,Form,true}
-20. COMPLETE 1-tuple {complete}
+22. COMPLETE 1-tuple {complete}
              2-tuple {complete,Stage}
-21. PROCESS 15-tuple
-22. START
+23. PROCESS 15-tuple
+24. START
 </pre></div>
 
 <h4>roster</h4>
@@ -281,13 +283,13 @@ messages.</p>
 CREATE, JOIN, MESSAGE, TYPING,  and server originated messages PERSON,
 PRESENCE.</p>
 
-<p><div class=note><pre>23. AUTH {auth,USER,TOKEN,SERVICES}
-24. PERSON {person,ID,NAMES,SURNAMES,STATUS}
-25. PRESENCE {presence,SIZE,USERS}
-26. FRIEND {friend,USER,STATUS}
-27. CONFIRM {confirm,USER,TYPE}
-28. PRIVATE {message,ID,AUTHOR,BODY,STATUS}
-29. TYPING {typing,AUTHOR}
+<p><div class=note><pre>25. AUTH {auth,USER,TOKEN,SERVICES}
+26. PERSON {person,ID,NAMES,SURNAMES,STATUS}
+27. PRESENCE {presence,SIZE,USERS}
+28. FRIEND {friend,USER,STATUS}
+29. CONFIRM {confirm,USER,TYPE}
+30. PRIVATE {message,ID,AUTHOR,BODY,STATUS}
+31. TYPING {typing,AUTHOR}
 </pre></div></p>
 
 <h4>muc</h4>
@@ -296,9 +298,9 @@ PRESENCE.</p>
 and server originated messages ROOM, PUBLIC.</p>
 
 <p><div class=note><pre>
-30. ROOM {room,ID,NAME}
-31. PUBLIC {public,ID,AUTHOR,ROOM,BODY,STATUS}
-32. JOIN {join,USER,ROOM,ANSWER}
+32. ROOM {room,ID,NAME}
+33. PUBLIC {public,ID,AUTHOR,ROOM,BODY,STATUS}
+34. JOIN {join,USER,ROOM,ANSWER}
 </pre></div></p>
 
 <h4>rest</h4>
