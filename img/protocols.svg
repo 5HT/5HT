@@ -37,7 +37,7 @@
                 <tspan x="390" y="1097">get, post, exists, put, options, delete</tspan>
             </text>
             <text id="add,-confirm,-privat" sketch:type="MSTextLayer" font-family="Geometria" font-size="72" font-weight="260" fill="#043D3D">
-                <tspan x="390" y="838">add, confirm, private, typing, presence</tspan>
+                <tspan x="390" y="838">friend, confirm, private, typing, presence</tspan>
             </text>
             <g id="Rectangle-2-+-spa" transform="translate(142.000000, 127.000000)">
                 <rect id="Rectangle-2" stroke="#979797" stroke-width="2" fill="#F9F9F9" sketch:type="MSShapeGroup" x="0" y="0" width="185" height="105"></rect>
