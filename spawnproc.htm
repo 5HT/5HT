@@ -32,13 +32,13 @@ K langauge and Erlang provide enough declarative
 expressivness for business applications. Having
 some experience in building banking software we
 provide smallest possible processing infrastructure
-to be easily verified and managed being robust at the same time.</p>
+to be easily verified and managed while being robust at the same time.</p>
 
-<p>The application are built using Erlang libraries from <b>synrc</b>
-and <b>spawnproc</b> GitHub organizations. Customer
-appliactions hosts custom rules depending its own library.
+<p>The application is built using Erlang libraries from <b>synrc</b>
+and <b>spawnproc</b> GitHub organizations. Consumer appliactions
+hosts custom rules depending its own library.
 E.g. your business application defines a set of business
-processes which are driven by BPE. This application usually called ACT,
+processes which are driven by BPE, this application usually called ACT,
 from "activity server". N2O-based web application usually called WEB or SPA. See Picture 1.</p>
 
 <p>The architecture is based on <b>spawnproc</b> processing applications
@@ -295,7 +295,7 @@ deposits_sup:Deposits WebSocket Server is started.
 
 <br>
 
-<div class=note><p><b>Fact:</b> It is easy to hold <b>20Mbps</b> to the small Amazon instance.
+<div class=note><p><b>Fact:</b> It is easy to hold <b>20Mbps</b> to the small AWS instance.
 <pre>
 $ tcpkali -T10s -r 10000 -c 50 --first-message "N2O," \
           -m PING --ws 54.171.70.13:8877/ws/static/app/open.htm
