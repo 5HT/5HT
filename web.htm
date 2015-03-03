@@ -223,15 +223,17 @@ document(Name,Curr) ->
 <div class=note style="width:800px;"><pre>
 > size(term_to_binary(open_app:new('DP00_12_uah'),[compressed])).
 2347
+> size(term_to_binary(open_app:new('DP00_12_uah'))).
+56474
 
-> size(term_to_binary(open_app:document(maxim,"uah",y,y,y))).
-3961
 </pre></div></p>
 
 <blockquote>Declarative compressed FORM in BERT, Bytes:</blockquote>
 <div class=note style="width:800px;"><pre>
-> size(term_to_binary(
-      open_app:document(maxim,"uah",y,y,y),[compressed])).
+> size(term_to_binary(open_app:document(maxim,"uah",y,y,y))).
+3961
+> size(term_to_binary(open_app:document(maxim,"uah",y,y,y),
+                                              [compressed])).
 1286
 </pre></div></p>
 
