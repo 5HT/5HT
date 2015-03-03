@@ -17,7 +17,7 @@
 
 <div align=right>FROM: 5HT<br>
                    TO: #N2O<br>
-                 DATE: 2 MAR 2015</div>
+                 DATE: 3 MAR 2015</div>
 
 <h2>N2O Certification</h2>
 
@@ -31,7 +31,7 @@ I hope you will find this formal N2O definition useful in verifying N2O implemen
 <div class=note><p>Basic PING and N2O messages:</b>
 <pre>
     issue TEXT N2O expect IO
-    issue TEXT ["N2O," | _ ] expect IO
+    issue TEXT ["N2O," | Sid ] expect IO
     issue TEXT PING expect PONG
   PONG is TEXT "PONG"
     IO is BERT { io, List, Bin } or 
