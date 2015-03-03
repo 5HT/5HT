@@ -15,11 +15,26 @@
 <hr>
 <div class=app>
 
-<h2>Bank at a diskette</h2>
+<div align=right>FROM: 5HT<br>
+                   TO: #BPE<br>
+                 DATE: 3 MAR 2015</div>
+
+<h2>Bank in a Disc</h2>
 
 <div class=message>
 
-<p>The application is built using Erlang libraries from <b>synrc</b>
+<h3>Minimalism in Enterprise</h3>
+
+<p>When we are talking about enterprise solutions we alway
+talk about giants, like CLR/JVM virtual machines and  SAP/Oracle warehouses.
+However systems needn't to be complex and technologies like
+K langauge and Erlang provide enough declarative
+expressivness for business applications. Having
+some experience in building banking software we
+provide smallest possible processing infrastructure
+to be easily verified and managed.</p>
+
+<p>The applications are built using Erlang libraries from <b>synrc</b>
 and <b>spawnproc</b> GitHub organizations. Customer
 appliactions hosts custom rules depending its own library.
 E.g. your business application defines a set of business
@@ -28,12 +43,16 @@ from "activity server". N2O-based web application usually called WEB or SPA.</p>
 
 <p>The architecture is based on <b>spawnproc</b> processing applications
 and relies on <b>synrc</b> Erlang stack and N2O protocol. It is run
-using <b>voxoz</b> deploy tools. The application can be
+using <b>voxoz</b> development tools. The application can be
 distributed as a single file, is able to run on Windows, Linux and Mac
 and fits to 2.88MB diskette. For processing opening application
 database consumes 2K per record.</p>
 
-<br>
+<p>Despite small size of application, it can operate hundred
+of millions records in KVS database. All banking "big-data" of
+transaction chains can be managed withing a single diskette.
+That is top-key feature of <b>spawnproc</b> application stack.</p>
+
 <p><center>Picture 2. Erlang/OTP applications</center><br>
 <svg width="800px" height="500px" viewBox="0 0 2300 1600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                 <g id="Rectangle-1-+-Line-+-KVS-+-REST-database" transform="translate(0.000000, 1231.000000)">
@@ -237,6 +256,9 @@ Eshell V6.2  (abort with ^G)
 deposits_sup:Deposits WebSocket Server is started.
 </pre>
 </p></div>
+
+<h3>Velocity</h3>
+
 </div>
 </div>
 </body>
