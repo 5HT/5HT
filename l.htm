@@ -30,7 +30,7 @@ the generalization the pattern-matching compiler engine with type unification.
 The type-system in L is unusual for general-purpose ML languages,
 it allows addendum reordering in sum types during type unification.</p>
 
-<h4>cat sample</h4>
+<h4>Sample</h4>
 
 <code>
       rev [] xs -> xs;
@@ -38,19 +38,112 @@ it allows addendum reordering in sum types during type unification.</p>
 </code>
 
 <br>
-<br>
 
-<div class=note><p>type unification: lc -t sample</b>
+<div class=note><p>Infered recursive infinite list:</b>
 <pre>
-rev: x y -> y
-    :: y = {z,y}
-    :: x = (nil | {z,x})
+    :: rev = fun: x y -> y
+               y: z -> {z,y•z}
+               x: z -> (nil | {z,x•z})
 </pre>
 </p></div>
 
-<br>
+<p><font color=#D0021B>
+Попытаемся универсализировать синтаксис отладчика типов.
+Пускай отладчик на каждое имя: Функции, Типа данных или
+Модуля выводит сразу имя головного уравнения, и уравнения
+типовых переменных которые упоминаются в сигнатуре
+(главном входящем уравнении). Так например для любой
+переменной мы сможем автоматически назвать головоное
+уравнение именем типа: fun (уравнения функций, <b>codata</b>),
+type (уравнения типов данных, <b>data</b>), module (уравнения модулей,
+как список любых типов, функций, данных, <b>cat</b>).</font>
+</p>
 
-<div class=note><p>NOTE: As you may see L is pretty good in infering infinite lists.</p></div>
+<!--div class=note><p>NOTE: As you may see L is pretty good in infering infinite lists.</p></div-->
+
+<h4>Types</h4>
+
+<p>Some types are embedded in L core to resolve main tasks during
+type inference, type unification and patterm maching compilation.
+L has following basic types which are used by infer/unify/match core.
+Arrow and Application form a lambda calculus for type constructors 
+and thus is used to encode input AST and infered type functions.
+In core we need information about the return type of the
+functions and the packed parameters. We need to extract
+recursive type definition placeholders to infer infinite types.
+And algebraic data types based on lambda calculus primitives.
+Altogether all these types are needed in core to operate and compile AST:</p>
+
+<ul><li>Arrow <code>-></code> </li>
+    <li>Application <code>•</code> </li>
+    <li>Product <code>{,}</code></li>
+    <li>Sum <code>(|)</code></li>
+    <li>Equation<code>=</code></li>
+    </ul>
+
+<p>During type inference we also operates such type instances as
+Constants, Variables, Constructors and Wildcards.</p>
+
+<h4>Constants</h4>
+
+<div class=note>
+<pre>
+    int 42 
+    long 137L 
+    float 3.14f 
+    double 2.0 
+    atom :ok 
+    bool true 
+    nil []
+</pre>
+</p></div>
+
+
+<h4>Constructors</h4>
+
+<p>Constructors are named type equations which defines a function of
+construction a new parametric type by using basic core type primitives.
+Recursion and mutual recursion is allowed in type constrcutors and successfuly infered.</p>
+
+<div class=note>
+<pre>
+:: intList      = type:        (nil | {int,type})
+:: list         = type: x ->   (nil | {x,type•x})
+:: pairsList    = type: x y -> (nil | {{x,y},type • x y})
+:: binTree      = type: x ->   (nil | {f•x,x,type•x})
+:: listsList    = type: f
+                     f: x ->   (nil | {g•x,f•x})
+                     g: x ->   (nil | {x,g•x})
+
+:: variadicTree = type: f
+                     f: x ->   (nil | {x,g•x})
+                     g: x ->   (nil | {f•x,g•x})
+
+:: lists      = module: rev
+                   rev: l y -> y
+                     l: x ->   (nil | {x,list•x})
+                     y: z ->   {z,y•z}
+
+</pre>
+</p></div>
+<font color=#D0021B>
+<p>
+Так например здесь приведены уравнения для простых типов
+данных и слишком рекурсивных которые в одно уравнение не
+помещаются. Приведен пример синтаксиса для гипотетического
+модуля, просто как контейнера для других типов, но который
+по сути просто набор уравнений.</p>
+
+<p>В уравнениях я так понимаю, что
+типы данных отличаются от типов функций тем, что Application
+не встречается в уравнениях функций, а только в уравнения типов.
+Но если Application нет в типе данных, то такая сигнатура
+может быть неотличимы от сигнатуры функции. Только если
+отдельно спросить у отладчика типов тип этой переменной, то
+можно будет по имени корневого уравнения узнать тип этой
+типовой переменной.</p></font>
+
+<h4>Subtypes</h4>
 
 
 </div>
