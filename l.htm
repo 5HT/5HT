@@ -19,16 +19,15 @@
                    TO: MAXIM KHARCHENKO<br>
                  DATE: 5 MAR 2015</div>
 
-<h2>Language L</h2>
+<h2>Language L: Type Inspector</h2>
 
 <div class=message>
 
 <p>The L is an emerging modern functional language
 LLVM compiler for Xen applications by <b>cloudozer</b>.
-<b>synrc</b> supports this process by contributing to
-the generalization the pattern-matching compiler engine with type unification.
-The type-system in L is unusual for general-purpose ML languages,
-it allows addendum reordering in sum types during type unification.</p>
+This document is dedicated to propose an concise and
+holistic syntax for type inspector, the front end of
+type inferer, visible to user in future L repl.</p>
 
 <h4>Sample</h4>
 
@@ -81,6 +80,7 @@ Altogether all these types are needed in core to operate and compile AST:</p>
     <li>Application <code>•</code> </li>
     <li>Product <code>{,}</code></li>
     <li>Sum <code>(|)</code></li>
+    <li>Noman<code>:</code></li>
     <li>Equation<code>=</code></li>
     </ul>
 
