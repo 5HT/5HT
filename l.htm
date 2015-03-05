@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+    <title>L</title>
+    <link rel="stylesheet" href="5HT.css" />
+</head>
+<body>
+<div class=menu>
+<a href="index.html">articles</a>
+</div>
+<hr>
+<div class=app>
+
+<div align=right>FROM: 5HT<br>
+                   TO: PUBLIC<br>
+                 DATE: 5 MAR 2015</div>
+
+<h2>Language L</h2>
+
+<div class=message>
+
+<p>The L is an emerging modern functional language
+LLVM compiler for Xen applications by <b>cloudozer</b>.
+<b>synrc</b> supports this process by contributing to
+the generalization the pattern-matching compiler engine with type unification.
+The type-system in L is unusual for general-purpose ML languages,
+it allows addendum reordering in sum types during type unification.</p>
+
+<h4>cat sample</h4>
+
+<code>
+      rev [] xs -> xs;
+      rev [x|xs] ys -> rev xs [x|ys].
+</code>
+
+<br>
+<br>
+
+<div class=note><p>type unification: lc -t sample</b>
+<pre>
+rev: x y -> y
+    :: y = {z,y}
+    :: x = (nil | {z,x})
+</pre>
+</p></div>
+
+<br>
+
+<div class=note><p>NOTE: As you may see L is pretty good in infering infinite lists.</p></div>
+
+
+</div>
+</div>
+</body>
+</html>
