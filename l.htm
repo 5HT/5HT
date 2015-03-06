@@ -106,52 +106,21 @@ named recursive types (marked as <b>":"</b> symbol).</p>
            G < H.
            I < F.
            F < (nil | G).
-</pre></p></div>
 
-<h3>Type System</h3>
-
-<p>Some types are embedded in L core to resolve main tasks during
-type inference, type unification and patterm maching compilation.
-L has following basic types which are used by infer/unify/match core.
-Altogether all these types are needed in core to operate and compile AST of Type Inspector:</p>
-
-<div class=note style="background-color:#fafafa;"><p>Types of programs<ul>
-    <li>Product <code>{,}</code></li>
-    <li>Sum <code>(|)</code></li>
-    <li>Fun <code>-></code> codata</li>
-    <li>Type <code></code> data</li>
-    <li>Module <code></code> cat</li>
-    </ul></p></div>
-<div class=note><p>Types in equations<ul><li>Arrow <code>-></code> </li>
-    <li>Application <code>•</code> </li>
-    <li>Subtyping <code><</code></li>
-    <li>Nomen <code>:</code></li>
-    <li>Equation<code>=</code></li>
-</ul></p></div>
-
-<p>During type inference we also operate such type instances as
-Constants, Variables, Constructors and Wildcards.</p>
-
-<h4>Constants</h4>
-
-<div class=note>
+</pre> You may solve it with
 <pre>
-    int 42 
-    long 137L 
-    float 3.14f 
-    double 2.0 
-    atom :ok 
-    bool true 
-    nil []
-</pre>
-</p></div>
-
+           ti -s r02.t
+</pre></p></div>
 
 <h4>Constructors</h4>
 
-<p>Constructors are named type equations which defines a function of
-construction a new parametric type by using basic core type primitives.
-Recursion and mutual recursion is allowed in type constrcutors and successfuly infered.</p>
+<p>Type inspector syntax opens a clean view on
+type declarations as a form of equations bounded in a naming context.
+The output of Type Inferer is exatcly match the types declaration
+syntax and the syntax of Type Inspector. The type infere detects
+cycles in polymorphic parameters and split inerred type
+on recursive nomens.
+.</p>
 
 <div class=note>
 <pre>
@@ -172,6 +141,46 @@ Recursion and mutual recursion is allowed in type constrcutors and successfuly i
                      l: x ->   (nil | {x,l•x})
                      y: z ->          {z,y•z}
 
+</pre>
+</p></div>
+
+<h3>Type System</h3>
+
+<p>Some types are embedded in L core to resolve main tasks during
+type inference, type unification and patterm maching compilation.
+L has following basic types which are used by infer/unify/match core.
+These types are also shared with Type Inspector.</p>
+
+<div class=note style="background-color:#fafafa;"><p>Types of programs<ul>
+    <li>Product <code>{,}</code></li>
+    <li>Sum <code>(|)</code></li>
+    <li>Fun <code>-></code> codata</li>
+    <li>Type <code></code> data</li>
+    <li>Module <code></code> cat</li>
+    </ul></p></div>
+<div class=note><p>Types in equations<ul><li>Arrow <code>-></code> </li>
+    <li>Application <code>•</code> </li>
+    <li>Subtyping <code><</code></li>
+    <li>Nomen <code>:</code></li>
+    <li>Equation<code>=</code></li>
+</ul></p></div>
+
+<p>During type inference we also operate such type instances as
+Constants, Variables, Constructors and Wildcards.</p>
+
+
+<h4>Constants</h4>
+
+<div class=note>
+<pre>
+    int 42
+    long 137L
+    float 3.14f
+    double 2.0
+    money 2.99
+    atom :ok
+    bool true
+    nil []
 </pre>
 </p></div>
 
