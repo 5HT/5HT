@@ -83,7 +83,7 @@ named recursive types (marked as <b>":"</b> symbol).</p>
          Equation = :: Term = [ Form ]
              Form = Nomen | Subtype
           Subtype = Type  < Type .
-            Nomen = Term  : Type .
+            Nomen = Atom  : Type .
              Type = App  -> Arrow
               App = App   * Data
               App = Data
@@ -122,7 +122,7 @@ Altogether all these types are needed in core to operate and compile AST of Type
     <li>Type <code></code> data</li>
     <li>Module <code></code> cat</li>
     </ul></p></div>
-<div class=note><p>Types of type inspector used in equations<ul><li>Arrow <code>-></code> </li>
+<div class=note><p>Types in equations<ul><li>Arrow <code>-></code> </li>
     <li>Application <code>•</code> </li>
     <li>Subtyping <code><</code></li>
     <li>Nomen <code>:</code></li>
