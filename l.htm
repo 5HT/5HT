@@ -27,18 +27,24 @@
 LLVM compiler for Xen applications by <b>cloudozer</b>.
 This document is dedicated to a proposition of a concise and
 holistic syntax for type inspector, the front end of
-type inferer, visible to user in future L repl.</p>
+type inferrer, visible to user in future L repl.</p>
 
-<h4>Sample</h4>
 
+<h3>Overview</h3>
+
+<p>The basic feature of L and its type system is that it is able
+to infer the infinite non-terminated structures from codata as it
+could be found in <b>F<sub><:</sub></b> type system.</p>
+
+<h4>Recursive Types</h4>
+
+<div class=note style="background-color:#FAFAFA;"><p>Code Sample:<br>
 <code>
-      rev [] xs -> xs;
-      rev [x|xs] ys -> rev xs [x|ys].
-</code>
-
-<br>
-
-<div class=note><p>Infered recursive infinite list:</b>
+&nbsp;rev [] xs -> xs;
+&nbsp;rev [x|xs] ys -> rev xs [x|ys].
+</code><p></div>
+<div class=note><p>Infered recursive infinite
+list as the second argument in rev/2 codata:</b>
 <pre>
     :: rev = fun: x y -> y
                y: z -> {z,y•z}
@@ -46,7 +52,11 @@ type inferer, visible to user in future L repl.</p>
 </pre>
 </p></div>
 
-<p><font color=#D0021B>
+<h4>Subtypes</h4>
+
+<h4>Intersection Types</h4>
+
+<!--p><font color=#D0021B>
 Попытаемся универсализировать синтаксис отладчика типов.
 Пускай отладчик на каждое имя: Функции, Типа данных или
 Модуля выводит сразу имя головного уравнения, и уравнения
@@ -59,30 +69,65 @@ type (уравнения типов данных, <b>data</b>), module (урав
 Я заметил что сейчас lc -t не детализируют перменную z,
 поэтому я ее тут привел явно, чтобы все соотвествовало
 формулам в статье newer_types.</font>
-</p>
+</p-->
 
 <!--div class=note><p>NOTE: As you may see L is pretty good in infering infinite lists.</p></div-->
 
-<h4>Types</h4>
+<h3>Type Inspector Syntax</h3>
+
+<p>The syntax of the type solver is the part of L that is able to solve a given
+equations with respect to order of subtyping (marked by <b>"<"</b> symbol) and
+named recursive types (marked as <b>":"</b> symbol).</p>
+
+<div class=note><p> <pre>
+         Equation = :: Term = [ Form ]
+             Form = Nomen | Subtype
+          Subtype = Type  < Type .
+            Nomen = Term  : Type .
+             Type = App  -> Arrow
+              App = App   * Data
+              App = Data
+             Data = Const | Var | Cell
+                  | Product
+                  | Sum
+                  | Nomen
+                  | ( Type )
+</pre></p></div>
+
+<br>
+
+<div class=note><p>Sample Equation<pre>
+:: r02.t = F: x1 -> G * x1 * int.
+           G: int -> int -> int.
+           H: ( nil -> x2 -> x2 | [x3|y3] ->
+              z3 -> H * y3 * z3 ).
+           I: ( nil -> x4 -> x4 | [x5|y5] ->
+              z5 -> G * y5 * (I * x5 * z5) ).
+           G < H.
+           I < F.
+           F < (nil | G).
+</pre></p></div>
+
+<h3>Type System</h3>
 
 <p>Some types are embedded in L core to resolve main tasks during
 type inference, type unification and patterm maching compilation.
 L has following basic types which are used by infer/unify/match core.
-Arrow and Application form a lambda calculus for type constructors 
-and thus is used to encode input AST and infered type functions.
-In core we need information about the return type of the
-functions and the packed parameters. We need to extract
-recursive type definition placeholders to infer infinite types.
-And algebraic data types based on lambda calculus primitives.
-Altogether all these types are needed in core to operate and compile AST:</p>
+Altogether all these types are needed in core to operate and compile AST of Type Inspector:</p>
 
-<ul><li>Arrow <code>-></code> </li>
-    <li>Application <code>•</code> </li>
+<div class=note style="background-color:#fafafa;"><p>Types of programs<ul>
     <li>Product <code>{,}</code></li>
     <li>Sum <code>(|)</code></li>
-    <li>Nomen<code>:</code></li>
+    <li>Fun <code>-></code> codata</li>
+    <li>Type <code></code> data</li>
+    <li>Module <code></code> cat</li>
+    </ul></p></div>
+<div class=note><p>Types of type inspector used in equations<ul><li>Arrow <code>-></code> </li>
+    <li>Application <code>•</code> </li>
+    <li>Subtyping <code><</code></li>
+    <li>Nomen <code>:</code></li>
     <li>Equation<code>=</code></li>
-    </ul>
+</ul></p></div>
 
 <p>During type inference we also operate such type instances as
 Constants, Variables, Constructors and Wildcards.</p>
@@ -113,7 +158,7 @@ Recursion and mutual recursion is allowed in type constrcutors and successfuly i
 :: intList      = type:        (nil | {int,type})
 :: list         = type: x ->   (nil | {x,type•x})
 :: pairsList    = type: x y -> (nil | {{x,y},type • x y})
-:: binTree      = type: x ->   (nil | {f•x,x,type•x})
+:: binTree      = type: x ->   (nil | {type•x,x,type•x})
 :: listsList    = type: f
                      f: x ->   (nil | {g•x,f•x})
                      g: x ->   (nil | {x,g•x})
@@ -129,7 +174,8 @@ Recursion and mutual recursion is allowed in type constrcutors and successfuly i
 
 </pre>
 </p></div>
-<font color=#D0021B>
+
+<!--font color=#D0021B>
 <p>
 Так например здесь приведены уравнения для простых типов
 данных и слишком рекурсивных которые в одно уравнение не
@@ -144,9 +190,8 @@ Recursion and mutual recursion is allowed in type constrcutors and successfuly i
 может быть неотличимы от сигнатуры функции. Только если
 отдельно спросить у отладчика типов тип этой переменной, то
 можно будет по имени корневого уравнения узнать тип этой
-типовой переменной.</p></font>
+типовой переменной.</p></font-->
 
-<h4>Subtypes</h4>
 
 
 </div>
