@@ -168,19 +168,53 @@ These types are also shared with Type Inspector.</p>
 <p>During type inference we also operate such type instances as
 Constants, Variables, Constructors and Wildcards.</p>
 
+<h4>Binary Tree</h4>
 
-<h4>Constants</h4>
+<div class=note style="background-color:#FAFAFA;"><p>
+<code>cons t -> cons t [].
 
-<div class=note>
+cons [] acc -> acc;
+cons {l,x,r} acc -> cons r (cons l [x|acc]).
+</code><p></div>
+<div class=note><p>Infered recursive infinite
+list as the second argument in rev/2 codata:</b>
 <pre>
-    int 42
-    long 137L
-    float 3.14f
-    double 2.0
-    money 2.99
-    atom :ok
-    bool true
-    nil []
+    :: cons =  G: ( nil -> x -> x
+                  | {x,y,z} -> u -> G * z * (G * x * [y|u]) ).
+</pre>
+</p></div>
+
+<h4>User Manual</h4>
+
+<div class=note><p>Working with Type Inspector</p>
+<pre>
+./typer
+> l z5.t
+> p
+F: x -> G * x * nil
+G: ( nil -> x -> x
+   | {x,y,z} -> u -> G * z * (G * x * [y|u]) )
+> h
+all = dawn sweep ncy
+dawn = nv de
+sweep = cn1 eq1 cd
+ncy: check the definitions does not contain cycles
+nv: replace all variables with nomens
+de: derive subtyping equations
+cn1: [heuristic] (X | Y | Z ...) => X = Y = Z
+eq1: X: Y => X = Y
+eq2: X: t, Y: t => X = Y
+cd: X: C => X = C
+mc: match constructors
+cn2: [heuristic] X < Y => X = Y
+re1: t1 < X, t2 < X => (t1 | t2) < X
+re2: [heuristic] X < t1, X < t2 => X < t1, t1 < t2
+re3: [heuristic] t1 < X, X < t2 => X: t1, t1 < t2
+tc: t1 < X, X < t2 add t1 < t2
+xn: expand all non-cyclic nomens in equations
+fe: [heuristic] X < t => X: t
+du: remove unused non-root nomens
+dr: remove repetitions
 </pre>
 </p></div>
 
