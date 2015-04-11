@@ -14,7 +14,6 @@
 </div>
 <hr>
 <div class=app>
-
 <div class=message>
 
 <div align=right>FROM: 5HT<br>
@@ -323,8 +322,69 @@ provided by <b>rest</b> library and <b>kvs</b> abstract database.</p>
 35. OPTIONS {options,Resource}
 </pre></div></p>
 
-</div>
+<h3>N2O Man Page</h3>
+
+<h3>MODULE: n2o</h3>
+
+<b>Description: </b> You may think of <b>n2o</b> as an modern OTP application server,
+as protocols router and high level websocket backend simultaniously or disjoint.
+
+<h4>Data Types</h4>
+
+<blockquote><code>-type name() :: atom() | binary() | string().
+-type render() :: list() | binary() | tuple() | list(tuple()).
+-type wire_answer() :: undefined | list(#wire{}).
+-type wiring() :: string() | #wire{} | #event{} | #jq{}.</code></blockquote>
+
+<h4>DOM</h4>
+
+<blockquote><code>-spec update(name(), render()) -> wire_answer().
+-spec insert_top(name(), render()) -> wire_answer().
+-spec insert_bottom(name(), render()) -> wire_answer().
+-spec insert_before(name(), render()) -> wire_answer().
+-spec insert_after(name(), render()) -> wire_answer().
+-spec remove(name()) -> wire_answer().</code></blockquote>
+
+<h4>wire</h4>
+
+<blockquote><code>-spec wire(wiring()) -> wire_answer().</code></blockquote>
+
+<h4>async</h4>
+
+<blockquote><code>-spec async(name(), fun()) -> {ok,pid()}.
+-spec flush(name()) -> {ok,pid()}.</code></blockquote>
+
+<h4>pickle</h4>
+
+<blockquote><code>-spec pickle(any()) -> binary().
+-spec depickle(binary()) -> any().</code></blockquote>
+
+<h4>cache</h4>
+
+<blockquote><code>-spec cache(name()) -> any().
+-spec cache(name(), any()) -> any().
+-spec cache(name(), any(), integer()) -> any().</code></blockquote>
+
+<h4>session</h4>
+
+<blockquote><code>-spec session(name()) -> any().
+-spec session(name(), any()) -> any().
+-spec user() -> any().
+-spec user(any()) -> any().</code></blockquote>
+
+<h4>mq</h4>
+
+<blockquote><code>-spec send(name(), any()) -> {ok,pid()}.
+-spec reg(name(), any()) -> defined | undefined | any().
+-spec unreg(name()) -> skip | undefined | any().</code></blockquote>
+
+<h4>query</h4>
+
+<blockquote><code>-spec q(name()) -> any().
+-spec qs(name()) -> any().</code></blockquote>
 </div>
 
+</div>
+</div>
 </body>
 </html>
