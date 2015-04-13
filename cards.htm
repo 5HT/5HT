@@ -16,7 +16,25 @@
 
 <div class="app">
 
-<center><h1>Erlang Application Stack<br> for LING and<br>Unikernel Environments</h1></center>
+<center><h1>Erlang Application Stack<br> for LING and<br>Unikernel Environments</h1>
+<h4>Maxim Sokhatsky<br>maxim@synrc.com<br>Synrc Research Center s.r.o.</h4></center>
+<br><br>
+
+<p><b>Pure and Simple</b>. This site is dedicated to full stack
+Erlang applications: SLICE, VXZ, N2O, KVS, SHEN, REST, MAD, BPE, MQS, FORMS, UPL. They
+provide you services such as provisioning instances, development
+tools, frameworks, business engines and languages.</p>
+
+<p><b>Minimal and Effective</b>. Because everything is so small
+that can fit your old FD, everything is also fast. We tried to
+keep number of levels and operability points as small as possible,
+keeping in mind the full stack of application.</p>
+
+<p><b>Unikernel Based</b>. This stack can be provisioned in
+Erlang Xen containers under LING. So you can run full stack
+without OS in Xen or in UNIX. Also all aplications could be
+shipped as a single-file bundle which is able to run in
+Windows, Linux and Mac environments with LING or BEAM virtual machine.</p>
 
 <p><center>Picture 1. Synrc Application Stack</center><br>
 <img src="img/SynrcStack.svg" width=700>
@@ -54,7 +72,7 @@ async(Name,Fun)
 flush(Name)
 pickle(Term)
 depickle(Binary)
-session(name()) -> any().
+session(Key)
 session(Key,Term)
 user()
 user(User)
