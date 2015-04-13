@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1948px" height="1174px" viewBox="0 0 1948 1174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>SynrcStack</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="SynrcStack" sketch:type="MSLayerGroup">
+            <g id="Group">
+                <g id="Rectangle-1-+-Line-+-KVS-+-REST-database" transform="translate(1334.000000, 413.000000)">
+                    <g id="Rectangle-1-+-Line" stroke="#979797" sketch:type="MSShapeGroup">
+                        <rect id="Rectangle-1" stroke-width="3" fill="#FEFFB9" x="0" y="0" width="614" height="354"></rect>
+                        <path d="M167.129496,3.64363636 L167.129496,354.425455" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                    </g>
+                    <text id="KVS" sketch:type="MSTextLayer" font-family="Geometria" font-size="47.7377049" font-weight="260" fill="#979797">
+                        <tspan x="28" y="65">KVS</tspan>
+                        <tspan x="28" y="125">1029</tspan>
+                        <tspan x="28" y="185">128K</tspan>
+                    </text>
+                    <text id="REST-database" sketch:type="MSTextLayer" font-family="Geometria" font-size="36" font-weight="260" sketch:alignment="right" fill="#979797">
+                        <tspan x="312.76" y="120">REST </tspan>
+                        <tspan x="414.1" y="120">database</tspan>
+                        <tspan x="577" y="120"></tspan>
+                        <tspan x="257.248" y="165">secondary indexes</tspan>
+                        <tspan x="577" y="165"></tspan>
+                        <tspan x="294.832" y="210">DYNAMO, FRAG</tspan>
+                        <tspan x="249.328" y="255">Riak, Mnesia, Redis</tspan>
+                    </text>
+                </g>
+                <g id="Rectangle-1-+-Line-+-Path-2-+-DBS-+-SpawnProc" transform="translate(0.000000, 413.000000)">
+                    <g id="Rectangle-1-+-Line-+-Path-2" stroke="#979797" sketch:type="MSShapeGroup">
+                        <g id="Rectangle-1-+-Line" stroke-width="3" fill="#F9D9D2">
+                            <rect id="Rectangle-1" x="0" y="0" width="614" height="354"></rect>
+                        </g>
+                        <path d="M166.104317,1.64363636 L166.104317,352.425455" id="Path-2" stroke-width="2"></path>
+                    </g>
+                    <text id="DBS" sketch:type="MSTextLayer" font-family="Geometria" font-size="47.7377049" font-weight="260" fill="#979797">
+                        <tspan x="28" y="62">DBS</tspan>
+                        <tspan x="28" y="122">230</tspan>
+                        <tspan x="28" y="182">60K</tspan>
+                    </text>
+                    <text id="SpawnProc" sketch:type="MSTextLayer" font-family="Geometria" font-size="36" font-weight="260" sketch:alignment="right" fill="#979797">
+                        <tspan x="393.744" y="136">SpawnProc</tspan>
+                        <tspan x="271.38" y="181">Intermediary Bank</tspan>
+                        <tspan x="450.3" y="226">Schema</tspan>
+                    </text>
+                </g>
+                <g id="Rectangle-1-+-Line-4-+-MQS-+-Pub/Sub-access" transform="translate(668.000000, 0.000000)">
+                    <g>
+                        <g id="Rectangle-1-+-Line-4" stroke="#979797" sketch:type="MSShapeGroup">
+                            <rect id="Rectangle-1" stroke-width="3" fill="#FEFFB9" x="0" y="0" width="614" height="354"></rect>
+                            <path d="M167.129496,3.64363636 L167.129496,354.425455" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                        </g>
+                        <text id="MQS" sketch:type="MSTextLayer" font-family="Geometria" font-size="48" font-weight="260" fill="#979797">
+                            <tspan x="23" y="64">MQS</tspan>
+                            <tspan x="23" y="125">347</tspan>
+                            <tspan x="23" y="186">32K</tspan>
+                        </text>
+                        <text id="Pub/Sub-access" sketch:type="MSTextLayer" font-family="Geometria" font-size="36" font-weight="260" sketch:alignment="right" fill="#979797">
+                            <tspan x="304.044" y="136">Pub/Sub access</tspan>
+                            <tspan x="355.956" y="181">message bus</tspan>
+                            <tspan x="582" y="181"></tspan>
+                            <tspan x="323.952" y="226">AMQP, GPROC</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Rectangle-1-+-Line-5-+-TPS-+-transactional" transform="translate(1334.000000, 818.000000)">
+                    <g id="Rectangle-1-+-Line-5" stroke="#979797" sketch:type="MSShapeGroup">
+                        <rect id="Rectangle-1" stroke-width="3" fill="#C8FFD5" x="0" y="0" width="614" height="354"></rect>
+                        <path d="M167.129496,3.64363636 L167.129496,354.425455" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                    </g>
+                    <text id="CR" sketch:type="MSTextLayer" font-family="Geometria" font-size="47.7377049" font-weight="260" fill="#979797">
+                        <tspan x="28" y="71">CR</tspan>
+                        <tspan x="28" y="131">874</tspan>
+                        <tspan x="28" y="191">108K</tspan>
+                    </text>
+                    <text id="transactional" sketch:type="MSTextLayer" font-family="Geometria" font-size="36" font-weight="260" sketch:alignment="right" fill="#979797">
+                        <tspan x="356.328" y="95.324">transactional</tspan>
+                        <tspan x="299.052" y="140.324">chain replication </tspan>
+                        <tspan x="422.1" y="185.324">database</tspan>
+                        <tspan x="585" y="185.324"></tspan>
+                        <tspan x="396.576" y="230.324">IBAN, EMV</tspan>
+                    </text>
+                </g>
+                <g id="Rectangle-1-+-Line-6-+-UPL-+-PLAIN-TEXT-English" transform="translate(668.000000, 818.000000)">
+                    <g id="Rectangle-1-+-Line-6" stroke="#979797" sketch:type="MSShapeGroup">
+                        <rect id="Rectangle-1" stroke-width="3" fill="#F9D9D2" x="0" y="0" width="614" height="354"></rect>
+                        <path d="M167.129496,3.64363636 L167.129496,354.425455" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                    </g>
+                    <text id="UPL" sketch:type="MSTextLayer" font-family="Geometria" font-size="48" font-weight="260" fill="#979797">
+                        <tspan x="34" y="68">UPL</tspan>
+                    </text>
+                    <text id="PLAIN-TEXT-English" sketch:type="MSTextLayer" font-family="Geometria" font-size="36" font-weight="260" sketch:alignment="right" fill="#979797">
+                        <tspan x="243.02" y="136">PLAIN TEXT English</tspan>
+                        <tspan x="427.088" y="181">Universal</tspan>
+                        <tspan x="217.028" y="226">Processing Language</tspan>
+                    </text>
+                </g>
+                <g id="Rectangle-1-+-Line-2-+-N2O-+-WebSocket-protocol" transform="translate(668.000000, 413.000000)">
+                    <g id="Rectangle-1-+-Line-2" stroke="#979797" sketch:type="MSShapeGroup">
+                        <rect id="Rectangle-1" stroke-width="3" fill="#FEFFB9" x="0" y="0" width="614" height="354"></rect>
+                        <rect id="Rectangle-2" stroke-width="3" fill="#FAFC7D" x="0" y="0" width="168" height="354"></rect>
+                        <path d="M167.129496,3.64363636 L167.129496,354.425455" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                    </g>
+                    <text id="N2O" sketch:type="MSTextLayer" font-family="Geometria" font-size="47.7377049" font-weight="260" fill="#979797">
+                        <tspan x="32" y="73">N2O</tspan>
+                        <tspan x="32" y="133">4274</tspan>
+                        <tspan x="32" y="193">528K</tspan>
+                    </text>
+                    <text id="WebSocket-protocol" sketch:type="MSTextLayer" font-family="Geometria" font-size="36" font-weight="260" sketch:alignment="right" fill="#979797">
+                        <tspan x="237.584" y="128">WebSocket protocol</tspan>
+                        <tspan x="226.424" y="173">BERT JavsScript CSS</tspan>
+                        <tspan x="293.672" y="218">single page apps</tspan>
+                        <tspan x="359.804" y="263">nitrogen DSL</tspan>
+                    </text>
+                </g>
+                <g id="Rectangle-1-+-Line-3-+-BPE-+-BPMN-2.0-protocol" transform="translate(0.000000, 818.000000)">
+                    <g id="Rectangle-1-+-Line-3" stroke="#979797" sketch:type="MSShapeGroup">
+                        <rect id="Rectangle-1" stroke-width="3" fill="#F9D9D2" x="0" y="0" width="614" height="354"></rect>
+                        <path d="M167.129496,3.64363636 L167.129496,354.425455" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                    </g>
+                    <text id="BPE" sketch:type="MSTextLayer" font-family="Geometria" font-size="47.7377049" font-weight="260" fill="#979797">
+                        <tspan x="35" y="65.162">BPE</tspan>
+                        <tspan x="35" y="125.162">591</tspan>
+                        <tspan x="35" y="185.162">68K</tspan>
+                    </text>
+                    <text id="BPMN-2.0-protocol" sketch:type="MSTextLayer" font-family="Geometria" font-size="36" font-weight="260" sketch:alignment="right" fill="#979797">
+                        <tspan x="262.92" y="136.162">BPMN 2.0 protocol</tspan>
+                        <tspan x="421.248" y="181.162">XML/DSL</tspan>
+                        <tspan x="215.22" y="226.162">process management</tspan>
+                    </text>
+                </g>
+                <g id="Rectangle-1-+-Line-4-+-FORMS-+-SpawnProc">
+                    <g id="Rectangle-1-+-Line-4" stroke="#979797" sketch:type="MSShapeGroup">
+                        <rect id="Rectangle-1" stroke-width="3" fill="#F9D9D2" x="0" y="0" width="614" height="354"></rect>
+                        <path d="M242.129496,3.64363636 L242.129496,354.425455" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                    </g>
+                    <text id="FORMS" sketch:type="MSTextLayer" font-family="Geometria" font-size="47.7377049" font-weight="260" fill="#979797">
+                        <tspan x="35" y="65.162">FORMS</tspan>
+                        <tspan x="35" y="125.162">1626</tspan>
+                        <tspan x="35" y="185.162">188K</tspan>
+                    </text>
+                    <text id="SpawnProc" sketch:type="MSTextLayer" font-family="Geometria" font-size="36" font-weight="260" sketch:alignment="right" fill="#979797">
+                        <tspan x="391.744" y="136.162">SpawnProc</tspan>
+                        <tspan x="269.38" y="181.162">Intermediary Bank</tspan>
+                        <tspan x="430.336" y="226.162">Form Set</tspan>
+                    </text>
+                </g>
+                <g id="Rectangle-1-+-Line-4-+-FORMS-+-SpawnProc-Copy" transform="translate(1334.000000, 0.000000)">
+                    <g id="Rectangle-1-+-Line-4" stroke="#979797" sketch:type="MSShapeGroup">
+                        <rect id="Rectangle-1" stroke-width="3" fill="#FEFFB9" x="0" y="0" width="614" height="354"></rect>
+                        <path d="M272.129496,3.64363636 L272.129496,354.425455" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                    </g>
+                    <text id="ROSTER" sketch:type="MSTextLayer" font-family="Geometria" font-size="47.7377049" font-weight="260" fill="#979797">
+                        <tspan x="35" y="65.162">ROSTER</tspan>
+                    </text>
+                    <text id="SpawnProc" sketch:type="MSTextLayer" font-family="Geometria" font-size="36" font-weight="260" sketch:alignment="right" fill="#979797">
+                        <tspan x="391.744" y="113.662">SpawnProc</tspan>
+                        <tspan x="424.072" y="158.662">Messagin </tspan>
+                        <tspan x="434.944" y="203.662">Platform</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

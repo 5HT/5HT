@@ -5,30 +5,255 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="Maxim Sokhatsky" />
-    <title>Dharma License</title>
+    <title>APP STACK</title>
     <link rel="stylesheet" href="5HT.css" />
 </head>
 <body>
 <div class=menu>
-<a href="http://synrc.com">synrc</a>
 <a href="index.html">articles</a>
 </div>
 <hr>
-<div class=app>
 
-<center><h1>N2O v2.4 Application Stack</h1></center>
+<div class="app">
 
-<table cellpadding=10><tr><td><img src="img/n2o.png" width=400><br><br>
-              <img src="img/kvs.png" width=400></td>
-           <td><img src="img/bpe.png" width=400><br><br>
-               <img src="img/roster.png" width=400><br><br>
-               </td></tr></table>
+<h1>Building Unikernel Applications</h1>
 
-<div class=message>
+<p><center>Picture 1. Synrc Application Stack</center><br>
+<img src="img/SynrcStack.svg" width=700>
+</p>
 
+<br><br><br>
+
+<h1>N2O Application Server</h1>
+
+<p>N2O provides a microcore based on chain of handlers applied to each websocket request.
+It also provide core services such as ETS-based expirable sessions, error formatting and logging,
+term pickling, message queue service and others. The most comprehensive part is
+the complete set of HTML elements. The JavaScript issuing withing IO protocol
+messages #wire and #js could be extended with <b>shen</b> JavaScript-subset language.</p>
 
 </div>
+
+<div class=code>
+
+<div id=left style="width:35%;float:left;">
+
+  <div style="width:45%;height:500px;float:left;">
+     <h2 style="text-align:right;margin-right:20px;">n2o</h2>
+  </div>
+  <div id=api style="width:48%;height:500px;float:left;">
+     <h2>api</h2>
+     <code style="font-size:11pt;">update(Name,Render)
+insert_top(Name,Render)
+insert_bottom(Name,Render)
+insert_before(Name,Render)
+insert_after(Name,Render)
+remove(Name)
+wire(Wiring)
+async(Name,Fun)
+flush(Name)
+pickle(Term)
+depickle(Binary)
+session(name()) -> any().
+session(Key,Term)
+user()
+user(User)
+send(Name,Term)
+reg(Name,Term)
+unreg(Name)
+q(Name)
+qc(Name)
+qp(Name)
+Module:event(init)
+Module:event(Parameters)
+Module:event(terminate)
+     </code>
+  </div>
+
+  <div style="width:45%;height:400px;float:left;">
+     <h2 style="text-align:right;margin-right:20px;">n2o</h2>
+  </div>
+  <div id=protocol style="width:48%;height:400px;float:left;">
+     <h2>protocol</h2>
+     <code style="font-size:11pt;">{io,Eval,Data}
+PING
+PONG
+N2O
+{client,Data}
+{server,Data}
+{bin,Data}
+{binary,_,_,_,_,_,_,_,_,_,_}
+{pickle,_,_,_}
+{ev,_,_,_,_}
+     </code>
+  </div>
+
 </div>
+
+<div id=right style="width:40%;float:left;">
+
+  <div style="width:45%;height:320px;float:left;">
+     <h2 style="text-align:right;margin-right:20px;">n2o</h2>
+  </div>
+
+  <div style="width:48%;height:320px;float:left;">
+     <h2>core</h2>
+     <code style="font-size:11pt;">#handler{name,module,config,state}
+#ev{module,msg,trigger,name}
+#cx{handlers,actions,req,module,lang,path,
+    session,params,form,state}
+#element{}
+#action{}
+#wire{?ACTION}
+#api{?ACTION,name,tag,delegate}
+#event{?ACTION,type,postback, delegate}
+#alert{?ACTION,text}
+#confirm{?ACTION,text,postback,delegate}
+#jq{?ACTION,property,method,args,right,format="~s"}
+#transfer{?ACTION,state,events}
+
+     </code>
+  </div>
+
+  <div style="width:45%;height:600px;float:left;">
+     <h2 style="text-align:right;margin-right:20px;">n2o</h2>
+  </div>
+
+  <div style="width:48%;height:600px;float:left;">
+     <h2>elements</h2>
+     <code style="font-size:11pt;">area,audio,blockquote,button,canvas,checkbox,
+col,colgroup,color,command,date,datetime,
+datetime_local,del,details,dropdown,dtl,
+email,embed,fieldset,file,form,hidden,html,
+iframe,image,input,input_button,input_image,
+input_time,ins,keygen,label,legend,li,link,
+list,literal,map,menu,meta,meta_base,meta_link,
+meter,month,number,object,output,panel,param,
+password,progress,q,radio,radiogroup,range,reset,
+script,search,select,source,style,submit,
+summary,table,td,tel,textarea,textbox,th,time,
+tr,track,url,video,week</code>
+  </div>
+
+</div> <!-- right -->
+
+<!--/div> <!-- code -->
+
+<div class="app">
+
+<h1>KVS Abstract Term Database</h1>
+
+<p>KVS provides a simple database conectivity for various
+database backends. It allows you to store linked lists and
+to make any record foldable.
+KVS doesn't provide consistency guaranties besides capabilities
+provided by its backends. This framework is used in two servers:
+chain replication database <b>cr</b>; and <b>feeds</b> server.
+It is also a companion storage framework for N2O.
+</p>
+
+</div>
+
+<div class=code>
+
+<div id=left style="width:35%;float:left;">
+
+  <div style="width:45%;height:400px;float:left;">
+     <h2 style="text-align:right;margin-right:20px;">kvs</h2>
+  </div>
+  <div id=api style="width:48%;height:400px;float:left;">
+     <h2>api</h2>
+     <code style="font-size:11pt;">delete(Table,Key)
+remove(Table,Key)
+get(Table,Key)
+index(Table,K,V)
+next_id(Table,DX)
+join(Node)
+count(Table)
+add(Record)
+all(Table)
+put(Record)
+link(Record)
+change_storage(Table,Type)
+start()
+stop()
+destroy()
+version()
+dir()
+entries(Feed,Type,Count)
+     </code>
+  </div>
+
+  <div style="width:45%;height:200px;float:left;">
+     <h2 style="text-align:right;margin-right:20px;">kvs</h2>
+  </div>
+  <div id=protocol style="width:48%;height:200px;float:left;">
+     <h2>backends</h2>
+     <code style="font-size:11pt;">fs
+kai
+mnesia
+redis
+riak
+sql
+     </code>
+  </div>
+
+</div>
+
+<div id=right style="width:40%;float:left;">
+
+  <div style="width:45%;height:320px;float:left;">
+     <h2 style="text-align:right;margin-right:20px;">kvs</h2>
+  </div>
+
+  <div style="width:48%;height:320px;float:left;">
+     <h2>core</h2>
+     <code style="font-size:11pt;">#id_seq{thing,id}
+#container{id,top,count}
+#iterator{id,version,container,
+          feed_id,prev,next,feeds,etc}
+#interval{left,right,name}
+#log{?CONTAINER,name,acc}
+#operation{?ITERATOR(log),body,name,status}
+#kvs{mod,cx}
+#schema{name,tables}
+#table{name,container,fields,keys,
+       copy_type,columns,order_by}
+#column{name,type,key,ro,transform}
+#query{body,types,values,next_ph_num}
+     </code>
+  </div>
+
+  <div style="width:45%;height:500px;float:left;">
+     <h2 style="text-align:right;margin-right:20px;"><b>kvs</b></h2>
+  </div>
+
+  <div style="width:48%;height:500px;float:left;">
+     <h2>people</h2>
+     <code style="font-size:11pt;">#group{?ITERATOR(feed,true),name,description,scope,
+       creator,created,owner,count,entries_count}
+#subscription{key,who,whom,what,how,date,note}
+#user{?ITERATOR(feed,true),email,username,
+       password,display_name,
+       register_date,tokens,avatar,
+       names,surnames,birth,sex,
+       date,status,zone,type }
+#feed{?CONTAINER, aclver}
+#entry{?ITERATOR(feed),entry_id,from,to,
+       title,description,created,hidden,
+       access,shared,starred,deleted,
+       media,type}
+#comment{?ITERATOR(feed),comment_id,entry_id,
+       content,from,created,media,parent}
+#access{?ITERATOR(acl),entry_id,acl_id,
+       accessor,action}
+</code>
+  </div>
+
+</div> <!-- right -->
+
+<!--/div> <!-- code -->
+
 
 </body>
 </html>

@@ -11,7 +11,7 @@ p { margin-top: 10px; }
 .note p { margin-top: 20px; }
 .menu { text-align: right;}
 a { margin-top: 10px; padding: 10px; }
-.app { margin:100px auto;min-width:300px;max-width:800px; }
+.app { margin:100px auto;min-width:300px;max-width:790px; }
 .message { align: center; }
 .note { margin-left:0px;margin-top:0px;background-color:#F1F1F1;padding:4px 10px 4px 24px;color:gray;}
 ul {margin-left:70px;} 
