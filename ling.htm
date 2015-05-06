@@ -1,0 +1,220 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+    <title>LING</title>
+    <link rel="stylesheet" href="5HT.css" />
+</head>
+<body>
+<div class=menu>
+<a href="index.html">articles</a>
+</div>
+<hr>
+
+<br><br>
+
+<center><h1>LING C API</h1>
+<h4>Maxim Sokhatsky<br>maxim@synrc.com<br>Synrc Research Center, s.r.o.</h4></center>
+
+<div class="app">
+<h1>Overview</h1>
+<p>LING — the Erlang/OTP compatible virtual machine is able to boot in 50ms
+under no OS within Xen hypervisor or raw hardware. This chapter will guide you through C
+interfaces of the LING internals. The purpose of this document is
+to deep inside LING as fast as possible.</p>
+</div>
+
+<div class="app">
+<h1>Timers</h1>
+<p> The reference to the process that created the timer if <b>msg</b> is a pointer
+term or 0 if <b>msg</b> is not. The reference is needed to update pending_timers
+count of the sending process and and destroy it if is a zombie already.
+
+The <b>fire</b> function that is called when the timer expire. It is introduced to
+use the same code for TCP/IP and potentially other timers.
+
+When <b>enveloped</b> is true — send {timeout,TRef,Msg} message, false — send just Msg.</p>
+</div>
+
+<div class=code style="height:300px;margin-top:-100px;">
+
+<div id=left style="width:35%;float:left;">
+  <div style="width:45%;float:left;">
+     <h2 style="text-align:right;margin-right:20px;"></h2>
+  </div>
+  <div id=api style="width:48%;float:left;">
+     <h2>api</h2>
+     <code style="font-size:11pt;">
+     int etimer_add(uint64_t ref_id,
+                uint64_t timeout,
+                term_t dst, term_t msg,
+                proc_t *sender,
+                int enveloped);
+uint64_t etimer_closest_timeout(void);
+    void etimer_expired(uint64_t now);
+     int etimer_cancel(uint64_t ref_id,
+                int64_t *left_ns);
+    void etimer_cancel_by_receiver(term_t dst);
+     int etimer_read(uint64_t ref_id,
+                int64_t *left_ns);
+    void etimer_fill_root_regs(proc_t *sender,
+                region_t *regs,
+                int nr_expected);
+
+     </code>
+  </div>
+</div>
+
+<div id=right style="width:40%;float:left;">
+  <div style="width:45%;float:left;">
+     <h2 style="text-align:right;margin-right:20px;"></h2>
+  </div>
+  <div style="width:48%;float:left;">
+     <h2>types</h2>
+     <code style="font-size:11pt;">
+typedef int (*etimer_func_t)(etimer_t *tm);
+struct  etimer_t {
+        uint64_t ref_id;
+        uint64_t timeout;
+        term_t dst;
+        term_t msg;
+        int enveloped;
+        proc_t *sender;
+        etimer_func_t fire;
+        etimer_t *next; };
+
+static  etimer_t *free_timers   = 0;
+static  etimer_t *active_timers = 0;
+static memnode_t *etimer_nodes  = 0;
+     </code>
+  </div>
+</div> <!-- right -->
+</div> <!-- code -->
+</div>
+
+<br><br>
+
+<div class="app">
+<h1>Message Queue</h1>
+<p>Message Queue is an essential part of message-passing reactive systems.
+As soon as Erlang virual machine is built upon message-passing framework,
+the concept of a message and a queue are central for the system. All messages are being added
+to the head of the queue atomically. The node is driven by single processor.</p>
+</div>
+
+<div class=code style="height:400px;margin-top:-100px;">
+
+<div id=left style="width:40%;float:left;">
+  <div style="width:30%;float:left;">
+     <h2 style="text-align:right;margin-right:20px;"></h2>
+  </div>
+  <div id=api style="width:68%;float:left;">
+     <h2>api</h2>
+     <code style="font-size:11pt;">
+term_t msg_queue_current(msg_queue_t *mq);
+   int msg_queue_len(msg_queue_t *mq);
+  void msg_queue_next(msg_queue_t *mq);
+  void msg_queue_reset(msg_queue_t *mq);
+  void msg_queue_drop(msg_queue_t *mq);
+  void msg_queue_done(msg_queue_t *mq);
+  void msg_queue_mark(msg_queue_t *mq,uint32_t *mark);
+  void msg_queue_restore(msg_queue_t *mq,uint32_t *mark);
+   int msg_queue_push_N(msg_queue_t *mq,term_t t);
+  void msg_queue_fill_root_regs(msg_queue_t *mq, region_t *r);
+  void msg_queue_init(msg_queue_t *mq,
+                 uint32_t *buf_starts,
+                 uint32_t *buf_ends);
+     </code>
+  </div>
+</div>
+
+<div id=right style="width:30%;float:left;">
+  <div style="width:55%;float:left;">
+     <h2 style="text-align:right;margin-right:20px;"></h2>
+  </div>
+  <div style="width:28%;float:left;">
+     <h2>types</h2>
+     <code style="font-size:11pt;">
+typedef struct message_t message_t;
+struct  message_t {
+        term_t body;
+        message_t *next; };
+
+typedef struct msg_queue_t msg_queue_t;
+struct  msg_queue_t {
+        message_t *head;
+        message_t **tail;
+        int count;
+        message_t **current;
+        message_t **saved_last;
+        uint32_t *mark;
+        message_t *free;
+        memnode_t *nodes; };
+     </code>
+  </div>
+</div> <!-- right -->
+</div> <!-- code -->
+</div>
+
+<div class="app">
+<h1>Monitors</h1>
+<p>Console, Disk, UDP, TCP, DNS and other drivers are implement Outlet async interface.</p>
+</div>
+
+<div class=code style="height:400px;margin-top:-100px;">
+
+<div id=left style="width:45%;float:left;">
+  <div style="width:35%;float:left;">
+     <h2 style="text-align:right;margin-right:20px;"></h2>
+  </div>
+  <div id=api style="width:58%;float:left;">
+     <h2>api</h2>
+     <code style="font-size:11pt;">
+   int monitor(uint64_t ref_id,term_t pid1,term_t pid2);
+   int demonitor(uint64_t ref_id,term_t pid1);
+   int notify_monitors_N(term_t late,term_t reason);
+term_t list_monitored_by(term_t pid2,heap_t *hp);
+term_t list_monitors(term_t pid1, heap_t *hp);
+
+     </code>
+  </div>
+</div>
+
+<div id=right style="width:30%;float:left;">
+  <div style="width:45%;float:left;">
+     <h2 style="text-align:right;margin-right:20px;"></h2>
+  </div>
+  <div style="width:38%;float:left;">
+     <h2>types</h2>
+     <code style="font-size:11pt;">
+typedef struct monitor_t monitor_t;
+struct monitor_t {
+	uint64_t ref_id;
+	term_t pid1; // whatcher
+	term_t pid2; // whatchee
+	term_t what; // pid
+	monitor_t *next;
+};
+
+static memnode_t *monitor_nodes = 0;
+static monitor_t *active_monitors = 0;
+static monitor_t *free_monitors = 0;
+     </code>
+  </div>
+</div> <!-- right -->
+</div> <!-- code -->
+</div>
+
+<!--
+-->
+
+<div class="app">
+<h1>Outlets</h1>
+<p>Console, Disk, UDP, TCP, DNS and other drivers are implement Outlet async interface.</p>
+</div>
+
+</body>
+</html>
