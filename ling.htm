@@ -161,7 +161,9 @@ struct  msg_queue_t {
 
 <div class="app">
 <h1>Monitors</h1>
-<p>Console, Disk, UDP, TCP, DNS and other drivers are implement Outlet async interface.</p>
+<p>Monitors — are the unidirectional way of tracking processes. It can be stacked.
+The other primitives of the Erlang VM are links which are unstackable bidirectional
+form built on top of two monitors.</p>
 </div>
 
 <div class=code style="height:400px;margin-top:-100px;">
@@ -213,8 +215,128 @@ static monitor_t *free_monitors = 0;
 
 <div class="app">
 <h1>Outlets</h1>
-<p>Console, Disk, UDP, TCP, DNS and other drivers are implement Outlet async interface.</p>
+<p>Console, Disk, UDP, TCP, DNS and other drivers are implement Outlet async interface.
+Outlet gives you an extensibility power to LING. It is more like BEAM <b>ports</b> interface
+from the client point of view, but from the other hand it is more like NIF due to C linkage.</p>
 </div>
+
+<div class=code style="height:400px;margin-left:-100px;margin-top:-100px;">
+
+<div id=left style="width:45%;float:left;">
+  <div style="width:35%;float:left;">
+     <h2 style="text-align:right;margin-right:20px;"></h2>
+  </div>
+  <div id=api style="width:38%;float:left;">
+     <h2>api</h2>
+     <code style="font-size:11pt;">
+              typedef outlet_t *(*outlet_factory_func_t)
+                                (proc_t *cont_proc,
+                               uint32_t bit_opts);
+outlet_factory_func_t outlet_resolve_driver(term_t name);
+             outlet_t *outlet_make_N(outlet_vtab_t *vtab,
+                                     proc_t *cont_proc,
+                                     int32_t bit_opts,
+                                     uint32_t extra);
+                 void outlet_new_data(outlet_t *ol,
+                                      uint8_t *data,
+                                      int dlen);
+               term_t outlet_control(outlet_t *ol, uint32_t op,
+                                     uint8_t *data, int dlen,
+                                     term_t reply_to, heap_t *hp);
+                  int outlet_attach(outlet_t *ol);
+                 void outlet_detach(outlet_t *ol);
+                 void outlet_destroy_private(outlet_t *ol);
+             outlet_t *outlet_lookup(term_t oid);
+             outlet_t *outlet_lookup_by_name(term_t name);
+              uint8_t *outlet_get_send_buffer(outlet_t *ol,int len);
+                  int outlet_send(outlet_t *ol,int len,term_t reply_to);
+               term_t outlet_all(heap_t *hp);
+                 void outlet_register(outlet_t *ol, term_t name);
+                 void outlet_unregister(outlet_t *ol);
+                 void outlet_pass_new_data(outlet_t *ol,
+                                           uint8_t *data,
+                                           int dlen);
+                  int outlet_signal_exit_N(outlet_t *ol,
+                                           term_t src,
+                                           term_t reason);
+                 void outlet_close(outlet_t *ol, term_t reason);
+                 void outlet_destroy(outlet_t *ol);
+                  int outlet_notify_owner(outlet_t *ol, term_t what);
+     </code>
+  </div>
+</div>
+
+<div id=right style="width:40%;float:left;">
+  <div style="width:45%;float:left;">
+     <h2 style="text-align:right;margin-right:20px;"></h2>
+  </div>
+  <div style="width:38%;float:left;">
+     <h2>types</h2>
+     <code style="font-size:11pt;">
+
+ struct outlet_t {
+          term_t oid;
+          term_t name;
+   outlet_vtab_t *vtab;
+          term_t owner;
+   inter_links_t links;
+          term_t data;
+       memnode_t *home_node;
+        outlet_t **ref;
+        outlet_t *next;
+        uint32_t inout;
+        uint32_t binary;
+        uint32_t packet;
+        uint32_t line;
+        uint32_t eof;
+        uint32_t notify_on_close;
+           union { struct ip_pcb *ip;
+                   struct udp_pcb *udp;
+                   struct tcp_pcb *tcp; };
+             int active;
+             int deliver;
+             int buffer;
+             int header;
+             int packet_size;
+             int exit_on_close;
+             int max_mq_len;
+             int cr_in_progress; // TCP - connection mode
+          term_t cr_reply_to;
+             int cr_timeout_set;
+             int send_in_progress;
+        uint32_t max_send_bufsize;
+         uint8_t *send_buffer;
+       memnode_t *send_buf_node;
+             int send_buf_ack;
+             int send_buf_off;
+             int send_buf_left;
+          term_t send_reply_to;
+             int send_timeout_set;
+        uint32_t send_timeout;
+        uint32_t recv_expected_size;
+        uint32_t recv_bufsize;
+        uint32_t max_recv_bufsize;
+         uint8_t *recv_buffer;
+       memnode_t *recv_buf_node;
+             int recv_buf_off;
+          term_t empty_queue_in_progress;
+          term_t empty_queue_reply_to;
+             int peer_close_detected;
+             int backlog; // TCP - listening mode
+      acc_pend_t *free_pends;
+       memnode_t *pend_nodes;
+      acc_pend_t *accepting;
+      acc_pend_t *accepted;
+      disk_req_t *out_reqs; // Disk
+      disk_req_t *free_reqs;
+             int unicode_state; // Unicode
+         netfe_t *front_end; };
+     </code>
+  </div>
+</div> <!-- right -->
+</div> <!-- code -->
+</div>
+
 
 </body>
 </html>
