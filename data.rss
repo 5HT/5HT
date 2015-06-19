@@ -43,18 +43,46 @@
     <pubDate>Mon, 20 Oct 2014 14:20:00 +0000</pubDate>
   </item>
   <item>
-    <title></title>
+    <title>LING C API</title>
     <description>LING C API</description>
     <link>http://5HT.co/ling.htm</link>
     <guid isPermaLink="true">http://5HT.co/ling.htm</guid>
     <pubDate>Wed, 6 May 2014 14:20:00 +0000</pubDate>
   </item>
   <item>
-    <title></title>
-    <description>LING C API</description>
-    <link>http://5HT.co/ling.htm</link>
-    <guid isPermaLink="true">http://5HT.co/ling.htm</guid>
-    <pubDate>Wed, 6 May 2014 14:20:00 +0000</pubDate>
+    <title>UNIKERNEL STACK</title>
+    <description>Erlang Application Stack for LING and Unikernel Environments</description>
+    <link>http://5HT.co/cards.htm</link>
+    <guid isPermaLink="true">http://5HT.co/cards.htm</guid>
+    <pubDate>Mon, 13 Apr 2015 14:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>DHARMA LICENSE</title>
+    <description>For the true happiness of all santient beings</description>
+    <link>http://5HT.co/license.htm</link>
+    <guid isPermaLink="true">http://5HT.co/license.htm</guid>
+    <pubDate>Sat, 28 Mar 2015 14:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>CHAIN REPLICATION</title>
+    <description>Chain Replication Database</description>
+    <link>https://synrc.com/apps/cr/doc/cr.htm</link>
+    <guid isPermaLink="true">https://synrc.com/apps/cr/doc/cr.htm</guid>
+    <pubDate>Sun, 15 Mar 2015 14:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>L TYPE INSPECTOR</title>
+    <description>Language L: Type Inspector</description>
+    <link>http://5HT.co/l.htm</link>
+    <guid isPermaLink="true">http://5HT.co/l.htm</guid>
+    <pubDate>Thr, 5 Mar 2015 14:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>DEPOSITORY APPLICATION</title>
+    <description>Minimal Responsive Performant</description>
+    <link>http://5HT.co/spawnproc.htm</link>
+    <guid isPermaLink="true">http://5HT.co/spawnproc.htm</guid>
+    <pubDate>Tue, 3 Mar 2015 14:20:00 +0000</pubDate>
   </item>
 </channel>
 <channel>
