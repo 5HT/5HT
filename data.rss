@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>5HT.co/dharma</title>
+  <description>Namdak Tonpa: Diamond Blog</description>
+  <link>http://5HT.co/dharma/</link>
+  <lastBuildDate>Fri, 19 Jun 2015 14:20:00 +0000</lastBuildDate>
+  <pubDate>Fri, 19 Jun 2015 14:20:00 +0000</pubDate>
+  <ttl>1800</ttl>
+  <item>
+    <title>SEMS</title>
+    <description>The present moment thinking</description>
+    <link>http://5HT.co/dharma/sems.htm</link>
+    <guid isPermaLink="true">http://5HT.co/dharma/sems.htm</guid>
+    <pubDate>Sun, 06 Sep 2009 16:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>TIBET</title>
+    <description>Saga Dawa in the year of Sheep</description>
+    <link>http://5HT.co/dharma/tibet.htm</link>
+    <guid isPermaLink="true">http://5HT.co/dharma/tibet.htm</guid>
+    <pubDate>Sun, 06 Sep 2009 16:20:00 +0000</pubDate>
+  </item>
+</channel>
+<channel>
+  <title>5HT.co</title>
+  <description>Erlang Monk</description>
+  <link>http://5HT.co</link>
+  <lastBuildDate>Sat, 24 Jan 2015 14:20:00 +0000</lastBuildDate>
+  <pubDate>Sat, 24 Jan 2015 14:20:00 +0000</pubDate>
+  <ttl>1800</ttl>
+  <item>
+    <title>01 PROTOCOL DEFINITION</title>
+    <description>N2O WebSocket Protocol</description>
+    <link>http://5HT.co/n2o.htm</link>
+    <guid isPermaLink="true">http://5HT.co/n2o.htm</guid>
+    <pubDate>Sun, 1 Mar 2015 14:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>02 CERTIFICATION</title>
+    <description>N2O Certification</description>
+    <link>http://5HT.co/certification.htm</link>
+    <guid isPermaLink="true">http://5HT.co/certification.htm</guid>
+    <pubDate>Tue, 3 Mar 2015 14:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>03 REFERENCE IMPLEMENTATION</title>
+    <description>N2O Application Server</description>
+    <link>http://5HT.co/web.htm</link>
+    <guid isPermaLink="true">http://5HT.co/web.htm</guid>
+    <pubDate>Tue, 3 Mar 2015 14:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>04 VERSIONS</title>
+    <description>N2O History</description>
+    <link>http://5HT.co/history.htm</link>
+    <guid isPermaLink="true">http://5HT.co/history.htm</guid>
+    <pubDate>Mon, 2 Mar 2015 14:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>20 BPE</title>
+    <description>Business Process Engine</description>
+    <link>http://5HT.co/bpe.htm</link>
+    <guid isPermaLink="true">http://5HT.co/bpe.htm</guid>
+    <pubDate>Mon, 20 Oct 2014 14:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title></title>
+    <description>LING C API</description>
+    <link>http://5HT.co/ling.htm</link>
+    <guid isPermaLink="true">http://5HT.co/ling.htm</guid>
+    <pubDate>Wed, 6 May 2014 14:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title></title>
+    <description>LING C API</description>
+    <link>http://5HT.co/ling.htm</link>
+    <guid isPermaLink="true">http://5HT.co/ling.htm</guid>
+    <pubDate>Wed, 6 May 2014 14:20:00 +0000</pubDate>
+  </item>
+</channel>
+</rss>
