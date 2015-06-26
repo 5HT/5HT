@@ -100,11 +100,33 @@
     <pubDate>Sun, 06 Sep 2009 16:20:00 +0000</pubDate>
   </item>
   <item>
-    <title>TIBET</title>
-    <description>Saga Dawa in the year of Sheep</description>
-    <link>http://5HT.co/dharma/tibet.htm</link>
-    <guid isPermaLink="true">http://5HT.co/dharma/tibet.htm</guid>
+  <item>
+    <title>STRUCTURE</title>
+    <description>The composites</description>
+    <link>http://5HT.co/dharma/structure.htm</link>
+    <guid isPermaLink="true">http://5HT.co/dharma/structure.htm</guid>
     <pubDate>Sun, 06 Sep 2009 16:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>SAGA DAWA</title>
+    <description>Gang Rinpoche Wood Sheep Saga Dawa Duchen</description>
+    <link>http://5HT.co/dharma/saga.dawa.htm</link>
+    <guid isPermaLink="true">http://5HT.co/dharma/saga.dawa.htm</guid>
+    <pubDate>Sun, 21 Jun 2015 16:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>LAMRIM YESHE NYINGPO</title>
+    <description>Gradual Path of the Wisdom Essence</description>
+    <link>http://5HT.co/dharma/lamrim.yeshe.nyingpo.htm</link>
+    <guid isPermaLink="true">http://5HT.co/dharma/lamrim.yeshe.nyingpo.htm</guid>
+    <pubDate>Jun, 26 Sep 2015 16:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>CHOKOR DUCHEN</title>
+    <description>Dharma Cakra Pravartana Sutra</description>
+    <link>http://5HT.co/dharma/chokor.duchen.htm</link>
+    <guid isPermaLink="true">http://5HT.co/dharma/chokor.duchen.htm</guid>
+    <pubDate>Jun, 26 Sep 2015 16:20:00 +0000</pubDate>
   </item>
 </channel>
 </rss>
