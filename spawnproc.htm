@@ -21,6 +21,15 @@
 
 <h2>Depository Application</h2>
 
+<h3>Overview</h3>
+
+<p>Our aim was to provide smallest possible minimalistic application
+for PrivatBank customers, who are using deposit accounts.
+We've created fast and robust responsive web application that
+cat fit any devices and provides modern secure features over the fast
+WebSocket channel.</p>
+
+
 <div class=message>
 
 <h3>Minimal</h3>
@@ -39,7 +48,7 @@ and <b>spawnproc</b> GitHub organizations. Consumer appliaction
 hosts custom rules depending protocol or server module.
 E.g. your business application defines a set of business
 processes which are driven by BPE server, this application usually called ACT,
-from "activity server". N2O-based web application usually called WEB or SPA. See Picture 1.</p>
+from "activity server". <nobr>N2O-based</nobr> web application usually called WEB or SPA. See Picture 1.</p>
 
 <p>The architecture is based on <b>spawnproc</b> processing applications
 and relies on <b>synrc</b> Erlang stack and N2O protocol. It is run
@@ -298,8 +307,7 @@ deposits_sup:Deposits WebSocket Server is started.
 <div class=note><p><b>Fact:</b> It is easy to hold <b>20Mbps</b> to the small AWS instance.
 <pre>
 $ tcpkali -T10s -r 10000 -c 50 --first-message "N2O," \
-          -m PING --ws 54.171.70.13:8877/ws/static/app/open.htm
-Destination: [54.171.70.13]:8877
+          -m PING --ws deposits.privat.bank/ws/static/app/open.htm
 Ramped up to 50 connections.
 Total data sent:     20.4 MiB (21390904 bytes)
 Total data received: 3.4 MiB (3602222 bytes)
@@ -329,6 +337,165 @@ ok
 $ du -hs Mnesia.privat48@127.0.0.1
 5861M
 </pre></p></div>
+
+<h2>Business Processes</h2>
+
+<div class=message>
+
+<p>In business process management the key feature of is a
+compact process definitions. Here is example of Deposit Opening process
+definition in simple and clean language. The web application is an
+client to ACT business process server, which hosts business process context.
+All the processes can be executed in attached console without web application.</p>
+
+<p>
+        <pre>
+
+  deposit_app() ->
+
+    #process { name = 'Create Deposit Account',
+
+        flows = [
+            #sequenceFlow{source='Init',      target='Payment'},
+            #sequenceFlow{source='Payment',   target='Signatory'},
+            #sequenceFlow{source='Payment',   target='Process'},
+            #sequenceFlow{source='Process',   target='Final'},
+            #sequenceFlow{source='Signatory', target='Process'},
+            #sequenceFlow{source='Signatory', target='Final'}
+        ],
+
+        tasks = [
+            #userTask    { name='Init',      module = deposit },
+            #userTask    { name='Signatory', module = deposit},
+            #serviceTask { name='Payment',   module = deposit},
+            #serviceTask { name='Process',   module = deposit},
+            #endEvent    { name='Final'}
+        ],
+
+        beginEvent = 'Init',
+        endEvent = 'Final',
+        events = [
+             #messageEvent{name="PaymentReceived"}
+        ]
+    }.
+
+</pre>
+</p>
+
+<p>Thanks to compact process context the 1 million records of
+process states consume only 1GB of storage.</p>
+
+<h3>Heart System Capacity</h3>
+
+<p>Having measured the capacity of WebSocket front-end, we also state that
+performance of BPE engine and all PrivatBank service stack is outstanding.
+Here is sample business process that involves most external services.</p>
+
+<p>
+        <pre>
+
+     EKBID = wf:qp(<<"ekbid">>,Req),
+     Phone = #phone { number = "+38000000000" },
+       Sid = #sid { sid = "15080" },
+    Client = #client { phone = "+38000000000",
+                       ekb_id = EKBID,
+                       names = <<"Тест"/utf8>>,
+                       surnames = <<"Тест"/utf8>> },
+
+    Deposit = #deposit_app {
+        program  = <<"DE00">>,
+        currency = <<"980">>,
+        rate     = [{rate,24},{bonus,0},{renewal_bonus,0.5}],
+        duration = 12,
+        type     = <<"TEST">>,
+        amount   = 2,
+        chargeDeposit = card,
+        cardForCharge = #card{pan = <<"0000000000000000">>} },
+
+    {ok,Pid} = bpe:start(deposit:def(), [ {dep_atom,'DE00_12_uah'},
+                                          {notification, self()},
+                                          {lang, ru},
+                                          {channel,p24}]),
+
+    {complete,'CheckSession'}    = bpe:amend(Pid, [Phone,Deposit,Client,Sid]),
+    {complete,'CheckClient'}     = bpe:complete(Pid),
+    {complete,'AcquireApp'}      = bpe:complete(Pid),
+    {complete,'PrepareAccount'}  = bpe:complete(Pid),
+    {complete,'CreateAccount'}   = bpe:complete(Pid),
+    {complete,'CardPayment'}     = bpe:complete(Pid),
+    {complete,'Payment'}         = bpe:complete(Pid),
+    Sid1                         = bpe:doc(#sid{}, bpe:process(Pid)),
+    {complete,'PaymentComplete'} = bpe:amend(Pid, Sid1#sid{web_pid= self()}),
+                    'AcquireApp' = bpe:complete(Pid),
+
+</pre>
+</p>
+
+<p>For storm we are using <b>wrk</b> utility that can go far
+beyond <b>siege</b>, <b>httperf</b>, <b>ab</b> and <b>jmeter</b> abilities.
+BPE engines is settled as external REST service through our <b>rest</b> application.
+BPE along with PrivatBank services can pass all steps for 500 customers
+in 1 second in Depository Application.</p>
+
+<p>
+<pre>
+
+ $ wrk -c750 -d10s "http://processes.privat.bank/service/?ekbid=001"
+ Running 10s test @ http://processes.privat.bank/service/?ekbid=001
+   2 threads and 750 connections
+   Thread Stats   Avg      Stdev     Max   +/- Stdev
+      Latency     1.09s   391.52ms   2.00s    71.95%
+      Req/Sec   277.85    188.50     1.11k    70.69%
+   4925 requests in 10.08s, 860.91KB read
+   Socket errors: connect 0, read 0, write 0, timeout 102
+ Requests/sec:    588.78
+ Transfer/sec:     85.44KB
+
+   Table 1. Run test for each C for 1 minute
+ +---------------+------------+-------------+
+ | Connections   |  Finished  |  Timeouts   |
+ +---------------+------------+-------------+
+ |   200         |  200       |  0          |
+ |   225         |  225       |  0          |
+ |   250         |  250       |  0          |
+ |   275         |  275       |  0          |
+ |   300         |  300       |  0          |
+ |   325         |  325       |  0          |
+ |   350         |  350       |  0          |
+ |   375         |  375       |  0          |
+ |   400         |  400       |  0          |
+ |   425         |  425       |  0          |
+ |   450         |  450       |  0          |
+ |   475         |  475       |  0          |
+ |   500         |  500       |  0          |
+ |   525         |  525       |  0          |
+ |   550         |  523       |  27         |
+ |   575         |  554       |  21         |
+ |   600         |  567       |  33         |
+ |   625         |  580       |  45         |
+ +---------------+------------+-------------+
+
+</pre>
+</p>
+
+<table border=0 align=right cellspacing=10><tr><td style="padding-top:13px;font-size:16pt;">Made with ♡  for  </td> <td valign=bottom><svg width="208px" height="86px" viewBox="0 0 508 86">
+        <g id="PrivatBank" sketch:type="MSLayerGroup">
+            <path d="M96.261,74.199 L83.742,74.199 L83.742,29.962 L128.789,29.962 L128.789,74.199 L116.279,74.199 L116.279,38.555 L96.261,38.555 L96.261,74.199" id="Fill-7" fill="#6CA939" sketch:type="MSShapeGroup"></path>
+            <path d="M145.845,58.085 C145.845,49.114 151.385,47.344 154.87,47.344 C158.286,47.344 163.824,49.116 163.824,58.085 C163.824,63.649 161.468,68.953 154.87,68.953 C148.125,68.951 145.845,63.649 145.845,58.085 L145.845,58.085 Z M134.849,42.094 L134.849,85.885 L146.385,85.885 L146.385,70.899 C150.245,75.091 156.542,75.393 158.059,75.393 C169.052,75.392 175.798,68.39 175.798,58.203 C175.798,47.591 169.138,40.892 158.286,40.892 C155.556,40.891 150.245,41.34 145.845,45.955 L145.617,45.955 L145.696,42.094 L134.849,42.094 L134.849,42.094 Z" id="Fill-8" fill="#6CA939" sketch:type="MSShapeGroup"></path>
+            <path d="M204.392,70.34 C200.141,74.324 196.048,75.393 191.5,75.393 C179.067,75.392 178.606,66.05 178.606,62.188 L178.606,42.094 L190.134,42.094 L190.134,60.678 C190.134,67.057 192.332,68.953 196.588,68.953 C203.859,68.951 204.392,62.443 204.392,60.106 L204.392,42.094 L215.917,42.094 L215.917,74.199 L204.392,74.199 L204.392,70.34" id="Fill-9" fill="#6CA939" sketch:type="MSShapeGroup"></path>
+            <path d="M232.447,48.546 L238.665,48.546 C241.923,48.546 244.727,49.047 244.727,51.7 C244.727,54.605 240.334,54.671 238.434,54.671 L232.447,54.669 L232.447,48.546 L232.447,48.546 Z M220.92,42.094 L220.92,74.199 L243.816,74.199 C252.161,74.199 257.926,72.552 257.926,65.984 C257.926,60.926 255.115,58.719 248.746,57.578 L248.746,57.386 C252.921,56.823 256.557,54.232 256.557,49.871 C256.557,42.094 247.46,42.094 243.894,42.094 L220.92,42.094 L220.92,42.094 Z M232.447,60.678 L239.498,60.678 C244.965,60.678 246.089,62.313 246.089,64.465 C246.089,65.853 245.337,67.749 239.645,67.749 L232.447,67.749 L232.447,60.678 L232.447,60.678 Z" id="Fill-10" fill="#6CA939" sketch:type="MSShapeGroup"></path>
+            <path d="M285.829,60.926 C285.829,67.374 280.221,68.953 277.412,68.953 C275.293,68.951 271.498,68.261 271.498,65.227 C271.498,61.615 275.816,60.927 278.251,60.607 C282.716,59.976 282.342,60.169 285.829,58.912 L285.829,60.926 L285.829,60.926 Z M272.479,52.464 L272.479,52.464 C272.479,47.718 277.478,47.344 279.536,47.344 C280.826,47.344 285.602,47.409 285.759,51.574 L285.759,52.466 C285.525,55.622 282.489,54.984 274,56.063 C267.02,57.008 259.664,58.781 259.664,66.107 C259.664,68.763 260.809,75.393 273.09,75.393 C277.795,75.392 282.945,74.199 285.983,71.034 L286.211,71.033 L287.197,74.199 L299.321,74.199 L299.321,73.63 C297.129,73.187 296.977,71.034 297.054,67.56 L297.28,52.899 C297.358,49.18 296.977,40.892 279.608,40.892 C275.44,40.891 262.025,41.273 261.484,52.466 L272.479,52.464 L272.479,52.464 Z" id="Fill-11" fill="#6CA939" sketch:type="MSShapeGroup"></path>
+            <path d="M298.571,48.546 L298.571,42.094 L335.573,42.094 L335.573,48.546 L322.829,48.546 L322.829,74.199 L311.307,74.199 L311.307,48.546 L298.571,48.546" id="Fill-12" fill="#6CA939" sketch:type="MSShapeGroup"></path>
+            <path d="M350.283,54.983 L360.672,54.983 C363.704,54.983 369.772,55.311 369.772,60.607 C369.772,64.783 365.37,65.599 360.442,65.599 L350.283,65.598 L350.283,54.983 L350.283,54.983 Z M350.283,38.555 L379.015,38.555 L379.015,29.962 L337.771,29.962 L337.771,74.199 L363.101,74.199 C375.386,74.199 383.269,69.907 383.269,60.872 C383.269,46.719 367.499,46.399 363.101,46.399 L350.283,46.399 L350.283,38.555 L350.283,38.555 Z" id="Fill-13" fill="#6CA939" sketch:type="MSShapeGroup"></path>
+            <path d="M411.624,60.926 C411.624,67.374 406.017,68.953 403.213,68.953 C401.084,68.951 397.294,68.261 397.294,65.227 C397.294,61.615 401.617,60.927 404.04,60.607 C408.515,59.976 408.137,60.169 411.624,58.912 L411.624,60.926 L411.624,60.926 Z M398.285,52.464 L398.285,52.464 C398.285,47.718 403.286,47.344 405.326,47.344 C406.625,47.344 411.404,47.409 411.552,51.574 L411.552,52.466 C411.327,55.622 408.293,54.984 399.798,56.063 C392.82,57.008 385.465,58.781 385.465,66.107 C385.465,68.763 386.604,75.393 398.891,75.393 C403.589,75.392 408.746,74.199 411.778,71.034 L412.009,71.033 L412.994,74.199 L425.13,74.199 L425.13,73.63 C422.925,73.187 422.774,71.034 422.851,67.56 L423.077,52.899 C423.153,49.18 422.774,40.892 405.405,40.892 C401.237,40.891 387.818,41.273 387.285,52.466 L398.285,52.464 L398.285,52.464 Z" id="Fill-14" fill="#6CA939" sketch:type="MSShapeGroup"></path>
+            <path d="M439.533,74.199 L428.014,74.199 L428.014,42.094 L439.533,42.094 L439.533,54.168 L453.411,54.168 L453.411,42.094 L464.94,42.094 L464.94,74.199 L453.411,74.199 L453.411,60.605 L439.533,60.605 L439.533,74.199" id="Fill-15" fill="#6CA939" sketch:type="MSShapeGroup"></path>
+            <path d="M494.052,42.094 L506.875,42.094 L491.018,57.13 L507.627,74.199 L494.13,74.199 L481.693,60.167 L481.466,60.167 L481.466,74.199 L469.94,74.199 L469.94,42.094 L481.466,42.094 L481.466,54.983 L481.693,54.983 L494.052,42.094" id="Fill-16" fill="#6CA939" sketch:type="MSShapeGroup"></path>
+            <path d="M0.067,36.408 L7.705,36.408 C27.791,36.408 37.983,46.601 37.983,66.685 L37.983,74.32 L73.914,74.32 L73.914,0.479 L0.067,0.479 L0.067,36.408 Z M58.648,15.745 L58.648,15.745 L58.648,59.054 L52.76,59.054 C50.22,37.635 36.751,24.182 15.336,21.642 L15.336,15.747 C25.149,15.745 48.835,15.747 58.648,15.745 L58.648,15.745 Z" id="Fill-18" fill="#6CA939" sketch:type="MSShapeGroup"></path>
+            <path d="M0.06,45.442 L28.908,45.442 L28.908,74.307 L0.06,74.307 L0.06,45.442 Z" id="Fill-17" fill="#043D3D" sketch:type="MSShapeGroup"></path>
+        </g>
+
+</svg></td></tr></table>
+<br><br><br>
 
 </div>
 </div>
