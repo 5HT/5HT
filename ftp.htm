@@ -136,7 +136,16 @@ info( #ftp { sid=Sid, filename=Filename, hash=Hash,
 
 </p></pre></p>
 
-<center>Listing 3. <b>ftp.js</b> client module</center><br>
+<h3>JavaScript Client </h3>
+
+<p>The main idea was to create unified client for node.js and web browser.
+   As you may want to use <b>dropzone.js</b> or other file uploader front ends.
+   At the heart of <b>ftp.js</b> is a <b>bert.js</b> packaging as FTP is working
+   only with BERT formatter. We deny using XHR or other transports for file uploading.
+   However by abstracting <b>enc</b> client formatting function we are saving the ability to
+   use any underlying transpots.</p>
+
+<p><center>Listing 3. <b>ftp.js</b> client module</center><br>
 <div class=note><pre>
 
 var ftp = {
@@ -169,9 +178,10 @@ var ftp = {
                  ftp.send(data); };
         this.$reader.readAsArrayBuffer(ftp.$file.slice(start,end)); } }
 
-</pre></div>
+</pre></div></p>
+
 <br>
-<center>Listing 4. <b>n2o_file</b> protocol handler</center><br>
+<p><center>Listing 4. <b>n2o_file</b> protocol handler</center><br>
 <div class=note><pre>
 
 $file.do = function(rsp) {
@@ -182,11 +192,10 @@ $file.do = function(rsp) {
                      if (block>0 && ftp.$active)
                          ftp.send_slice(offset, offset+block); } }
 
-</pre></div>
+</pre></div></p>
 
 <h3>N2O Element</h3>
 
-<br>
 <p>The NITRO element will consist of three buttons:
 one select the file, other two start and stop uploading process. It should use
 only <b>ftp.js</b> API that can plugged to any upload front-end such as <b>dropzone.js</b>.</p>
