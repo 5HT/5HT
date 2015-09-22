@@ -36,15 +36,15 @@ XHR is supported in N2O started from 2.4 but we engage everyone to decline this 
 <h3>Microservices vs Ad-hoc protocols</h3>
 
 <p>Once we got a project that involved Blu-ray disc file uploading through web browser.
-N2O was fit this case thanks to binary nature of WebSocket channel. We were peeoneers who implemented
+N2O was fit this case thanks to binary nature of WebSocket channel. We were pioneers who implemented
 simple and clean binary file upload, without all this multipart HTTP bullshit. We really engage anybody
 to deny both HTTP/1 and HTTP/2 profiles and use pure WebSocket channel. It is much easier, code is clean,
-no headers, no states, no codes, no bullshit. You can build your own ad-hoc protocol easily without trying to fit your
+no headers, no states, no codes, no mimes. You can build your own ad-hoc protocol easily without trying to fit your
 API language to resource-based REST endpoints architecture. Yes, we really think that all this microservices buzz
 are exectly just like design patterns: it solves nothing.</p>
 
-<p>Of course there still some cases REST is useful like existing systems integration;
-still WebSocket set of utilities lacks some usefull things like curl and wrk;
+<p>Naturally there still some cases REST is useful like existing systems integration;
+still WebSockets set of utilities lacks some usefull things like <b>curl</b> and <b>wrk</b>;
 but WebSockets is young technlology and tools like <b>tcpkali</b> arises and more to come.</p>
 
 <p>Binary File Transfer Protocol is simple example of task that is hard to fit REST HTTP/2 approach.
