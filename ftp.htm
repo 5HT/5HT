@@ -53,7 +53,7 @@ This is exactly where WebSocket protocol shines. FTP and BIN protocols were pres
 by the original N2O co-author Andrii Zadorozhnii and was designed to be limited by 100 LOC for both
 JavaScript and Erlang.<p>
 
-<h3>Supervision</h3>
+<h3>Erlang Supervision</h3>
 
 <p>Usually we encourage to build stateless N2O applications. This allows you easy scaling but sometimes
 you to really need access to global state, especialy in web frameworks: sessions, cache and other global
@@ -90,7 +90,7 @@ However user may want to put some additional metainformation from FTP packet dur
 File Transfer Protocol as supevised n2o_async backed by gen_server. By implementing N2O <b>info/3</b> protocol API the FTP
 initialization is clean and portable:</p>
 
-<p><center>Listing 1. <b>n2o_async</b> initialization</center><br>
+<p><center>Listing 2. <b>n2o_async</b> initialization</center><br>
 <div class=note><pre>
 
 info( #ftp { sid=Sid, filename=Filename, hash=Hash,
@@ -121,7 +121,7 @@ info( #ftp { sid=Sid, filename=Filename, hash=Hash,
 
 <p>The async process needs only shifting state's offset and pushing it back to client</p>
 
-<p><center>Listing 2. Uploader <b>n2o_async</b> process</center><pre>
+<p><center>Listing 3. Uploader <b>n2o_async</b> process</center><pre>
 
     proc( #ftp{ sid=Sid, data=Msg, block=Block, filename=F} = FTP,
           #handler{ state=#ftp{data=State, offset=Offset}} = Async) ->
@@ -145,7 +145,7 @@ info( #ftp { sid=Sid, filename=Filename, hash=Hash,
    However by abstracting <b>enc</b> client formatting function we are saving the ability to
    use any underlying transpots.</p>
 
-<p><center>Listing 3. <b>ftp.js</b> client module</center><br>
+<p><center>Listing 4. <b>ftp.js</b> client module</center><br>
 <div class=note><pre>
 
 var ftp = {
@@ -181,7 +181,7 @@ var ftp = {
 </pre></div></p>
 
 <br>
-<p><center>Listing 4. <b>n2o_file</b> protocol handler</center><br>
+<p><center>Listing 5. <b>n2o_file</b> protocol handler</center><br>
 <div class=note><pre>
 
 $file.do = function(rsp) {
@@ -200,7 +200,7 @@ $file.do = function(rsp) {
 one select the file, other two start and stop uploading process. It should use
 only <b>ftp.js</b> API that can plugged to any upload front-end such as <b>dropzone.js</b>.</p>
 
-<p><center>Listing 5. <b>#upload</b> element</center>
+<p><center>Listing 6. <b>#upload</b> element</center>
         <pre>
 
   render_element(#upload{id=Id} = U) ->
