@@ -8,39 +8,46 @@
   <pubDate>Sat, 24 Jan 2015 14:20:00 +0000</pubDate>
   <ttl>1800</ttl>
   <item>
-    <title>01 PROTOCOL DEFINITION</title>
+    <title>PROTOCOL DEFINITION</title>
     <description>N2O WebSocket Protocol</description>
     <link>http://5HT.co/n2o.htm</link>
     <guid isPermaLink="true">http://5HT.co/n2o.htm</guid>
     <pubDate>Sun, 1 Mar 2015 14:20:00 +0000</pubDate>
   </item>
   <item>
-    <title>02 CERTIFICATION</title>
+    <title>CERTIFICATION</title>
     <description>N2O Certification</description>
     <link>http://5HT.co/certification.htm</link>
     <guid isPermaLink="true">http://5HT.co/certification.htm</guid>
     <pubDate>Tue, 3 Mar 2015 14:20:00 +0000</pubDate>
   </item>
   <item>
-    <title>03 REFERENCE IMPLEMENTATION</title>
+    <title>REFERENCE IMPLEMENTATION</title>
     <description>N2O Application Server</description>
     <link>http://5HT.co/web.htm</link>
     <guid isPermaLink="true">http://5HT.co/web.htm</guid>
     <pubDate>Tue, 3 Mar 2015 14:20:00 +0000</pubDate>
   </item>
   <item>
-    <title>04 VERSIONS</title>
+    <title>VERSIONS</title>
     <description>N2O History</description>
     <link>http://5HT.co/history.htm</link>
     <guid isPermaLink="true">http://5HT.co/history.htm</guid>
     <pubDate>Mon, 2 Mar 2015 14:20:00 +0000</pubDate>
   </item>
   <item>
-    <title>20 BPE</title>
+    <title>BPE</title>
     <description>Business Process Engine</description>
     <link>http://5HT.co/bpe.htm</link>
     <guid isPermaLink="true">http://5HT.co/bpe.htm</guid>
     <pubDate>Mon, 20 Oct 2014 14:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>FTP</title>
+    <description>File Transfer Protocol</description>
+    <link>http://5HT.co/ftp.htm</link>
+    <guid isPermaLink="true">http://5HT.co/ftp.htm</guid>
+    <pubDate>Wed, 23 Sep 2015 1:51:00 +0000</pubDate>
   </item>
   <item>
     <title>LING C API</title>
@@ -78,7 +85,7 @@
     <pubDate>Thr, 5 Mar 2015 14:20:00 +0000</pubDate>
   </item>
   <item>
-    <title>DEPOSITORY APPLICATION</title>
+    <title>E-BANKING APPLICATION</title>
     <description>Minimal Responsive Performant</description>
     <link>http://5HT.co/spawnproc.htm</link>
     <guid isPermaLink="true">http://5HT.co/spawnproc.htm</guid>
@@ -92,20 +99,6 @@
   <lastBuildDate>Fri, 26 Jun 2015 17:20:00 +0000</lastBuildDate>
   <pubDate>Fri, 26 Jun 2015 17:20:00 +0000</pubDate>
   <ttl>1800</ttl>
-  <item>
-    <title>SEMS</title>
-    <description>The present moment thinking</description>
-    <link>http://5HT.co/dharma/sems.htm</link>
-    <guid isPermaLink="true">http://5HT.co/dharma/sems.htm</guid>
-    <pubDate>Sun, 06 Sep 2009 16:20:00 +0000</pubDate>
-  </item>
-  <item>
-    <title>STRUCTURE</title>
-    <description>The composites</description>
-    <link>http://5HT.co/dharma/structure.htm</link>
-    <guid isPermaLink="true">http://5HT.co/dharma/structure.htm</guid>
-    <pubDate>Sun, 06 Sep 2009 16:20:00 +0000</pubDate>
-  </item>
   <item>
     <title>SAGA DAWA</title>
     <description>Gang Rinpoche Wood Sheep Saga Dawa Duchen</description>
@@ -125,6 +118,27 @@
     <description>Dharma Cakra Pravartana Sutra</description>
     <link>http://5HT.co/dharma/chokor.duchen.htm</link>
     <guid isPermaLink="true">http://5HT.co/dharma/chokor.duchen.htm</guid>
+    <pubDate>Fri, 26 Jun 2015 16:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>PEMA DUDUL</title>
+    <description>Lama Pema Dudul</description>
+    <link>http://5HT.co/dharma/pema.dudul.htm</link>
+    <guid isPermaLink="true">http://5HT.co/dharma/pema.dudul.htm</guid>
+    <pubDate>Fri, 26 Jun 2015 16:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>PEMA DUDUL NAMTAR</title>
+    <description>Lama Pema Dudul Bio</description>
+    <link>http://5HT.co/dharma/pema.dudul.bio.htm</link>
+    <guid isPermaLink="true">http://5HT.co/dharma/pema.dudul.bio.htm</guid>
+    <pubDate>Fri, 26 Jun 2015 16:20:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>RECLUSION</title>
+    <description>Guru Pema Kyekar</description>
+    <link>http://5HT.co/dharma/retreat.htm</link>
+    <guid isPermaLink="true">http://5HT.co/dharma/retreat.htm</guid>
     <pubDate>Fri, 26 Jun 2015 16:20:00 +0000</pubDate>
   </item>
 </channel>
