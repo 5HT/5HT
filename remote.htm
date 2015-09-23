@@ -1,0 +1,118 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+    <title>Remote Protocol</title>
+    <link rel="stylesheet" href="5HT.css" />
+</head>
+<body>
+<div class=menu>
+<a href="index.html">articles</a>
+</div>
+<hr>
+<div class=app>
+
+<div align=right>FROM: 5HT<br>
+                   TO: #N2O<br>
+                 DATE: 24 SEP 2015</div>
+
+<h2>N2O Remote Protocol</h2>
+<h4>TL;DR — Access N2O context state from node.js and PHP<br>
+
+<div class=message>
+
+<h4>Remote Architecture</h4>
+
+<img src="img/N2O-remote.svg" width=800>
+
+<p></p>
+
+<h4>Remote Protocol</h4>
+
+<div><p><center>Listing 1. N2O Remote Protocol</center><pre>
+
+   % ETS tables access protocol
+
+     {get,Table,Key}
+     {put,Table,Key,Value}
+
+   % MQ protocol
+
+     {pub,Topic,Message}
+     {sub,Topic,Args}
+     {unsub,Topic}
+
+   % ASYNC protocol
+
+     {start,Handler}
+     {stop,Class,Name}
+     {restart,Class,Name}
+     {async,Name,Function}
+     {flush}
+     {flush,Key}
+
+</p></pre></div>
+
+<div><p><center>Listing 2. node.js Index module sample</center><pre>
+
+  var index = match({
+
+      'init' : function () {
+          wf.reg(this,sid,'room'); },
+
+      '["client",[sid,msg]]' : function (sid,msg) {
+          wf.insert_bottom(this.sid,"history","<span>"+sid+": "+msg+"</span>"); },
+
+      '["chat",msg]' : function (msg) {
+          wf.send(this.sid,'room',
+              tuple(atom('client'),tuple(bin(this.sid),bin(msg))))); }
+
+  });
+
+</p></pre></div>
+
+<div><p><center>Listing 3. N2O Remote Protocol Proxy Prototype Implementation</center><pre>
+
+  module.exports = {reg:reg,send:send,insert_bottom};
+
+  function send(sid,room,message) {
+      $conn.send(enc(tuple(atom('pub'),
+                           atom(room),
+                           bin(message)))); }
+
+  function reg(sid,room) {
+      $conn.send(enc(tuple(atom('sub'),
+                           atom(room)))); }
+
+  function session(sid,key,value) {
+      $conn.send(enc(tuple(atom('put'),
+                           atom('session'),
+                           bin(key),bin(value)))); }
+
+  function state(sid,key,value) {
+      $conn.send(enc(tuple(atom('put'),
+                           atom('state'),
+                           bin(key),bin(value)))); }
+
+  function cache(sid,key,value) {
+      $conn.send(enc(tuple(atom('put'),
+                           atom('cache'),
+                           bin(key),bin(value)))); }
+
+  function insert_bottom(sid,element,htm) {
+      var js = function() { var div = qn('div'); div.innerHTML = htm;
+                        qi(element).appendChild(div.firstChild); };
+      js = "(" + js.toString() + ")();";
+      $conn.send(enc(tuple(atom('io'),
+                           bin(js.toString()),
+                           bin('')))); }
+</p></pre></div>
+
+
+</div>
+</div>
+</body>
+</html>
