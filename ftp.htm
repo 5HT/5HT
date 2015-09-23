@@ -57,7 +57,7 @@ JavaScript and Erlang.<p>
 
 <p>Usually we encourage to build stateless N2O applications. This allows you easy scaling but sometimes
 you to really need access to global state, especialy in web frameworks: sessions, cache and other global
-resources like processes. Starting from N2O version 2.9 provides powerful <b>n2o_async</b> gen_server processunder supervision.
+resources like processes. Starting from N2O version 2.9 provides powerful <b>n2o_async</b> gen_server process under supervision.
 Currently N2O supports several clasess of async processes: <b>file</b> for file upload workers;
 <b>async</b> for web pages workers; and other custom clasess for you needs. The cool thing is that <b>n2o_async</b>
 hides verbose OTP <b>gen_server</b> templates and provides clean <b>proc/2</b> callback API for any Erlang module.
