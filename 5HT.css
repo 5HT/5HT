@@ -28,3 +28,5 @@ a:hover, a:active { outline: 0 }
     font-weight: normal;
     font-style: normal
 }
+.block { margin-top: 15px; min-width:200px; float: left; background-color: transparent; text-align: left; }
+.wrapper { min-width: 1200px; vertical-align: top; }

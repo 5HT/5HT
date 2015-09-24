@@ -20,19 +20,62 @@
                  DATE: 24 SEP 2015</div>
 
 <h2>N2O Remote Protocol</h2>
-<h4>TL;DR — Access N2O context state from node.js and PHP<br>
+<h4>TL;DR — Access N2O context state from node.js and PHP</h4>
 
 <div class=message>
 
-<h4>Remote Architecture</h4>
+<h3>Remote Architecture</h3>
 
 <img src="img/N2O-REMOTE.svg" width=800>
 
 <p></p>
 
-<h4>Remote Protocol</h4>
+<h3>Samples</h3>
 
-<div><p><center>Listing 1. N2O Remote Protocol</center><pre>
+<div><p><center>Listing 1. node.js Index module sample</center><pre>
+
+  var index = match({
+
+      'init' : function () {
+          wf.reg(this,sid,'room'); },
+
+      '["chat",msg]' : function (msg) {
+          wf.send(this.sid,'room',
+              tuple(atom('client'),tuple(bin(this.sid),bin(msg))))); }
+
+      '["client",[sid,msg]]' : function (sid,msg) {
+          wf.insert_bottom(this.sid,"history","<span>"+sid+": "+msg+"</span>"); },
+
+  });
+
+</p></pre></div>
+
+<div><p><center>Listing 2. Erlang version</center><pre>
+
+      -module(index).
+      -compile(export_all).
+      -include_lib("nitro/include/nitro.hrl").
+
+      event(init)            -> wf:reg(room);
+      event({chat,Msg})      -> wf:send(room,{client,{peer(),Msg}});
+      event({client,{P,M}})  -> wf:insert_bottom(history,
+                                #panel{id=history,body=[P,":",M,#br{}]});
+
+
+      event(Event)           -> wf:info(?MODULE,"Event: ~p~n",[Event]).
+
+</p></pre></div>
+
+<h3>Protocol Specification</h3>
+
+<p>This is a core specification on Nitrogen-like frameworks. N2O as an application
+server provices set of built-in services like ETS tables for storing <b>cookies</b>,
+process <b>state</b>, browser <b>session</b> or application <b>cache</b> data.
+Also it provides pubsub API through <b>gproc</b> and <b>n2o_async</b> API for process supervision.
+DOM API is optional for implementation.
+</p>
+
+<div><p><center>Listing 3. N2O Remote Protocol</center><pre>
 
    % ETS tables access protocol
 
@@ -45,6 +88,14 @@
      {sub,Topic,Args}
      {unsub,Topic}
 
+   % DOM protocol
+
+     {q,Key}
+     {qc,Key}
+     {cookie,Operation,Key,Value}
+     {insert_top,Key,Value}
+     {insert_bottom,Key,Value}
+
    % ASYNC protocol
 
      {start,Handler}
@@ -56,25 +107,11 @@
 
 </p></pre></div>
 
-<div><p><center>Listing 2. node.js Index module sample</center><pre>
+<p>Please note that DOM protocol could be generated purely in JavaScript that
+returns prerendered IO packet for passing throught router to a gived WebSocket, XHR or TCP session.
+Thus relaying DOM protocol is optional.</P>
 
-  var index = match({
-
-      'init' : function () {
-          wf.reg(this,sid,'room'); },
-
-      '["client",[sid,msg]]' : function (sid,msg) {
-          wf.insert_bottom(this.sid,"history","<span>"+sid+": "+msg+"</span>"); },
-
-      '["chat",msg]' : function (msg) {
-          wf.send(this.sid,'room',
-              tuple(atom('client'),tuple(bin(this.sid),bin(msg))))); }
-
-  });
-
-</p></pre></div>
-
-<div><p><center>Listing 3. N2O Remote Protocol Proxy Prototype Implementation</center><pre>
+<div><p><center>Listing 4. JavaScript Proxy Implementation Generation</center><pre>
 
   module.exports = {reg:reg,send:send,insert_bottom};
 
