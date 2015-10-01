@@ -1,0 +1,73 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+  </head>
+    <title>Synrc Review</title>
+    <link rel="stylesheet" href="5HT.css" />
+</head>
+<body>
+<div class=menu>
+<a href="index.html">articles</a>
+</div>
+<hr>
+<div class=app>
+
+<div align=right>FROM: 5HT<br>
+                   TO: #SYNRC<br>
+                 DATE: 29 SEP 2015</div>
+
+<h2>Review: Article Commenting System 200 LOC</h2>
+<h4>TL;DR — Comment you article in a frame, no public commentbars.<br>
+          <div style="margin-left:90px;"><a href="http://ns.synrc.com:8000/doc">http://ns.synrc.com:8000/doc</a></div></h4>
+
+<br><br>
+
+<div class=message>
+
+<h3>Prototype</h3>
+
+<table>
+<tr><td><img src="img/review-sidebar.png" height=400></td>
+    <td><img src="img/review-doc.png" height=400></td>
+    <td><img src="img/review-index.png" height=400></td></tr><tr>
+    <td><img src="img/review-article.png" height=400></td>
+    <td><img src="img/review-code.png" height=400></td></tr>
+</table>
+
+<h3>Feed Links</h3>
+
+<code>
+http://ns.synrc.com:8000/index.htm?code=g2gCbQAAABp1cG
+wvZG9jL3dlYi9pbmRleC5odG0jc2VjMmgDYgAABaNiAAovVWIADMJs
+</code>
+
+<code>
+> wf:depickle(<<"g2gCbQAAAB5uMm8vZG9jL3dlYi9wcm90b2Nvb"
+                "HMuaHRtI3NlYzZoA2IAAAWjYgAKJYFiAAYxmg==">>).
+
+<<"n2o/doc/web/protocols.htm#sec6">>
+</code>
+
+<h3>Searching</h3>
+
+<p>The search query is executed on folder wildcard specification, like follwing:</p>
+
+<code>
+$ cat sys.config
+  [{n2o, [{port,8000},
+          {search,"/Users/5HT/depot/synrc"
+                  "/synrc.com/apps/*/doc/web/*.htm"}]}].
+</code>
+
+
+
+<h3>Commenting</h3>
+
+</div>
+</div>
+</body>
+</html>
