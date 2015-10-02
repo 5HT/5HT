@@ -25,6 +25,16 @@
 
 <br><br>
 
+<h3>Characteristics</h3>
+
+<p>
+• Ease of expressing constructs arising in problems.<br>
+• Suggestivity.<br>
+• Ability to subordinate detail.<br>
+• Economy.<br>
+• Amenability to formal proofs.<br>
+</p>
+
 <h3>Atoms</h3>
 
 <code>
@@ -61,3 +71,40 @@
         Tx = { Record,  { Account, Account },   Time, Money }.
 </code>
 
+<h3>Classes</h3>
+
+<code>
+
+       App = { M, S, I, T, E, spawn, push, pull } : Customer, Proc, Feed.
+        Еv = { M, P, T, C  } : Event, Message, Entry, Tx.
+
+       Set = Tuple/1
+      Cons = Tuple/2
+        Db = Tuple/3
+       Doc = Tuple/4
+
+</code>
+
+<h3>Exe Legend and Petri Process sample</h3>
+
+<center>
+<img style="align:float;" src="img/exe-legend.svg" height=300><img style="margin-left:200px;align:float;"src="img/exe-proc.svg" height=300>
+</center>
+
+<h3>Roster Signature</h3>
+
+<center><p>Picture 1. Chat Application</p><p>
+<img src="img/exe-chat.svg" width=600>
+</center></p>
+
+<h3>Application Server Signature</h3>
+
+<center><p>Picture 1. N2O Application</p><p>
+<img src="img/exe-n2o.svg" width=500>
+</center></p>
+
+<h3>Database Signature</h3>
+
+<center><p>Picture 1. KV Application</p><p>
+<img src="img/exe-store.svg" width=500>
+</center></p>
