@@ -21,9 +21,58 @@
                  DATE: 1 OCT 2015</div>
 
 <h2>Exe Language</h2>
-<h4>TL;DR — Full-stack types package for unified execution environment.</h4>
+<h4>TL;DR — Adequate and precise, unikernel based typed executional environment.</h4>
 
-<br><br>
+
+<h2>The Idea and its space</h2>
+
+<p>Creation of applicable to daily usage concept of executional environment and
+   frameworks based on:</p>
+
+   <ul><li>type-theoretical background</li>
+       <li>process calculus</li>
+       <li>messaging language</li></ul>
+
+<p>and other types of foundations for easier and more effective</p>
+
+   <ul><li>statistical analisys of event streams</li>
+       <li>performance measurement of mass service</li>
+       <li>correctness and soundness of executive system</li>
+       <li>application lifecycle of packages</li> </ul>
+
+<h2>Being first to be adequate and precise</h2>
+
+<p>During the years various computer systems designs were changed and not
+   all good theories were met with good implementations. From the ancient
+   full-stack Lisp&nbsp;Machines, Smalltalk virtual machine which was able
+   to transfer their state on different platform, and modern executional
+   platforms like managed object-oriented CLR, functional
+   Haskell and Erlang. At the base however you still observe UNIX or Windows NT
+   based executional environments which is far from being verifiable and correct
+   moreoverr it consume more power because of layering the abstractions.
+   Languages like Erlang, Haskell and OCaml are most
+   suited for the further eveloving of correctness and soundess mania.</p>
+
+<p>If you ask me to find other words to describe this work I would say
+   that this work is an attempt to build close to theoretical adequate and precise
+   executional environment that is easy to be verified and managed,
+   encoded in most effective way, optimized by defition and construction,
+   that relies close to hardware and provides top level modern
+   software language acess in Erlang.</p>
+
+<h2>Satisfaction Landscape</h2>
+
+<p>Whenever customer is being satisfied this joy is always fall into the following categories:</p>
+
+<ul><li>time: duration, development, latency, run, life</li>
+    <li>quality: complexiti, price, simplicity, reliability</li>
+    <li>people: deterministic, useful</li>
+    <li>resources: money, aux, maintanance, data, cpu</li>
+    </ul>
+
+<p></p>
+
+<h2>Constructing the Language</h2>
 
 <h3>Characteristics</h3>
 
@@ -78,10 +127,10 @@
        App = { M, S, I, T, E, spawn, push, pull } : Customer, Proc, Feed.
         Еv = { M, P, T, C  } : Event, Message, Entry, Tx.
 
-       Set = Tuple/1
-      Cons = Tuple/2
-        Db = Tuple/3
-       Doc = Tuple/4
+      List = Tuple/1, {[L]}: list of L
+      Feed = Tuple/2, {[L],P}: process with list
+        Db = Tuple/3, {[S],[T],[F]}: seq, tables, feeds
+       Doc = Tuple/4, fields, sections, buttons, task
 
 </code>
 
@@ -91,10 +140,25 @@
 <img style="align:float;" src="img/exe-legend.svg" height=300><img style="margin-left:200px;align:float;"src="img/exe-proc.svg" height=300>
 </center>
 
+<p>
+<b>action</b> is the piece of code, process pattern matching.<br>
+<b>message</b> is the tuple or record that defines a protocol.<br>
+<b>client</b> is the true customer or user of the system who is using the service on daily basis.<br>
+<b>server</b> is the <b>gen_server</b> or other process nicely managed by the system.<br>
+<b>feed</b> is the <b>server</b> managed chain of <b>messages</b>.<br>
+<b>table</b> is the <b>ixset</b> or <b>ets</b> based queriable tables.
+</p>
+
 <h3>Roster Signature</h3>
 
 <center><p>Picture 1. Chat Application</p><p>
 <img src="img/exe-chat.svg" width=600>
+</center></p>
+
+<h3>Message Queue Signature</h3>
+
+<center><p>Picture 1. One-to-one and one-to-many channels with coordination tables</p><p>
+<img src="img/exe-mq.svg" width=420>
 </center></p>
 
 <h3>Application Server Signature</h3>
@@ -106,5 +170,40 @@
 <h3>Database Signature</h3>
 
 <center><p>Picture 1. KV Application</p><p>
-<img src="img/exe-store.svg" width=500>
+<img src="img/exe-store.svg" width=400>
 </center></p>
+
+<h3>Business Process Signature</h3>
+
+<center><p>Picture 1. BPE Application</p><p>
+<img src="img/exe-bpe.svg" width=320>
+</center></p>
+
+<h3>Distributed Transactions Signature</h3>
+
+<center><p>Picture 1. XA Application</p><p>
+<img src="img/exe-xa.svg" width=520>
+</center></p>
+
+<h2>Research</h2>
+
+<h3>Object</h3>
+
+<ul><li>Software at all OSI levels.</li>
+    </ul>
+
+<h3>Purpose</h3>
+
+<p>Compact, adequate and precise typed executional environment for the OSI stack.</p>
+
+<h3>Result</h3>
+
+<p>The end result of the project is a complex thing that should in its fullness consist of:</p>
+
+<ul><li>Meta-language, languages and protocols</li>
+    <li>Tools</li>
+    <li>Types and frameworks</li>
+    <li>Code</li>
+    <li>Documentation</li>
+    <li>Success Stories</li>
+    </ul>
