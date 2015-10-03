@@ -21,15 +21,14 @@
                  DATE: 1 OCT 2015</div>
 
 <h2>Exe Language</h2>
-<h4>TL;DR — Adequate and precise, unikernel based typed executional environment.</h4>
+<h4>TL;DR — Adequate and precise executional environment.</h4>
 
 
 <h2>The Idea and its space</h2>
 
-<p>Creation of applicable to daily usage concept of executional environment and
-   frameworks based on:</p>
+<p>Creation of minimalistic concept of executional environment and frameworks based on:</p>
 
-   <ul><li>type-theoretical background</li>
+   <ul><li>type-theory</li>
        <li>process calculus</li>
        <li>messaging language</li></ul>
 
@@ -37,8 +36,12 @@
 
    <ul><li>statistical analisys of event streams</li>
        <li>performance measurement of mass service</li>
-       <li>correctness and soundness of executive system</li>
+       <li>correctness and soundness of execution system</li>
        <li>application lifecycle of packages</li> </ul>
+
+<p>targeting</p>
+
+   <ul><li>all OSI levels</li></ul>
 
 <h2>Being first to be adequate and precise</h2>
 
@@ -47,7 +50,7 @@
    full-stack Lisp&nbsp;Machines, Smalltalk virtual machine which was able
    to transfer their state on different platform, and modern executional
    platforms like managed object-oriented CLR, functional
-   Haskell and Erlang. At the base however you still observe UNIX or Windows NT
+   Haskell and Erlang. At the base however you still observe UNIX or Windows&nbsp;NT
    based executional environments which is far from being verifiable and correct
    moreoverr it consume more power because of layering the abstractions.
    Languages like Erlang, Haskell and OCaml are most
@@ -66,11 +69,26 @@
 
 <ul><li>time: duration, development, latency, run, life</li>
     <li>quality: complexiti, price, simplicity, reliability</li>
-    <li>people: deterministic, useful</li>
+    <li>people: deterministic, usability</li>
     <li>resources: money, aux, maintanance, data, cpu</li>
     </ul>
-
 <p></p>
+
+<p>Technical benefits:</p>
+
+<ul><li>Band <font color=silver>22MB/s</font></li>
+    <li>Capacity <font color=silver>30K or 100K of bands</font></li>
+    <li>Rates <font color=silver>100M/d — TPS<br>
+                                <div style="margin-left:65px;">30K/s — N2O<br>
+                                 1K/s — XA </font></div></li>
+    <li>Latency <font color=silver>300ms</font></li>
+    </ul>
+
+<p>Target areas:</p>
+
+<ul><li>Telecom and Internet</li>
+    <li>Business and Banking industry</li>
+    <li>WebSocket and IoT</li></ul>
 
 <h2>Constructing the Language</h2>
 
@@ -120,6 +138,44 @@
         Tx = { Record,  { Account, Account },   Time, Money }.
 </code>
 
+<h3>Protocols</h3>
+
+<table>
+<tr valign=top>
+<td>
+<code>
+     {io,_,_}
+     {client,_}
+     {server,_}
+     ftp/11
+</code>
+</td>
+<td>
+<code>
+     {get,_}
+     {get,_,_}
+     {put,_,_}
+     {delete,_,_}
+</code>
+</td>
+<td>
+<code>
+     process/15
+     {event,_}
+     {amend,_}
+     {complete,_}
+</code>
+</td>
+<td>
+<code>
+     {sub,_,_}
+     {unsub,_}
+     {pub,_,_}
+     {msg,_,_,_}
+</code>
+</td>
+</tr></table>
+
 <h3>Classes</h3>
 
 <code>
@@ -136,6 +192,12 @@
 
 <h3>Exe Legend and Petri Process sample</h3>
 
+<p>We will extent Petri nets graphical language alphabet with several letters up to seven.
+   This language preserve message-passing semanthics along with core primitives
+   such as <b>client</b> or <b>server</b> process, <b>feed</b> chains or indexed <b>tables</b> (B+,B*).
+   We will use this language also to define the signatures of top-level applications.
+   </p>
+
 <center>
 <img style="align:float;" src="img/exe-legend.svg" height=300><img style="margin-left:200px;align:float;"src="img/exe-proc.svg" height=300>
 </center>
@@ -149,37 +211,39 @@
 <b>table</b> is the <b>ixset</b> or <b>ets</b> based queriable tables.
 </p>
 
-<h3>Roster Signature</h3>
+<h2>Applications Signatures</h2>
+
+<h3>Roster 300 LOC</h3>
 
 <center><p>Picture 1. Chat Application</p><p>
 <img src="img/exe-chat.svg" width=600>
 </center></p>
 
-<h3>Message Queue Signature</h3>
+<h3>Message Queue 500 LOC</h3>
 
 <center><p>Picture 1. One-to-one and one-to-many channels with coordination tables</p><p>
 <img src="img/exe-mq.svg" width=420>
 </center></p>
 
-<h3>Application Server Signature</h3>
+<h3>Application Server 1K LOC</h3>
 
 <center><p>Picture 1. N2O Application</p><p>
 <img src="img/exe-n2o.svg" width=500>
 </center></p>
 
-<h3>Database Signature</h3>
+<h3>Database 1K LOC</h3>
 
 <center><p>Picture 1. KV Application</p><p>
 <img src="img/exe-store.svg" width=400>
 </center></p>
 
-<h3>Business Process Signature</h3>
+<h3>Business Process 300 LOC</h3>
 
 <center><p>Picture 1. BPE Application</p><p>
 <img src="img/exe-bpe.svg" width=320>
 </center></p>
 
-<h3>Distributed Transactions Signature</h3>
+<h3>Distributed Transactions 2K LOC</h3>
 
 <center><p>Picture 1. XA Application</p><p>
 <img src="img/exe-xa.svg" width=520>
@@ -194,16 +258,20 @@
 
 <h3>Purpose</h3>
 
-<p>Compact, adequate and precise typed executional environment for the OSI stack.</p>
+<p>Compact, adequate and precise typed executional environment for the OSI stack.
+   Compact enought for quick check. Adequate enough to theorethical models.</p>
 
 <h3>Result</h3>
 
 <p>The end result of the project is a complex thing that should in its fullness consist of:</p>
 
-<ul><li>Meta-language, languages and protocols</li>
+<ul><li>Virtual Machine for Xen</li>
+    <li>Exe meta language
+    <li>Application Domain Languages</li>
+    <li>Protocols</li>
     <li>Tools</li>
-    <li>Types and frameworks</li>
+    <li>Types and Frameworks</li>
     <li>Code</li>
-    <li>Documentation</li>
+    <li>Documentation with Search</li>
     <li>Success Stories</li>
     </ul>
