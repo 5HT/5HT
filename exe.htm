@@ -28,7 +28,10 @@
 
 <p>Creation of minimalistic concept of executional environment and frameworks based on:</p>
 
-   <ul><li>type-theory</li>
+   <ul><li>type theory</li>
+       <li>temporal logic</li>
+       <li>linear algebra</li>
+       <li>mass service</li>
        <li>process calculus</li>
        <li>messaging language</li></ul>
 
@@ -43,7 +46,60 @@
 
    <ul><li>all OSI levels</li></ul>
 
-<h2>Being first to be adequate and precise</h2>
+
+<h2>Behavior of Time Series</h2>
+
+<p>According to TLA+ language behaviors is the historical sequence of states.
+   This is the basic representation of process protocols, iterators and
+   other chain based data. For statistical software like R or Julia you
+   also need to provide your data as a time series of some state. Seems like
+   treating any data as arrays of records is the best way to handle it.
+   The fact that the event stream has a constant record in its base
+   us to the domain of monoidal actions.</p>
+
+   <p>The other goodie about recorded event stream is that system
+      can be replayed starting from initial system state similar to how it's happens
+      in log-based replicated databases.
+      This opening the space to distributed consistent transactions streams
+      such as CR&nbsp;and&nbsp;TPS.</p>
+
+<center><p>Recorded Event Stream</p><p>
+<img src="img/exe-ev.svg" width=400>
+</center></p>
+
+
+<p><center>
+states per feed per day<br>
+states monthly<br>
+states per seconds<br>
+latency<br>
+capacity<br>
+</center></p>
+
+<p>The iteration of system or protocol messages is taken as recorded
+   behavior of the system. The iteration of data messages is taken as
+   persistent feeds. The system itself consist of different protocol
+   bands which are tuples definitions. These protocol bands called
+   applications and the overall system state is just zip of protocol
+   bands which are given in application band signature list.</p>
+
+<h2>Linearizability</h2>
+
+<p>Linearizability is a key feature in one to many relation, storing the sequences,
+   iterators and execution logs. Vector of two elements can encode binary trees
+   and confluent case — lists.
+   The main trick is the lists is best to encode the sequence of execution,
+   data parameters, code itself, and are easy to store in KV stores.
+   The linear nature of executions helps in such protocols as XA, Chain
+   Replication and RETE matching.
+   The lists are also a foundation to virtual machine's messaging queues
+   and other core data structures.</p>
+
+<center><p>Iterator over Chain</p><p>
+<img src="img/exe-feed.svg" width=400>
+</center></p>
+
+<h2>Lightweight Unikernel Environments</h2>
 
 <p>During the years various computer systems designs were changed and not
    all good theories were met with good implementations. From the ancient
@@ -52,9 +108,10 @@
    platforms like managed object-oriented CLR, functional
    Haskell and Erlang. At the base however you still observe UNIX or Windows&nbsp;NT
    based executional environments which is far from being verifiable and correct
-   moreoverr it consume more power because of layering the abstractions.
+   moreover they consume more power because of layering the abstractions.
    Languages like Erlang, Haskell and OCaml are most
-   suited for the further eveloving of correctness and soundess mania.</p>
+   suited for the further eveloving of correctness and provability. They provide
+   LING, HaLVM and Mirage lightweight unikernels respectively.</p>
 
 <p>If you ask me to find other words to describe this work I would say
    that this work is an attempt to build close to theoretical adequate and precise
@@ -90,7 +147,7 @@
     <li>Business and Banking industry</li>
     <li>WebSocket and IoT</li></ul>
 
-<h2>Constructing the Language</h2>
+<h2>Constructing the Specfication Language</h2>
 
 <h3>Characteristics</h3>
 
@@ -102,16 +159,42 @@
 • Amenability to formal proofs.<br>
 </p>
 
-<h3>Atoms</h3>
+<h3>Exe Legend and Petri Process sample</h3>
+
+<p>We will extent Petri nets graphical language alphabet with several letters up to seven.
+   This language preserve message-passing semanthics along with core primitives
+   such as <b>client</b> or <b>server</b> process, <b>feed</b> chains or indexed <b>tables</b> (B+,B*).
+   We will use this language also to define the signatures of top-level applications.
+   </p>
+
+<center>
+<img style="align:float;" src="img/exe-legend.svg" height=300><img style="margin-left:200px;align:float;"src="img/exe-proc.svg" height=300>
+</center>
+
+<h3>Executive Machine</h3>
+
+<p>
+<b>action</b> is the piece of code applied to message using pattern matching.<br>
+<b>message</b> is the tuple or record that defines a protocol.<br>
+<b>client</b> is the true customer of the system who is using service on daily basis.<br>
+<b>server</b> is the process nicely scheduled by the system.<br>
+<b>feed</b> is the <b>server</b> managed chain of <b>messages</b>.<br>
+<b>table</b> is the <b>ixset</b> or <b>ets</b> based queriable tables.
+</p>
+
+<h3>Core</h3>
 
 <code>
 
          I = init/1
          T = term/1
-  Elements = html body h1 div br table head meta link ...
-     Field = binary | integer | list | tuple | atom |
-             date | text | input | calendar | select | option.
-     Event = info/3 | proc/1 | event/1 | action/2 | match/2 | threshold/1 | tx/7.
+   Element = html | body | h1 | div | br | table | head ...
+     Field = binary | integer | list | tuple | atom | input | option.
+     Event = 3 info
+           | 1 proc
+           | 1 event
+           | 2 action
+           | 7 tx.
 </code>
 
 <h3>Types</h3>
@@ -138,82 +221,93 @@
         Tx = { Record,  { Account, Account },   Time, Money }.
 </code>
 
-<h3>Protocols</h3>
+<h3>Categories</h3>
+
+<code>
+
+       App = { M, S, I, T, E, spawn, push, pull }
+           : Customer
+           | Proc
+           | Feed.
+</code>
+
+<code>
+        Еv = { M, P, T, C  }
+           : Event
+           | Message
+           | Entry
+           | Tx.
+
+</code>
+
+
+
+<h3>Protocol Bands</h3>
 
 <table>
 <tr valign=top>
 <td>
 <code>
-     {io,_,_}
-     {client,_}
-     {server,_}
-     ftp/11
+ N2O = 2 io
+     | 1 client
+     | 1 server
+     | 8 ftp
 </code>
 </td>
 <td>
 <code>
-     {get,_}
-     {get,_,_}
-     {put,_,_}
-     {delete,_,_}
+ KVS = 2 get
+     | 2 put 
+     | 1 add
+     | 1 remove
 </code>
 </td>
 <td>
 <code>
-     process/15
-     {event,_}
-     {amend,_}
-     {complete,_}
+ BPE = 15 process
+     |  1 event
+     |  1 amend
+     | 11 complete
 </code>
 </td>
 <td>
 <code>
-     {sub,_,_}
-     {unsub,_}
-     {pub,_,_}
-     {msg,_,_,_}
+ MQS = 2 sub
+     | 1 unsub
+     | 2 pub
+     | 3 msg
 </code>
 </td>
 </tr></table>
 
-<h3>Classes</h3>
+
+
+<!--h3>Operational Semantic</h3>
 
 <code>
-
-       App = { M, S, I, T, E, spawn, push, pull } : Customer, Proc, Feed.
-        Еv = { M, P, T, C  } : Event, Message, Entry, Tx.
-
-      List = Tuple/1, {[L]}: list of L
-      Feed = Tuple/2, {[L],P}: process with list
-        Db = Tuple/3, {[S],[T],[F]}: seq, tables, feeds
-       Doc = Tuple/4, fields, sections, buttons, task
-       FTP = Tuple/11
-      Proc = Tuple/15
-
+    | #state { id = 1 }
+    | #state { id = 2 }
+    | #state { id = 3 }
 </code>
 
-<h3>Exe Legend and Petri Process sample</h3>
+<h3>Folds</h3>
 
-<p>We will extent Petri nets graphical language alphabet with several letters up to seven.
-   This language preserve message-passing semanthics along with core primitives
-   such as <b>client</b> or <b>server</b> process, <b>feed</b> chains or indexed <b>tables</b> (B+,B*).
-   We will use this language also to define the signatures of top-level applications.
-   </p>
+<code>
+    [String|List] = Params
 
-<center>
-<img style="align:float;" src="img/exe-legend.svg" height=300><img style="margin-left:200px;align:float;"src="img/exe-proc.svg" height=300>
-</center>
+    par X {C,R} atom X -> {[],    [{X,C}|R]};
+    par X {C,R} false  -> {[X|C], R}.
 
-<p>
-<b>action</b> is the piece of code, process pattern matching.<br>
-<b>message</b> is the tuple or record that defines a protocol.<br>
-<b>client</b> is the true customer or user of the system who is using the service on daily basis.<br>
-<b>server</b> is the <b>gen_server</b> or other process nicely managed by the system.<br>
-<b>feed</b> is the <b>server</b> managed chain of <b>messages</b>.<br>
-<b>table</b> is the <b>ixset</b> or <b>ets</b> based queriable tables.
-</p>
+    run {Fun,Arg} []  -> errors Profile:Fun Arg;
+    run {Fun,Arg} Err -> {error,Err}.
 
-<h2>Applications Signatures</h2>
+    any {error,_} flatten fold $ run [] fold par {[],[]} map atomize Params.
+</code-->
+
+
+
+
+<h2>Application Band Signatures</h2>
 
 <h3>Roster</h3>
 
@@ -267,13 +361,13 @@
 
 <p>The end result of the project is a complex thing that should in its fullness consist of:</p>
 
-<ul><li>Virtual Machine for Xen</li>
+<ul><li>Ericsson BEAM or Cloudozer LING Virtual Machine</li>
     <li>Exe meta language
     <li>Application Domain Languages</li>
     <li>Protocols</li>
     <li>Tools</li>
     <li>Types and Frameworks</li>
-    <li>Code</li>
-    <li>Documentation with Search</li>
+    <li>Synrc Sources</li>
+    <li>Documentation with Full-text Search</li>
     <li>Success Stories</li>
     </ul>
