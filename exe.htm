@@ -17,7 +17,7 @@
 <div class=app>
 
 <div align=right>FROM: 5HT<br>
-                   TO: #BPE<br>
+                   TO: PUBLIC<br>
                  DATE: 1 OCT 2015</div>
 
 <h2>Exe Language</h2>
@@ -118,7 +118,7 @@ capacity<br>
    executional environment that is easy to be verified and managed,
    encoded in most effective way, optimized by defition and construction,
    that relies close to hardware and provides top level modern
-   software language acess in Erlang.</p>
+   software language access in Erlang.</p>
 
 <h2>Satisfaction Landscape</h2>
 
@@ -244,8 +244,21 @@ capacity<br>
 
 <h3>Protocol Bands</h3>
 
-<table>
+<table cellspacing=10>
+<tr><td>2005</td>
+    <td>2013</td>
+    <td>2013</td>
+    <td>2015</td></tr>
 <tr valign=top>
+<td bgcolor="#f5f5f5">
+<code>
+ BPE = 15 process
+     |  1 event
+     |  1 amend
+     | 11 complete 
+
+</code>
+</td>
 <td>
 <code>
  N2O = 2 io
@@ -260,14 +273,6 @@ capacity<br>
      | 2 put 
      | 1 add
      | 1 remove
-</code>
-</td>
-<td>
-<code>
- BPE = 15 process
-     |  1 event
-     |  1 amend
-     | 11 complete
 </code>
 </td>
 <td>
@@ -309,17 +314,13 @@ capacity<br>
 
 <h2>Application Band Signatures</h2>
 
-<h3>Roster</h3>
 
-<center><p>Picture 1. Chat Application</p><p>
-<img src="img/exe-chat.svg" width=600>
+<h3>Business Process</h3>
+
+<center><p>Picture 1. BPE Application</p><p>
+<img src="img/exe-bpe.svg" width=320>
 </center></p>
 
-<h3>Message Queue</h3>
-
-<center><p>Picture 1. One-to-one and one-to-many channels with coordination tables</p><p>
-<img src="img/exe-mq.svg" width=420>
-</center></p>
 
 <h3>Application Server</h3>
 
@@ -333,10 +334,16 @@ capacity<br>
 <img src="img/exe-store.svg" width=400>
 </center></p>
 
-<h3>Business Process</h3>
+<h3>Message Queue</h3>
 
-<center><p>Picture 1. BPE Application</p><p>
-<img src="img/exe-bpe.svg" width=320>
+<center><p>Picture 1. One-to-one and one-to-many channels with coordination tables</p><p>
+<img src="img/exe-mq.svg" width=420>
+</center></p>
+
+<h3>Roster</h3>
+
+<center><p>Picture 1. Chat Application</p><p>
+<img src="img/exe-chat.svg" width=600>
 </center></p>
 
 <h3>Distributed Transactions</h3>
