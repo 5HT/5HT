@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="383px" height="550px" viewBox="0 0 383 550" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg width="358px" height="550px" viewBox="0 0 358 550" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.1 (12002) - http://www.bohemiancoding.com/sketch -->
     <title>Legend</title>
     <desc>Created with Sketch.</desc>
@@ -19,8 +19,8 @@
                 <tspan x="98.9026237" y="203.868908">t, table</tspan>
             </text>
             <rect id="Rectangle-3-Copy-13" stroke="#979797" fill="#D8D8D8" sketch:type="MSShapeGroup" x="15.6378755" y="98.1056188" width="36.4213447" height="36.4830851"></rect>
-            <text id="m,-message" sketch:type="MSTextLayer" font-family="Geometria" font-size="52" font-weight="260" fill="#000000">
-                <tspan x="91.0766307" y="127.336069">m, message</tspan>
+            <text id="m,-record" sketch:type="MSTextLayer" font-family="Geometria" font-size="52" font-weight="260" fill="#000000">
+                <tspan x="91.0766307" y="127.336069">m, record</tspan>
             </text>
             <text id="f,-feed" sketch:type="MSTextLayer" font-family="Geometria" font-size="52" font-weight="260" fill="#000000">
                 <tspan x="103.076631" y="292.766946">f, feed</tspan>

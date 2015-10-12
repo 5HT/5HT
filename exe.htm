@@ -193,15 +193,23 @@ capacity<br>
 <img style="align:float;" src="img/exe-legend.svg" height=300><img style="margin-left:200px;align:float;"src="img/exe-proc.svg" height=300>
 </center>
 
-<h3>Exe Virtual Machine</h3>
+<h3>Virtual Machine</h3>
 
 <p>
 <b>action</b> is the piece of code applied to message using pattern matching.<br>
-<b>message</b> is the tuple or record that defines a protocol.<br>
+<b>record</b> is the tuple that defines a protocol.<br>
 <b>client</b> is the true customer of the system who is using service on daily basis.<br>
 <b>server</b> is the process nicely scheduled by the system.<br>
-<b>feed</b> is the <b>server</b> managed chain of <b>messages</b>.<br>
+<b>feed</b> is the <b>server</b> managed list of records.<br>
 <b>table</b> is the <b>ixset</b> or <b>ets</b> based queriable tables.
+</p>
+
+<h3>Applications</h3>
+
+<p>
+<b>app</b> is the web clients monoidal state machine.<br>
+<b>proc</b> is the oriented graph monoidal executional engine.<br>
+<b>store</b> is the 2-category key-value database.<br>
 </p>
 
 <h3>Core</h3>
@@ -234,7 +242,7 @@ capacity<br>
    Account = { Txs  }  | Customer.
     Record = { Fields  }.
      Table = { Fields  }.
-  Database = { Tables, Feeds, Generators }.
+     Store = { Tables, Feeds, Generators }.
      Chats = { Public, Privates }.
   Document = { Fields, Sections, Buttons, Task }.
      Event = { Message, { Source, Target },     Time, Topic }.
@@ -339,7 +347,7 @@ capacity<br>
 
 <h3>Business Process</h3>
 
-<center><p>Picture 1. BPE Application</p><p>
+<center><p>Picture 1. BPE Application <b>1</b> Category</p><p>
 <img src="img/exe-bpe.svg" width=320>
 </center></p>
 
