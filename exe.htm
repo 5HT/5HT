@@ -17,7 +17,7 @@
 <div class=app>
 
 <div align=right>FROM: 5HT<br>
-                   TO: PUBLIC<br>
+                   TO: PRIVATE<br>
                  DATE: 1 OCT 2015</div>
 
 <h2>Exe Language</h2>
@@ -68,6 +68,23 @@
 
    <ul><li>all OSI levels</li></ul>
 
+<h2>Linearizability</h2>
+
+<p>Linearizability is a key feature in one to many relation, storing the sequences,
+   iterators and execution logs. Vector of two elements can encode binary trees
+   and confluent case — lists.</p>
+
+
+<p>The main trick is the lists is best to encode the sequence of execution,
+   data parameters, code itself, and are easy to store in KV stores.
+   The linear nature of executions helps in such protocols as XA, Chain
+   Replication and RETE matching.
+   The lists are also a foundation to virtual machine's messaging queues
+   and other core data structures.</p>
+
+<center><p>Iterator over Chain</p><p>
+<img src="img/exe-feed.svg" width=400>
+</center></p>
 
 <h2>Behavior of Time Series</h2>
 
@@ -89,14 +106,11 @@
 <img src="img/exe-ev.svg" width=400>
 </center></p>
 
+<code>
+                               Λ : ⊗ Ι Λ Μ Ο Σ
+                                 | Ξ
 
-<p><center>
-states per feed per day<br>
-states monthly<br>
-states per seconds<br>
-latency<br>
-capacity<br>
-</center></p>
+</code>
 
 <p>The iteration of system or protocol messages is taken as recorded
    behavior of the system. The iteration of data messages is taken as
@@ -105,21 +119,46 @@ capacity<br>
    applications and the overall system state is just zip of protocol
    bands which are given in application band signature list.</p>
 
-<h2>Linearizability</h2>
 
-<p>Linearizability is a key feature in one to many relation, storing the sequences,
-   iterators and execution logs. Vector of two elements can encode binary trees
-   and confluent case — lists.
-   The main trick is the lists is best to encode the sequence of execution,
-   data parameters, code itself, and are easy to store in KV stores.
-   The linear nature of executions helps in such protocols as XA, Chain
-   Replication and RETE matching.
-   The lists are also a foundation to virtual machine's messaging queues
-   and other core data structures.</p>
 
-<center><p>Iterator over Chain</p><p>
-<img src="img/exe-feed.svg" width=400>
-</center></p>
+
+<h2>Algebraїc Approach</h2>
+
+<p>By using algebraic language we could describe linearized process with semgroup
+actions, which was previsous successfully used for modeling FSM automatas.</p>
+
+<code>
+    Α : Σ · Φ → Φ         action protocol state ->  state
+    Φ : ⊗ Λ Σ                             state = { history,  protocol }
+    Λ : ⊗ Σ Φ Λ                         history = { protocol, state,   history }
+      | Ξ                                       | []
+    Σ : ⊗ message _                    protocol = { message, _ }
+      | ⊗ event   _                             | { event,   _ }
+      | ⊗ call    _                             | { call,    _ }
+      | Ξ                                       | []
+</code>
+
+<h3>Inversable Actions</h3>
+
+<p>Having reversavle function will allow us to reconstruct
+the state of the process, which is usually much bigger than a messages,
+on only by direct function but also by inverse function. Natural support
+for inversable actions provided by doubly-linked lists which also has a
+signature equals to binary trees.</p>
+
+<center><p>
+                  s<sub>t</sub>(p) = p(s<sub>t-1</sub>) — applying state to protocol function<br><br>
+               p<sup>-1</sup>(s<sub>t</sub>) = s<sub>t-1</sub> — reverse step
+</p></center>
+
+<code>
+                               Φ : ⊗<sup>i</sup></sub>
+                               Λ : ⊗ Ι Λ<sub>prev</sub> Λ<sub>next</sub> Φ
+                                 | Ξ
+
+</code>
+
+
 
 <h2>Lightweight Unikernel Environments</h2>
 
@@ -141,6 +180,177 @@ capacity<br>
    encoded in most effective way, optimized by defition and construction,
    that relies close to hardware and provides top level modern
    software language access in Erlang.</p>
+
+
+<h2>Constructing the Specfication Language</h2>
+
+<h3>Characteristics</h3>
+
+<blockquote>
+<p>
+    • Ease of expressing constructs arising in problems.<br>
+    • Suggestivity.<br>
+    • Ability to subordinate detail.<br>
+    • Economy.<br>
+    • Amenability to formal proofs.<br>
+    • Isomorphic Visual and Algebraic languages.<br>
+</p>
+</blockquote>
+
+<h3>Exe Legend and Petri Process sample</h3>
+
+<p>We will extent Petri nets graphical language alphabet with several letters up to seven.
+   This language preserve message-passing semanthics along with core primitives
+   such as <b>client</b> or <b>server</b> process, <b>feed</b> chains or indexed <b>tables</b> (B+,B*).
+   We will use this language also to define the signatures of top-level applications.
+   </p>
+
+<center>
+<img style="align:float;" src="img/exe-legend.svg" height=300><img style="margin-left:200px;align:float;"src="img/exe-proc.svg" height=300>
+</center>
+
+<h3>Virtual Machine</h3>
+
+<p>
+<b>action</b> is the piece of code applied to message using pattern matching.<br>
+<b>record</b> is the tuple that defines a protocol.<br>
+<b>client</b> is the true customer of the system who is using service on daily basis.<br>
+<b>server</b> is the process nicely scheduled by the system.<br>
+<b>feed</b> is the <b>server</b> managed list of records.<br>
+<b>table</b> is the <b>ixset</b> or <b>ets</b> based queryable tables.
+</p>
+
+<h3>Applications</h3>
+
+<p>
+<b>app</b> is the web clients monoidal state machine.<br>
+<b>proc</b> is the oriented graph monoidal executional engine.<br>
+<b>store</b> is the 2-category key-value database.<br>
+</p>
+
+<h3>Core</h3>
+
+<code>
+
+        io : io ⊗ _ ⊗ _
+     error : error ⊗ _
+        ok : ok ⊗ _
+         I : init
+         T : term
+   element : html | body | h1 | div | br | table | head ...
+     field : binary | integer | list | tuple | atom | input | option.
+  document : ⊗ task [ field ]
+       api : ⊗ I T spawn get push fold
+     proto : ⊗<sup>1</sup> event
+           | ⊗<sup>7</sup> tx
+           | ⊗<sup>3</sup> info
+           | ⊗<sup>2</sup> action
+</code>
+
+<h3>Types</h3>
+
+<code>
+
+        Λ<sub>Φ</sub> : ∏ Ι Λ<sub>p</sub> Λ<sub>n</sub> Φ
+           | Ξ
+
+     event : ⊗<sup>4</sup> τ Ω message ⊗<sup>2</sup> source  target
+        tx : ⊗<sup>4</sup> τ Ω payload ⊗<sup>2</sup> account account
+
+      flow<sup>1</sup> : ⊗<sup>2</sup> task task
+  customer<sup>3</sup> : ⊗<sup>4</sup> user      accounts Λ<sub>tx</sub>      api
+       app<sup>3</sup> : ⊗<sup>4</sup> proc            cx Λ<sub>event</sub>   api
+      feed<sup>3</sup> : ⊗<sup>4</sup>         containers Λ<sub>record</sub>  api
+      proc<sup>3</sup> : ⊗<sup>4</sup> tasks ⊗<sup>2</sup> task task Λ<sub>trace</sub>   api
+
+    roster : ⊗<sup>2</sup> Π chat<sub>i</sub> Π chat<sub>i</sub>
+    record : ⊗<sup>i</sup> field
+     table : ⊗<sup>i</sup> record
+     store : ⊗<sup>3</sup> Π feed<sub>i</sub> Π table<sub>i</sub> Π id<sub>i</sub>
+ relations : table record
+           | [ record ]
+           | feed container summary record
+
+</code>
+
+<h3>Protocol Bands</h3>
+
+<table cellspacing=10>
+<tr><td>2005</td>
+    <td>2013</td>
+    <td>2013</td>
+    <td>2015</td></tr>
+<tr valign=top>
+<td>
+<code>  BPE = ⊗<sup>1</sup> event _
+      | ⊗<sup>1</sup> push _
+      | Ξ
+
+</code>
+</td>
+<td>
+<code> N2O = ⊗<sup>2</sup> io _ _
+     | ⊗<sup>1</sup> ok _
+     | ⊗<sup>1</sup> error _
+     | ⊗<sup>1</sup> client _
+     | Ξ
+</code>
+</td>
+<td>
+<code> KVS = ⊗<sup>0</sup> get
+     | ⊗<sup>1</sup> put _
+     | ⊗<sup>1</sup> add _
+     | ⊗<sup>1</sup> remove _
+     | Ξ
+</code>
+</td>
+<td>
+<code> MQS = ⊗<sup>2</sup> sub _ _
+     | ⊗<sup>1</sup> unsub _
+     | ⊗<sup>2</sup> pub _ _
+     | ⊗<sup>3</sup> msg _ _ _
+     | Ξ
+</code>
+</td>
+</tr></table>
+
+<h2>Application Band Signatures</h2>
+
+<h3>Business Process</h3>
+
+<center><p>Picture 1. BPE Application <b>1</b> Category</p><p>
+<img src="img/exe-bpe.svg" width=320>
+</center></p>
+
+<h3>Database</h3>
+
+<center><p>Picture 1. KV Application <b>2</b> Category</p><p>
+<img src="img/exe-store.svg" width=400>
+</center></p>
+
+<h3>Application Server</h3>
+
+<center><p>Picture 1. N2O Application <b>1+1</b> Category</p><p>
+<img src="img/exe-n2o.svg" width=500>
+</center></p>
+
+<h3>Message Queue</h3>
+
+<center><p>Picture 1. One-to-one and one-to-many channels with coordination tables</p><p>
+<img src="img/exe-mq.svg" width=420>
+</center></p>
+
+<h3>Roster</h3>
+
+<center><p>Picture 1. Chat Application</p><p>
+<img src="img/exe-chat.svg" width=600>
+</center></p>
+
+<h3>Distributed Transactions</h3>
+
+<center><p>Picture 1. The example with VNode hashring of 64 on a cluster with 3 nodes</p><p>
+<img src="img/exe-xa.svg" width=520>
+</center></p>
 
 <h2>Satisfaction Landscape</h2>
 
@@ -168,219 +378,6 @@ capacity<br>
 <ul><li>Telecom and Internet</li>
     <li>Business and Banking industry</li>
     <li>WebSocket and IoT</li></ul>
-
-<h2>Constructing the Specfication Language</h2>
-
-<h3>Characteristics</h3>
-
-<p>
-• Ease of expressing constructs arising in problems.<br>
-• Suggestivity.<br>
-• Ability to subordinate detail.<br>
-• Economy.<br>
-• Amenability to formal proofs.<br>
-</p>
-
-<h3>Exe Legend and Petri Process sample</h3>
-
-<p>We will extent Petri nets graphical language alphabet with several letters up to seven.
-   This language preserve message-passing semanthics along with core primitives
-   such as <b>client</b> or <b>server</b> process, <b>feed</b> chains or indexed <b>tables</b> (B+,B*).
-   We will use this language also to define the signatures of top-level applications.
-   </p>
-
-<center>
-<img style="align:float;" src="img/exe-legend.svg" height=300><img style="margin-left:200px;align:float;"src="img/exe-proc.svg" height=300>
-</center>
-
-<h3>Virtual Machine</h3>
-
-<p>
-<b>action</b> is the piece of code applied to message using pattern matching.<br>
-<b>record</b> is the tuple that defines a protocol.<br>
-<b>client</b> is the true customer of the system who is using service on daily basis.<br>
-<b>server</b> is the process nicely scheduled by the system.<br>
-<b>feed</b> is the <b>server</b> managed list of records.<br>
-<b>table</b> is the <b>ixset</b> or <b>ets</b> based queriable tables.
-</p>
-
-<h3>Applications</h3>
-
-<p>
-<b>app</b> is the web clients monoidal state machine.<br>
-<b>proc</b> is the oriented graph monoidal executional engine.<br>
-<b>store</b> is the 2-category key-value database.<br>
-</p>
-
-<h3>Core</h3>
-
-<code>
-
-         I = init/1
-         T = term/1
-   Element = html | body | h1 | div | br | table | head ...
-     Field = binary | integer | list | tuple | atom | input | option.
-     Event = 3 info
-           | 1 proc
-           | 1 event
-           | 2 action
-           | 7 tx.
-</code>
-
-<h3>Types</h3>
-
-<code>
-        IO = { io, Eval, Data }.
-     Error = { error, _ }.
-        OK = { ok, _ }.
-      Flow = { Task, Task }.
-       App = { Proc,             State     I, T, Events,  spawn, push, pull }.
-      Proc = { { Tasks, Flows }, State,    I, T, Events,  spawn, push, pull }.
-      Feed = { summary,          Iterator, I, T, Events,  spawn, push, pull }.
-  Iterator = { Record,   next,   prev }.
-  Customer = { User,             Accounts, I, T, Events,  spawn, push, pull }.
-   Account = { Txs  }  | Customer.
-    Record = { Fields  }.
-     Table = { Fields  }.
-     Store = { Tables, Feeds, Generators }.
-     Chats = { Public, Privates }.
-  Document = { Fields, Sections, Buttons, Task }.
-     Event = { Message, { Source, Target },     Time, Topic }.
-   Message = { Payload, { User, User },         Time, Topic }.
-     Entry = { Payload, { User, User },         Time, Topic }.
-        Tx = { Record,  { Account, Account },   Time, Money }.
-</code>
-
-<h3>Categories</h3>
-
-<code>
-
-       App = { M, S, I, T, E, spawn, push, pull }
-           : Customer
-           | Proc
-           | Feed.
-</code>
-
-<code>
-        Еv = { M, P, T, C  }
-           : Event
-           | Message
-           | Entry
-           | Tx.
-
-</code>
-
-
-
-<h3>Protocol Bands</h3>
-
-<table cellspacing=10>
-<tr><td>2005</td>
-    <td>2013</td>
-    <td>2013</td>
-    <td>2015</td></tr>
-<tr valign=top>
-<td bgcolor="#f5f5f5">
-<code>
- BPE = 15 process
-     |  1 event
-     |  1 amend
-     | 11 complete 
-
-</code>
-</td>
-<td>
-<code>
- N2O = 2 io
-     | 1 client
-     | 1 server
-     | 8 ftp
-</code>
-</td>
-<td>
-<code>
- KVS = 2 get
-     | 2 put 
-     | 1 add
-     | 1 remove
-</code>
-</td>
-<td>
-<code>
- MQS = 2 sub
-     | 1 unsub
-     | 2 pub
-     | 3 msg
-</code>
-</td>
-</tr></table>
-
-
-
-<!--h3>Operational Semantic</h3>
-
-<code>
-    | #state { id = 1 }
-    | #state { id = 2 }
-    | #state { id = 3 }
-</code>
-
-<h3>Folds</h3>
-
-<code>
-    [String|List] = Params
-
-    par X {C,R} atom X -> {[],    [{X,C}|R]};
-    par X {C,R} false  -> {[X|C], R}.
-
-    run {Fun,Arg} []  -> errors Profile:Fun Arg;
-    run {Fun,Arg} Err -> {error,Err}.
-
-    any {error,_} flatten fold $ run [] fold par {[],[]} map atomize Params.
-</code-->
-
-
-
-
-<h2>Application Band Signatures</h2>
-
-
-<h3>Business Process</h3>
-
-<center><p>Picture 1. BPE Application <b>1</b> Category</p><p>
-<img src="img/exe-bpe.svg" width=320>
-</center></p>
-
-
-<h3>Application Server</h3>
-
-<center><p>Picture 1. N2O Application <b>1+1</b> Category</p><p>
-<img src="img/exe-n2o.svg" width=500>
-</center></p>
-
-<h3>Database</h3>
-
-<center><p>Picture 1. KV Application <b>2</b> Category</p><p>
-<img src="img/exe-store.svg" width=400>
-</center></p>
-
-<h3>Message Queue</h3>
-
-<center><p>Picture 1. One-to-one and one-to-many channels with coordination tables</p><p>
-<img src="img/exe-mq.svg" width=420>
-</center></p>
-
-<h3>Roster</h3>
-
-<center><p>Picture 1. Chat Application</p><p>
-<img src="img/exe-chat.svg" width=600>
-</center></p>
-
-<h3>Distributed Transactions</h3>
-
-<center><p>Picture 1. The example with VNode hashring of 64 on a cluster with 3 nodes</p><p>
-<img src="img/exe-xa.svg" width=520>
-</center></p>
 
 <h2>Research</h2>
 
