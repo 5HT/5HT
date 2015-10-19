@@ -228,48 +228,58 @@ signature equals to binary trees.</p>
 <b>store</b> is the 2-category key-value database.<br>
 </p>
 
-<h3>Core</h3>
+<h3>Atoms</h3>
 
 <code>
 
-        io : io ⊗ _ ⊗ _
-     error : error ⊗ _
-        ok : ok ⊗ _
-         I : init
-         T : term
-   element : html | body | h1 | div | br | table | head ...
-     field : binary | integer | list | tuple | atom | input | option.
-  document : ⊗ task [ field ]
-       api : ⊗ I T spawn get push fold
-     proto : ⊗<sup>1</sup> event
-           | ⊗<sup>7</sup> tx
-           | ⊗<sup>3</sup> info
-           | ⊗<sup>2</sup> action
+              io<sup>2</sup> : IO    ⊗ _ ⊗ _
+           error<sup>1</sup> : ERROR ⊗ _
+              ok<sup>1</sup> : OK    ⊗ _
+               I<sup>1</sup> : INIT
+               T<sup>1</sup> : TERM
+         element<sup>i</sup> : HTM | BOD | MET | H1  | TAB | ...
+           field<sup>i</sup> : BIN | INT | TUP | LST | OPT | SEL
+
+
 </code>
 
 <h3>Types</h3>
 
 <code>
 
-        Λ<sub>Φ</sub> : ∏ Ι Λ<sub>p</sub> Λ<sub>n</sub> Φ
-           | Ξ
+        tree<sup>1</sup> Λ<sup>2</sup><sub>Φ</sub> : Ξ | ⊗<sup>4</sup> Ι Λ<sub>p</sub> Λ<sub>n</sub> Φ
+        list<sup>1</sup> Λ<sup>1</sup><sub>Φ</sub> : Ξ | ⊗<sup>3</sup> Ι Λ<sub>n</sub> Φ
+      scalar<sup>0</sup> Λ<sup>0</sup><sub>Φ</sub> : Ξ | ⊗<sup>2</sup> Ι Φ
 
-     event : ⊗<sup>4</sup> τ Ω message ⊗<sup>2</sup> source  target
-        tx : ⊗<sup>4</sup> τ Ω payload ⊗<sup>2</sup> account account
+            Δ Λ<sup>0</sup> : ⊗<sup>0</sup>
+            Δ Λ<sup>n</sup> : Λ<sup>n-1</sup>
 
-      flow<sup>1</sup> : ⊗<sup>2</sup> task task
-  customer<sup>3</sup> : ⊗<sup>4</sup> user      accounts Λ<sub>tx</sub>      api
-       app<sup>3</sup> : ⊗<sup>4</sup> proc            cx Λ<sub>event</sub>   api
-      feed<sup>3</sup> : ⊗<sup>4</sup>         containers Λ<sub>record</sub>  api
-      proc<sup>3</sup> : ⊗<sup>4</sup> tasks ⊗<sup>2</sup> task task Λ<sub>trace</sub>   api
+              api : ⊗<sup>6</sup> I T spawn get push fold
 
-    roster : ⊗<sup>2</sup> Π chat<sub>i</sub> Π chat<sub>i</sub>
-    record : ⊗<sup>i</sup> field
-     table : ⊗<sup>i</sup> record
-     store : ⊗<sup>3</sup> Π feed<sub>i</sub> Π table<sub>i</sub> Π id<sub>i</sub>
- relations : table record
-           | [ record ]
-           | feed container summary record
+            proto : ⊗<sup>1</sup> event
+                  | ⊗<sup>2</sup> tx
+                  | ⊗<sup>2</sup> info
+                  | ⊗<sup>2</sup> action
+
+              ev<sup>3</sup> : ⊗<sup>4</sup> τ Ω message ⊗<sup>2</sup> source  target
+              tx<sup>3</sup> : ⊗<sup>4</sup> τ Ω payload ⊗<sup>2</sup> subsidiary beneficiary
+
+       relations : table<sup>1</sup> entry
+                 | [ entry ]
+                 | feed<sup>3</sup> user feed entry
+
+        customer<sup>3</sup> : ⊗<sup>4</sup> user      accounts Λ<sub>tx</sub>      api
+             app<sup>3</sup> : ⊗<sup>4</sup> proc            cx Λ<sub>ev</sub>      api
+            feed<sup>3</sup> : ⊗<sup>4</sup> user     container Λ<sub>record</sub>   api
+            proc<sup>3</sup> : ⊗<sup>4</sup> tasks ⊗<sup>2</sup> task task Λ<sub>history</sub>   api
+
+           store<sup>2</sup> : ⊗<sup>4</sup> Λ<sub>id_seq</sub> Λ<sub>tables</sub> ⊗<sup>i</sup> feed<sub></sub> api
+          roster<sup>0</sup> : ⊗<sup>3</sup> Λ<sub>public</sub> Λ<sub>private</sub> api
+
+          record<sup>i</sup> : ⊗<sup>i</sup>
+           table<sup>1</sup> : ⊗<sup>i</sup> record
+        document<sup>1</sup> : ⊗<sup>2</sup> task [ field ]
+
 
 </code>
 
