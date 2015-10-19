@@ -129,12 +129,12 @@ actions, which was previsous successfully used for modeling FSM automatas.</p>
 
 <code>
     Α : Σ · Φ → Φ         action protocol state ->  state
-    Φ : ⊗ Λ Σ                             state = { history,  protocol }
-    Λ : ⊗ Σ Φ Λ                         history = { protocol, state,   history }
+    Φ : Λ ⊗ Σ                             state = { history,  protocol }
+    Λ : Σ ⊗ Φ ⊗ Λ                       history = { protocol, state,   history }
       | Ξ                                       | []
-    Σ : ⊗ message _                    protocol = { message, _ }
-      | ⊗ event   _                             | { event,   _ }
-      | ⊗ call    _                             | { call,    _ }
+    Σ : message ⊗ _                    protocol = { message, _ }
+      | event   ⊗ _                             | { event,   _ }
+      | call    ⊗ _                             | { call,    _ }
       | Ξ                                       | []
 </code>
 
@@ -153,7 +153,7 @@ signature equals to binary trees.</p>
 
 <code>
                                Φ : ⊗<sup>i</sup></sub>
-                               Λ : ⊗ Ι Λ<sub>prev</sub> Λ<sub>next</sub> Φ
+                               Λ : ⊗ Ι Φ Λ<sub>next</sub> Λ<sub>prev</sub>
                                  | Ξ
 
 </code>
@@ -230,59 +230,47 @@ signature equals to binary trees.</p>
 
 <h3>Atoms</h3>
 
-<code>
-
-              io<sup>2</sup> : IO    ⊗ _ ⊗ _
+<code>              io<sup>2</sup> : IO    ⊗ _ ⊗ _
            error<sup>1</sup> : ERROR ⊗ _
               ok<sup>1</sup> : OK    ⊗ _
+
                I<sup>1</sup> : INIT
                T<sup>1</sup> : TERM
+           action : ⊗<sup>1</sup> EV
+                  | ⊗<sup>2</sup> TX
+                  | ⊗<sup>2</sup> INF
+                  | ⊗<sup>2</sup> ACT
+
          element<sup>i</sup> : HTM | BOD | MET | H1  | TAB | ...
            field<sup>i</sup> : BIN | INT | TUP | LST | OPT | SEL
+          record<sup>i</sup> : ⊗<sup>i</sup>
+           table<sup>1</sup> : ⊗<sup>i</sup> record
+        document<sup>1</sup> : ⊗<sup>i</sup> field
+          process : ⊗<sup>4</sup> [ task ] ⊗<sup>2</sup> task task [ document ]
 
 </code>
 
 <h3>Types</h3>
 
 <code>
-
-        tree<sup>1</sup> Λ<sup>2</sup><sub>Φ</sub> : Ξ | ⊗<sup>4</sup> Ι Λ<sub>p</sub> Λ<sub>n</sub> Φ
-        list<sup>1</sup> Λ<sup>1</sup><sub>Φ</sub> : Ξ | ⊗<sup>3</sup> Ι Λ<sub>n</sub> Φ
-      scalar<sup>0</sup> Λ<sup>0</sup><sub>Φ</sub> : Ξ | ⊗<sup>2</sup> Ι Φ
+     bintree<sup>1</sup> = Λ<sup>2</sup><sub>Φ</sub> : Ξ | ⊗<sup>4</sup> Ι Φ Λ<sub>n</sub> Λ<sub>p</sub>
+        list<sup>1</sup> = Λ<sup>1</sup><sub>Φ</sub> : Ξ | ⊗<sup>3</sup> Ι Φ Λ<sub>n</sub>
+      scalar<sup>0</sup> = Λ<sup>0</sup><sub>Φ</sub> : Ξ | ⊗<sup>2</sup> Ι Φ
 
             Δ Λ<sup>0</sup> : ⊗<sup>0</sup>
             Δ Λ<sup>n</sup> : Λ<sup>n-1</sup>
 
-              api : ⊗<sup>6</sup> I T spawn get push fold
-
-            proto : ⊗<sup>1</sup> event
-                  | ⊗<sup>2</sup> tx
-                  | ⊗<sup>2</sup> info
-                  | ⊗<sup>2</sup> action
-
+             api<sup>1</sup> : ⊗<sup>6</sup> I T action     spawn get push fold
               ev<sup>3</sup> : ⊗<sup>4</sup> τ Ω message ⊗<sup>2</sup> source  target
               tx<sup>3</sup> : ⊗<sup>4</sup> τ Ω payload ⊗<sup>2</sup> subsidiary beneficiary
 
        relations : table<sup>1</sup> entry
                  | [ entry ]
                  | feed<sup>3</sup> user feed entry
-
-        customer<sup>3</sup> : ⊗<sup>4</sup> user      accounts Λ<sub>tx</sub>      api
-             app<sup>3</sup> : ⊗<sup>4</sup> proc            cx Λ<sub>ev</sub>      api
-            feed<sup>3</sup> : ⊗<sup>4</sup> user     container Λ<sub>record</sub>   api
-            proc<sup>3</sup> : ⊗<sup>4</sup> tasks ⊗<sup>2</sup> task task Λ<sub>history</sub>   api
-
-           store<sup>2</sup> : ⊗<sup>4</sup> Λ<sub>id_seq</sub> Λ<sub>tables</sub> ⊗<sup>i</sup> feed<sub></sub> api
-          roster<sup>0</sup> : ⊗<sup>3</sup> Λ<sub>public</sub> Λ<sub>private</sub> api
-
-          record<sup>i</sup> : ⊗<sup>i</sup>
-           table<sup>1</sup> : ⊗<sup>i</sup> record
-        document<sup>1</sup> : ⊗<sup>2</sup> task [ field ]
-
-
 </code>
 
-<h3>Protocol Bands</h3>
+
+<h3>Bands</h3>
 
 <table cellspacing=10>
 <tr><td>2005</td>
@@ -322,6 +310,25 @@ signature equals to binary trees.</p>
 </code>
 </td>
 </tr></table>
+
+<h3>Processes</h3>
+
+<code>
+         session<sup>1</sup> : ⊗<sup>4</sup> Λ<sub>ev</sub>        cx        WEB    api
+            proc<sup>1</sup> : ⊗<sup>4</sup> Λ<sub>history</sub>    process   ACT    api
+         account<sup>1</sup> : ⊗<sup>4</sup> Λ<sub>tx</sub>        customer  TPS    api
+            feed<sup>1</sup> : ⊗<sup>4</sup> Λ<sub>iterator</sub> container   DBS    api
+</code>
+
+<h3>Applications</h3>
+
+<code>
+           store<sup>3</sup> : ⊗<sup>6</sup> Λ<sub>id_seq</sub> Λ<sub>table</sub> Λ<sub>feed</sub>   kvs   KVS     api
+          roster<sup>2</sup> : ⊗<sup>5</sup> Λ<sub>feed</sub>  [ Λ<sub>feed</sub> ] [ table ]  ROSTER  api
+             app<sup>2</sup> : ⊗<sup>5</sup> Λ<sub>session</sub> Λ<sub>proc</sub>    [ table ]  N2O     api
+            bank<sup>1</sup> : ⊗<sup>4</sup> Λ<sub>account</sub>         [ table ]  XA      api
+        workflow<sup>1</sup> : ⊗<sup>4</sup> Λ<sub>proc</sub>            [ table ]  BPE     api
+</code>
 
 <h2>Application Band Signatures</h2>
 
