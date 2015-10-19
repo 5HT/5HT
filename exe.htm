@@ -230,23 +230,24 @@ signature equals to binary trees.</p>
 
 <h3>Atoms</h3>
 
-<code>              io<sup>2</sup> : IO    ⊗ _ ⊗ _
-           error<sup>1</sup> : ERROR ⊗ _
+<code>
               ok<sup>1</sup> : OK    ⊗ _
-
-               I<sup>1</sup> : INIT
-               T<sup>1</sup> : TERM
-           action : ⊗<sup>1</sup> EV
-                  | ⊗<sup>2</sup> TX
-                  | ⊗<sup>2</sup> INF
-                  | ⊗<sup>2</sup> ACT
+           error<sup>1</sup> : ERROR ⊗ _
+              io<sup>2</sup> : IO    ⊗ _ ⊗ _
+          action<sup>2</sup> : EV     ⊗ _ ⊗ _
+                  | INIT   ⊗ _ ⊗ _
+                  | TERM   ⊗ _ ⊗ _
+                  | HANDLE ⊗ _ ⊗ _
+                  | ACTION ⊗ _ ⊗ _
 
          element<sup>i</sup> : HTM | BOD | MET | H1  | TAB | ...
            field<sup>i</sup> : BIN | INT | TUP | LST | OPT | SEL
           record<sup>i</sup> : ⊗<sup>i</sup>
-           table<sup>1</sup> : ⊗<sup>i</sup> record
+           table<sup>1</sup> : ⊗<sup>1</sup> record
         document<sup>1</sup> : ⊗<sup>i</sup> field
-          process : ⊗<sup>4</sup> [ task ] ⊗<sup>2</sup> task task [ document ]
+         process<sup>0</sup> : ⊗<sup>5</sup> action<sup>2</sup> [ task ] ⊗<sup>2</sup> task task [ document ]
+              cx<sup>3</sup> : ⊗<sup>3</sup> action<sup>2</sup> actions
+       container<sup>3</sup> : ⊗<sup>3</sup> action<sup>2</sup> top     count
 
 </code>
 
@@ -260,7 +261,7 @@ signature equals to binary trees.</p>
             Δ Λ<sup>0</sup> : ⊗<sup>0</sup>
             Δ Λ<sup>n</sup> : Λ<sup>n-1</sup>
 
-             api<sup>1</sup> : ⊗<sup>6</sup> I T action     spawn get push fold
+             api<sup>1</sup> : ⊗<sup>6</sup> spawn get push fold
               ev<sup>3</sup> : ⊗<sup>4</sup> τ Ω message ⊗<sup>2</sup> source  target
               tx<sup>3</sup> : ⊗<sup>4</sup> τ Ω payload ⊗<sup>2</sup> subsidiary beneficiary
 
@@ -326,8 +327,8 @@ signature equals to binary trees.</p>
            store<sup>3</sup> : ⊗<sup>6</sup> Λ<sub>id_seq</sub> Λ<sub>table</sub> Λ<sub>feed</sub>   kvs   KVS     api
           roster<sup>2</sup> : ⊗<sup>5</sup> Λ<sub>feed</sub>  [ Λ<sub>feed</sub> ] [ table ]  ROSTER  api
              app<sup>2</sup> : ⊗<sup>5</sup> Λ<sub>session</sub> Λ<sub>proc</sub>    [ table ]  N2O     api
-            bank<sup>1</sup> : ⊗<sup>4</sup> Λ<sub>account</sub>         [ table ]  XA      api
-        workflow<sup>1</sup> : ⊗<sup>4</sup> Λ<sub>proc</sub>            [ table ]  BPE     api
+           depot<sup>1</sup> : ⊗<sup>4</sup> Λ<sub>account</sub>         [ table ]  XA      api
+             act<sup>1</sup> : ⊗<sup>4</sup> Λ<sub>proc</sub>            [ table ]  BPE     api
 </code>
 
 <h2>Application Band Signatures</h2>
