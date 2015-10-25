@@ -13,7 +13,7 @@
             <path d="M651.5,139.5 L598.5,302.499998" id="Line-Copy-25" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
             <path d="M647.5,137.499998 L843.5,268.499998" id="Line-Copy-26" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
             <path d="M657.5,314.778119 L775.5,266.778119" id="Line-Copy-5" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
-            <ellipse id="Oval-5" stroke="#979797" stroke-width="2" sketch:type="MSShapeGroup" cx="752.5" cy="34.2781195" rx="36.5" ry="34"></ellipse>
+            <path d="M752.5,68.2781195 C772.658393,68.2781195 789,53.055801 789,34.2781195 C789,15.500438 772.658393,0.278119499 752.5,0.278119499 C732.341607,0.278119499 716,15.500438 716,34.2781195 C716,53.055801 732.341607,68.2781195 752.5,68.2781195 Z" id="Oval-5" stroke="#979797" stroke-width="2" sketch:type="MSShapeGroup"></path>
             <circle id="Oval-1-Copy-9" stroke="#979797" fill="#4990E2" sketch:type="MSShapeGroup" cx="595.5" cy="300.778119" r="14.5"></circle>
             <ellipse id="Oval-5-Copy-2" stroke="#979797" stroke-width="2" sketch:type="MSShapeGroup" cx="594" cy="300.778119" rx="36.5" ry="34"></ellipse>
             <circle id="Oval-1-Copy-11" stroke="#979797" fill="#4990E2" sketch:type="MSShapeGroup" cx="522.5" cy="65.2781195" r="14.5"></circle>
@@ -29,8 +29,8 @@
             <circle id="Oval-1-Copy-8" stroke="#979797" fill="#D8D8D8" sketch:type="MSShapeGroup" cx="584.5" cy="233.278119" r="14.5"></circle>
             <circle id="Oval-1-Copy-5" stroke="#979797" fill="#D8D8D8" sketch:type="MSShapeGroup" cx="774.5" cy="266.778119" r="14.5"></circle>
             <circle id="Oval-1-Copy-10" stroke="#979797" fill="#D8D8D8" sketch:type="MSShapeGroup" cx="659.5" cy="315.778119" r="14.5"></circle>
-            <text id="{[{c,[f]}],[{s,f},m]" sketch:type="MSTextLayer" font-family="Geometria" font-size="52" font-weight="260" fill="#000000">
-                <tspan x="0.5" y="85.0441195">{[{c,[f]}],[{s,f},m].</tspan>
+            <text id="{[{c,[f]}],[{s,f}],m" sketch:type="MSTextLayer" font-family="Geometria" font-size="52" font-weight="260" fill="#000000">
+                <tspan x="0.5" y="85.0441195">{[{c,[f]}],[{s,f}],m}.</tspan>
             </text>
             <text id="{typing,_}" sketch:type="MSTextLayer" font-family="Geometria" font-size="24" font-weight="260" fill="#6D6D6D">
                 <tspan x="119.566176" y="183.278119">{typing,_}</tspan>
