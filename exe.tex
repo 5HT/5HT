@@ -239,14 +239,13 @@
 
 \begin{center}
 \begin{tabular}{lcll}
-$A$         &:& $\Sigma   \times X \rightarrow X  $ &\\
-$X$         &:& $\Lambda  \times \Sigma           $ &\\
-$\Lambda$   &:& $\Sigma   \times X \times \Lambda $ &\\
-            &|& $\Xi                              $ &\\
-$\Sigma$    &:& $message$ & $\times\ \_$          \\
-            &|& $event$   & $\times\ \_$          \\
-            &|& $call$    & $\times\ \_$          \\
-            &|& $\Xi                              $ &\\
+$A$         &:& $\Sigma \times X \rightarrow X  $ &\\
+$X$         &:& $\Sigma \times \Lambda_{X} $ &\\
+            &|& $\bot                              $ &\\
+$\Sigma$    &:& $ok$    & $\times\ \_$          \\
+            &|& $error$ & $\times\ \_$          \\
+            &|& $io$    & $\times\ \_$          \\
+            &|& $\bot                              $ &\\
 \end{tabular}
 \end{center}
 
@@ -256,67 +255,259 @@ $\Sigma$    &:& $message$ & $\times\ \_$          \\
 
 \begin{center}
 \begin{lstlisting}
-                       action :   protocol  state -> state
-                        state = { history,  protocol }
-                      history = { protocol, state,   history }
+                       action : ( protocol, state ) -> state
+                        state : ( protocol, _____ )
                               | []
-                     protocol = { message, _ }
-                              | { event,   _ }
-                              | { call,    _ }
+                     protocol : ( ok,       _____ )
+                              | ( error,    _____ )
+                              | ( io,       _____ )
                               | []
 \end{lstlisting}
-
-\begin{prooftree}
-\AxiomC{$\Gamma,x:A\vdash M:B$}
-\UnaryInfC{$\Gamma\vdash\lambda x : A.M : A \rightarrow B$}
-\end{prooftree}
-
 \end{center}
 
-  \subsubsection*{Визначення процесу}
+  \subsubsection*{Протоколи повідомлень}
 
-\begin{center}
-\begin{tabular}{lllll}
-       $process^0$ &:& $action^2\ $ &$\times$& docs \\
-            $cx^3$ &:& $action^2\ $ &$\times$& env \\
-     $container^3$ &:& $action^2\ $ &$\times$& opt \\
-       $session^1$ &:& $\Lambda_{ev}$      &$\times$& cx \\
-          $proc^1$ &:& $\Lambda_{history}$ &$\times$& process \\
-          $feed^1$ &:& $\Lambda_{iterator}$&$\times$& container\\
+   Простір дій протоколу визначається сумою усіх можливих повідомлень.
+
+\vspace{0.5cm}
+
+\begingroup
+\parbox[l][][t]{0.33\textwidth}
+{
+\begin{tabular}{llll}
+$App$       &:& $init$    & $\times\ \_$            \\
+            &|& $client$  & $\times\ \_$          \\
+            &|& $replay$  & $\times\ \_$          \\
+            &|& $\bot$    & \\
 \end{tabular}
-\end{center}
-
-  \subsubsection*{Визначення категорії}
-
-\begin{center}
-\begin{tabular}{lll}
-           $store^3$ &:& $\times^3 \Lambda_{id_seq}\ \Lambda_{table}\ \Lambda_{feed}$ \\
-          $roster^2$ &:& $\times^2 \Lambda_{feed}\ [ \Lambda_{feed} ]$ \\
-             $app^2$ &:& $\times^2 \Lambda_{session}\ \Lambda_{proc}$ \\
-           $depot^1$ &:& $\times^1 \Lambda_{account}$ \\
-             $act^1$ &:& $\times^1 \Lambda_{proc}$ \\
+}
+\hspace{0.1cm}
+\parbox[l][][t]{0.33\textwidth}
+{
+\begin{tabular}{llll}
+$Store$     &:& $put$     & $\times\ \_$          \\
+            &|& $add$     & $\times\ \_$          \\
+            &|& $fold$    & $\times\ \_$         \\
+            &|& $\bot$    & \\
 \end{tabular}
-\end{center}
+}
+\hspace{0.1cm}
+\parbox[t][][t]{0.33\textwidth}
+{
+\begin{tabular}{llll}
+$Proc$      &:& $spawn$       & $\times\ \_$      \\
+            &|& $complete$    & $\times\ \_$         \\
+            &|& $run$         & $\times\ \_$          \\
+            &|& $\bot$        &
+\end{tabular}
+}
+\endgroup
 
-\newpage
-  \subsubsection*{Лінеаризація обчислень}
+  \subsubsection*{Лінійність обчислень}
 
-   Лінійність показала себе як особлива властивість цілого класу алгоритмів, як то
-   ланцюгова реплікація, протокол дво-фазового коміту, алгоритм RETE та інші. Списки
+   Списки
    є фундаментальними структурами та найпростішим рекурсивним алгебраїчним типом.
    Природа обчислень, як результат виконання процессів теж лінійна. Можна навіть визначити
    оператор похідної, як функтор, який для алгебраїчного типу процесу буде давати список,
    а для списку буде давати скаляр. Як було показано \cite{meseguer} мережі петрі,
    а значить і процеси є моноїдами які генерують лінійну послідовність подій.
 
-   \begin{center}
-   \includegraphics[scale=0.3]{img/exe-feed}
-   \end{center}
+%   \begin{center}
+%   \includegraphics[scale=0.3]{img/exe-feed}
+%   \end{center}
 
 \begin{center}
 \begin{tabular}{lcl}
 $\Delta \ \Lambda^0$         &:& $\times^0$ \\
 $\Delta \ \Lambda^{n}$       &:& $\Lambda^{n-1}$ \\
+\end{tabular}
+\end{center}
+
+
+\newpage
+  \subsubsection*{Лямбда числення}
+
+Для розробки нашої теорії ми застосуємо інтуітіоністську теорію типів Мартіна Льофа.
+Ця система типів буде застосовуватися для довення робочих теорем. База мови складає
+лябмда числення як внутрішня мова декартово-замкненої категорії. Лямбда числення в своїй
+основі скаладається з конструктора типу яка визначає функції та елімінатора -- аплікації
+функції до аргументу.
+
+\begingroup
+\parbox[t][][l]{0.40\textwidth}{
+
+\begin{prooftree}
+\AxiomC{$\Gamma\ x:A \vdash\ B$ }
+\UnaryInfC{$\Gamma \vdash fun\ x : A \rightarrow B$}
+\end{prooftree}
+
+}
+\hspace{0.1cm}
+\parbox[t][][r]{0.60\textwidth}{
+
+\begin{prooftree}
+\AxiomC{$\Gamma\ f:A \rightarrow B$ }
+\AxiomC{$\Gamma\ a:A$ }
+\BinaryInfC{$\Gamma \vdash f \ a : B$}
+\end{prooftree}
+
+}
+\endgroup
+
+  \subsubsection*{Алегбраїчні типи даних}
+
+Далі йде внутрішня мова алгебраїчних типів даних яка складається з суми та добутку,
+за допомогою яких контруюються суми-протоколи та кортежі-пакети, а також {\bf nil} типу-атому,
+яким зручно термінувати рекурсивні типи даних, такі як {\bf cons}.
+
+\begin{prooftree}
+\AxiomC{}
+\UnaryInfC{$\Gamma \vdash\ \bot$ }
+\end{prooftree}
+
+\begingroup
+\parbox[t][][l]{0.40\textwidth}{
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash\  a:A$ }
+\AxiomC{$\Gamma \vdash\  b:B$ }
+\BinaryInfC{$\Gamma \vdash\  (a,b) : A \times B$ }
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma \vdash\  a:A$ }
+\AxiomC{$\Gamma \vdash\  b:B$ }
+\BinaryInfC{$\Gamma\vdash a\ |\ b : A \otimes B$}
+\end{prooftree}
+
+}
+\hspace{0.1cm}
+\parbox[t][][r]{0.60\textwidth}{
+
+
+\begin{prooftree}
+\AxiomC{$\Gamma\ x: A \times B$ }
+\UnaryInfC{$\Gamma \vdash fst\ x : A$;
+           $\Gamma \vdash snd\ x : B$}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma\ x: A \otimes B$ }
+\UnaryInfC{$\Gamma \vdash inl\ x : A$;
+           $\Gamma \vdash inr\ x : B$}
+\end{prooftree}
+
+
+}
+\endgroup
+
+
+  \subsubsection*{Процеси і протоколи}
+
+Також ми анонсуємо процес як фундаменльний тип даних, подібний до функції але який здатний
+тритати певний стан у вигляді типа коротежа та бути здатним реагувати на повідомлення суми.
+
+\begin{prooftree}
+\AxiomC{$\Gamma\ \vdash \Sigma, X$ }
+\AxiomC{$\Gamma\ \vdash a : \Sigma \times X \rightarrow X$ }
+\BinaryInfC{$\Gamma \vdash {proc}_{\Sigma}\ a : \pi $}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma\ \vdash proc : \pi$ }
+\AxiomC{$\Gamma\ \vdash m : \Sigma$ }
+\BinaryInfC{$\Gamma \vdash {join}_{\Sigma}\ (m, proc) \rightarrow \Sigma$;
+            $\Gamma \vdash {async}_{\Sigma}\ (m, proc) \rightarrow \Sigma$}
+\end{prooftree}
+
+  \subsubsection*{Типи процесів}
+
+\begin{center}
+\begin{tabular}{lll}
+         $action$ &:& ${proc}_{Proc}\ (Proc\ |\ \Sigma) \times process \rightarrow process$ \\
+         $event$  &:& ${proc}_{App}\ (App\ |\ \Sigma) \times cx \rightarrow cx$ \\
+         $add$    &:& ${proc}_{Store}\ (Store\ |\ \Sigma) \times container \rightarrow container$ \\
+\end{tabular}
+\end{center}
+
+\newpage
+
+  \subsubsection*{Логіка та квантори}
+
+Далі йдуть квантори $\forall$ та $\exists$ які теж виражаються як конструкції типів:
+
+\begingroup
+\parbox[t][][l]{0.40\textwidth}{
+
+\begin{prooftree}
+\AxiomC{$\Gamma\ x: A \vdash B$ }
+\AxiomC{$\Gamma\ \vdash A$ }
+\BinaryInfC{$\Gamma\ \vdash \Pi (x : A) B $}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma\ x: A \vdash B$ }
+\AxiomC{$\Gamma\ \vdash A$ }
+\BinaryInfC{$\Gamma\ \vdash \Sigma (x : A) B $}
+\end{prooftree}
+
+}
+\hspace{0.1cm}
+\parbox[t][][r]{0.60\textwidth}{
+
+\begin{prooftree}
+\AxiomC{$\Gamma\ \vdash a : A$ }
+\AxiomC{$\Gamma\ x : A \vdash B$ }
+\AxiomC{$\Gamma\ b : B (x=a)$ }
+\TrinaryInfC{$\Gamma\ \vdash (a,b) : \Pi (x : A) B $}
+\end{prooftree}
+
+
+\begin{prooftree}
+\AxiomC{$\Gamma\ \vdash a : A$ }
+\AxiomC{$\Gamma\ x : A \vdash B$ }
+\AxiomC{$\Gamma\ b : B (x=a)$ }
+\TrinaryInfC{$\Gamma\ \vdash (a,b) : \Sigma (x : A) B $}
+\end{prooftree}
+
+}
+\endgroup
+
+\begingroup
+\parbox[t][][l]{0.40\textwidth}{
+
+\begin{prooftree}
+\AxiomC{$\Gamma\ \vdash x: A$ }
+\AxiomC{$\Gamma\ \vdash x': A$ }
+\BinaryInfC{$\Gamma\ \vdash Id_A (x,x')$}
+\end{prooftree}
+
+}
+\hspace{0.1cm}
+\parbox[t][][r]{0.60\textwidth}{
+
+\begin{center}
+\begin{tabular}{lll}
+рефлексивність &:& $Id_A(a,a)$ \\
+пістановка &:& $Id_A(a,a') \rightarrow B(x=a) \rightarrow B(x=a')$ \\
+%симетричність &:& $Id_A(a,b) \rightarrow Id_A(b,a)$  \\
+%транзитивність &:& $Id_A(a,b) \rightarrow Id_A(b,c) \rightarrow Id_A(a,c)$ \\
+%конгруентність &:& $(f: A \rightarrow B) \rightarrow Id_A(x,x') \rightarrow Id_B(f(x),f(x'))$ \\
+\end{tabular}
+\end{center}
+}\endgroup
+
+
+
+  \subsubsection*{Типи категорії}
+
+\begin{center}
+\begin{tabular}{lll}
+           $store^3$ &:& $\times^3 \Lambda_{id_seq}\ \Lambda_{table}\ \Lambda_{feed}$ \\
+          $roster^2$ &:& $\times^2 \Lambda_{feed}\ \Lambda^2_{feed}$ \\
+             $app^2$ &:& $\times^2 \Lambda_{session}\ \Lambda_{proc}$ \\
+           $depot^1$ &:& $\times^1 \Lambda_{account}$ \\
+             $act^1$ &:& $\times^1 \Lambda_{proc}$ \\
 \end{tabular}
 \end{center}
 
@@ -332,7 +523,7 @@ $\Delta \ \Lambda^{n}$       &:& $\Lambda^{n-1}$ \\
 \begin{tabular}{lcl}
 $X$         &:& $\times^{i}$ \\
 $\Lambda$   &:& $\times^{4} \ I \ X \ \Lambda_{next} \ \Lambda_{prev}$ \\
-            &|& $\Xi$ \\
+            &|& $\bot$ \\
 \end{tabular}
 \end{center}
 
@@ -410,7 +601,7 @@ $p-1(st) = st-1$ — обернена функція
 \begin{thebibliography}{9}
 
 \bibitem{}         Per Martin-Löf \textit{Intuitionistic Type Theory} 1984
-\bibitem{erl}      Joe Armstrong. \textit{Making reliable distributed systems in the presence of sodware errors} 2003.
+\bibitem{erl}      J.Armstrong. \textit{Making reliable distributed systems in the presence of sodware errors} 2003.
 \bibitem{comm}     Robin Milner. \textit{ A Calculus of Communicating Systems.} 1986.
 \bibitem{lawvere1} William Lawvere. \textit{Conceptual Mathematics.} 1997.
 \bibitem{pierce}   Benjamin Pierce. \textit{Basic category theory for computer scientist.} 2004.
@@ -425,6 +616,7 @@ $p-1(st) = st-1$ — обернена функція
 \bibitem{meseguer} Meseguer, Montanari.  \textit{Petri Nets Are Monoids} 1990.
 \bibitem{}         D.Mostrous, V.Vasconcelos \textit{Session Typing for a Featherweight Erlang} 1990.
 \bibitem{}         S.Marlow, P.Wadler \textit{A practical subtyping system for Erlang} 1997
+\bibitem{}         Philip Wadler \textit{Call-by-Value is Dual to Call-by-Name} 1000
 \end{thebibliography}
 
 \vspace{3\baselineskip}
