@@ -19,9 +19,7 @@
 
 \vspace{3cm}
 
-    \vspace{3cm}   {\Large \bf Формальні методи верифікованих середовищ \\
-                                  послідовних обчислень узгоджених та розподілених \\
-                                  паралельних систем\par}
+    \vspace{3cm}   {\Large \bf Система інженерія уніфікованої верифікації програмного забезпеченя}
     \vspace{3cm}   {\Large Максим Сохацький\par}
     \vspace{6cm}   {\Large Київський Політехнічний Інститут\\}
     \vspace{0.3cm} {\Large Листопад 2015}
@@ -121,11 +119,22 @@
    верифікувати виконання команд віртуальної машини та компіляцію цих команд в байт-код.
 
    \paragraph{}
-   Ми у цій роботі будем верифікувати системні бібліотеки для майбутньої верифікованої
+   {\bf Сховище даних.} У цій роботі ми будемо верифікувати системні бібліотеки для майбутньої верифікованої
    віртуальної машини. Зокрема значна увага буде приділятися послідовностям.
    Система персистентного зберігання послідовностей є ядром нашого
    обчислювального середовища. Властивості цієї підсистеми є основоположними
    для перевірки констистентності операційних логів розподілених базах данних.
+
+   \paragraph{}
+   {\bf Бізнес-процеси.} Тут ми дамо формальне визначення та верифікуємо
+   типи системи управління структурованими процесами або FSM автоматами.
+   Бізнес-процеси це зручний та ефективний спосіб упорядкування та формалізації
+   потоків даних. Ми зосередимося на найкомактніших алгебрах.
+
+   \paragraph{}
+   {\bf Сервер додатків.} Ця частина дасть відповіть на питання структуровання
+   протоколів та визначення універсального мультиплікатора. Буде описаний повний стек
+   протоколів для IoT та WebSocket додатків.
 
 \newpage
 \subsection{Об’єкт дослідження}
@@ -299,19 +308,22 @@ $\Sigma$    &:& $ok$    & $\times\ \_$          \\
 \end{lstlisting}
 \end{center}
 
+   \subsubsection*{Визначення процесу}
+
    Щоб формально визначини процес ми спочатку визначимо домени або типи,
    які фігурують при визначенні процесу.
+
 
 
 \begin{center}
 \begin{tabular}{lcl}
                 Errors &:& \#error\\
               Sucesses &:& \#history\\
-        ------------------------------\\
+        --------------------------&&------------------------------------------\\
            Environment &:& \#document | \#config\\
               Taxonomy &:& \#event    | \#task   | \#flow\\
                 Module &:& $\{ action : \Sigma \rightarrow P \rightarrow P \}$\\
-        ---------------------------------\\
+        --------------------------&&------------------------------------------\\
                Process &:& \#process\\
 \end{tabular}
 \end{center}
@@ -326,7 +338,9 @@ $\Sigma$    &:& $ok$    & $\times\ \_$          \\
 \begin{center}
 \begin{tabular}{lcl}
 $spawn$       &:& $\top\ \rightarrow\ P$\\
-$run$         &:& $\bot\ \rightarrow\ P$\\
+$run$         &:& $P\ \rightarrow\ \bot$\\
+$\bot$        &:& $\odot\ P\ \rightarrow\ P$\\
+$complete$    &:& $\otimes\ P\ \rightarrow\ P$\\
 \end{tabular}
 \end{center}
 
@@ -335,13 +349,6 @@ $run$         &:& $\bot\ \rightarrow\ P$\\
   Інша бінарна операція напівгрупи по відношеню до протокола та стану процеса $complete$
   передбачає виконання функції активності поточного кроку процесу, яка
   визначена в сигнатурі як $action: \Sigma\ \rightarrow\ P\ \rightarrow\ P$.
-
-\begin{center}
-\begin{tabular}{lcl}
-$\bot$        &:& $\odot\ P\ \rightarrow\ P$\\
-$complete$    &:& $\otimes\ P\ \rightarrow\ P$\\
-\end{tabular}
-\end{center}
 
   \subsubsection*{Алгебра процесів}
 
@@ -499,16 +506,25 @@ $Proc$      &:& $spawn$       & $\times\ \_$      \\
 тритати певний стан у вигляді типа коротежа та бути здатним реагувати на повідомлення суми.
 
 \begin{prooftree}
-\AxiomC{$\Gamma\ \vdash \Sigma, X$ }
-\AxiomC{$\Gamma\ \vdash a : \Sigma \times X \rightarrow X$ }
-\BinaryInfC{$\Gamma \vdash {proc}_{\Sigma}\ a : \pi $}
+\AxiomC{$\Gamma\ \vdash e : Error$ }
+\AxiomC{$\Gamma\ \vdash h : History$ }
+\BinaryInfC{$\Gamma \vdash module : a : \Sigma \times P \rightarrow P $}
+\AxiomC{$\Gamma\ \vdash env : Document$ }
+\AxiomC{ $\Gamma\ \vdash s : Event | Task | Flow$ }
+\TrinaryInfC{$\Gamma \vdash p : Process$}
 \end{prooftree}
 
 \begin{prooftree}
-\AxiomC{$\Gamma\ \vdash proc : \pi$ }
+\AxiomC{$\Gamma\ \vdash \Sigma, X$ }
+\AxiomC{$\Gamma\ \vdash p : Process$ }
+\BinaryInfC{$\Gamma \vdash {spawn}_{\Sigma}\ p : \pi $}
+\end{prooftree}
+
+\begin{prooftree}
+\AxiomC{$\Gamma\ \vdash spawn : \pi$ }
 \AxiomC{$\Gamma\ \vdash m : \Sigma$ }
-\BinaryInfC{$\Gamma \vdash {join}_{\Sigma}\ (m, proc) \rightarrow \Sigma$;
-            $\Gamma \vdash {async}_{\Sigma}\ (m, proc) \rightarrow \Sigma$}
+\BinaryInfC{$\Gamma \vdash {join}_{\Sigma}\ (m, spawn) \rightarrow \Sigma$;
+            $\Gamma \vdash {async}_{\Sigma}\ (m, spawn) \rightarrow \Sigma$}
 \end{prooftree}
 
 
@@ -574,7 +590,7 @@ $Proc$      &:& $spawn$       & $\times\ \_$      \\
 \begin{center}
 \begin{tabular}{lll}
   рефлексивність &:& $Id_A(a,a)$ \\
-  пістановка     &:& $Id_A(a,a') \rightarrow B(x=a) \rightarrow B(x=a')$ \\
+  підстановка     &:& $Id_A(a,a') \rightarrow B(x=a) \rightarrow B(x=a')$ \\
   симетричність  &:& $Id_A(a,b) \rightarrow Id_A(b,a)$  \\
   транзитивність &:& $Id_A(a,b) \rightarrow Id_A(b,c) \rightarrow Id_A(a,c)$ \\
   конгруентність &:& $(f: A \rightarrow B) \rightarrow Id_A(x,x') \rightarrow Id_B(f(x),f(x'))$ \\
