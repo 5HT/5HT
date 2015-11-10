@@ -62,11 +62,11 @@
    реактивні системи, та інші моделі напівгруп навколо певних типів -- протоколів взаємодії між процесами.
    Крім того такі послідовності подій піддаються статистичній обробці для визначення первних кластеризацій
    та інших кореляцій у просторі та часі, тому можна говорити про певні зручні, нормалізовані системи типів для
-   такого роду маніпуляцій.
+   такого роду маніпуляцій над даними.
 
    \paragraph{}
    Побудова розподілених та паралельних, тобто здатних виконуватися на багатьох машинах одночасно, та
-   узгоджених, тобто не блокуючих, а значить лінеаризованих систем управліннями процессами є кінцевим
+   узгоджених, тобто не блокуючих, а значить лінеаризованих систем управліннями процессами є побічним
    результатом який очікується від цієї роботи.
 
 \newpage
@@ -101,6 +101,31 @@
    адже недоведені або неверифіковані частини можуть вплинути на детермінованість а отже якість системи.
    Тому має велике значення забезпечення виконання системи якогомога ближче до аппаратного забезпечення.
    Таких напрямків побудови замкнених середовищ є всього три, на мовах Erlang, Haskell та OCaml.
+
+\newpage
+\subsection{Завдання дослідження}
+\vspace{0.5cm}
+   Тактична мета даної роботи -- це
+   реалізація усіх верхніх компонентів OSI на базі метамоделі Exe на мові Erlang.
+   Побудова зручної сучасної гнучкої верифікованої теорії
+   з компактною системою типів є основним завданням даного дослідження.
+
+   \begin{center}
+   \vspace{0.5cm}
+   \includegraphics[scale=0.15]{img/exe-res}
+   \end{center}
+
+   \paragraph{}
+   Верифікована система типів попереднього рівеня моделі OSI --- віртуальної машини
+   є предметом майбутніх досліджень. Адам Чіпала \cite{chipvm} показав як можно
+   верифікувати виконання команд віртуальної машини та компіляцію цих команд в байт-код.
+
+   \paragraph{}
+   Ми у цій роботі будем верифікувати системні бібліотеки для майбутньої верифікованої
+   віртуальної машини. Зокрема значна увага буде приділятися послідовностям.
+   Система персистентного зберігання послідовностей є ядром нашого
+   обчислювального середовища. Властивості цієї підсистеми є основоположними
+   для перевірки констистентності операційних логів розподілених базах данних.
 
 \newpage
 \subsection{Об’єкт дослідження}
@@ -179,19 +204,23 @@
    Будучи внутрішньою мовою декартово-замкненої категорії лямбда числення окрім змінних
    та констант у вигляді термів пропонує операції абстракції та аплікації, що визначає
    достатньо лаконічну та потужну структуру обчислень з функціями вищих порядків,
-   та метатпізаціями, такими як System F, яка була запропонована
+   та метатипизаціями, такими як System F, яка була запропонована
    вперше Робіном Мілнером в мові ML, та зараз присутня в більш складних,
-   таких як System F$\omega$ системах.
+   таких як System F$\omega$ системах Haskell та Scala. Наша результуюча система
+   типів буде тегована система типів мови Erlang.
 
    \subsubsection*{Темпоральна логіка}
    Темпоральна логіка як індуктивна теорія верифікації розподілених алгоритмів
    застосовується до доведення коррекності усіх нормалізованих підсистем. На основі
-   теорії  Леслі Лампорта\cite{tla}, за яку він отримав премію Тюрінга. \\
+   теорії  Леслі Лампорта\cite{tla}, за яку він отримав премію Тюрінга.
+   Елементи темпоральної логіки нам знадобляться для розробки теорій
+   розподілених у просторі та часі алгоритмів.\\
 
-   \subsubsection*{Інтуітіоністська теорія типів Мартіна Льофа}
+   \subsubsection*{Інтуітіоністична теорія типів Мартіна Льофа}
    Системи з залежними типами як верифікаційні математичні формальні моделі
    для доведення корректності. Система $\Sigma$ та $\Pi$ типів, як кванторів
-   існування та узагальнення.
+   існування та узагальнення. Систами Mizar, Coq, Agda, Lean. Ми будемо
+   використовувати саме
 
 \newpage
 \subsection{Предмет дослідження}
@@ -211,15 +240,16 @@
    \item Підвищити ефективність виконання
 \end{itemize}
 
-  Для цього ми визначаємо найбільш оптимальну модель потоку даних та функції для їх обробки,
-  використовуючи категоріальний підхід для опису протоколів та їх категорій.
+  Для забезпечення стратегії цієї роботи ми визначаємо найбільш оптимальну модель
+  потоку даних та функції для їх обробки, використовуючи алгебраїчний підхід
+  для опису протоколів та їх категорій.
 
 \begin{itemize}
-   \item Категоріальний погляд на протоколи процесів
-   \item Визначення характеристик нормалізованих структур
-   \item Побудова системи типів метамоделі
-   \item Розробка системи додатків на основі метамоделі
-   \item Впровадження та діагностика системи
+   \item Дослідження алгебраїчних структур середовища
+   \item Визначення характеристик нормалізованих та оптимальних структур
+   \item Побудова системи типів в автоматизованій системі доведення теорем
+   \item Розробка системи додатків на основі метамоделі на мові Erlang
+   \item Впровадження, діагностика та аналіз роботи системи
 \end{itemize}
 
    \paragraph{}
@@ -269,6 +299,84 @@ $\Sigma$    &:& $ok$    & $\times\ \_$          \\
 \end{lstlisting}
 \end{center}
 
+   Щоб формально визначини процес ми спочатку визначимо домени або типи,
+   які фігурують при визначенні процесу.
+
+
+\begin{center}
+\begin{tabular}{lcl}
+                Errors &:& \#error\\
+              Sucesses &:& \#history\\
+        ------------------------------\\
+           Environment &:& \#document | \#config\\
+              Taxonomy &:& \#event    | \#task   | \#flow\\
+                Module &:& $\{ action : \Sigma \rightarrow P \rightarrow P \}$\\
+        ---------------------------------\\
+               Process &:& \#process\\
+\end{tabular}
+\end{center}
+
+\newpage
+  \subsubsection*{Напівгрупа активностей}
+
+  Дана алгебраїчна модель визначає достатньо просту та визначену структуру.
+  Мета нашої структури забезпечити детермінованість послідовності,
+  її початковий елемент та термінальний. 
+
+\begin{center}
+\begin{tabular}{lcl}
+$spawn$       &:& $\top\ \rightarrow\ P$\\
+$run$         &:& $\bot\ \rightarrow\ P$\\
+\end{tabular}
+\end{center}
+
+  Одиниця напівгрупи
+  демонструється номінально як операція запиту поточного стану процеса.
+  Інша бінарна операція напівгрупи по відношеню до протокола та стану процеса $complete$
+  передбачає виконання функції активності поточного кроку процесу, яка
+  визначена в сигнатурі як $action: \Sigma\ \rightarrow\ P\ \rightarrow\ P$.
+
+\begin{center}
+\begin{tabular}{lcl}
+$\bot$        &:& $\odot\ P\ \rightarrow\ P$\\
+$complete$    &:& $\otimes\ P\ \rightarrow\ P$\\
+\end{tabular}
+\end{center}
+
+  \subsubsection*{Алгебра процесів}
+
+  Алгебра процесів визначає базові операції мультиплексування двох чи декількох
+  протоколів в рамках одного процесу (добуток), а також паралельного та повністю
+  ізольованого запуску включно зі стеком та областю памяті (сума) на
+  віртуальній машині.
+
+\begin{center}
+\begin{tabular}{lcl}
+$\oplus$   &:& $P \parallel P$\\
+$\otimes$  &:& $P \mid P$\\
+\end{tabular}
+\end{center}
+
+  \subsubsection*{Лінійність обчислень}
+
+   Списки
+   є фундаментальними структурами та найпростішим рекурсивним алгебраїчним типом.
+   Природа обчислень, як результат виконання процессів теж лінійна. Можна навіть визначити
+   оператор похідної, як функтор, який для алгебраїчного типу процесу буде давати список,
+   а для списку буде давати скаляр. Як було показано \cite{meseguer} мережі петрі,
+   а значить і процеси є моноїдами які генерують лінійну послідовність подій.
+
+%   \begin{center}
+%   \includegraphics[scale=0.3]{img/exe-feed}
+%   \end{center}
+
+\begin{center}
+\begin{tabular}{lcl}
+$\Delta \ \Lambda^0$         &:& $\times^0$ \\
+$\Delta \ \Lambda^{n}$       &:& $\Lambda^{n-1}$ \\
+\end{tabular}
+\end{center}
+
   \subsubsection*{Протоколи повідомлень}
 
    Простір дій протоколу визначається сумою усіх можливих повідомлень.
@@ -306,27 +414,6 @@ $Proc$      &:& $spawn$       & $\times\ \_$      \\
 \end{tabular}
 }
 \endgroup
-
-  \subsubsection*{Лінійність обчислень}
-
-   Списки
-   є фундаментальними структурами та найпростішим рекурсивним алгебраїчним типом.
-   Природа обчислень, як результат виконання процессів теж лінійна. Можна навіть визначити
-   оператор похідної, як функтор, який для алгебраїчного типу процесу буде давати список,
-   а для списку буде давати скаляр. Як було показано \cite{meseguer} мережі петрі,
-   а значить і процеси є моноїдами які генерують лінійну послідовність подій.
-
-%   \begin{center}
-%   \includegraphics[scale=0.3]{img/exe-feed}
-%   \end{center}
-
-\begin{center}
-\begin{tabular}{lcl}
-$\Delta \ \Lambda^0$         &:& $\times^0$ \\
-$\Delta \ \Lambda^{n}$       &:& $\Lambda^{n-1}$ \\
-\end{tabular}
-\end{center}
-
 
 \newpage
   \subsubsection*{Лямбда числення}
@@ -528,14 +615,6 @@ $p-1(st) = st-1$ — обернена функція
 \end{center}
 
 \newpage
-  \subsubsection*{Суми та ко-суми процесів}
-
-  Віртуальне середовище виконує моноїдальні процеси як одну велику суму.
-  Кожна така сума представляє собою віртуальну одиницю виконання -- віртуальну машину.
-  В нашій теорії нас будуть цікавити переважно категоріальні суми процесів.
-  Ко-суми чи добутки процесів представляють собою виконання функцій активності
-  в одном і тому самому процесі, перекриваючись всередині нього по протоколам.
-  Стан такого процесу розширюється як добуток станів.
 
 \subsection*{Віртуальна машина}
 
@@ -613,17 +692,6 @@ $p-1(st) = st-1$ — обернена функція
 
 
 \newpage
-\subsection{Завдання дослідження}
-\vspace{0.5cm}
-   Тактична мета даної роботи -- це
-   реалізація усіх верхніх компонентів OSI на базі метамоделі Exe на мові Erlang.
-   Побудова зручної сучасної гнучкої верифікованої теорії
-   з компактною системою типів є основним завданням даного дослідження.
-
-   \begin{center}
-   \vspace{0.5cm}
-   \includegraphics[scale=0.15]{img/exe-res}
-   \end{center}
 
 %\newpage
 \subsection{Мета дослідження}
@@ -650,24 +718,31 @@ $p-1(st) = st-1$ — обернена функція
 \newpage
 \begin{thebibliography}{9}
 
-\bibitem{lof}      Per Martin-Löf \textit{Intuitionistic Type Theory} 1984
-\bibitem{erl}      J.Armstrong. \textit{Making reliable distributed systems in the presence of sodware errors} 2003.
+\bibitem{lof}      Per Martin-Löf \textit{Intuitionistic Type Theory.} 1984
+\bibitem{erl}      J.Armstrong. \textit{Making reliable distributed systems in the presence of sodware errors.} 2003.
 \bibitem{comm}     Robin Milner. \textit{ A Calculus of Communicating Systems.} 1986.
-\bibitem{lawvere1} William Lawvere. \textit{Conceptual Mathematics.} 1997.
+\bibitem{lawvere}  William Lawvere. \textit{Conceptual Mathematics.} 1997.
 \bibitem{pierce}   Benjamin Pierce. \textit{Basic category theory for computer scientist.} 2004.
 \bibitem{mclane}   Сандерс Мак Лейн. \textit{Категории для работающего математика.} 2004.
-\bibitem{tla}      Leslie Lamport. \textit{Specifying Systems} 2004.
-\bibitem{barr1}    Michael Barr and Charles Wells. \textit{Toposes, Triples and Theories.} 2000.
-\bibitem{barr2}    Michael Barr and Charles Wells. \textit{Category Theory for Computing Science.} 1995.
-\bibitem{bakur}    И.Бакур, А.Деляну. \textit{Введение в теорию категори и функторов} 1972.
+\bibitem{tla}      Leslie Lamport. \textit{Specifying Systems.} 2004.
+\bibitem{barrtri}  Michael Barr and Charles Wells. \textit{Toposes, Triples and Theories.} 2000.
+\bibitem{barrcat}  Michael Barr and Charles Wells. \textit{Category Theory for Computing Science.} 1995.
+\bibitem{bakur}    И.Бакур, А.Деляну. \textit{Введение в теорию категори и функторов.} 1972.
 \bibitem{commpi}   Robin Milner. \textit{Communicating and Mobile Systems: The $\pi$-calculus.} 1999.
 \bibitem{polypi}   Robin Milner. \textit{The Polyadic $\pi$-Calculus: A Tutorial.} 1993.
 \bibitem{mass}     Коваленко. \textit{Теория Массового Обслуживания.} 1965.
-\bibitem{meseguer} Meseguer, Montanari.  \textit{Petri Nets Are Monoids} 1990.
-\bibitem{waddual}  Philip Wadler \textit{Call-by-Value is Dual to Call-by-Name} 1000
-\bibitem{seserl}   D.Mostrous, V.Vasconcelos \textit{Session Typing for a Featherweight Erlang} 1990.
-\bibitem{suberl}   S.Marlow, P.Wadler \textit{A practical subtyping system for Erlang} 1997
-\bibitem{upserl}   A.Lindgren \textit{A Prototype of a Soft Type System for Erlang} 1996
+\bibitem{meseguer} Meseguer, Montanari.  \textit{Petri Nets Are Monoids.} 1990.
+\bibitem{waddual}  Philip Wadler \textit{Call-by-Value is Dual to Call-by-Name.} 1000
+\bibitem{seserl}   D.Mostrous, V.Vasconcelos \textit{Session Typing for a Featherweight Erlang.} 1990.
+\bibitem{suberl}   S.Marlow, P.Wadler \textit{A practical subtyping system for Erlang.} 1997
+\bibitem{upserl}   A.Lindgren \textit{A Prototype of a Soft Type System for Erlang.} 1996
+\bibitem{mcbride}  C. McBride. \textit{Dependently Typed Func- tional Programs and their Proofs.} 1999
+\bibitem{mcbrider} C. McBride. \textit{The Derivative of a Regular Type is its Type of One-Hole Contexts.}
+\bibitem{schwarz}  C. Schwarzweller. \textit{Mizar Veri cation of Generic Algebraic Algorithms.} 1997
+\bibitem{mourael}  L.Moura., S.Kong \textit{Elaboration in Dependent Type Theory.} 1997
+\bibitem{coqhuet}  T.Coquand, G.Huet \textit{The Calculus of Constructions.} 1988
+\bibitem{lampax}   L.Lamport \textit{Paxos Made Simple.} 2001
+\bibitem{chipvm}   A.Chlipala \textit{Certified Programming with Dependent Types} 2015
 \end{thebibliography}
 
 \vspace{3\baselineskip}
