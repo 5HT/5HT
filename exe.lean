@@ -1,7 +1,6 @@
 import data.nat data.bool data.prod data.list
 namespace Exe open nat bool prod list classical
 
-      structure TIME  (A: Type) := mk :: (tim: A)
       structure OK    (A: Type) := mk :: (dat: A)
       structure ERROR (A: Type) := mk :: (dat: A)
       structure IO    (A: Type)
@@ -42,7 +41,7 @@ namespace Exe open nat bool prod list classical
                 mk :: (id:   nat)
                       (next: A)
                       (prev: A)
-                      (time: TIME nat)
+                      (time: A)
                       (cons: Π A: Type, A → Container A → Container A)
 
       structure ITER [class] (A: Type) :=
@@ -52,6 +51,7 @@ namespace Exe open nat bool prod list classical
                       (prev: A)
                       (time: T)
                       (cons: Π A: Type, A → Container A → Container A)
+
 
       check ITER.rec
       check @Iterator.cons
