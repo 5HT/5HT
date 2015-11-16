@@ -10,20 +10,19 @@ namespace Exe open nat bool prod sum list classical
                        | error
                        | io
 
-      -- application
+      -- app
 
-      structure n2o  (S : Type) (P: Type) :=
+      structure app  (S : Type) (P: Type) :=
                 (spawn  : P → S)
                 (run    : S → P)
                 (action : P → S → S)
 
       -- kvs
 
-      structure table     := (name: string) (attr: list string) (keys: list string)
+      structure table     := (name: string) (attr: list string) (keys: list string) (gen: ℕ)
       structure container := (table: table) (id: ℕ) (io: io) (size: ℕ)
       structure iterator  := (feed: container) (id: ℕ) (next: ℕ) (prev: ℕ)
       inductive direction := forward | backward
-      structure id_seq    := (thing: string) (id: ℕ)
 
       inductive kvs :=
                      | add: iterator → kvs
@@ -33,7 +32,6 @@ namespace Exe open nat bool prod sum list classical
 
       structure store :=
                 (sup: list iterator)
-                (seq: list id_seq)
                 (tab: list table)
                 (tx: Π (d: container) (d: iterator), iterator → container → container)
                 (action: Π (d: container), kvs → container → container)
@@ -69,11 +67,11 @@ namespace Exe open nat bool prod sum list classical
                 (spawn:  Π (t: process), process → process)
                 (action: Π (t: process), bpe → process → process)
 
-      check @proc.action
-      check @n2o.rec
-      check @store.action
-      check @table.mk
+      -- bundle
 
+      structure bundle :=
+                (application: proc)
+                (database: store)
 
 end Exe
 
