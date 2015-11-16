@@ -1,31 +1,29 @@
 import data.nat data.bool data.prod data.list data.sum
 namespace Exe open nat bool prod sum list classical 
 
-      -- application
-
-      structure n2o (S : Type) (P: Type) :=
-                (spawn  : P → S)
-                (run    : S → P)
-                (action : P → S → S)
-
       -- io
 
-      structure ok    := (val: Type)
-      structure error := (val: Type)
-      structure io    := (exe: Type) (val: Type)
+      structure ok    := (data: Type)
+      structure error := (data: Type)
+      structure io    := (code: Type) (data: Type)
       inductive proto := ok
                        | error
                        | io
 
+      -- application
+
+      structure n2o  (S : Type) (P: Type) :=
+                (spawn  : P → S)
+                (run    : S → P)
+                (action : P → S → S)
+
       -- kvs
 
-      structure container := (id: ℕ) (io: io) (size: ℕ)
+      structure table     := (name: string) (attr: list string) (keys: list string)
+      structure container := (table: table) (id: ℕ) (io: io) (size: ℕ)
       structure iterator  := (feed: container) (id: ℕ) (next: ℕ) (prev: ℕ)
-      structure table (T: Type) := (tab: T) (name: string) (attr: list string) (keys: list string)
-      structure id_seq          := (thing: string) (id: ℕ)
-      structure subscription    := (who: ℕ) (whom: ℕ) (how: Type)
-      structure user extends iterator := (names: list string) (surnames: list string)
       inductive direction := forward | backward
+      structure id_seq    := (thing: string) (id: ℕ)
 
       inductive kvs :=
                      | add: iterator → kvs
@@ -34,6 +32,10 @@ namespace Exe open nat bool prod sum list classical
                      | proto
 
       structure store :=
+                (sup: list iterator)
+                (seq: list id_seq)
+                (tab: list table)
+                (tx: Π (d: container) (d: iterator), iterator → container → container)
                 (action: Π (d: container), kvs → container → container)
 
       -- kv
@@ -63,6 +65,7 @@ namespace Exe open nat bool prod sum list classical
                      | proto
 
       structure proc :=
+                (sup: list process)
                 (spawn:  Π (t: process), process → process)
                 (action: Π (t: process), bpe → process → process)
 
