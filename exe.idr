@@ -2,23 +2,21 @@ module Exe
 import Prelude
 
     record Ok where
-           constructor MkOkey
+           constructor MkOk
            v: Type
 
     record Err where
-           constructor mkErr
+           constructor MkErr
            v: Type
 
     record Io where
-           constructor mkIo
-           fun: Type
-           val: Type
+           constructor MkIo
+           f: Type
+           v: Type
 
-    data Proto = Ok
-               | Error
-               | Io
+    data Proto = Ok | Err | Io
 
-    class App p s where
+    class App (p: Proto) (s: Type) where
        spawn: p -> s
        run: s -> p
        action: p -> s -> s
