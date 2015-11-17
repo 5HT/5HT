@@ -51,6 +51,7 @@ namespace Exe open nat bool prod sum list classical
       structure process
         extends iterator  := (env: list iterator)
                              (feed_id: ℕ)
+                             (io: io)
                              (taxonomy: prod (prod (list task) (list flow)) (list event))
 
       inductive bpe :=
