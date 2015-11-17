@@ -1,5 +1,8 @@
-import data.nat data.bool data.prod data.list data.sum
-namespace Exe open nat bool prod sum list classical 
+
+   import data.nat data.bool data.prod data.list data.sum
+          data.unit data.uprod data.tuple data.option
+
+   namespace Exe open nat bool prod sum list classical option
 
       -- io
 
@@ -21,8 +24,11 @@ namespace Exe open nat bool prod sum list classical
 
       structure table     := (name: string) (attr: list string) (keys: list string) (gen: ℕ)
       structure container := (table: table) (id: ℕ) (io: io) (size: ℕ)
-      structure iterator  := (feed: container) (id: ℕ) (next: ℕ) (prev: ℕ)
+      structure iterator  := -- (feed: container) 
+                             (id: ℕ) (next: ℕ) (prev: ℕ)
       inductive direction := forward | backward
+      structure person extends iterator
+      structure group  extends iterator := (names: list string)
 
       inductive kvs :=
                      | add: iterator → kvs
@@ -31,10 +37,24 @@ namespace Exe open nat bool prod sum list classical
                      | proto
 
       structure store :=
-                (sup: list iterator)
+                (sup: list container)
                 (tab: list table)
-                (tx: Π (d: container) (d: iterator), iterator → container → container)
-                (action: Π (d: container), kvs → container → container)
+                (calculation: iterator → container → container)
+                (action: kvs → container → container)
+
+      definition cal : iterator → container → container := λ x y, y
+      definition act : kvs → container → container := λ x y, y
+
+      definition next (big: iterator) : ℕ := match big with {| iterator, next := v |} := v end
+ 
+      check group
+      eval next (Exe.group.mk 0 0 0 nil)
+
+      check {| store, sup := nil,
+                      tab := nil,
+                      calculation := cal,
+                      action := act  |}
+      
 
       -- kv
 
