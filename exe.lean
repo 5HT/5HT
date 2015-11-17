@@ -1,98 +1,85 @@
 
-   import data.nat data.bool data.prod data.list data.sum
-          data.unit data.uprod data.tuple data.option
+      import data.nat data.bool data.prod data.list data.sum data.stream
+             data.unit data.uprod data.tuple data.option
+   namespace exe open nat bool prod sum list classical option stream
 
-   namespace Exe open nat bool prod sum list classical option
+      record app (P S: Type) := (spawn  : P → S)
+                                (run    : S → P)
+                                (action : P → S → S)
 
-      -- io
+  definition ids       := option ℕ
+      record table     := (name: string) (attr: list string) (keys: list string) (gen: ℕ)
+      record container := (top: ids) (size: ℕ)
+      record iterator  := (id: ids) (next: ids) (prev: ids)
+   inductive direction := forward | backward
 
-      structure ok    := (data: Type)
-      structure error := (data: Type)
-      structure io    := (code: Type) (data: Type)
-      inductive proto := ok
-                       | error
-                       | io
+      record person extends iterator := (names: list string)
+      record group  extends iterator := (name:  list string)
+      record task      := (name: string)
+      record event     := (name: string)
+      record flow      := (source: task) (target: task)
+      record process
+     extends iterator :=
+             (env: list iterator)
+             (feed_id: ℕ)
+             (taxonomy: prod (prod (list task) (list flow)) (list event))
 
-      -- app
+      record proto := (data: iterator)
+      record db     extends proto
+      record add    extends db
+      record reduce extends db := (dir:  direction)
+      record remove extends db
+      record ok     extends proto
+      record error  extends proto
+      record io     extends proto := (effects: iterator)
+  definition kvs    := add + remove + reduce + ok + error + io
+      record procs extends container := (io: io)
 
-      structure app  (S : Type) (P: Type) :=
-                (spawn  : P → S)
-                (run    : S → P)
-                (action : P → S → S)
+      record store
+     extends app proto container :=
+             (sup: list container)
+             (tab: list table)
+             (calculation: iterator → container → container)
 
-      -- kvs
+  definition top    (x: container) : ids      := match x with {| container, top := v |}   := v end
+  definition size   (x: container) : ℕ        := match x with {| container, size := v |}  := v end
+  definition next   (x: iterator)  : ids      := match x with {| iterator, next := v |}   := v end
+  definition data   (x: proto)     : iterator := match x with {| proto, data := v |}      := v end
+  definition id     (x: iterator)  : ids         := match x with {| iterator, id := v |}  := v end
+  definition names  (x: person)    : list string := match x with {| person, names := v |} := v end
+  definition action (x: store)     : proto → container → container :=  match x with {| store, action := v |} := v end
+  definition cal : iterator → container → container := λ x y, container.mk (id x) (addl (size y) 1)
+  definition act : proto → container → container := λ x y, cal (data x) y
 
-      structure table     := (name: string) (attr: list string) (keys: list string) (gen: ℕ)
-      structure container := (table: table) (id: ℕ) (io: io) (size: ℕ)
-      structure iterator  := -- (feed: container) 
-                             (id: ℕ) (next: ℕ) (prev: ℕ)
-      inductive direction := forward | backward
-      structure person extends iterator
-      structure group  extends iterator := (names: list string)
+       check group
+       print prefix names
+       print instances inhabited
+        eval (names (exe.person.mk (some 0) (some 0) (some 0) (cons "maxim" nil)))
+       print "maxim"
+       check action
 
-      inductive kvs :=
-                     | add: iterator → kvs
-                     | remove: iterator → kvs
-                     | reduce: iterator → direction → kvs
-                     | proto
+  definition empty_container := {| container, top := none, size := 0 |}
+  definition empty_store     := {| store,
+                         sup := nil,
+                         tab := nil,
+                       spawn := λ x, empty_container,
+                         run := λ x, ok.mk (iterator.mk (some 0) none none),
+                 calculation := λ x y, container.mk (id x) (addl (size y) 1),
+                      action := λ x y, cal (data x) y |}
 
-      structure store :=
-                (sup: list container)
-                (tab: list table)
-                (calculation: iterator → container → container)
-                (action: kvs → container → container)
+        eval (action empty_store) (add.mk (person.mk (some 12) none none nil)) empty_container
 
-      definition cal : iterator → container → container := λ x y, y
-      definition act : kvs → container → container := λ x y, y
-
-      definition next (big: iterator) : ℕ := match big with {| iterator, next := v |} := v end
- 
-      check group
-      eval next (Exe.group.mk 0 0 0 nil)
-
-      check {| store, sup := nil,
-                      tab := nil,
-                      calculation := cal,
-                      action := act  |}
-      
-
-      -- kv
-
-      structure kv :=
+      record kv :=
                 (get:    Π (t: iterator), iterator → proto)
                 (put:    Π (t: iterator), iterator → proto)
                 (index : Π (t: iterator), iterator → proto)
 
-      -- bpe
+      record proc
+     extends app proto process :=
+             (sup: list process)
 
-      structure task      := (name: string)
-      structure event     := (name: string)
-      structure flow      := (source: task) (target: task)
-      structure process
-        extends iterator  := (env: list iterator)
-                             (feed_id: ℕ)
-                             (io: io)
-                             (taxonomy: prod (prod (list task) (list flow)) (list event))
+      record bundle :=
+             (application: proc)
+             (database: store)
 
-      inductive bpe :=
-                     | run: unit → bpe
-                     | get: unit → bpe
-                     | goto: task → bpe
-                     | complete: task → bpe
-                     | amend: string → bpe
-                     | event: event → bpe
-                     | proto
-
-      structure proc :=
-                (sup: list process)
-                (spawn:  Π (t: process), process → process)
-                (action: Π (t: process), bpe → process → process)
-
-      -- bundle
-
-      structure bundle :=
-                (application: proc)
-                (database: store)
-
-end Exe
-
+         end exe
