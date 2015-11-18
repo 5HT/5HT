@@ -456,7 +456,6 @@ $\Sigma$    &:& $ok$    & $\times\ \_$          \\
 
 \begin{center}
 \begin{lstlisting}[mathescape=true]
-
                   action : proto $\rightarrow$ state $\rightarrow$ state
                   state  : list proto
        definition sigma := ok + error + io
@@ -465,10 +464,8 @@ $\Sigma$    &:& $ok$    & $\times\ \_$          \\
                   record ok    extends proto
                   record error extends proto
                   record io    extends proto := (effects: iterator)
-
 \end{lstlisting}
 \end{center}
-
 
   \subsubsection*{Напівгрупа активностей}
 
@@ -493,9 +490,11 @@ $complete$    &:& $\otimes\ S\ \rightarrow\ S$\\
 
 \begin{center}
 \begin{lstlisting}[mathescape=true]
+
       record app (P S: Type) := (spawn  : P $\rightarrow$ S)
                                 (run    : S $\rightarrow$ P)
                                 (action : P $\rightarrow$ S $\rightarrow$ S)
+
 \end{lstlisting}
 \end{center}
 
