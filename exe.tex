@@ -60,7 +60,7 @@
    здатні зберігати стан своєї віртуальної машини яка,
    як і усе середовище була написана на мові Lisp. Серед експериментальних та науково-дослідних
    уніфікованих систем можна відзначити Singularity від Microsoft Research, яка давно є постачальником
-   високоякісних теоретико-практичних інструментів по веріфікації програмного забезпечення.
+   високоякісних теоретико-практичних інструментів по верифікації програмного забезпечення.
    Сучасні унфіковані системи існують на трьох мовах програмування (на OCaml це MirageOS,
    на Haskell це HaLVM, для Erlang це віртуальна машина LING, яка створена в Україні) та
    здатні виконуватися без операційної системи. В даній роботі дається обгрунтуванню вибору
@@ -576,10 +576,13 @@ $\Delta \ \Lambda^{n}$       &:& $\Lambda^{n-1}$ \\
 
 \begin{center}
 \begin{tabular}{llll}
-$KVS$     &:& $put$     & $\times\ \_$          \\
+$KVS$     &:& $get$    & $\times\ \_$          \\
+          &:& $put$     & $\times\ \_$          \\
           &|& $add$     & $\times\ \_$          \\
+          &|& $remove$  & $\times\ \_$          \\
+          &|& $cut$     & $\times\ \_$          \\
+          &|& $append$  & $\times\ \_$          \\
           &|& $fold$    & $\times\ \_$         \\
-          &|& $\bot$    & \\
 \end{tabular}
 \end{center}
 
@@ -590,19 +593,21 @@ $KVS$     &:& $put$     & $\times\ \_$          \\
       record container := (top: ids) (size: $\mathbb{N}$)
       record iterator  := (id: ids) (next: ids) (prev: ids)
 
-      record db   extends proto
-      record put  extends db
-      record add  extends db
-      record fold extends db
-  definition kvs := put + add + fold + ok + error + io
+      record db      extends proto
+      record get     extends db
+      record put     extends db
+      record add     extends db
+      record cut     extends db
+      record remove  extends db
+      record append  extends db
+      record fold    extends db
+  definition kvs :=  get + put + add + remove +
+                     append + fold + ok + error + io
 
       record store
      extends app kvs container :=
              (sup: list container)
              (tab: list table)
-             (append: iterator $\rightarrow$ container $\rightarrow$ container)
-             (cut:    iterator $\rightarrow$ container $\rightarrow$ container)
-             (fold:   iterator $\rightarrow$ container $\rightarrow$ container)
              (calculation: iterator $\rightarrow$ container $\rightarrow$ container)
 
 \end{lstlisting}
@@ -645,7 +650,6 @@ $KVS$     &:& $put$     & $\times\ \_$          \\
  $BPE$      &:& $amend$       & $\times\ \_$      \\
             &|& $complete$    & $\times\ \_$         \\
             &|& $run$         & $\times\ \_$          \\
-            &|& $\bot$        &
 \end{tabular}
 \end{center}
 
