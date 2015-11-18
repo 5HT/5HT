@@ -302,7 +302,7 @@
    у якості аксіом для нашої теорії.
 
 \newpage
-\subsection{Теоретичні сутності}
+\subsection{Додаткові та дотичні теорії}
 \vspace{0.5cm}
    У таксономії теоритичних сутностей умовно визначатимемо
    графічні топологічно- структурні, аналітичні, статистичні та логічні типи теорій, які
@@ -320,16 +320,6 @@
    протокол взаємодії у системі таких процесів. Тому тут теорія масового обслуговування
    застосовується для визначення пропускної здатності системи.
 
-   \subsubsection*{Пі-числення}
-   Теорія Пі-числення Роберта Мілнера є основним формалізмом обчислювальної
-   теорії та її імплементації. З часів виникнення CSP числення розробленого Хоаром,
-   Мілнеру вдалося значно розширити та адаптувати теорію до сучасних
-   телекомунікаційних вимог, як наприклад хендовери в мобільних мережах.
-   Основні теорми в моделі Пі-числення стосуються непротиречивості та неблокованості
-   у синхронному виконанні мобільних процесів. Так як сучасний Web можно розглядати
-   як телекомунікаційну систему, тому у розробці додатків можна покладатися у тому
-   числі і на такі моделі як Пі-числення.
-
    \subsubsection*{Мережі Петрі}
    Мережі Петрі в даній роботі використовуються як прототип графічного
    лінгвістичного засобу структури категорій та системи типів. Оскільки
@@ -340,14 +330,33 @@
    лінгвістичне забезпечення Мереж Петрі як прототип для нашої власної
    мови візуалізації структур обчислень.
 
-\newpage
    \subsubsection*{Теорія категорій}
    Теорія категорій як робоча структурна теорія системи типів мови Exe та
    категоріальна семантика числення процесів. Можна було би використовувати абстракну алгебру загалом,
    та теорія напівгруп, а саме напівгруп активностей, проте ми будемо використовувати
    категоріальну семантику, що стало можливо завдяки роботам Лавіра та іншим.\\
 
-   \subsubsection*{Лямбда числення}
+   \subsubsection*{Темпоральна логіка}
+   Темпоральна логіка як індуктивна теорія верифікації розподілених алгоритмів
+   застосовується до доведення коррекності усіх нормалізованих підсистем. На основі
+   теорії  Леслі Лампорта\cite{tla}, за яку він отримав премію Тюрінга.
+   Елементи темпоральної логіки нам знадобляться для розробки теорій
+   розподілених у просторі та часі алгоритмів.\\
+
+\newpage
+\subsection{Основні теорії}
+\vspace{0.3cm}
+   \subsubsection*{$\pi$ числення}
+   Теорія Пі-числення Роберта Мілнера є основним формалізмом обчислювальної
+   теорії та її імплементації. З часів виникнення CSP числення розробленого Хоаром,
+   Мілнеру вдалося значно розширити та адаптувати теорію до сучасних
+   телекомунікаційних вимог, як наприклад хендовери в мобільних мережах.
+   Основні теорми в моделі Пі-числення стосуються непротиречивості та неблокованості
+   у синхронному виконанні мобільних процесів. Так як сучасний Web можно розглядати
+   як телекомунікаційну систему, тому у розробці додатків можна покладатися у тому
+   числі і на такі моделі як Пі-числення.
+
+   \subsubsection*{$\lambda$ числення}
    Лямбда-числення як основна абстракція обчислювальної віртуальної машини.
    Будучи внутрішньою мовою декартово-замкненої категорії лямбда числення окрім змінних
    та констант у вигляді термів пропонує операції абстракції та аплікації, що визначає
@@ -357,20 +366,30 @@
    таких як System F$\omega$ системах Haskell та Scala. Наша результуюча система
    типів буде тегована система типів мови Erlang.
 
-   \subsubsection*{Темпоральна логіка}
-   Темпоральна логіка як індуктивна теорія верифікації розподілених алгоритмів
-   застосовується до доведення коррекності усіх нормалізованих підсистем. На основі
-   теорії  Леслі Лампорта\cite{tla}, за яку він отримав премію Тюрінга.
-   Елементи темпоральної логіки нам знадобляться для розробки теорій
-   розподілених у просторі та часі алгоритмів.\\
-
    \subsubsection*{Інтуітіоністична теорія типів Мартіна Льофа}
    Системи з залежними типами як верифікаційні математичні формальні моделі
    для доведення корректності. Система $\Sigma$ та $\Pi$ типів, як кванторів
-   існування та узагальнення. Систами Mizar, Coq, Agda, Lean. Ми будемо
-   використовувати саме
+   існування та узагальнення. Системи Mizar, Coq, Agda, Idris, F*, Lean. Ми будемо
+   використовувати автоматизовану систему теорем Lean від Microsoft Research.
+   \paragraph{}
+   Розбудовуючи певний фреймворк чи систему конструктивними методами
+   так чи інакше доведеться зробити певний вибір у мові та способі кодування.
+   Так при розробці теорії абстрактної алгебри в Coq були використані
+   поліморфні індуктивні структури\cite{coqalg}. Однак Agda та Idris використувують
+   для побудови алгебраїчної теорії типи класів, а у Idris взагалі відсутні
+   поліморфірні індуктивні структури та коіндуктивні структури. В Lean
+   теж відсутні коіндуктивні структури проте повністю реалізована теорія
+   HoTT на нерекурсивних поліморфних структурах що обєднує основні чотири
+   класи математичних теорій: логіка, топологія, теорія множин, теорія типів.
+   Як було показано Стефаном Касом\cite{kaes}, одна з
+   стратегій імплементації типів класів --- це використання поліморфних структур.
+   Хоча в Lean також підтримуються типи класів нами була вибрана стратегія
+   імплементації нашої теорії з використаннями нерекурсивних індуктивних структур,
+   що дозволить нам оперувати з персистентними структурами на низькому рівні.
+   Крім того такий спосіб кодування ієрархій повністю відповідає семантиці Erlang,
+   де немає типів класів, а дані передаються запаковані в кортежі-структури.
 
-\newpage
+
 \subsection{Предмет дослідження}
 \vspace{0.5cm}
 
@@ -390,12 +409,13 @@
 
   Для забезпечення стратегії цієї роботи ми визначаємо найбільш оптимальну модель
   потоку даних та функції для їх обробки, використовуючи алгебраїчний підхід
-  для опису протоколів та їх категорій.
+  для опису протоколів та їх категорій. Серед основних фаз дослідження можна виділити:
 
 \begin{itemize}
    \item Дослідження алгебраїчних структур середовища
    \item Визначення характеристик нормалізованих та оптимальних структур
-   \item Побудова системи типів в автоматизованій системі доведення теорем
+   \item Побудова системи типів
+   \item Визначення властивостей системи та доведення теорем
    \item Розробка системи додатків на основі метамоделі на мові Erlang
    \item Впровадження, діагностика та аналіз роботи системи
 \end{itemize}
@@ -426,8 +446,7 @@ $X$         &:& $\Sigma \times \Lambda_{X} $ &\\
             &|& $\bot                              $ &\\
 $\Sigma$    &:& $ok$    & $\times\ \_$          \\
             &|& $error$ & $\times\ \_$          \\
-            &|& $io$    & $\times\ \_$          \\
-            &|& $\bot                              $ &\\
+            &|& $io$    & $\times\ \_ \times\ \_$          \\
 \end{tabular}
 \end{center}
 
@@ -436,38 +455,21 @@ $\Sigma$    &:& $ok$    & $\times\ \_$          \\
    буде типом-сумою усіх можливих запитів до процесу:
 
 \begin{center}
-\begin{lstlisting}
-                       action : ( protocol, state ) -> state
-                        state : ( protocol, _____ )
-                              | []
-                     protocol : ( ok,       _____ )
-                              | ( error,    _____ )
-                              | ( io,       _____ )
-                              | []
+\begin{lstlisting}[mathescape=true]
+
+                  action : proto $\rightarrow$ state $\rightarrow$ state
+                  state  : list proto
+       definition sigma := ok + error + io
+
+                  record proto := (data: iterator)
+                  record ok    extends proto
+                  record error extends proto
+                  record io    extends proto := (effects: iterator)
+
 \end{lstlisting}
 \end{center}
 
-   \subsubsection*{Визначення процесу}
 
-   Щоб формально визначини процес ми спочатку визначимо домени або типи,
-   які фігурують при визначенні процесу.
-
-
-
-\begin{center}
-\begin{tabular}{lcl}
-                Errors &:& \#error\\
-              Sucesses &:& \#history\\
-        --------------------------&&------------------------------------------\\
-           Environment &:& \#document | \#config\\
-              Taxonomy &:& \#event    | \#task   | \#flow\\
-                Module &:& $\{ action : \Sigma \rightarrow P \rightarrow P \}$\\
-        --------------------------&&------------------------------------------\\
-               Process &:& \#process\\
-\end{tabular}
-\end{center}
-
-\newpage
   \subsubsection*{Напівгрупа активностей}
 
   Дана алгебраїчна модель визначає достатньо просту та визначену структуру.
@@ -476,10 +478,10 @@ $\Sigma$    &:& $ok$    & $\times\ \_$          \\
 
 \begin{center}
 \begin{tabular}{lcl}
-$spawn$       &:& $\top\ \rightarrow\ P$\\
-$run$         &:& $P\ \rightarrow\ \bot$\\
-$\bot$        &:& $\odot\ P\ \rightarrow\ P$\\
-$complete$    &:& $\otimes\ P\ \rightarrow\ P$\\
+$spawn$       &:& $\top\ \rightarrow\ S$\\
+$run$         &:& $S\ \rightarrow\ \bot$\\
+$\bot$        &:& $\odot\ S\ \rightarrow\ S$\\
+$complete$    &:& $\otimes\ S\ \rightarrow\ S$\\
 \end{tabular}
 \end{center}
 
@@ -489,18 +491,12 @@ $complete$    &:& $\otimes\ P\ \rightarrow\ P$\\
   передбачає виконання функції активності поточного кроку процесу, яка
   визначена в сигнатурі як $action: \Sigma\ \rightarrow\ P\ \rightarrow\ P$.
 
-  \subsubsection*{Алгебра процесів}
-
-  Алгебра процесів визначає базові операції мультиплексування двох чи декількох
-  протоколів в рамках одного процесу (добуток), а також паралельного та повністю
-  ізольованого запуску включно зі стеком та областю памяті (сума) на
-  віртуальній машині.
-
 \begin{center}
-\begin{tabular}{lcl}
-$\oplus$   &:& $P \parallel P$\\
-$\otimes$  &:& $P \mid P$\\
-\end{tabular}
+\begin{lstlisting}[mathescape=true]
+      record app (P S: Type) := (spawn  : P $\rightarrow$ S)
+                                (run    : S $\rightarrow$ P)
+                                (action : P $\rightarrow$ S $\rightarrow$ S)
+\end{lstlisting}
 \end{center}
 
   \subsubsection*{Лінійність обчислень}
@@ -533,43 +529,112 @@ $\Delta \ \Lambda^{n}$       &:& $\Lambda^{n-1}$ \\
    та інших кореляцій у просторі та часі, тому можна говорити про певні зручні, нормалізовані системи типів для
    такого роду маніпуляцій над даними.
 
-  \subsubsection*{Протоколи повідомлень}
+  \subsubsection*{Управління ефектами}
 
-   Простір дій протоколу визначається сумою усіх можливих повідомлень.
+   Кодування ефектів за допомогою типів зараз є стандартом
+   де-факто в сучасних функціональних мовах програмування.
 
-\vspace{0.5cm}
-
-\begingroup
-\parbox[l][][t]{0.33\textwidth}
-{
+\begin{center}
 \begin{tabular}{llll}
-$App$       &:& $init$    & $\times\ \_$            \\
-            &|& $client$  & $\times\ \_$          \\
-            &|& $replay$  & $\times\ \_$          \\
-            &|& $\bot$    & \\
+$KVS$     &:& $put$     & $\times\ \_$          \\
+          &|& $add$     & $\times\ \_$          \\
+          &|& $fold$    & $\times\ \_$         \\
+          &|& $\bot$    & \\
 \end{tabular}
-}
-\hspace{0.1cm}
-\parbox[l][][t]{0.33\textwidth}
-{
-\begin{tabular}{llll}
-$Store$     &:& $put$     & $\times\ \_$          \\
-            &|& $add$     & $\times\ \_$          \\
-            &|& $fold$    & $\times\ \_$         \\
-            &|& $\bot$    & \\
+\end{center}
+
+\begin{center}
+\begin{lstlisting}[mathescape=true]
+
+  definition ids       := option $\mathbb{N}$
+      record container := (top: ids) (size: $\mathbb{N}$)
+      record iterator  := (id: ids) (next: ids) (prev: ids)
+
+      record db   extends proto
+      record put  extends db
+      record add  extends db
+      record fold extends db
+  definition kvs := put + add + fold + ok + error + io
+
+      record store
+     extends app kvs container :=
+             (sup: list container)
+             (tab: list table)
+             (calculation: iterator $\rightarrow$ container $\rightarrow$ container)
+
+\end{lstlisting}
+\end{center}
+
+\newpage
+   \subsubsection*{Визначення процесу}
+
+   Щоб формально визначини процес ми спочатку визначимо домени або типи,
+   які фігурують при визначенні процесу.
+
+\begin{center}
+\begin{tabular}{lcl}
+                Errors &:& \#error\\
+              Sucesses &:& \#ok \\
+           Environment &:& \#document | \#config\\
+              Taxonomy &:& \#event    | \#task   | \#flow\\
+                Module &:& $\{ action : \Sigma \rightarrow P \rightarrow P \}$ \\ \hline
+               Process &:& \#process\\
 \end{tabular}
-}
-\hspace{0.1cm}
-\parbox[t][][t]{0.33\textwidth}
-{
+\end{center}
+
+\begin{center}
+\begin{lstlisting}[mathescape=true]
+            record task      := (name: string)
+            record event     := (name: string)
+            record flow      := (source: task) (target: task)
+            record process
+           extends iterator :=
+                   (env: list iterator)
+                   (feed_id: $\mathbb{N}$)
+                   (taxonomy: prod (prod (list task) (list flow)) (list event))
+\end{lstlisting}
+\end{center}
+
+   \subsubsection*{Управління процесами}
+
+\begin{center}
 \begin{tabular}{llll}
-$Proc$      &:& $spawn$       & $\times\ \_$      \\
+ $BPE$      &:& $amend$       & $\times\ \_$      \\
             &|& $complete$    & $\times\ \_$         \\
             &|& $run$         & $\times\ \_$          \\
             &|& $\bot$        &
 \end{tabular}
-}
-\endgroup
+\end{center}
+
+\begin{center}
+\begin{lstlisting}[mathescape=true]
+            record p        extends proto
+            record run      extends p
+            record amend    extends p
+            record complete extends p
+        definition bpe := run + amend + complete + ok + error + io
+
+            record proc
+           extends app bpe process :=
+                   (sup: list process)
+
+\end{lstlisting}
+\end{center}
+
+  \subsubsection*{Алгебра процесів}
+
+  Алгебра процесів визначає базові операції мультиплексування двох чи декількох
+  протоколів в рамках одного процесу (добуток), а також паралельного та повністю
+  ізольованого запуску включно зі стеком та областю памяті (сума) на
+  віртуальній машині.
+
+\begin{center}
+\begin{tabular}{lcl}
+$\oplus$   &:& $P \parallel P$\\
+$\otimes$  &:& $P \mid P$\\
+\end{tabular}
+\end{center}
+
 
 \newpage
   \subsubsection*{Лямбда числення}
@@ -908,6 +973,9 @@ $p-1(st) = st-1$ — обернена функція
 \bibitem{coqhuet}  T.Coquand, G.Huet \textit{The Calculus of Constructions.} 1988
 \bibitem{lampax}   L.Lamport \textit{Paxos Made Simple.} 2001
 \bibitem{chipvm}   A.Chlipala \textit{Certified Programming with Dependent Types} 2015
+\bibitem{coqalg}   H.Gueves, R.Pollak, F.Wiedijk, J.Zwanenburg \textit{A Constructive Algebraic Hierarchy in Coq} 2002
+\bibitem{idris}    E.Brady \textit{Programming in IDRIS: A Tutorial} 2015
+\bibitem{kaes}     S.Kaes \textit{http://tuprints.ulb.tu-darmstadt.de/epda/000544/diss.pdf} 2005
 \end{thebibliography}
 
 \end{document}
