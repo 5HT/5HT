@@ -82,4 +82,21 @@
              (application: proc)
              (database: store)
 
+--  cat Pure 1:                         return 1   P 1 = a -> P a
+--  cat Functor 1:                      fmap 2     F 1 = fun 1 a -> b F a -> F b
+--  cat Applicative : Pure Functor 1:   ap 2       F 1 = F fun 1 a -> b F a -> F b
+--  cat Monad       : Pure Functor 1:   join 1     M 1 = M M a -> M a
+
+      record pure (P: Type → Type) (A: Type) := (return: P A)
+
+      record functor (F: Type → Type) (A B: Type) := (fmap: (A → B) → F A → F B)
+
+      record applicative (F: Type → Type) (A B: Type)
+     extends pure F A, functor F A B := (ap: F (A → B) → F A → F B)
+
+      record monad (F: Type → Type) (A B: Type)
+     extends pure F A, applicative F A B := (join: F (F A) → F A)
+
+      print monad
+
          end exe
