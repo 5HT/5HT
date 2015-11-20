@@ -1,30 +1,9 @@
 
       import data.nat data.bool data.prod data.list data.sum data.stream
-             data.unit data.uprod data.tuple data.option
-   namespace exe open nat bool prod sum list classical option stream
+             data.unit data.uprod data.tuple data.option application persistence
+        open nat bool prod sum list classical option stream application persistence
+   namespace storage
 
-      record app (P S: Type) := (spawn  : P → S)
-                                (run    : S → P)
-                                (action : P → S → S)
-
-  definition ids       := option ℕ
-      record table     := (name: string) (attr: list string) (keys: list string) (gen: ℕ)
-      record container := (top: ids) (size: ℕ) (carrier: Type)
-      record iterator  := (id: ids) (next: ids) (prev: ids) (carrier: Type)
-   inductive direction := forward | backward
-
-      record person extends iterator := (names: list string)
-      record group  extends iterator := (name:  list string)
-      record task      := (name: string)
-      record event     := (name: string)
-      record flow      := (source: task) (target: task)
-      record process
-     extends iterator :=
-             (env: list iterator)
-             (feed_id: ℕ)
-             (taxonomy: prod (prod (list task) (list flow)) (list event))
-
-      record proto := (data: iterator)
       record db     extends proto
       record add    extends db
       record reduce extends db := (dir:  direction)
@@ -32,6 +11,9 @@
       record ok     extends proto
       record error  extends proto
   definition kvs    := add + remove + reduce + ok + error
+
+      record person extends iterator := (names: list string)
+      record group  extends iterator := (name:  list string)
 
       record store
      extends app proto container :=
@@ -53,7 +35,7 @@
        check group
        print prefix names
        print instances inhabited
-        eval (names (exe.person.mk (some 0) (some 0) (some 0) ℕ (cons "maxim" nil)))
+        eval (names (person.mk (some 0) (some 0) (some 0) ℕ (cons "maxim" nil)))
        print "maxim"
        check action
 
@@ -75,36 +57,4 @@
                 (put:    Π (t: iterator), iterator → proto)
                 (index : Π (t: iterator), iterator → proto)
 
-      record proc
-     extends app proto process :=
-             (sup: list process)
-
-      record bundle :=
-             (application: proc)
-             (database: store)
-
-      -- control
-
-      record pure (P: Type → Type) (A: Type) := (return: P A)
-
-      record functor (F: Type → Type) (A B: Type) := (fmap: (A → B) → F A → F B)
-
-      record applicative (F: Type → Type) (A B: Type)
-     extends pure F A, functor F A B := (ap: F (A → B) → F A → F B)
-
-      record monad (F: Type → Type) (A B: Type)
-     extends pure F A, functor F A B := (join: F (F A) → F A)
-
-     -- effects
-
-      record eff        (x: Type)               := (carrier : x)
-      record io         (x: Type) extends eff x := (get: unit → eff x) (put: x → eff x)
-      record exception  (x: Type) extends eff x := (raise: x → eff x)
-      record comm       (x: Type) extends eff x := (recv: unit → eff x) (send: x → eff x)
-      record state      (x: Type) extends eff x, app proto x
-
-    definition unpure (x: Type) := proto → x → eff x
-
-      print unpure
-
-         end exe
+         end storage
