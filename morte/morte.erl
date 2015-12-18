@@ -31,7 +31,7 @@ stack(C,Acc) ->
         [X|Aa] when ?is_alpha(X) -> lists:flatten([{token,{name,lists:reverse([X|Aa])}}|Acc]);
         Re -> lists:flatten([{token,list_to_atom(lists:reverse(Re))}|Acc]) end.
 
-read() -> {ok,Bin} = file:read_file("cat.txt"), io:format("~ts~n",[unicode:characters_to_list(Bin)]), tokens(Bin,0,{1,[]},[]).
+read() -> {ok,Bin} = file:read_file("cat2.txt"), io:format("~ts~n",[unicode:characters_to_list(Bin)]), tokens(Bin,0,{1,[]},[]).
           main() -> expr(read(),[]).
 
 %
@@ -66,24 +66,6 @@ aexpr([{token,open}    |T],Acc) -> expr(T,Acc).
 %          | "star"       => {Star}
 %          | "box"        => {Box}
 %          | "(" EXPR ")" =>
-
-parse([],Acc)                      -> {[],lists:reverse(Acc)};
-parse([{token,open}|T]=All,Acc)    -> parse_closure(T,Acc);
-parse([{token,star}|T],Acc)        -> parse(T,[{const,star}|Acc]);
-parse([{token,lambda}|T],Acc)      -> parse_arrow(T,Acc);
-parse([{token,pi}|T],Acc)          -> parse_arrow(T,Acc);
-parse([{token,close}|T],Acc)       -> {T,Acc};
-parse([{token,arrow}|T],[{Name,X}|Acc])    -> parse(tail(T),[{arrow,{[{Name,X}],element(2,parse(T,Acc))}}]);
-parse([{token,{name,L}}|T],Acc)    -> parse(T,[{ref,L}|Acc]);
-parse(T,Acc)                       -> {T,Acc}.
-
-parse_closure(T,Acc) ->
-    {[{token,_}|X],In} = parse(T,Acc),
-    parse(X,lists:flatten([In|Acc])).
-
-parse_arrow([{token,open},{token,{name,Label}},{token,colon}|T],Acc) ->
-    {[{token,arrow}|Out],In} = parse(T,Acc),
-    parse([],[{lambda,Label,In,element(2,parse(Out,Acc))}|Acc]).
 
 tail([]) -> [];
 tail(Tl) -> tl(Tl).
