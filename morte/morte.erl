@@ -31,7 +31,7 @@ stack(C,Acc) ->
         [X|Aa] when ?is_alpha(X) -> lists:flatten([{name,lists:reverse([X|Aa])}|Acc]);
         Re -> lists:flatten([list_to_atom(lists:reverse(Re))|Acc]) end.
 
-read() -> {ok,Bin} = file:read_file("cat2.txt"), io:format("~ts~n",[unicode:characters_to_list(Bin)]), tokens(Bin,0,{1,[]},[]).
+read() -> {ok,Bin} = file:read_file("fun.txt"), io:format("~ts~n",[unicode:characters_to_list(Bin)]), tokens(Bin,0,{1,[]},[]).
           main() -> expr(read(),[]).
 
 %    EXPR := "lambda" "(" LABEL ":" EXPR ")" "arrow" EXPR => {LAM,[{NAME:LABEL,I:EXPR, O;EXPR]}
@@ -48,18 +48,20 @@ read() -> {ok,Bin} = file:read_file("cat2.txt"), io:format("~ts~n",[unicode:char
 %          | "(" EXPR ")"                                 =>
 
 expr([],Acc)                                     -> {[],Acc};
-expr([lambda,open,{name,Label},colon|T],Acc)     -> {T1,Acc1} = expr(T,Acc),
-                                                    expr(T,[{domain,{Label,Acc1}}|Acc]);
-expr([{name,L}|T],[{arrow},{Name,X}|Acc])        -> expr(T,[{arrow,{[{Name,X}],[{var,L}]}}|Acc]);
-expr([{name,L}|T],[{Name,X}|Acc])                -> expr(T,[{app,{[{Name,X}],[{var,L}]}}|Acc]);
-expr([{name,L}|T],Acc)                           -> expr(T,[{var,L}|Acc]);
+expr([Fun,open,{name,Label},colon|T],Acc) when Fun == pi; Fun == lambda -> {T1,Acc1} = expr(T,Acc),
+                                                        expr(T,[{domain,{Label,Acc1,Fun}}|Acc]);
+expr([{name,L}|T],[{Name,X}|Acc]) when Name /= arrow -> expr(T,[{app,{[{Name,X}],[{var,L}]}}|Acc]);
+expr([{name,L}|T],[{arrow},{Name,X}|Acc])            -> expr(T,[{arrow,{[{Name,X}],[{var,L}]}}|Acc]);
+expr([{name,L}|T],Acc)                               -> expr(T,[{var,L}|Acc]);
 expr(T,[{arrow},{Name,X}|Acc])                   -> expr(T,[{arrow,{[{Name,X}],element(2,expr(T,Acc))}}|Acc]);
 expr([star|T],[{arrow},{Name,X}|Acc])            -> expr(T,[{arrow,{[{Name,X}],[{const,star}|Acc]}}|Acc]);
 expr([star|T],Acc)                               -> expr(T,[{const,star}|Acc]);
-expr([close,arrow|T],[{Name,X},{domain,{Label,A}}|Acc]) -> {T1,Acc1} = expr(T,Acc),
-                                                    expr(T1,[{lambda,{Label,A,element(2,expr(T,Acc))}}]);
+expr([close,arrow|T],[{Name,X},{domain,{Label,A,Fun}}|Acc]) -> {T1,Acc1} = expr(T,Acc),
+                                                    expr(T1,[{Fun,{[{name,Label}],A,element(2,expr(T,Acc))}}|Acc]);
+expr([close,{name,L}|T],[{Name,X}|Acc]=A)        -> expr(T,[{app,{[{Name,X}],[{var,L}]}}|Acc]);
 expr([close|T],Acc)                              -> expr([],Acc);
-expr([open    |T],Acc)                           -> expr(T,Acc);
+expr([open    |T],Acc)                           -> {T1,Acc1} = expr(T,Acc),
+                                                    expr(T1,lists:flatten([Acc1|Acc]));
 expr([arrow   |T],Acc)                           -> expr(T,[{arrow}|Acc]).
 
 tail([]) -> [];
