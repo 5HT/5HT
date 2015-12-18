@@ -51,10 +51,10 @@ expr([],Acc)                                     -> {[],Acc};
 expr([lambda,open,{name,Label},colon|T],Acc)     -> {T1,Acc1} = expr(T,Acc),
                                                     expr(T,[{domain,{Label,Acc1}}|Acc]);
 expr([{name,L}|T],[{arrow},{Name,X}|Acc])        -> expr(T,[{arrow,{[{Name,X}],[{var,L}]}}|Acc]);
-expr([{name,L}|T],[{Name,X}|Acc])                -> expr(T,[{app,[{Name,X}],[{var,L}]}|Acc]);
+expr([{name,L}|T],[{Name,X}|Acc])                -> expr(T,[{app,{[{Name,X}],[{var,L}]}}|Acc]);
 expr([{name,L}|T],Acc)                           -> expr(T,[{var,L}|Acc]);
 expr(T,[{arrow},{Name,X}|Acc])                   -> expr(T,[{arrow,{[{Name,X}],element(2,expr(T,Acc))}}|Acc]);
-%expr([star|T],[{arrow},{Name,X}|Acc])            -> expr(T,[{arrow,{[{Name,X}],[{const,star}|Acc]}}|Acc]);
+expr([star|T],[{arrow},{Name,X}|Acc])            -> expr(T,[{arrow,{[{Name,X}],[{const,star}|Acc]}}|Acc]);
 expr([star|T],Acc)                               -> expr(T,[{const,star}|Acc]);
 expr([close,arrow|T],[{Name,X},{domain,{Label,A}}|Acc]) -> {T1,Acc1} = expr(T,Acc),
                                                     expr(T1,[{lambda,{Label,A,element(2,expr(T,Acc))}}]);
