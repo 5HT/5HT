@@ -6,47 +6,84 @@
                      C =:= $+; C =:= $-; C =:= $*; C =:= $/; C =:= $.; C =:= $\\;C =:= $);
                      C =:= $<; C =:= $>; C =:= $=; C =:= $|; C =:= $^; C =:= $~; C =:= $@).
 
-
 tokens(<<>>,                  _, {_,C}, Acc) -> lists:reverse(stack(C,Acc));
 tokens(<<$\n,     R/binary>>, L, {_,C}, Acc) -> tokens(R,L+1,{1,[]},   stack(C,Acc));
 tokens(<<$(,      R/binary>>, L, {t,C}, Acc) -> tokens(R,L,{t,[$(]},   stack(C,Acc));
 tokens(<<$),      R/binary>>, L, {t,C}, Acc) -> tokens(R,L,{t,[$)|C]}, stack(C,Acc));
-tokens(<<$(,      R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{t,[]},[{token,open}|stack(C,Acc)]);
-tokens(<<$),      R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{t,[]},[{token,close}|stack(C,Acc)]);
-tokens(<<$:,      R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{1,[]},[{token,colon}|label(C,Acc)]);
-tokens(<<$*,      R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{1,[]},[{token,star}|stack(C,Acc)]);
-tokens(<<"→"/utf8,R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{1,[]},[{token,arrow}|stack(C,Acc)]);
-tokens(<<"λ"/utf8,R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{1,[]},[{token,lambda}|stack(C,Acc)]);
-tokens(<<"∀"/utf8,R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{1,[]},[{token,pi}|stack(C,Acc)]);
-tokens(<<X,       R/binary>>, L, {a,C}, Acc) when ?is_alpha(X) -> tokens(R,L,{a,[X|C]},Acc);
-tokens(<<X,       R/binary>>, L, {_,C}, Acc) when ?is_alpha(X) -> tokens(R,L,{a,[X]},  stack([C],Acc));
-tokens(<<X,       R/binary>>, L, {t,C}, Acc) when ?is_termi(X) -> tokens(R,L,{t,[X|C]},Acc);
-tokens(<<X,       R/binary>>, L, {_,C}, Acc) when ?is_termi(X) -> tokens(R,L,{t,[X]},  stack(C,[Acc]));
-tokens(<<X,       R/binary>>, L, {_,C}, Acc) when ?is_space(X) -> tokens(R,L,{s,[C]},  Acc).
+tokens(<<$(,      R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{t,[]},     [{token,open}   | stack(C,  Acc)]);
+tokens(<<$),      R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{t,[]},     [{token,close}  | stack(C,  Acc)]);
+tokens(<<$:,      R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{1,[]},     [{token,colon}  | stack(C,  Acc)]);
+tokens(<<$*,      R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{1,[]},     [{token,star}   | stack(C,  Acc)]);
+tokens(<<"→"/utf8,R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{1,[]},     [{token,arrow}  | stack(C,  Acc)]);
+tokens(<<"λ"/utf8,R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{1,[]},     [{token,lambda} | stack(C,  Acc)]);
+tokens(<<"∀"/utf8,R/binary>>, L, {_,C}, Acc) -> tokens(R,L,{1,[]},     [{token,pi}     | stack(C,  Acc)]);
+tokens(<<X,       R/binary>>, L, {a,C}, Acc) when ?is_alpha(X) -> tokens(R,L,{a,[X|C]},            Acc);
+tokens(<<X,       R/binary>>, L, {_,C}, Acc) when ?is_alpha(X) -> tokens(R,L,{a,[X]},    stack([C],Acc));
+tokens(<<X,       R/binary>>, L, {t,C}, Acc) when ?is_termi(X) -> tokens(R,L,{t,[X|C]},            Acc);
+tokens(<<X,       R/binary>>, L, {_,C}, Acc) when ?is_termi(X) -> tokens(R,L,{t,[X]},    stack(C, [Acc]));
+tokens(<<X,       R/binary>>, L, {_,C}, Acc) when ?is_space(X) -> tokens(R,L,{s,[C]},              Acc).
 
-stack(C,Acc) -> case lists:flatten(C) of [] -> Acc; Re -> lists:flatten([{token,lists:reverse(Re)}|Acc]) end.
-label(C,Acc) -> case lists:flatten(C) of [] -> Acc; Re -> lists:flatten([{token,{label,lists:reverse(Re)}}|Acc]) end.
+stack(C,Acc) ->
+   case lists:flatten(C) of
+        [] -> Acc;
+        "(" -> lists:flatten([{token,open}|Acc]);
+        ")" -> lists:flatten([{token,close}|Acc]);
+        [X|Aa] when ?is_alpha(X) -> lists:flatten([{token,{name,lists:reverse([X|Aa])}}|Acc]);
+        Re -> lists:flatten([{token,list_to_atom(lists:reverse(Re))}|Acc]) end.
+
 read() -> {ok,Bin} = file:read_file("cat.txt"), io:format("~ts~n",[unicode:characters_to_list(Bin)]), tokens(Bin,0,{1,[]},[]).
-main() -> parse(read(),[]).
+          main() -> expr(read(),[]).
+
+%
+%    EXPR := BEXPR
+%          | "lambda" "(" LABEL ":" EXPR ")" "arrow" EXPR => {LAM,[{NAME:LABEL,I:EXPR, O;EXPR]}
+%          | "pi" "(" LABEL     ":" EXPR ")" "arrow" EXPR => {PI, [{NAME:LABEL,I:EXPR, O;EXPR]}
+%          | BEXPR "arrow" EXPR                           => {PI, [{"_",       I:BEXPR,O;EXPR]}
+
+expr([],Acc) -> {[],lists:reverse(Acc)};
+expr([{token,lambda},{token,open},{token,{name,Label}},{token,colon}|T],Acc) ->
+    {[{token,close},{token,arrow}|T1],Acc1} = expr(T,Acc),
+    {T2,Acc2}=expr(T1,[]),
+    {T2,[{lambda,{Label,Acc1,Acc2}}|Acc]};
+
+expr([{token,pi},{token,open},{token,{name,Label}},{token,colon}|T],Acc) ->
+    {[{token,close},{token,arrow}|T1],Acc1} = expr(T,Acc),
+    {T2,Acc2}=expr(T1,[]),
+    {T2,[{pi,{Label,Acc1,Acc2}}|Acc]};
+
+expr(T,Acc) -> aexpr(T,Acc).
+
+aexpr([],Acc) -> {[],lists:reverse(Acc)};
+aexpr([{token,{name,L}}|T],[{Name,X}|Acc]) -> aexpr(T,[{app,{[{Name,X}],[{var,L}]}}|Acc]);
+aexpr([{token,{name,L}}|T],Acc) -> aexpr(T,[{var,L}|Acc]);
+aexpr([{token,star}    |T],Acc) -> {T,[{const,star}|Acc]};
+aexpr([{token,box}     |T],Acc) -> {T,[{const,box} |Acc]};
+aexpr([{token,close}   |T]=All,Acc) -> aexpr(T,Acc);
+aexpr([{token,open}    |T],Acc) -> expr(T,Acc).
+
+%   AEXPR := AEXPR AEXPR  => {APP,I:AEXPR,O:AEXPR}
+%          | LABEL        => {VAR,LABEL}
+%          | "star"       => {Star}
+%          | "box"        => {Box}
+%          | "(" EXPR ")" =>
 
 parse([],Acc)                      -> {[],lists:reverse(Acc)};
-parse([{token,open}|T],Acc)        -> parse_closure(T,Acc);
+parse([{token,open}|T]=All,Acc)    -> parse_closure(T,Acc);
 parse([{token,star}|T],Acc)        -> parse(T,[{const,star}|Acc]);
 parse([{token,lambda}|T],Acc)      -> parse_arrow(T,Acc);
 parse([{token,pi}|T],Acc)          -> parse_arrow(T,Acc);
-parse([{token,arrow}|T],Acc)       -> parse(T,[{arrow,element(2,parse([],Acc)),element(2,parse(T,[]))}]);
-parse([{token,close}|_]=All,Acc)   -> {All,Acc};
-parse([{token,L}|T],[{var,X}|Acc]) -> parse(tail(T),[{apply,[{var,X}],element(2,parse(T,[{var,L}|Acc]))}]);
-parse([{token,L}|T],Acc)           -> parse(T,[{var,L}|Acc]);
+parse([{token,close}|T],Acc)       -> {T,Acc};
+parse([{token,arrow}|T],[{Name,X}|Acc])    -> parse(tail(T),[{arrow,{[{Name,X}],element(2,parse(T,Acc))}}]);
+parse([{token,{name,L}}|T],Acc)    -> parse(T,[{ref,L}|Acc]);
 parse(T,Acc)                       -> {T,Acc}.
 
 parse_closure(T,Acc) ->
-    {[],In} = parse(T,Acc),
-    parse([],[In|Acc]).
+    {[{token,_}|X],In} = parse(T,Acc),
+    parse(X,lists:flatten([In|Acc])).
 
-parse_arrow([{token,open},{token,{label,Label}},{token,colon}|T],Acc) ->
-    {[{token,close},{token,arrow}|Out],In} = parse(T,Acc),
-    {[],[{lambda,Label,In,element(2,parse(Out,Acc))}|Acc]}.
+parse_arrow([{token,open},{token,{name,Label}},{token,colon}|T],Acc) ->
+    {[{token,arrow}|Out],In} = parse(T,Acc),
+    parse([],[{lambda,Label,In,element(2,parse(Out,Acc))}|Acc]).
 
 tail([]) -> [];
 tail(Tl) -> tl(Tl).
