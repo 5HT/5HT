@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="324px" height="237px" viewBox="0 0 324 237" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12002) - http://www.bohemiancoding.com/sketch -->
+    <title>Samsara</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Samsara" sketch:type="MSLayerGroup" transform="translate(0.000000, 1.000000)">
+            <text id="Space" sketch:type="MSTextLayer" font-family="Geometria" font-size="12" font-weight="260" fill="#000000">
+                <tspan x="1" y="25">Space</tspan>
+            </text>
+            <text id="Desire" sketch:type="MSTextLayer" font-family="Geometria" font-size="12" font-weight="260" fill="#000000">
+                <tspan x="1" y="231">Desire</tspan>
+            </text>
+            <text id="Forms" sketch:type="MSTextLayer" font-family="Geometria" font-size="12" font-weight="260" fill="#000000">
+                <tspan x="1" y="66">Forms</tspan>
+            </text>
+            <text id="Humans" sketch:type="MSTextLayer" font-family="Geometria" font-size="12" font-weight="260" fill="#000000">
+                <tspan x="276" y="122">Humans</tspan>
+            </text>
+            <path d="M50.4142562,0.259297521 L287.238378,0.333677686 L170.933368,234.596333 L50.4142562,0.259297521 Z" id="Path-1" stroke="#979797" sketch:type="MSShapeGroup"></path>
+            <path d="M50.4142562,0.259297521 L287.238378,0.333677686 L170.933368,234.596333 L50.4142562,0.259297521 Z" id="Path-1-Copy" stroke="#979797" sketch:type="MSShapeGroup" transform="translate(168.826317, 117.427815) scale(1, -1) translate(-168.826317, -117.427815) "></path>
+            <path d="M107.5,109.5 L232.5,109.5" id="Line" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <path d="M107.5,125.5 L232.5,125.5" id="Line-Copy" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <path d="M96.5,88.5 L243.5,88.5" id="Line" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <path d="M95.5,147.5 L243.5,147.5" id="Line-Copy-10" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <path d="M65.5,206.5 L273.5,206.5" id="Line-Copy-6" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <path d="M65.5,28.5 L272.5,28.5" id="Line-Copy-16" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <path d="M1.5,69.5 L78.5,69.5" id="Line-Copy-4" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <text id="Asuras" sketch:type="MSTextLayer" font-family="Geometria" font-size="12" font-weight="260" fill="#000000">
+                <tspan x="284" y="106">Asuras</tspan>
+            </text>
+            <path d="M240.5,109.5 L323.5,109.5" id="Line-Copy-11" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <text id="Gods" sketch:type="MSTextLayer" font-family="Geometria" font-size="12" font-weight="260" fill="#000000">
+                <tspan x="293" y="85">Gods</tspan>
+            </text>
+            <path d="M251.5,88.5 L322.5,88.5" id="Line-Copy-14" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <text id="Animals" sketch:type="MSTextLayer" font-family="Geometria" font-size="12" font-weight="260" fill="#000000">
+                <tspan x="277" y="144">Animals</tspan>
+            </text>
+            <path d="M251.5,147.5 L323.5,147.5" id="Line-Copy-12" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <text id="Ghosts" sketch:type="MSTextLayer" font-family="Geometria" font-size="12" font-weight="260" fill="#000000">
+                <tspan x="282" y="203">Ghosts</tspan>
+            </text>
+            <path d="M281.5,206.5 L322.5,206.5" id="Line-Copy-13" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <text id="Hells" sketch:type="MSTextLayer" font-family="Geometria" font-size="12" font-weight="260" fill="#000000">
+                <tspan x="295" y="231">Hells</tspan>
+            </text>
+            <path d="M292.5,234.5 L323.5,234.5" id="Line-Copy-15" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <path d="M86.5,69.5 L252.5,69.5" id="Line-Copy-5" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <path d="M240.5,125.5 L323.5,125.5" id="Line-Copy-9" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <path d="M1.5,234.5 L44.5,234.5" id="Line-Copy-8" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <path d="M0.5,28.5 L58.5,28.5" id="Line-Copy-3" stroke="#979797" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
