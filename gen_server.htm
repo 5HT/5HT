@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="Maxim Sokhatsky" />
-    <title>EXE</title>
+    <title>GEN SERVER</title>
     <link rel="stylesheet" href="5HT.css" />
     <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
@@ -55,7 +55,10 @@
    that starts from <b>init</b> module. It starts even without <b>proc_lib</b> and enters
    <b>gen_server</b> loop manually.</p>
 
-<div class=note style="background-color:#FAFAFA;"><p>Generic Start:<br>
+<div class=note style="background-color:#FAFAFA;"><p>NOTE: <b>init </b> message is our public version of <b>ack</b>.
+  We use init for reinitialization even without stopping the process.
+  But instead of <b>gen_server</b> for N2O protocols we use <b>n2o_async</b> interfaced
+  with <b>proc/2</b> message and state parameters.<br>
 <code>
 -module(boot).
 -compile(export_all).
