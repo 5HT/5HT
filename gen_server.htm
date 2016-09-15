@@ -120,7 +120,6 @@ hibernate(P, N, S, M) -> server(drain(), P, N, S, M).
 <p></div>
 <div class=note><p>Effects API
 <pre>
-
        data output (Any: Type): Type :=
             (ok:                   Record -> output Any)
             (ok:            Any -> Record -> output Any)
@@ -129,6 +128,8 @@ hibernate(P, N, S, M) -> server(drain(), P, N, S, M).
 </pre>
 </p></div>
 
+<p>Effects could be stored as persisted trace of <b>ok</b> and/or <b>error</b> events in KVS.
+   We could allow process to continue on errors, etc.</p>
 
 <h3>Server</h3>
 
@@ -165,10 +166,8 @@ hibernate(P, N, S, M) -> server(drain(), P, N, S, M).
 
 <h3>Callback Module</h3>
 
-<p>Some types are embedded in L core to resolve main tasks during
-type inference, type unification and patterm maching compilation.
-L has following basic types which are used by infer/unify/match core.
-These types are also shared with Type Inspector.</p>
+<p>Here is new callback module, that eliminates gen_server behaviour callbacks,
+   but allows raw protocol messages naming.</p>
 
 <div class=note style="background-color:#fafafa;">
 <code>
@@ -201,6 +200,8 @@ These types are also shared with Type Inspector.</p>
 </pre></div>
 
 <h3>Callback Module in EXE</h3>
+
+<p>In general it is possible to compile such EXE record in OTP-compatible Erlang code.</p>
 
 <div class=note style="background-color:#fafafa;">
 <code>
