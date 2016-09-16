@@ -233,7 +233,6 @@ hibernate(P, N, S, M) -> server(drain(), P, N, S, M).
           (pure: A → IO.F)
 
      data IOI (A,State: Type): Type :=
-          (data: input A)
           (intro: State → (State → IOI.F A State) → IOI)
 
 </code></div>
