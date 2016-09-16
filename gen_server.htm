@@ -118,13 +118,13 @@ hibernate(P, N, S, M) -> server(drain(), P, N, S, M).
 <div class=note style="background-color:#FAFAFA;"><p>Events API<br>
 <code>
        data input (Any: Type): Type :=
-            (EXIT:      Pid -> Record -> input Any)
-            (init:      Pid -> Record -> input Any)
-            ($gen_call: Pid -> Record -> input Any)
-            ($gen_cast: Pid -> Record -> input Any)
-            (system:    Pid -> Record -> input Any)
-            (timeout:   Pid -> Record -> input Any)
-            (info:                Any -> input Any)
+            (EXIT:      Any -> Pid -> Record -> input Any)
+            (init:      Any -> Pid -> Record -> input Any)
+            ($gen_call: Any -> Pid -> Record -> input Any)
+            ($gen_cast: Any -> Pid -> Record -> input Any)
+            (system:    Any -> Pid -> Record -> input Any)
+            (timeout:   Any -> Pid -> Record -> input Any)
+            (info:                       Any -> input Any)
 </code>
 <p></div>
 <div class=note><p>Effects API
@@ -221,6 +221,15 @@ hibernate(P, N, S, M) -> server(drain(), P, N, S, M).
           ($gen_call := output.ok   A M                     S)
           ($gen_cast := output.ok   A                       S)
 
+     data IOI.F (A,State: Type): Type :=
+          (receive: (input A → State) → IO.F A State)
+          (server:   input A → State  → IO.F A State)
+          (pure: A → IO.F A State)
+
+     data IOI (A,State: Type): Type :=
+          (data: input A)
+          (intro: State → (State → IOI.F A State) → IOI)
+
 </code></div>
 
 <h3>Let's try!</h3>
@@ -243,7 +252,7 @@ true
 
 </pre>
 
-<center style="margin-top: 120px;margin-bottom:60px;"><img style="margin-bottom:-20px;" src="Stamp.svg" width=50>2016 &copy; Groupoid Infinity, Inc.</center>
+<center style="margin-top: 120px;margin-bottom:60px;"><img style="margin-bottom:-20px;" src="Stamp.svg" width=50>2016 &copy; Maxim Sokhatsky</center>
 <br><br>
 
 </div>
