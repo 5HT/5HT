@@ -222,9 +222,9 @@ hibernate(P, N, S, M) -> server(drain(), P, N, S, M).
           ($gen_cast := output.ok   A                       S)
 
      data IOI.F (A,State: Type): Type :=
-          (receive: (input A → State) → IO.F A State)
-          (server:   input A → State  → IO.F A State)
-          (pure: A → IO.F A State)
+          (receive: (input A → State) → IO.F)
+          (server:   input A → State  → IO.F)
+          (pure: A → IO.F)
 
      data IOI (A,State: Type): Type :=
           (data: input A)
