@@ -220,7 +220,12 @@ hibernate(P, N, S, M) -> server(drain(), P, N, S, M).
           (system    := output.stop A M         (prod P []) S)
           ($gen_call := output.ok   A M                     S)
           ($gen_cast := output.ok   A                       S)
+</code></div>
 
+<p>Typed Free Structure can handle the stream.</p>
+
+<div class=note style="background-color:#fafafa;">
+<code>
      data IOI.F (A,State: Type): Type :=
           (receive: (input A → State) → IO.F)
           (server:   input A → State  → IO.F)
