@@ -1,0 +1,150 @@
+// NYING.MA.CSS
+A { text-decoration: none; color: blue; }
+A:link { color: blue; text-decoration: none; }
+A:visited { color: blue; text-decoration: none; }
+A:hover { color: blue; text-decoration: none; }
+SUP { font-size:10pt; }
+BODY { font-size:14pt; font-family: local, Calibri, Lucida Sans, "Lucida Grande"; }
+TD { margin: 0 auto; padding-right: 20px; }
+H1 { color: darkblue; font-weight: bold; font-size:20pt; margin-top:20px; margin-bottom:10px; margin-right:6px; }
+H2 { color: darkblue; font-size:18pt; margin-top:20px; margin-bottom:10px; margin-right:6px; }
+H3 { font-size:14pt; margin-top:20px; margin-bottom:10px; margin-right:6px; } 
+P { font-size:14pt; margin-top: 0px; margin-bottom: 8px; }
+.ti { font-family: ti; font-weight: lighter;}
+h1 > .ti { font-size: 26pt; font-family: ti; font-weight: lighter;}
+h2 > .ti { font-size: 19pt; font-family: ti; font-weight: lighter;}
+h3 > .ti { font-size: 15pt; font-family: ti; font-weight: lighter;}
+P.poem { font-size:12pt; margin-top: 0px; margin-bottom: 8px; white-space: pre;}
+LI { font-size:12pt; }
+pre { font-size:10pt; font-family: Lucida Console; }
+.menu { font-size:12pt; font-family: Calibri, Lucida Sans Unicode; color: red; }
+.small_infoblock { font-family: Calibri, Lucida Sans Unicode; font-size:8pt; }
+.block  { background-color: #EEEEEE; padding-top:6;padding-bottom:10;padding-right:10;padding-left:10;}
+.threecol { float:left; }
+.left { float:left; }
+.hints { width:59px;float:left;margin-right:6px; }
+.main { width:843px;float:left;margin-right:26px; }
+.contents { width:270px;float:right; }
+.numbox { padding:10px 10px 10px 10px;background-color:black;color:white; }
+
+
+@font-face {
+    font-family: 'local';
+    src: url('Geometria-Light.otf');
+    font-weight: normal;
+    font-style: normal;
+};
+
+@font-face {
+    font-family: 'ti';
+    src: url('TibetanMachineWeb.eot');
+    font-weight: lighter;
+    font-style: normal;
+};
+
+    #navcontainer {
+        margin-top: -20px;
+        padding: 0;
+        background-color:#CCC;
+        height: auto;
+        border-bottom: 1px solid #666;
+        z-index: 100;
+    }
+
+    #nav {
+        margin: -20px -20px 30px 30px;
+        float: left;
+        list-style: none;
+        width: 120%;
+        line-height: 1;
+        background: #DDD;
+        padding: 0;
+        margin: 0;
+        z-index: 100;
+    }
+
+    #nav ul {
+        position: absolute;
+        left: -1000px;
+        inline-block: width;
+        float: left;
+        height: auto;
+        width: 140%;
+        display: block;
+        list-style: none;
+        border-top: 0.1em solid #666;
+        border-right: 0.1em solid #666;
+        border-bottom: 0.1em solid #666;
+        border-left: 0.6em solid #666;
+        margin: 0;
+        padding: 0;
+        z-index: 100;
+        background: #ffffff;
+    }
+
+    #nav ul li {
+	    position: relative;
+        float: left;
+        padding: 0;
+        margin-top: -1px;
+        margin-bottom: -2px;
+        width: 140%;
+        height: 120%;
+        z-index: 100;
+		color: #ddd;
+        background: #ffffff;
+    }
+
+    #nav li {
+        color: white;
+	    position: relative;
+        float: left;
+        padding: 0;
+        margin: 0;
+        width: auto;
+        z-index: 100;
+        background: #ffffff;
+    }
+
+    #nav li a {
+        position: relative;
+        width: 120%;
+        display: block;
+        border-left:  0.1em solid #fff;
+        border-top:   0.1em solid #fff;
+        border-right: 0.1em solid #aaa;
+        border-bottom: none;
+        padding: 0.4em 1em;
+        color: #444;
+        background: #ddd;
+        text-decoration: none;
+        inline-block: none;
+    }
+
+    #nav li ul li a {
+        width: 120%;
+        left: auto;
+        inline-block: width;
+    }
+
+    #nav a:active,
+	#nav a:hover {
+        color: #000;
+        left: auto;
+        background: #bbb;
+        width: 120%;
+    }
+
+    #nav li:hover ul,
+    #nav li li:hover ul,
+    #nav li li li:hover ul,
+    #nav li.sfhover ul,
+    #nav li li.sfhover ul,
+    #nav li li li.sfhover ul
+    {
+        float: left;
+        left: auto;
+        inline-block: float;
+        width: auto;
+        z-index: 100;
+    }
