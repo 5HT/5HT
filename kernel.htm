@@ -20,7 +20,7 @@
                    TO: ATH<br>
                  DATE: 1 NOV 2016</div>
 
-<table border-0><tr><td width=200 height=100 align=right><img src="img/index.png"></td><td><h2>Enso Operating System</h2></td></tr>
+<table border-0><tr><td width=200 height=100 align=right><img src="img/index.png"></td><td><h2>The Kernel</h2></td></tr>
 <tr><td></td><td> <h3 style="margin-top:-80px;">Current Features</h3>
 
 <ul><li>Network I/O for Linux/BSD</li>
@@ -90,6 +90,28 @@ Network server is an <b>IO</b> reactor that can handle multiple connections
 and based on Linux/BSD/Windows polling flavours.</p>
 
    <img src="img/net.png">
+
+<h3>Timer Reactor</h3>
+
+<p>Different types of schedulable entities like Timers, Tasks and IO events
+   has different type of selectors that provides prescheduled selection
+   of poll-able sequence.</p>
+
+   <img src="img/dis.png">
+
+<h3>InterCore Protocol</h3>
+
+<ul><li><b>reactor</b> [new] &mdash; actually spawn the thread</li>
+    <li><b>ring</b> [new] &mdash; preallocates ring master</li>
+    <li><b>spawn</b> [task, reactor] &mdash; add to reactor task queue</li>
+    <li><b>cursor</b> [ring] &mdash; creates cursor in a given ring</li>
+    <li><b>join</b> [cursor, cursor] &mdash; join two cursors (migration)</li>
+    <li><b>timer</b> [time, task] &mdash; schedule task poll</li>
+    <li><b>split</b> [cursor] &mdash; queue migration with new cursor</li>
+    <li><b>io</b> [server, client] &mdash; run I/O server or client connection pool</li>
+    <li><b>register</b> [poll] &mdash; register poller</li>
+    </ul>
+
 
 <div class=block style="margin:150px;padding-left:150px;">
 <center>Namdak Tonpa &copy; 2016</center>
