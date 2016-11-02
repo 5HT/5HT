@@ -80,13 +80,14 @@ There is priority queues for Task reactor and interval trees of Timer reactor.</
    <img src="img/sys.png">
 
 <p>The common way to interact between tasks is to use queues that is implemented
-   as cirsular buffers with CAS cursors. But it is also possible to direct
+   as circular buffers with CAS cursors. But it is also possible to direct
    communitation with any given reactor by sending InterCore Bus system messages.
    Such messages are <b>spawn</b> and <b>timer</b> events. You can extend
    InterCore bus protocol to send reactor-wide events applying custom filters to schedulable streams.</p>
 
 <h3>Network Reactor</h3>
-Network server is an IO reactor that can handle multiple connections and based on Linux/BSD/Windows polling flavours.</p>
+Network server is an <b>IO</b> reactor that can handle multiple connections
+and based on Linux/BSD/Windows polling flavours.</p>
 
    <img src="img/net.png">
 
