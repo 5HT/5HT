@@ -82,8 +82,7 @@ There is priority queues for Task reactor and interval trees of Timer reactor.</
 <p>The common way to interact between tasks is to use queues that is implemented
    as cirsular buffers with CAS cursors. But it is also possible to direct
    communitation with any given reactor by sending InterCore Bus system messages.
-   Such messages are <span style="padding:2px;background-color:#f0f0f0;">spawn</span> and
-   <span style="background-color:#f0f0f0;padding:2px;">timer</span> events. You can extend
+   Such messages are <b>spawn</b> and <b>timer</b> events. You can extend
    InterCore bus protocol to send reactor-wide events applying custom filters to schedulable streams.</p>
 
 <h3>Network Reactor</h3>
