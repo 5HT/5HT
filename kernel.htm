@@ -1,0 +1,72 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+  </head>
+    <title>The Kernel</title>
+    <link rel="stylesheet" href="5HT.css" />
+</head>
+<body>
+<div class=menu>
+<a href="index.html">articles</a>
+</div>
+<hr>
+<div class=app>
+
+<div align=right>FROM: 5HT<br>
+                   TO: VOXOZ<br>
+                 DATE: 1 NOV 2016</div>
+
+<table border-0><tr><td width=200 height=100 align=right><img src="img/index.png"></td><td><h2>Enso Operating System</h2></td></tr>
+<tr><td></td><td> <h3 style="margin-top:-80px;">Current Features</h3>
+
+<ul><li>Network I/O for Linux/BSD</li>
+    <li>Disk I/O</li>
+    <li>Reactors and Tasks</li>
+    <li>MPSC and SPMC CAS multicursor queues</li>
+    </ul>
+
+<h3>Scheduled</h3>
+
+<ul><li>Transactional Log</li>
+    <li>Persistent BTree-flavour</li>
+    <li>Pluggable Application Protocols</li>
+    </ul>
+
+</td></tr></table>
+
+
+<h4>TL;DR Autobalancing low-latency non-blocking zero-copy CAS-multicursor queues
+    with priority tasks and scalable timers.</h4>
+
+<h3>Autobalancing</h3>
+
+<p>The server should effectively use multicore configurations with respect
+   to cache locality, avoid cache invalidations and provide effective balancing
+   of prescheduled task/timer priorities with variative operational low-latency feedback.</p>
+
+   <img src="img/candy.png">
+
+<h3>Low-latency</h3>
+
+<p>To avoid context switching the bootstrap configuration should permanently preset the
+   different types of reactor per core affinity. All tasks or reactors should strive to
+   use limited range of addresses (L3 or L2 size when possible) for data cache saturation.</p>
+
+<h3>Multicursor</h3>
+
+<p>The heart of the zero-copy low-latency transport system is the continuous preallocated
+   ring of continuous ring buffers (called sectors). By the direction there are
+   multi-reader cursor and multi-writer cursor, selecting the direction of data flow.</p>
+
+   <img src="img/pub.png">
+
+<p>One can specify than cursors sould not intersect or be beyond limits of predefined sectors.
+   That is how we allow to provide mutiple acces for several consumers without actual copying the message and
+   using only CAS cursor shifting.</p>
+
+   <img src="img/sub.png">
+
