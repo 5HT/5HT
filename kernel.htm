@@ -101,14 +101,14 @@ and based on Linux/BSD/Windows polling flavours.</p>
 
 <h3>InterCore Protocol</h3>
 
-<ul><li><b>reactor</b> [new] &mdash; actually spawn the thread</li>
-    <li><b>ring</b> [new] &mdash; preallocates ring master</li>
+<ul><li><b>reactor</b> [core, timer/task] &mdash; spawn the thread on a core</li>
+    <li><b>ring</b> [mem] &mdash; preallocates the ring master in a mem</li>
     <li><b>spawn</b> [task, reactor] &mdash; add to reactor task queue</li>
     <li><b>cursor</b> [ring] &mdash; creates cursor in a given ring</li>
     <li><b>join</b> [cursor, cursor] &mdash; join two cursors (migration)</li>
-    <li><b>timer</b> [time, task] &mdash; schedule task poll</li>
     <li><b>split</b> [cursor] &mdash; queue migration with new cursor</li>
-    <li><b>io</b> [server, client] &mdash; run I/O server or client connection pool</li>
+    <li><b>timer</b> [reactor, time, task] &mdash; schedule task poll</li>
+    <li><b>io</b> [core, server/client] &mdash; run I/O server or client connection pool</li>
     <li><b>register</b> [poll] &mdash; register poller</li>
     </ul>
 
