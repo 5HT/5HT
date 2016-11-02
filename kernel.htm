@@ -26,6 +26,8 @@
 <ul><li>Network I/O for Linux/BSD</li>
     <li>Disk I/O</li>
     <li>Reactors and Tasks</li>
+    <li>InterCore Bus Protocol</li>
+    <li>Scalable Timers</li>
     <li>MPSC and SPMC CAS multicursor queues</li>
     </ul>
 
@@ -70,3 +72,25 @@
 
    <img src="img/sub.png">
 
+<h3>Reactors</h3>
+
+<p>Each CPU core can run one of three type of reactors than run <b>Tasks</b>, <b>Timer</b> and <b>IO</b> loopers.
+There is priority queues for Task reactor and interval trees of Timer reactor.</p>
+
+   <img src="img/sys.png">
+
+<p>The common way to interact between tasks is to use queues that is implemented
+   as cirsular buffers with CAS cursors. But it is also possible to direct
+   communitation with any given reactor by sending InterCore Bus system messages.
+   Such messages are <span style="padding:2px;background-color:#f0f0f0;">spawn</span> and
+   <span style="background-color:#f0f0f0;padding:2px;">timer</span> events. You can extend
+   InterCore bus protocol to send reactor-wide events applying custom filters to schedulable streams.</p>
+
+<h3>Network Reactor</h3>
+Network server is an IO reactor that can handle multiple connections and based on Linux/BSD/Windows polling flavours.</p>
+
+   <img src="img/net.png">
+
+<div class=block style="margin:150px;padding-left:150px;">
+<center>Namdak Tonpa &copy; 2016</center>
+</div>
