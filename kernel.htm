@@ -99,20 +99,11 @@ and based on Linux/BSD/Windows polling flavours.</p>
 
    <img src="img/dis.png">
 
-<h3>InterCore Protocol</h3>
+<h3>Task Reactor</h3>
 
-<ul><li><b>reactor</b> [core, timer/task] &mdash; spawn the thread on a core</li>
-    <li><b>ring</b> [mem] &mdash; preallocates the ring master in a mem</li>
-    <li><b>spawn</b> [task, reactor] &mdash; add to reactor task queue</li>
-    <li><b>cursor</b> [ring] &mdash; creates cursor in a given ring</li>
-    <li><b>join</b> [cursor, cursor] &mdash; join two cursors (migration)</li>
-    <li><b>split</b> [cursor] &mdash; queue migration with new cursor</li>
-    <li><b>timer</b> [reactor, time, task] &mdash; schedule task poll</li>
-    <li><b>io</b> [core, server/client] &mdash; run I/O server or client connection pool</li>
-    <li><b>register</b> [poll] &mdash; register event</li>
-    </ul>
+<img src="img/task.png">
 
-<h3>InterTask State Machine Protocol</h3>
+<h3>State Machine Protocol &mdash; Task DSL</h3>
 
 <ul><li><b>If</b> &mdash; test operator</li>
     <li><b>Map</b> &mdash; loop operator</li>
@@ -128,7 +119,33 @@ and based on Linux/BSD/Windows polling flavours.</p>
     <li><b>Send</b> &mdash; send message to queue</li>
     <li><b>Compare</b> &mdash; comparator</li>
     <li><b>Equals</b> &mdash; equality type</li>
-    <li><b>Spawn</b> &mdash; spawn stream in reactor task queue</li>
+    <li><b>Spawn</b> &mdash; spawn stream in reactor task queue</li></ul>
+
+
+<h3>Channel Protocol &mdash; Session Types DSL</h3>
+
+<ul><li><b>Z</b> &mdash; zero</li>
+    <li><b>S</b> &mdash; succ</li>
+    <li><b>Eps</b> &mdash; close connection</li>
+    <li><b>Choose</b> &mdash; sum</li>
+    <li><b>Offer</b> &mdash; product</li>
+    <li><b>Send</b> &mdash; send</li>
+    <li><b>Recv</b> &mdash; receive</li>
+    <li><b>Rec</b> &mdash; recursor</li>
+    <li><b>Var</b> &mdash; return to protocol root</li></ul>
+
+<h3>InterCore Protocol &mdash; The Kernel Shell DSL</h3>
+
+<ul><li><b>reactor</b> [core, timer/task] &mdash; spawn the thread on a core</li>
+    <li><b>ring</b> [mem] &mdash; preallocates the ring master in a mem</li>
+    <li><b>spawn</b> [task, reactor] &mdash; add to reactor task queue</li>
+    <li><b>cursor</b> [ring] &mdash; creates cursor in a given ring</li>
+    <li><b>join</b> [cursor, cursor] &mdash; join two cursors (migration)</li>
+    <li><b>split</b> [cursor] &mdash; queue migration with new cursor</li>
+    <li><b>timer</b> [reactor, time, task] &mdash; schedule task poll</li>
+    <li><b>io</b> [core, server/client] &mdash; run I/O server or client connection pool</li>
+    <li><b>register</b> [poll] &mdash; register event</li>
+    </ul>
 
 <div class=block style="margin:150px;padding-left:150px;">
 <center>Namdak Tonpa &copy; 2016</center>
