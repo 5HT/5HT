@@ -54,7 +54,7 @@
 
 <p>To avoid context switching the bootstrap configuration should permanently preset the
    different types of reactor per core affinity. All tasks or reactors should strive to
-   use limited range of addresses (L3 or L2 size when possible) for data cache saturation.</p>
+   use limited range of addresses (L1/L2 size when possible) for data cache saturation.</p>
 
 <h3>Multicursor</h3>
 
@@ -70,3 +70,81 @@
 
    <img src="img/sub.png">
 
+<h3>Reactors</h3>
+
+<p>Each CPU core can run one of three type of reactors that run <b>Task</b>, <b>Timer</b> and <b>IO</b> loopers.
+There is priority queues for Task reactor and interval trees of Timer reactor.</p>
+
+   <img src="img/sys.png">
+
+<p>The common way to interact between tasks is to use queues that is implemented
+   as circular buffers with CAS cursors. But it is also possible to direct
+   communitation with any given reactor by sending InterCore Bus system messages.
+   Such messages are <b>spawn</b> and <b>timer</b> events. You can extend
+   InterCore bus protocol to send reactor-wide events applying custom filters to schedulable streams.</p>
+
+<h3>Network Reactor</h3>
+Network server is an <b>IO</b> reactor that can handle multiple connections
+and based on Linux/BSD/Windows polling flavours.</p>
+
+   <img src="img/net.png">
+
+<h3>Timer Reactor</h3>
+
+<p>Different types of schedulable entities like Timers, Tasks and IO events
+   has different type of selectors that provides prescheduled selection
+   of poll-able sequence.</p>
+
+   <img src="img/dis.png">
+
+<h3>Task Reactor</h3>
+
+<img src="img/task.png">
+
+<h3>State Machine Protocol &mdash; Task DSL</h3>
+
+<ul><li><b>If</b> &mdash; test operator</li>
+    <li><b>Map</b> &mdash; loop operator</li>
+    <li><b>And</b> &mdash; and clause</li>
+    <li><b>Fold</b> &mdash; and clause</li>
+    <li><b>Filter</b> &mdash; and clause</li>
+    <li><b>Or</b> &mdash; or clause</li>
+    <li><b>Get</b> &mdash; and clause</li>
+    <li><b>Put</b> &mdash; and clause</li>
+    <li><b>AndThen</b> &mdash; and clause</li>
+    <li><b>OrElse</b> &mdash; and clause</li>
+    <li><b>Recv</b> &mdash; receive message from queue</li>
+    <li><b>Send</b> &mdash; send message to queue</li>
+    <li><b>Compare</b> &mdash; comparator</li>
+    <li><b>Equals</b> &mdash; equality type</li>
+    <li><b>Spawn</b> &mdash; spawn stream in reactor task queue</li></ul>
+
+
+<h3>Channel Protocol &mdash; Session Types DSL</h3>
+
+<ul><li><b>Z</b> &mdash; zero</li>
+    <li><b>S</b> &mdash; succ</li>
+    <li><b>Eps</b> &mdash; close connection</li>
+    <li><b>Choose</b> &mdash; sum</li>
+    <li><b>Offer</b> &mdash; product</li>
+    <li><b>Send</b> &mdash; send</li>
+    <li><b>Recv</b> &mdash; receive</li>
+    <li><b>Rec</b> &mdash; recursor</li>
+    <li><b>Var</b> &mdash; return to protocol root</li></ul>
+
+<h3>InterCore Protocol &mdash; The Kernel Shell DSL</h3>
+
+<ul><li><b>reactor</b> [core, timer/task] &mdash; spawn the thread on a core</li>
+    <li><b>ring</b> [mem] &mdash; preallocates the ring master in a mem</li>
+    <li><b>spawn</b> [task, reactor] &mdash; add to reactor task queue</li>
+    <li><b>cursor</b> [ring] &mdash; creates cursor in a given ring</li>
+    <li><b>join</b> [cursor, cursor] &mdash; join two cursors (migration)</li>
+    <li><b>split</b> [cursor] &mdash; queue migration with new cursor</li>
+    <li><b>timer</b> [reactor, time, task] &mdash; schedule task poll</li>
+    <li><b>io</b> [core, server/client] &mdash; run I/O server or client connection pool</li>
+    <li><b>register</b> [poll] &mdash; register event</li>
+    </ul>
+
+<div class=block style="margin:150px;padding-left:150px;">
+<center>Namdak Tonpa &copy; 2016</center>
+</div>
