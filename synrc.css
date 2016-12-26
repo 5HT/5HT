@@ -148,3 +148,10 @@ pre { font-size:10pt; font-family: Lucida Console; }
         width: auto;
         z-index: 100;
     }
+
+#comments iframe {
+    display: none;
+    width: 100%;
+    height: 0rem;
+    border: none;
+}
