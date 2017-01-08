@@ -123,8 +123,8 @@ aside {
     display: block; }
 
 .header {
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   position: relative;
   min-height: 450px;
   padding: 16px 8px;
