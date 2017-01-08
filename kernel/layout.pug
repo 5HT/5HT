@@ -1,0 +1,33 @@
+mixin header(logo, title, subtitle) 
+    header.header
+        a(href='/kernel/')
+            img.header__logo(src=logo)
+        .header__titles
+            h1.header__title!= title
+            h4.header__subtitle!= subtitle
+
+
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='x-ua-compatible' content='ie=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        meta(name='author' content='Maxim Sokhatsky')
+        meta(property='og:title' content='Kernel')
+        meta(property='og:image' content='http://groupoid.space/grp.png')
+        meta(property='og:type' content='website')
+        meta(property='fb:app_id' content='118554188236439')
+        meta(property='og:url' content='http://groupoid.space' )
+        meta(property='og:description' content='Infinity Language')
+        link(rel='stylesheet' href='/kernel/main.css')
+        block title
+            title default
+
+    body.content
+        block content
+        footer.footer
+            img.footer__logo(src='/kernel/stamp.svg')
+            span.footer__copy 2016&mdash;2017 &copy; Tachyonic
+        script(src='/kernel/bundle.js')
+        script(src='/kernel/highlight.js')

@@ -1,0 +1,22 @@
+extends layout.pug
+
+block title
+    title Inf
+
+block content
+    +header('/kernel/index.png', 'Tachyonic', '<b>Kernel</b> &mdash; Stream Processing and Trading Platform')
+    article.main
+        .index
+            .index__col
+                h2 Overview
+                ul
+                    li 2 <a href='/kernel' class='link'> Kernel </a>
+                    li 1 <a href='/language' class='link'> Language</a>
+                    li 3 <a href='/lib' class='link'> Base Library</a>
+            .index__col
+                h2 Documentation
+                ul
+                    li 15 FEB 16 <a href='/dsl'> Vector DSL</a>
+                    li 1 MAY 16 <a href='/intercore'> InterCore</a>
+                    li 4 AUG 16 <a href='/components'> Components</a>
+                    li 18 MAR 16 <a href='/apps'> Applications</a>
