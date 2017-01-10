@@ -1,0 +1,70 @@
+extends ../layout.pug
+
+block title
+    title The Kernel
+
+block content
+    +header('/kernel/index.png', 'The Kernel', '')
+    article.main
+        .types
+            h1#taxonomy Table of Contents
+            -
+                var types = {
+                        'Current Features': ['Network I/O for Linux/BSD', 'Disk I/O', 'Reactors and Tasks', 'MPSC and SPMC CAS multicursor queues'],
+                        'Planned': ['Transactional Log','Persistent BTree-flavour','Pluggable Application Protocols']
+                    }
+
+            .type
+                for v, k in types
+                    ol.type__col
+                        h3= k.toUpperCase()
+                        for i in v
+                            li: a(href='#'+i)= i.toUpperCase()
+
+
+        .intro
+            h2#fpga Autobalancing
+            p.
+                The server should effectively use multicore configurations with respect to cache locality, avoid cache invalidations and provide effective balancing of prescheduled task/timer priorities with variative operational low-latency feedback.
+
+                <img src="img/candy.png">
+
+            h2#fpga Low-latency
+            p.
+                To avoid context switching the bootstrap configuration should permanently preset the different types of reactor per core affinity. All tasks or reactors should strive to use limited range of addresses (L1/L2 size when possible) for data cache saturation.
+
+            h2#other Multicursor
+            p.
+                The heart of the zero-copy low-latency transport system is the continuous preallocated ring of continuous ring buffers (called sectors). By the direction there are multi-reader cursor and multi-writer cursor, selecting the direction of data flow.
+
+                <img src="img/pub.png">
+
+                One can specify than cursors sould not intersect or be beyond limits of predefined sectors. That is how we allow to provide mutiple acces for several consumers without actual copying the message and using only CAS cursor shifting.
+
+                <img src="img/sub.png">
+
+            h2#mltt Ractors
+            p.
+                Each CPU core can run one of three type of reactors that run Task, Timer and IO loopers. There is priority queues for Task reactor and interval trees of Timer reactor.
+
+                <img src="img/sys.png">
+
+                The common way to interact between tasks is to use queues that is implemented as circular buffers with CAS cursors. But it is also possible to direct communitation with any given reactor by sending InterCore Bus system messages. Such messages are spawn and timer events. You can extend InterCore bus protocol to send reactor-wide events applying custom filters to schedulable streams.
+
+            h2#fpga IO Reactor
+            p.
+                Network server is an IO reactor that can handle multiple connections and based on Linux/BSD/Windows polling flavours.
+
+                <img src="img/net.png">
+
+            h2#fpga Timer Reactor
+            p.
+                Different types of schedulable entities like Timers, Tasks and IO events has different type of selectors that provides prescheduled selection of poll-able sequence.
+
+                <img src="img/dis.png">
+
+            h2#fpga Task Reactor
+            p.
+                Network server is an IO reactor that can handle multiple connections and based on Linux/BSD/Windows polling flavours.
+
+                <img src="img/task.png">
