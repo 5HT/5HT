@@ -1,0 +1,57 @@
+TOC
+Setup
+    Files and Folders
+    The Terminal
+    Text Editors
+First Program
+    Your First Program
+    How to Read a Go Program
+Types
+    Numbers
+    Strings
+    Booleans
+Variables
+    How to Name a Variable
+    Scope
+Constants
+    Defining Multiple Variables
+    An Example Program
+Control Structures
+    For
+    If
+    Switch
+Arrays, Slices and Maps
+    Arrays
+    Slices
+    Maps
+Functions
+    Your Second Function
+    Returning Multiple Values
+    Variadic Functions
+Closure
+    Recursion
+    Defer, Panic & Recover
+Pointers
+    The * and & operators
+    new
+Structs and Interfaces
+    Structs
+    Methods
+    Interfaces
+Concurrency
+    Goroutines
+    Channels
+The Core Packages
+    Strings
+    Input / Output
+    Files & Folders
+    Errors
+    Containers & Sort
+    Hashes & Cryptography
+    Servers
+    Parsing Command Line Arguments
+    Synchronization Primitives
+Next Steps
+    Study the Masters
+    Make Something
+    Team Up

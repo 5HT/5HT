@@ -1,0 +1,38 @@
+extends ../layout.pug
+
+block title
+    title Language
+
+block content
+    +header('/kernel/index.png', 'The Language', 'Operating Language and its O-CPS Interpreter')
+    article.main
+        .types
+            h1#taxonomy Table of Contents
+            -
+                var types = {
+                        'Setup': ['Platform','Boot','Arguments','Console'],
+                        'Basic': ['Recursion','Philosophers'],
+                        'Simple': ['Number','Sequence','Symbol'],
+                        'Complex': ['Vector','List','Dict','Table'],
+                        'Variables': ['Assignments','Scopes'],
+                        'Functions': ['Definition','Usage'],
+                        'Control': ['Condition','Switch','CHR'],
+                        'Effects': ['Errors','Channels','Random']
+                    }
+
+            .type
+                for v, k in types
+                    ol.type__col
+                        h3= k.toUpperCase()
+                        for i in v
+                            li: a(href='#'+i)= i.toUpperCase()
+
+            section
+                h1 Setup
+                p.
+                    The Language is a part of The Kernel executable.
+
+                code.
+                    $ host
+                    Welcome to O language interpreter 0.12.0
+                    o)
