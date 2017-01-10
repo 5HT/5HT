@@ -65,6 +65,9 @@ block content
 
             h2#fpga Task Reactor
             p.
-                Network server is an IO reactor that can handle multiple connections and based on Linux/BSD/Windows polling flavours.
+                Task reaactor is able to run Rust and O-CPS Tasks.
+                O-CPS Task can be two types: Infinite and Finite. The sample of inifinite task
+                is a zero task spawned during Boot. It configures the Host VM and is always
+                available from both WebSockets and Console.
 
                 <img src="/img/task.png" width="100%">

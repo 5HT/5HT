@@ -20,6 +20,9 @@ The common way to interact between tasks is to use queues that is implemented as
 </p><h2 id="fpga">Timer Reactor</h2><p>Different types of schedulable entities like Timers, Tasks and IO events has different type of selectors that provides prescheduled selection of poll-able sequence.
 
 <img src="/img/dis.png" width="100%">
-</p><h2 id="fpga">Task Reactor</h2><p>Network server is an IO reactor that can handle multiple connections and based on Linux/BSD/Windows polling flavours.
+</p><h2 id="fpga">Task Reactor</h2><p>Task reaactor is able to run Rust and O-CPS Tasks.
+O-CPS Task can be two types: Infinite and Finite. The sample of inifinite task
+is a zero task spawned during Boot. It configures the Host VM and is always
+available from both WebSockets and Console.
 
 <img src="/img/task.png" width="100%"></p></div></article><footer class="footer"><img class="footer__logo" src="/kernel/stamp.svg"><span class="footer__copy">2016&mdash;2017 &copy; Tachyonic</span></footer><script src="/kernel/bundle.js"></script><script src="/kernel/highlight.js"></script></body></html>
