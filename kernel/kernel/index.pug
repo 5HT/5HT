@@ -27,7 +27,7 @@ block content
             p.
                 The server should effectively use multicore configurations with respect to cache locality, avoid cache invalidations and provide effective balancing of prescheduled task/timer priorities with variative operational low-latency feedback.
 
-                <img src="img/candy.png">
+                <img src="/img/candy.png">
 
             h2#fpga Low-latency
             p.
@@ -37,17 +37,17 @@ block content
             p.
                 The heart of the zero-copy low-latency transport system is the continuous preallocated ring of continuous ring buffers (called sectors). By the direction there are multi-reader cursor and multi-writer cursor, selecting the direction of data flow.
 
-                <img src="img/pub.png">
+                <img src="/img/pub.png">
 
                 One can specify than cursors sould not intersect or be beyond limits of predefined sectors. That is how we allow to provide mutiple acces for several consumers without actual copying the message and using only CAS cursor shifting.
 
-                <img src="img/sub.png">
+                <img src="/img/sub.png">
 
             h2#mltt Ractors
             p.
                 Each CPU core can run one of three type of reactors that run Task, Timer and IO loopers. There is priority queues for Task reactor and interval trees of Timer reactor.
 
-                <img src="img/sys.png">
+                <img src="/img/sys.png">
 
                 The common way to interact between tasks is to use queues that is implemented as circular buffers with CAS cursors. But it is also possible to direct communitation with any given reactor by sending InterCore Bus system messages. Such messages are spawn and timer events. You can extend InterCore bus protocol to send reactor-wide events applying custom filters to schedulable streams.
 
@@ -55,16 +55,16 @@ block content
             p.
                 Network server is an IO reactor that can handle multiple connections and based on Linux/BSD/Windows polling flavours.
 
-                <img src="img/net.png">
+                <img src="/img/net.png">
 
             h2#fpga Timer Reactor
             p.
                 Different types of schedulable entities like Timers, Tasks and IO events has different type of selectors that provides prescheduled selection of poll-able sequence.
 
-                <img src="img/dis.png">
+                <img src="/img/dis.png">
 
             h2#fpga Task Reactor
             p.
                 Network server is an IO reactor that can handle multiple connections and based on Linux/BSD/Windows polling flavours.
 
-                <img src="img/task.png">
+                <img src="/img/task.png">
