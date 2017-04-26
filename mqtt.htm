@@ -90,14 +90,15 @@ It can only be reached by calling n2o_nitrogen with <b>{init,<<>>}</b> protocol 
     Name = binary_to_list(iolist_to_binary(ClientId)),
     BinTopic = element(1,hd(TopicTable)),
     put(topic,BinTopic),
-    wf:actions([]),
+
     n2o_cx:context(#cx{module=route:select(BinTopic),
                        formatter=bert,params=[]}),
 
     case n2o_nitrogen:info({init,<<>>},[],?CTX) of
          {reply, {binary, M}, _, #cx{}} ->
              self() ! {deliver, emqttd_message:make(Name, 0, Name, M)};
-         _ -> skip end,
+                                      _ -> skip end,
+
     {ok, TopicTable}.
 
 </pre>
@@ -115,6 +116,7 @@ place to put the federation relay for N2O modules.</p>
                      Message = #mqtt_message{topic   = Topic,
                                              payload = Payload}, _Env) ->
     Name = binary_to_list(ClientId),
+
     case n2o_proto:info(binary_to_term(Payload),[],?CTX) of
          {reply, {binary, M}, R, #cx{}} ->
               case binary_to_term(M) of
@@ -405,5 +407,7 @@ emqttd 2.1.1 is running now
 
 </div>
 </div>
+
+
 </body>
 </html>
