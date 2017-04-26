@@ -166,6 +166,56 @@ endpoints which arise in multi-protocol discussions:
 <pre><img src="img/n2o-mqtt.png" width=850></pre>
 </center></p>
 
+<h3>MQTT JavaScript companion library</h3>
+
+<center>Code 4. mq.js</center>
+<pre>
+
+  var topic = module + "_" + params.room || "lobby",
+      mqtt = new Paho.MQTT.Client("127.0.0.1", 8083, ''),
+      subscribeOptions = {
+         qos: 0,
+         onSuccess: function ()  {
+            console.log("N2O Subscribed"); },
+         onFailure: function (m) {
+            console.log("SUB Failure: " +
+            message.errorMessage); },
+         timeout: 3 },
+      options = {
+         timeout: 3,
+         onFailure: function (m) {
+            console.log("SND Failure: " +
+            m.errorMessage); },
+         onSuccess: function ()  {
+            console.log("N2O Connected");
+            mqtt.subscribe(topic, subscribeOptions); } },
+      ws = {
+         send: function (payload) {
+               var message = new Paho.MQTT.Message(payload);
+               message.destinationName = topic;
+               message.qos = 0;
+               mqtt.send(message); } };
+
+  function MQTT_start() {
+     mqtt.onConnectionLost = function (o) { };
+     mqtt.onMessageArrived = function (m) {
+         var BERT = m.payloadBytes.buffer.slice(
+                    m.payloadBytes.byteOffset,
+                    m.payloadBytes.byteOffset +
+                    m.payloadBytes.length);
+         try { erlang = dec(BERT);
+            console.log(utf8_dec(erlang.v[1].v));
+            for (var i=0;i<$bert.protos.length;i++) {
+               p = $bert.protos[i];
+               if (p.on(erlang, p.do).status == "ok") return; }
+         } catch (e) { console.log(e); } };
+     mqtt.connect(options);
+  }
+
+  MQTT_start();
+
+</pre>
+
 <h3>EMQ Plugin</h3>
 
 <p>The N2O over MQTT bridge is a drop-in plugin for EMQ broker.
@@ -208,7 +258,7 @@ Github organization.</p>
 with EMQ with minimal dependencies. Our fork is based on latest EMQ master
 and dedicated for building with our MAD build tool.</p>
 
-<center>Code 4. Setup MQTT flavoured N2O.</center>
+<center>Code 5. Setup MQTT flavoured N2O.</center>
 <code>
 $ brew install erlang
 $ curl -fsSL https://raw.github.com/synrc/mad/master/mad > mad \
