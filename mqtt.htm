@@ -24,11 +24,11 @@
 
 <h3>Motivation</h3>
 
-<p>Prepare N2O Protocol Federation to commercial use on top of MQTT protocol.
-Minimize and remove all features, duplicated by MQTT pub-sub broker.
-Provide EMQ extension that immediately introduces N2O protocol and
-application to connected MQTT devices. Create single Erlang eco-system
-for Enterprise Protocol Federation and establish solid CORBA/WS-SOAP/XMPP-replacement,
+<p>Prepare N2O Protocol Federation for commercial use on top of the MQTT protocol.
+Minimize and remove all features, duplicated by the MQTT pub-sub broker.
+Provide an EMQ extension that immediately activates the N2O protocol and
+its applications for all connected MQTT devices. Create a single Erlang eco-system
+for Enterprise Protocol Federation and establish a solid CORBA/WS-SOAP/XMPP-replacement,
 ready for high-speed, low-latency IoT applications.</p>
 
 <h3>Web Framework w/o Web Server?</h3>
@@ -39,26 +39,26 @@ One of the protocols addressing this usecase is <a href="http://www.indigoo.com/
 that was designed by Andy Stanford-Clark (IBM) and Arlen Nipper in 1999 for connecting
 Oil Pipeline telemetry systems over satellite.
 The protocol is designed to work over connectionless unreliable environments,
-and provides three level of QoS delivery: at least once, at most once, exactly once.</p>
+and provides three levels of QoS delivery: at least once, at most once, exactly once.</p>
 
 <p>On the other hand, N2O is a federation of protocols, like XMPP/CORBA/WS.
-Although N2O supports several encoders: BERT/XML/JSON/TEXT the extension to
+Although N2O supports several encoders (BERT/XML/JSON/TEXT) the extension to
 other channels beyond WebSockets would involve creating a new Socket Server.
 So we have decided to take MQTT as a transport/session protocol for N2O Federation.</p>
 
-<p>EMQ is open-source MQTT broker implementation by Feng Lee. It's clean,
-concise and robust. We developed an EMQ compatible plugin that works entirely
+<p>EMQ is an open-source MQTT broker implementation by Feng Lee. It's clean,
+concise and robust. We've developed an EMQ compatible plugin that works entirely
 within MQTT sessions just like N2O already does within Cowboy's
-ranch sessions. This is main difference from Phoenix's gen_server channels.</p>
+ranch sessions. This is the main difference from Phoenix's gen_server channels.</p>
 
 <p><center>Picture 1. Protocol Modules<br><br><img src="img/mqtt.svg" width=700></center><br></p>
 
 <h3>N2O Endpoints</h3>
 
-<p>Normal use of N2O as a Web Framework or Web Application Server is through
+<p>Normal use of N2O as a Web Framework or a Web Application Server is through
 WebSockets, but for IoT and MQTT applications it could be served through
 UDP or SCTP protocols providing application level message delivery consistency.
-By using MQTT as transport we extend the supported set of endpoint protocols.</p>
+By using MQTT as a transport we extend the supported set of endpoint protocols.</p>
 
 <ul><li>WebSockets+TLS</li>
     <li>HTTP/REST</li>
@@ -72,9 +72,9 @@ just as it is working on top of ranch processes of cowboy. No additional
 <b>gen_server</b> is being introduced.</p>
 
 <p>The only official transparent way with zero abstraction is to use EMQ
-hooks mechanism. For N2O we need to implement only two cases <b>client.subscribe</b>
-and <b>message.delivered</b>. On client subscribe we deliver all persistent informations
-that are ready for the client. On Message delivered we unpack any
+hooks mechanism. For N2O we need to implement only two cases: <b>client.subscribe</b>
+and <b>message.delivered</b>. On <b>client.subscribe</b> we deliver all persistent data
+that are ready for the client. On <b>message.delivered</b> we unpack any
 N2O BERT protocol message inside MQTT session.</p>
 
 <h3>N2O Protocol Chain</h3>
@@ -135,7 +135,7 @@ place to put the federation relay for N2O modules.</p>
     <li>BERT</li>
     <li>MessagePack</li></ul>
 
-<p>All this formatters format messages which go directly to TCP WebSocket.
+<p>All these formatters format messages which go directly to TCP WebSocket.
 However there are some endpoints which are not TCP sockets, even non-sockets,
 like gen_server endpoint, HTTP REST endpoint, which is non-WebSocket endpoint,
 and there is a room for other endpoint types. Here is a list of types of
@@ -219,18 +219,18 @@ WebSockets, MQTT, MQTT-SN, TCP, UDP, CoAP.
 <p>The N2O over MQTT bridge is a drop-in plugin for EMQ broker.
 After starting the server you should enable N2O over MQTT bridge EMQ
 plugin on plugin page <a href="http://127.0.0.1:18083/#/plugins">http://127.0.0.1:18083/#/plugins</a> and then
-open application sample <a href="http://127.0.0.1:8000/spa/login.htm">http://127.0.0.1:8000/spa/login.htm</a>.</p>
+open the application sample <a href="http://127.0.0.1:8000/spa/login.htm">http://127.0.0.1:8000/spa/login.htm</a>.</p>
 
 <p><center>Picture 2. EMQ Plugin<br><br><img src="img/emq.png" width=500></center><br></p>
 
-<h3>Things replaced in N2O with MQTT features</h3>
+<h3>Items replaced in N2O with MQTT features</h3>
 
 <p>N2O_start and n2o.js are no longer used in MQTT version of N2O.
-Instead N2O_start should use MQTT_start and mqtt.js for session
+Instead of N2O_start, MQTT_start and mqtt.js should be used for session
 control replacement. We traded HEART protocol and session facilities
 for built-in MQTT features. N2O authentication and authorization mechanisms
 are also abandoned as MQTT could provide AUTH features too. Obviously
-wf:reg and wf:send API are also abandoned as we can use emqttd API
+wf:reg and wf:send APIs have also been abandoned as we can use emqttd API
 directly and {deliver,_} protocol of ws_client gen_server.</p>
 
 <p>
@@ -247,7 +247,7 @@ directly and {deliver,_} protocol of ws_client gen_server.</p>
 <h3>NEO: reduced N2O for using over MQTT</h3>
 
 <p>NEO is what you get when you reduce everything duplicating MQTT features.
-On the other hand, NEO is completely N2O-compatible embeddable protocol relay.</p>
+On the other hand, NEO is a completely N2O-compatible embeddable protocol relay.</p>
 
 <p>
 <ul><li>neo &mdash; NEO Server Erlang/OTP App for N2O Protocol</li>
@@ -268,9 +268,9 @@ Github organization.</p>
 
 <p><center>Picture 3. MQTT 3.1.1 vs MQTT 5.0<br><br><img src="img/mqtt-v5.svg" width=700></center><br></p>
 
-<p>We made compatible EMQ plugin and N2O Review sample application built-in
-with EMQ with minimal dependencies. Our fork is based on latest EMQ master
-and dedicated for building with our MAD build tool.</p>
+<p>We made a compatible EMQ plugin and N2O Review sample application with built-in
+EMQ with minimal dependencies. Our fork is based on the latest EMQ master
+and is dedicated for building with our MAD build tool.</p>
 
 <center>Code 5. Setup MQTT flavoured N2O.</center>
 <code>
