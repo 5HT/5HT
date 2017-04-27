@@ -140,7 +140,8 @@ place to put the federation relay for N2O modules.</p>
 However there are some endpoints which are not TCP sockets, even non-sockets,
 like gen_server endpoint, HTTP REST endpoint, which is non-WebSocket endpoint,
 and there is a room for other endpoint types. Here is a list of types of
-endpoints which arise in multi-protocol discussions:
+endpoints which are supported by EMQ and accesible to N2O apps:
+WebSockets, MQTT, MQTT-SN, TCP, UDP, CoAP.
 </p>
 
 <h3>Sample Application</h3>
@@ -156,10 +157,6 @@ endpoints which arise in multi-protocol discussions:
                 postback=login,source=[user,pass]});
 
   event(login) ->
-      User = case wf:q(user) of undefined -> "anonymous";
-                                        E -> wf:to_list(E) end,
-      wf:user(User),
-      wf:info(?MODULE,"User: ~p",[wf:user()]),
       wf:redirect("index.htm?room="++wf:to_list(wf:q(pass)));
 
 </pre>
