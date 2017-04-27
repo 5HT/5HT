@@ -94,7 +94,7 @@ It can only be reached by calling n2o_nitrogen with <b>{init,<<>>}</b> protocol 
     n2o_cx:context(#cx{module=route:select(BinTopic),
                        formatter=bert,params=[]}),
 
-    case n2o_nitrogen:info({init,<<>>},[],?CTX) of
+    case n2o_proto:info({init,<<>>},[],?CTX) of
          {reply, {binary, M}, _, #cx{}} ->
              self() ! {deliver, emqttd_message:make(Name, 0, Name, M)};
                                       _ -> skip end,
