@@ -224,7 +224,7 @@ open application sample <a href="http://127.0.0.1:8000/spa/login.htm">http://127
 
 <p><center>Picture 2. EMQ Plugin<br><br><img src="img/emq.png" width=500></center><br></p>
 
-<h3>Things removed from N2O with MQTT</h3>
+<h3>Things replaced in N2O with MQTT features</h3>
 
 <p>N2O_start and n2o.js are no longer used in MQTT version of N2O.
 Instead N2O_start should use MQTT_start and mqtt.js for session
@@ -244,6 +244,22 @@ directly and {deliver,_} protocol of ws_client gen_server.</p>
     <li>ranch &mdash; replaced with esockd</li>
     <li>cowboy &mdash; replaced with mochiweb for WebSocket endpoint</li></ul>
 </p>
+
+<h3>NEO: reduced N2O for MQTT</h3>
+
+<p>NEO is what you get when you reduce everything duplicating MQTT features.
+On the other hand, NEO is completely N2O-compatible embeddable protocol relay.</p>
+
+<p>
+<ul><li>neo &mdash; NEO Server Erlang/OTP App for N2O Protocol</li>
+    <li>neo_async &mdash; NEO Async Processes: gen_server</li>
+    <li>neo_conv  &mdash; NEO Formatter: JSON, BERT</li>
+    <li>neo_ftp &mdash; NEO File Protocol: FTP</li>
+    <li>neo_nitro &mdash; NEO Nitro Protocol: PICKLE, FLUSH, DIRECT, IO, INIT</li>
+    <li>neo_proto &mdash; NEO N2O Federation: NITRO, FTP</li>
+    <li>neo_secret &mdash; NEO Security: HMAC AES/CBC-128</li></ul>
+</p>
+
 
 <h3>EMQ &mdash; Lightweight Broker as Service Container for N2O Apps</h3>
 
