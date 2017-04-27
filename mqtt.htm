@@ -81,7 +81,7 @@ N2O BERT protocol message inside MQTT session.</p>
 <h3>N2O Protocol Chain</h3>
 
 <p>The single point of entrance is the <b>event(init)</b> message handler.
-It can only be reached by calling n2o_nitrogen with <b>{init,<<>>}</b> protocol message.</p>
+It can only be reached by calling <b>{init,_}</b> message of NITRO protocol.</p>
 
 <center>Code 1. Emulating "N2O," init handshake</center>
 <pre>
