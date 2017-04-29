@@ -13,7 +13,7 @@
 <body>
 
 <header>
-    <h1>N2O Federation<br>over Telemetry Transport</h1>
+    <h1>N2O Protocols<br>over Telemetry Transport</h1>
 </header>
 
 <aside>
@@ -35,11 +35,11 @@
 
         <h3>Sources</h3>
         <div>
-            <a href="https://github.com/voxoz/mq"><img src="img/github.png"> mq</a>
+            <a href="https://github.com/voxoz/mq"><img src="img/github.png">MQTT</a>
             &mdash; Sample, EMQ, EMQ-N2O, EMQ dashboard
         </div>
         <div>
-            <a href="https://github.com/synrc/neo"><img src="img/github.png"> neo</a>
+            <a href="https://github.com/synrc/n3o"><img src="img/github.png">N2O</a>
             &mdash; Reduced version of N2O for EMQ usage
         </div>
         <div>
@@ -193,7 +193,7 @@ event(login) ->
     </section>
 
     <section>
-        <h3>MQTT JavaScript companion library</h3>
+        <h3>MQTT JavaScript part</h3>
         <figure>
             <figcaption>Code 4. mq.js</figcaption>
             <code>
@@ -279,19 +279,20 @@ MQTT_start();
     </section>
 
     <section>
-        <h3>NEO: reduced N2O for using over MQTT</h3>
+        <h3>N2O: Protocol Server for MQTT</h3>
         <p>
-            NEO is what you get when you reduce everything duplicating MQTT features.
-            On the other hand, NEO is a completely N2O-compatible embeddable protocol relay.
+            N2O 4.5 MQTT is what you get when you reduce everything duplicating MQTT features.
+            On the other hand, 4.5 is a completely N2O-compatible embeddable protocol relay
+            with limited features.
         </p>
         <ul>
-            <li><b>neo</b> &mdash; NEO Server Erlang/OTP App for N2O Protocol</li>
-            <li><b>neo_async</b> &mdash; NEO Async Processes: gen_server</li>
-            <li><b>neo_conv</b> &mdash; NEO Formatter: JSON, BERT</li>
-            <li><b>neo_ftp</b> &mdash; NEO File Protocol: FTP</li>
-            <li><b>neo_nitro</b> &mdash; NEO Nitro Protocol: PICKLE, FLUSH, DIRECT, IO, INIT</li>
-            <li><b>neo_proto</b> &mdash; NEO N2O Federation: NITRO, FTP</li>
-            <li><b>neo_secret</b> &mdash; NEO Security: HMAC AES/CBC-128</li>
+            <li><b>n2o</b> &mdash; N2O Server Erlang/OTP App for N2O Protocol</li>
+            <li><b>n2o_async</b> &mdash; N2O Async Processes: gen_server</li>
+            <li><b>n2o_conv</b> &mdash; N2O Formatter: JSON, BERT</li>
+            <li><b>n2o_ftp</b> &mdash; N2O File Protocol: FTP</li>
+            <li><b>n2o_nitro</b> &mdash; N2O Nitro Protocol: PICKLE, FLUSH, DIRECT, IO, INIT</li>
+            <li><b>n2o_proto</b> &mdash; N2O N2O Federation: NITRO, FTP</li>
+            <li><b>n2o_secret</b> &mdash; N2O Security: HMAC AES/CBC-128</li>
         </ul>
     </section>
 
