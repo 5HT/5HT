@@ -1,0 +1,248 @@
+@font-face {
+    font-family: 'local';
+    font-weight: normal;
+    font-style: normal;
+    src: url('Geometria-Light.otf');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: local;
+    font-size: 19px;
+    color: #585858;
+    background: #f8f8f9;
+    
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    line-height: 1;
+    margin: 40px 20px;
+    padding-left: 20px;
+    font-size: 38px;
+    border-left: 2px solid #00b8cf;
+    display: inline-block;
+    text-align: left;
+}
+
+aside {
+    background-color: #1c1b1b;
+    padding: 20px 0 60px;
+}
+
+aside section {
+    padding: 0 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+aside h3 {
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #00bcd4;
+    padding: 20px 0 10px;
+}
+
+aside div {
+    color: #f8f8ee;
+}
+
+aside img {
+    width: 20px;   
+    vertical-align: middle;
+}
+
+aside a {
+    text-decoration: none;
+    color: #f8f8ee;
+}
+
+aside a:visited {
+    color: #f8f8ee;
+}
+
+aside a:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+
+
+main {
+    padding: 40px 0 0;
+}
+
+main section {
+    padding: 20px 10px 80px;
+}
+
+main h3 {
+    line-height: 1.2;
+    font-size: 32px;
+    margin: 20px;
+    border-left: 2px solid #00b8cf;
+    /*display: inline-block;*/
+    padding-left: 20px;
+    max-width: 850px;
+}
+
+main section:nth-of-type(even) {
+    background-color: white;
+}
+
+
+main p {
+    max-width: 850px;
+    margin: 20px;
+    line-height: 1.4;
+}
+
+main a {
+    color: green;
+    text-decoration: none;
+    margin: 0;
+    border-bottom: 1px solid green;
+}
+
+main a:visited {
+    color: green;
+    border-bottom: 1px solid green;
+}
+
+main a:hover {
+    background: rgba(0, 255, 0, 0.07);
+}
+
+main ul {
+    list-style-type: none;
+    max-width: 850px;
+    margin: auto;
+    padding: 20px;
+}
+
+main b {
+    color: green;
+    font-weight: normal;
+}
+
+figure {
+    margin: 50px auto;
+    max-width: 100%;
+    width: 850px;
+    text-align: center;
+}
+
+figcaption {
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+figure code {
+    font-family: Fira Code, monospace;
+    font-size: 16px;
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 0 0 0 20px;
+    color: #c2d5ed;
+    background-color: #2b3643;
+    white-space: pre;
+    text-align: left;
+    border: 10px solid #E8E8E8;
+}
+
+figure img {
+    max-width: 100%;
+    background: white;
+    border: 10px solid #E8E8E8;
+}
+
+figure pre {
+    font-family: Fira Code, monospace;
+    font-size: 16px;
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 20px;
+    color: #c2d5ed;
+    background-color: #2b3643;
+    white-space: pre-wrap;
+    text-align: left;
+    border: 10px solid #E8E8E8;
+}
+
+footer {
+    text-align: center;
+    background-color: #1c1b1b;
+    color: white;
+    padding: 40px 0;
+}
+
+.heart {
+    color: red;
+}
+
+@media(min-width: 768px) {
+    body {
+        font-size: 22px;
+    }
+
+    header h1 {
+        font-size: 50px;
+        margin: 100px 0;
+    }
+ 
+    main h3 {
+        font-size: 40px;
+        margin: 40px auto;
+    }
+
+    main p {
+        margin: 20px auto;    
+    }
+
+    figcaption {
+        text-align: center;
+    }
+ 
+}
+
+@media(min-width: 1280px) {
+    header h1 {
+        font-size: 70px;
+        margin: 150px 0;
+    }
+
+    aside {
+        text-align: center;
+    }
+
+    aside section {
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+        font-size: 20px;
+    }
+
+    aside section:first-child {
+        max-width: 650px;
+        font-size: 24px;
+    }
+
+    main h3 {
+        font-size: 50px;
+    }
+
+}
