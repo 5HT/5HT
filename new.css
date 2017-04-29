@@ -85,7 +85,7 @@ main {
 }
 
 main section {
-    padding: 20px 0 80px;
+    padding: 20px 10px 80px;
 }
 
 main h3 {
@@ -95,7 +95,7 @@ main h3 {
     border-left: 2px solid #00b8cf;
     /*display: inline-block;*/
     padding-left: 20px;
-    max-width: 650px;
+    max-width: 850px;
 }
 
 main section:nth-of-type(even) {
@@ -104,7 +104,7 @@ main section:nth-of-type(even) {
 
 
 main p {
-    max-width: 650px;
+    max-width: 850px;
     margin: 20px;
     line-height: 1.4;
 }
@@ -127,7 +127,7 @@ main a:hover {
 
 main ul {
     list-style-type: none;
-    max-width: 650px;
+    max-width: 850px;
     margin: auto;
     padding: 20px 0;
 }
@@ -137,23 +137,10 @@ main b {
     font-weight: normal;
 }
 
-figure code {
-    font-family: Fira Code, monospace;
-    font-size: 16px;
-    display: inline-block;
-    overflow-x: auto;
-    max-width: 100%;
-    padding: 0 10px;
-    color: #c2d5ed;
-    background-color: #2b3643;
-    white-space: pre;
-    text-align: left;
-}
-
 figure {
     margin: 50px auto;
     max-width: 100%;
-    width: 900px;
+    width: 850px;
     text-align: center;
 }
 
@@ -164,15 +151,29 @@ figcaption {
     font-size: 1rem;
 }
 
+figure code {
+    font-family: Fira Code, monospace;
+    font-size: 16px;
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 0 0 0 20px;
+    color: #c2d5ed;
+    background-color: #2b3643;
+    white-space: pre;
+    text-align: left;
+    border: 10px solid #E8E8E8;
+}
+
 figure img {
     max-width: 100%;
     background: white;
+    border: 10px solid #E8E8E8;
 }
 
 figure pre {
     font-family: Fira Code, monospace;
     font-size: 16px;
-    display: inline-block;
     overflow-x: auto;
     max-width: 100%;
     padding: 20px;
@@ -180,6 +181,7 @@ figure pre {
     background-color: #2b3643;
     white-space: pre-wrap;
     text-align: left;
+    border: 10px solid #E8E8E8;
 }
 
 footer {
