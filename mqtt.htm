@@ -89,18 +89,25 @@
         </p>
         <ul>
             <li><b>n2o</b> &mdash; N2O Server Erlang/OTP App for N2O Protocol</li>
-            <li><b>n2o_async</b> &mdash; N2O Async Processes: gen_server</li>
+            <li><b>n2o_async</b> &mdash; N2O Async Streams: gen_server</li>
             <li><b>n2o_conv</b> &mdash; N2O Formatter: JSON, BERT</li>
             <li><b>n2o_ftp</b> &mdash; N2O File Protocol: FTP</li>
             <li><b>n2o_nitro</b> &mdash; N2O Nitro Protocol: PICKLE, FLUSH, DIRECT, IO, INIT</li>
-            <li><b>n2o_proto</b> &mdash; N2O N2O Federation: NITRO, FTP</li>
+            <li><b>n2o_proto</b> &mdash; N2O Protocols Loop: NITRO, FTP</li>
             <li><b>n2o_secret</b> &mdash; N2O Security: HMAC AES/CBC-128</li>
         </ul>
         
-                    <pre style="width:300px">
+        <pre style="width:300px">
                     
-                    $ cloc .
-                    370<pre>
+            $ cloc .
+            370
+                    
+            $ cat rebar.config
+            {deps, [{nitro,".*", {git, "git://github.com/synrc/nitro",
+                                 {tag, "master"} }},
+                    {n2o,  ".*", {git, "git://github.com/synrc/n3o",
+                                 {tag, "master"}}} ]}.
+        </pre>
     </section>
 
 
@@ -123,10 +130,14 @@
             <li><b>ranch</b> &mdash; replaced with esockd</li>
             <li><b>cowboy</b> &mdash; replaced with mochiweb for WebSocket endpoint</li>
         </ul>
+        <p>
+        <img src="http://ns.synrc.com/vaio/pdf.jpg" width=50>
+        <a style="margin-top:-30px" href="http://synrc.com/apps/n2o/doc/book.pdf">N2O.PDF</a>
+        </p>
     </section>
 
     <section>
-        <h3>MQTT Endpoints</h3>
+        <h3>MQTT/Cowboy/Mochiweb Endpoints</h3>
         <p>
             All N2O/MQTT messages which go directly to TCP and/or WebSocket.
             However there are some endpoints which are not TCP sockets, even non-sockets,
@@ -162,7 +173,41 @@
     </section>
 
     <section>
-        <h3>N2O Protocol Chain</h3>
+        <h3>N2O and MQTT Formatters</h3>
+        <p>
+           N2O supports <b>TEXT</b>, <b>JSON</b>, <b>XML</b>, <b>BERT</b>,
+           <b>MessagePack</b> formatters but you can add your own implementations either.
+           They are terminal formatters before socket interface library (usually <b>ranch</b> or <b>esockd</b>).
+           For example one may format IO message with BERT encoding <b>n2o:format({io,Eval,Data},bert).</b>
+        </p>
+        <p>MQTT format messages only in MQTT format. You can wrap binary B in MQTT packet as
+        <b>emqttd_message:make(Name, 0, Name, B).</b>
+    </section>
+
+    <section>
+        <h3>Sample Application</h3>
+        <figure>
+            <figcaption>Code 3. Sample Web Application written in NITRO DSL</figcaption>
+            <code>
+main() -> [].
+
+event(init) ->
+    wf:update(loginButton,
+      #button{id=loginButton,body="Login",
+              postback=login,source=[user,pass]});
+
+event(login) ->
+    wf:redirect("index.htm?room="++wf:to_list(wf:q(pass)));
+            </code>
+        </figure>        
+        <figure>
+            <figcaption>Picture 1.1. N2O Review Application</figcaption>
+            <img src="img/n2o-mqtt.png">
+        </figure>
+    </section>
+
+    <section>
+        <h3>N2O Bridge Implementation</h3>
         <p>
             Here you will see the implementation of N2O bridge for EMQ.
             We will inject N2O loop inside EMQ session handlers. As you may know,
@@ -213,36 +258,7 @@ on_client_subscribe(ClientId, Username, TopicTable, _Env) ->
         </figure>
     </section>
 
-    <section>
-        <h3>N2O Formatters</h3>
-        <p>
-           N2O supports <b>TEXT</b>, <b>JSON</b>, <b>XML</b>, <b>BERT</b>,
-           <b>MessagePack</b> formatters but you can add your own implementations either.
-           They are terminal formatters before socket interface library (usually <b>ranch</b> or <b>esockd</b>).
-        </p>
-    </section>
 
-    <section>
-        <h3>Sample Application</h3>
-        <figure>
-            <figcaption>Code 3. Sample Web Application written in NITRO DSL</figcaption>
-            <code>
-main() -> [].
-
-event(init) ->
-    wf:update(loginButton,
-      #button{id=loginButton,body="Login",
-              postback=login,source=[user,pass]});
-
-event(login) ->
-    wf:redirect("index.htm?room="++wf:to_list(wf:q(pass)));
-            </code>
-        </figure>        
-        <figure>
-            <figcaption>Picture 1.1. N2O Review Application</figcaption>
-            <img src="img/n2o-mqtt.png">
-        </figure>
-    </section>
 
     <section>
         <h3>MQTT JavaScript Client</h3>
@@ -296,7 +312,7 @@ MQTT_start();
     </section>
 
     <section>
-        <h3>EMQ Plugin</h3>        
+        <h3>Enable EMQ Plugin</h3>        
         <p>
             The N2O over MQTT bridge is a drop-in plugin for EMQ broker.
             After starting the server you should enable N2O over MQTT bridge EMQ plugin on plugin page
