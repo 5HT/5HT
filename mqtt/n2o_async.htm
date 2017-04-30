@@ -1,0 +1,76 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+    <title>N2O ASYNC</title>
+    <link rel="stylesheet" href="../5HT.css" />
+</head>
+<body>
+
+<div class=menu>
+<a href="../mqtt.htm#modules">N2O 4.5 MQTT</a>
+</div>
+<hr>
+<div class=app>
+
+<div align=right>DATE: 26 APR 2017</div>
+
+<h2>N2O Async: Supervised Processes</h2>
+
+<div class=message>
+
+<h3>INTRO</h3>
+
+<p>The <b>n2o_async</b> module is a simplified way to create
+local protocols for Erlang/OTP <b>gen_server</b>. Each protocol
+then can be spawned under Erlang/OTP supervision.
+Such spawned protocol handlers can be selected by <b>n2o</b>.
+cache, which is ETS.</p>
+
+<h3>proc(Message,#handler{}) -> {ok,#handler{}}
+                              | {reply,Out,#handler{}}.</h3>
+
+<p>The <b>proc/2</b> is a callback that will be called on each
+<b>gen_server</b>'s calls: <b>handle_call</b>,
+<b>handle_cast</b> and <b>handle_info</b>, its <b>init</b>
+and <b>terminate</b>.</p>
+
+<h3> async(Proc) -> type gen_server:call/2.</h3>
+
+<p>Spawns <b>proc/2</b> function inside gen_server under supervision.</p>
+
+<h3> init(Pid,Class,Name) -> type gen_server:call/2.</h3>
+
+<p>Put Pid in <b>n2o</b> cache and also remember the caller
+Pid for <b>n2o</b> messages.</p>
+
+<h3>flush(Channel) -> type gen_server:call/2.</h3>
+
+<p>Send FLUSH message with current actions in process dictionary,
+then cleanup all actions.
+</p>
+
+<h3> send(Class,Name,Message) -> type gen_server:call/2. </h3>
+
+<p>Sends <b>gen_call</b> message to process by \fB{Class,Name}</b>
+key, which was stored in cache during initialization.
+</p>
+
+<h3>OTHER</h3>
+
+<div class=note><p>Also you may refer to:
+<b><a href="n2o.htm">n2o</a></b>,
+<a href="n2o_nitro.htm"><b>n2o_nitro</b></a>.
+</p></div>
+
+<p>
+<center>&copy; Synrc Research Center</center>
+</p>
+
+</div>
+</div>
+</body>
+</html>
