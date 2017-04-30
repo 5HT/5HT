@@ -81,17 +81,70 @@
     </section>
 
     <section>
-        <h3>N2O Endpoints</h3>
+        <h3>N2O: Protocol Server for MQTT</h3>
         <p>
-            Normal use of N2O as a Web Framework or a Web Application Server is through WebSockets, but for IoT and MQTT applications it could be served through UDP or SCTP protocols providing application level message delivery consistency.
+            N2O 4.5 MQTT is what you get when you reduce everything duplicating MQTT features.
+            On the other hand, 4.5 is a completely N2O-compatible embeddable protocol relay
+            with limited features.
+        </p>
+        <ul>
+            <li><b>n2o</b> &mdash; N2O Server Erlang/OTP App for N2O Protocol</li>
+            <li><b>n2o_async</b> &mdash; N2O Async Processes: gen_server</li>
+            <li><b>n2o_conv</b> &mdash; N2O Formatter: JSON, BERT</li>
+            <li><b>n2o_ftp</b> &mdash; N2O File Protocol: FTP</li>
+            <li><b>n2o_nitro</b> &mdash; N2O Nitro Protocol: PICKLE, FLUSH, DIRECT, IO, INIT</li>
+            <li><b>n2o_proto</b> &mdash; N2O N2O Federation: NITRO, FTP</li>
+            <li><b>n2o_secret</b> &mdash; N2O Security: HMAC AES/CBC-128</li>
+        </ul>
+        
+                    <pre style="width:300px">
+                    
+                    $ cloc .
+                    370<pre>
+    </section>
+
+
+    <section>
+        <h3>Items depricated due to introducing MQTT</h3>
+        <p>
+            N2O_start and n2o.js are no longer used in MQTT version of N2O.
+            Instead of N2O_start, MQTT_start and mqtt.js should be used for session control replacement.
+            We traded HEART protocol and session facilities for built-in MQTT features.
+            N2O authentication and authorization mechanisms are also abandoned as MQTT could provide AUTH features too.
+            Obviously <b>wf:reg</b> and <b>wf:send</b> APIs have also been abandoned as we can use emqttd API directly and {deliver,_} protocol of ws_client gen_server.
+        </p>
+        <ul>
+            <li><b>n2o_session</b> &mdash; no Browser, so no Cookies are needed</li>
+            <li><b>n2o_stream</b> &mdash; no XHR fallback needed</li>
+            <li><b>n2o_heart</b> &mdash; no PING protocol needed</li>
+            <li><b>n2o_mq</b> &mdash; syn and gproc are no longer needed</li>
+            <li><b>n2o_query</b> &mdash; no Query Router</li>
+            <li><b>N2O_start</b> &mdash; replaced by MQTT_start</li>
+            <li><b>ranch</b> &mdash; replaced with esockd</li>
+            <li><b>cowboy</b> &mdash; replaced with mochiweb for WebSocket endpoint</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>MQTT Endpoints</h3>
+        <p>
+            All N2O/MQTT messages which go directly to TCP and/or WebSocket.
+            However there are some endpoints which are not TCP sockets, even non-sockets,
+            like gen_server endpoint, HTTP REST endpoint, which is non-WebSocket endpoint,
+            and there is a room for other endpoint types.
+        </p>
+        <p>
+            Here is a list of types of endpoints which are supported by EMQ and accesible to N2O apps:
+            WebSockets, MQTT, MQTT-SN, TCP, UDP, CoAP.
+            Normal use of N2O as a Web Framework or a Web Application Server is through WebSockets,
+            but for IoT and MQTT applications it could be served through UDP or SCTP protocols
+            providing application level message delivery consistency.
             By using MQTT as a transport we extend the supported set of endpoint protocols.
         </p>
-        <ul><b>
-            <li>WebSockets+TLS</li>
-            <li>HTTP/REST</li>
-            <li>TCP+TLS</li>
-            <li>UDP</li></b>
-        </ul>
+        <p>
+            Also N2O is able to work under <b>cowboy</b> Erlang web server and <b>mochiweb</b> web server.
+            There is <b>rest</b> library to deal with REST endpoint.
+        </p>
     </section>
 
     <section>
@@ -111,7 +164,9 @@
     <section>
         <h3>N2O Protocol Chain</h3>
         <p>
-            The single point of entrance is the <b>event(init)</b> message handler.
+            Here you will see the implementation of N2O bridge for EMQ.
+            We will inject N2O loop inside EMQ session handlers. As you may know,
+            the single point of entrance in N2O is the <b>event(init)</b> message handler.
             It can only be reached by calling <b>{init,_}</b> message of NITRO protocol.
         </p>
         <figure>
@@ -160,17 +215,10 @@ on_client_subscribe(ClientId, Username, TopicTable, _Env) ->
 
     <section>
         <h3>N2O Formatters</h3>
-        <ul><b>
-            <li>TEXT</li>
-            <li>JSON</li>
-            <li>XML</li>
-            <li>BERT</li>
-            <li>MessagePack</li></b>
-        </ul>
         <p>
-            All these formatters format messages which go directly to TCP WebSocket.
-            However there are some endpoints which are not TCP sockets, even non-sockets, like gen_server endpoint, HTTP REST endpoint, which is non-WebSocket endpoint, and there is a room for other endpoint types.
-            Here is a list of types of endpoints which are supported by EMQ and accesible to N2O apps: WebSockets, MQTT, MQTT-SN, TCP, UDP, CoAP.
+           N2O supports <b>TEXT</b>, <b>JSON</b>, <b>XML</b>, <b>BERT</b>,
+           <b>MessagePack</b> formatters but you can add your own implementations either.
+           They are terminal formatters before socket interface library (usually <b>ranch</b> or <b>esockd</b>).
         </p>
     </section>
 
@@ -197,7 +245,7 @@ event(login) ->
     </section>
 
     <section>
-        <h3>MQTT JavaScript part</h3>
+        <h3>MQTT JavaScript Client</h3>
         <figure>
             <figcaption>Code 4. mq.js</figcaption>
             <code>
@@ -261,44 +309,6 @@ MQTT_start();
         </figure>
     </section>
 
-    <section>
-        <h3>Items depricated with introducing MQTT</h3>
-        <p>
-            N2O_start and n2o.js are no longer used in MQTT version of N2O.
-            Instead of N2O_start, MQTT_start and mqtt.js should be used for session control replacement.
-            We traded HEART protocol and session facilities for built-in MQTT features.
-            N2O authentication and authorization mechanisms are also abandoned as MQTT could provide AUTH features too.
-            Obviously <b>wf:reg</b> and <b>wf:send</b> APIs have also been abandoned as we can use emqttd API directly and {deliver,_} protocol of ws_client gen_server.
-        </p>
-        <ul>
-            <li><b>n2o_session</b> &mdash; no Browser, so no Cookies are needed</li>
-            <li><b>n2o_stream</b> &mdash; no XHR fallback needed</li>
-            <li><b>n2o_heart</b> &mdash; no PING protocol needed</li>
-            <li><b>n2o_mq</b> &mdash; syn and gproc are no longer needed</li>
-            <li><b>n2o_query</b> &mdash; no Query Router</li>
-            <li><b>N2O_start</b> &mdash; replaced by MQTT_start</li>
-            <li><b>ranch</b> &mdash; replaced with esockd</li>
-            <li><b>cowboy</b> &mdash; replaced with mochiweb for WebSocket endpoint</li>
-        </ul>
-    </section>
-
-    <section>
-        <h3>N2O: Protocol Server for MQTT</h3>
-        <p>
-            N2O 4.5 MQTT is what you get when you reduce everything duplicating MQTT features.
-            On the other hand, 4.5 is a completely N2O-compatible embeddable protocol relay
-            with limited features.
-        </p>
-        <ul>
-            <li><b>n2o</b> &mdash; N2O Server Erlang/OTP App for N2O Protocol</li>
-            <li><b>n2o_async</b> &mdash; N2O Async Processes: gen_server</li>
-            <li><b>n2o_conv</b> &mdash; N2O Formatter: JSON, BERT</li>
-            <li><b>n2o_ftp</b> &mdash; N2O File Protocol: FTP</li>
-            <li><b>n2o_nitro</b> &mdash; N2O Nitro Protocol: PICKLE, FLUSH, DIRECT, IO, INIT</li>
-            <li><b>n2o_proto</b> &mdash; N2O N2O Federation: NITRO, FTP</li>
-            <li><b>n2o_secret</b> &mdash; N2O Security: HMAC AES/CBC-128</li>
-        </ul>
-    </section>
 
     <section>
         <h3>EMQ &mdash; Lightweight Broker as Service Container for N2O Apps</h3>
