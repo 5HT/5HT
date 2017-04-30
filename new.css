@@ -17,9 +17,7 @@ body {
     font-family: local;
     font-size: 19px;
     color: #585858;
-//    background: #f8f8f9;
     background: #ECF8FE;
-    
 }
 
 h1, h2, h3 {
@@ -103,7 +101,7 @@ aside div {
 }
 
 aside img {
-    width: 20px;   
+    width: 20px;
     vertical-align: middle;
 }
 
@@ -226,7 +224,7 @@ figure pre {
 
 footer {
     text-align: center;
-    background-color: #1A70A2;//1c1b1b;
+    background-color: #1A70A2;
     color: white;
     padding: 40px 0;
 }
