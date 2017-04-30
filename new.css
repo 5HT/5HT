@@ -1,3 +1,5 @@
+
+
 @font-face {
     font-family: 'local';
     font-weight: normal;
@@ -15,7 +17,8 @@ body {
     font-family: local;
     font-size: 19px;
     color: #585858;
-    background: #f8f8f9;
+//    background: #f8f8f9;
+    background: #ECF8FE;
     
 }
 
@@ -223,7 +226,7 @@ figure pre {
 
 footer {
     text-align: center;
-    background-color: #1c1b1b;
+    background-color: #1A70A2;//1c1b1b;
     color: white;
     padding: 40px 0;
 }
