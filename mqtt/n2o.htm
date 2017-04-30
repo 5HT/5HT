@@ -1,0 +1,76 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+    <title>N2O</title>
+    <link rel="stylesheet" href="../5HT.css" />
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+
+<div class=menu>
+<a href="http://synrc.com/apps/n2o">N2O</a>
+</div>
+<hr>
+<div class=app>
+
+<div align=right>FROM: 5HT<br>
+                   TO: #N2O #MQTT<br>
+                 DATE: 26 APR 2017</div>
+
+<h2>N2O: Protocol and Application Server</h2>
+
+<div class=message>
+
+<h3>INTRO</h3>
+
+<p>The <b>n2o</b> defines the way you define, confifure and run
+arbitrary applications and protocols inside some hosts, into
+which <b>n2o</b> is injected. They can be <b>cowboy</b> and <b>emqttd</b>.
+Each application can spawn its instance in own way, like
+web pages spawn WebSocket connections, workflow engines
+spawn business proceseses and chat application spawns roster
+and chatroom processes. This is managed by protocols.</p>
+
+<h3>PROTOCOLS</h3>
+
+<p>While all application protocols in the system
+are desired to be placed in the single effectful
+environment or same error handling path, <b>n2o</b> defines
+single protocol loop for all applications in its federation of protocols.</p>
+
+<p>In core bundle <b>n2o</b> is shipped with NITRO and FTP protocols which
+allows you to create real-time web applications with binary-based protocols,
+priving also robust and performant upload client and file transfer protocol.
+For bulding web based NITRO applications you need to include
+<b>nitro</b> dependency.</p>
+
+<h3>CONFIG</h3>
+
+<div class=note style="background-color:#FAFAFA;">
+<p><code>[{n2o,[{formatter,bert},
+       {json,jsone},
+       {pickler,n2o_secret},
+       {erroring,n2o},
+       {protocols,[n2o_ftp,n2o_nitro]},
+       {filter,{n2o_proto,push}},
+       {n2o,timer,{0,10,0}}]}].
+</code><p></div>
+<div class=note><p>Also you may refer to:
+<b><a href="n2o_format.htm">n2o_format</a></b>,
+<a href="n2o_proto.htm"><b>n2o_proto</b></a>,
+<a href="n2o_ftp.htm"><b>n2o_ftp</b></a>,
+<a href="n2o_nitro.htm"><b>n2o_nitro</b></a>,
+</p></div>
+
+<p>
+<center>&copy; Synrc Research Center</center>
+</p>
+
+</div>
+</div>
+</body>
+</html>
