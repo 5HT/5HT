@@ -102,18 +102,18 @@
             <li><b>n2o_proto</b> &mdash; N2O Protocols Loop: NITRO, FTP</li>
             <li><b>n2o_secret</b> &mdash; N2O Security: HMAC AES/CBC-128</li>
         </ul>
+        <figure>
+            <pre>
+$ cloc .
+370
         
-        <pre style="width:300px">
-                    
-            $ cloc .
-            370
-                    
-            $ cat rebar.config
-            {deps, [{nitro,".*", {git, "git://github.com/synrc/nitro",
-                                 {tag, "master"} }},
-                    {n2o,  ".*", {git, "git://github.com/synrc/n3o",
-                                 {tag, "master"}}} ]}.
+$ cat rebar.config
+{deps, [{nitro,".*", {git, "git://github.com/synrc/nitro",
+                     {tag, "master"} }},
+        {n2o,  ".*", {git, "git://github.com/synrc/n3o",
+                     {tag, "master"}}} ]}.
         </pre>
+        </figure>
     </section>
 
 
