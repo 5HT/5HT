@@ -47,7 +47,8 @@
             &mdash; N2O 4.5 MQTT version
         </div>
         <div>
-            <a href="https://github.com/5HT/5ht.co/blob/master/mqtt.htm"><img src="img/github.png"> edit this page</a> if you've found any errors
+            <a href="https://github.com/5HT/5ht.co/blob/master/mqtt.htm">
+            <img src="img/github.png"> edit this page</a> if you've found any errors
         </div>
 
         <h3>Launched</h3>
@@ -64,14 +65,23 @@
             Usually, Web Framework uses HTTP or WebSocket endpoints.
             But what if we need to connect application on devices with TCP/UDP transports?
             One of the protocols addressing this usecase is <a href="http://www.indigoo.com/dox/wsmw/1_Middleware/MQTT.pdf">MQTT</a> that was designed by Andy Stanford-Clark (IBM) and Arlen Nipper in 1999 for connecting Oil Pipeline telemetry systems over satellite.
-            The protocol is designed to work over connectionless unreliable environments, and provides three levels of QoS delivery: at least once, at most once, exactly once.
+            The protocol is designed to work over connectionless 
+            unreliable environments, and provides three levels of
+            QoS delivery: at least once, at most once, exactly once.
         </p>
         <p>
-            On the other hand, N2O is a federation of protocols, like XMPP/CORBA/WS.
-            Although N2O supports several encoders (BERT/XML/JSON/TEXT) the extension to other channels beyond WebSockets would involve creating a new Socket Server. So we have decided to take MQTT as a transport/session protocol for N2O Federation.
+            On the other hand, N2O is a federation of protocols,
+            like XMPP/CORBA/WS. Although N2O supports several
+            encoders (BERT/XML/JSON/TEXT) the extension to other
+            channels beyond WebSockets would involve creating a
+            new Socket Server. So we have decided to take MQTT
+            as a transport/session protocol for N2O Federation.
         </p>
         <p>
-            EMQ is an open-source MQTT broker implementation by Feng Lee. It's clean, concise and robust. We've developed an EMQ compatible plugin that works entirely within MQTT sessions just like N2O already does within Cowboy's ranch sessions.
+            EMQ is an open-source MQTT broker implementation by Feng Lee.
+            It's clean, concise and robust. We've developed an EMQ compatible
+            plugin that works entirely within MQTT sessions just like N2O
+            already does within Cowboy's ranch sessions.
             This is the main difference from Phoenix's gen_server channels.
         </p>
         <figure>
@@ -97,17 +107,24 @@
             <li><b>n2o_secret</b> &mdash; N2O Security: HMAC AES/CBC-128</li>
         </ul>
         
-        <pre style="width:300px">
+        <p>N2O 4.5 provides smooth experience: clean git history,
+           small codebase, nitro compatible, man pages.</p>
+        <figure>
+        <pre style="width:700px">
+
+    $ time git clone git://github.com/synrc/n3o
+    real	0m0.794s
                     
-            $ cloc .
-            370
+    $ cloc .
+    370
                     
-            $ cat rebar.config
-            {deps, [{nitro,".*", {git, "git://github.com/synrc/nitro",
-                                 {tag, "master"} }},
-                    {n2o,  ".*", {git, "git://github.com/synrc/n3o",
-                                 {tag, "master"}}} ]}.
-        </pre>
+    $ cat rebar.config
+    {deps, [{nitro, "git://github.com/synrc/nitro"},
+    	    {n2o,   "git://github.com/synrc/n3o"}    ]}.
+
+    $ man ./man/n2o.1
+
+        </pre></figure>
     </section>
 
 
