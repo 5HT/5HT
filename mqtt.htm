@@ -120,6 +120,7 @@
            clean git history, small codebase, nitro compatible,
            man/html docs.</p>
         <figure>
+            <figcaption>Listing 1. N2O 4.5 MQTT</figcaption>
         <pre style="width:700px">
 
     $ time git clone git://github.com/synrc/mqtt
@@ -142,10 +143,13 @@
         <a name=""><h3>N2O things deprecated due to MQTT</h3></a>
         <p>
             N2O_start and n2o.js are no longer used in MQTT version of N2O.
-            Instead of N2O_start, MQTT_start and mqtt.js should be used for session control replacement.
-            We traded HEART protocol and session facilities for built-in MQTT features.
-            N2O authentication and authorization mechanisms are also abandoned as MQTT could provide AUTH features too.
-            Obviously <b>wf:reg</b> and <b>wf:send</b> APIs have also been abandoned as we can use emqttd API directly and {deliver,_} protocol of ws_client gen_server.
+            Instead of N2O_start, MQTT_start and mqtt.js should be used for
+            session control replacement. We traded HEART protocol and session
+            facilities for built-in MQTT features. N2O authentication and
+            authorization mechanisms are also abandoned as MQTT could provide
+            AUTH features too. Obviously <b>wf:reg</b> and <b>wf:send</b> APIs
+            have also been abandoned as we can use emqttd API directly and
+            <b>{deliver,_}</b> protocol of ws_client gen_server.
         </p>
         <ul>
             <li><b>n2o_session</b> &mdash; no Browser, so no Cookies are needed</li>
@@ -214,7 +218,7 @@
     <section>
         <a name=sample><h3>Sample Application</h3></a>
         <figure>
-            <figcaption>Code 3. Sample Web Application written in NITRO DSL</figcaption>
+            <figcaption>Listing 2. Sample Web Application written in NITRO DSL</figcaption>
             <code>
   main() -> [].
 
@@ -231,7 +235,7 @@
 </code>
 </figure>
         <figure>
-            <figcaption>Picture 1.1. N2O Review Application</figcaption>
+            <figcaption>Picture 3. N2O Review Application</figcaption>
             <img src="img/n2o-mqtt.png">
         </figure>
     </section>
@@ -245,7 +249,7 @@
             It can only be reached by calling <b>{init,_}</b> message of NITRO protocol.
         </p>
         <figure>
-            <figcaption>Code 1. Emulating "N2O," init handshake</figcaption>
+            <figcaption>Listing 3. Emulating "N2O," init handshake</figcaption>
             <code>
 on_client_subscribe(ClientId, Username, TopicTable, _Env) ->
   Name = binary_to_list(iolist_to_binary(ClientId)),
@@ -269,7 +273,7 @@ on_client_subscribe(ClientId, Username, TopicTable, _Env) ->
             This is the best place to put the federation relay for N2O modules.
         </p>
         <figure>
-            <figcaption>Code 2. Emulating N2O message delivery</figcaption>
+            <figcaption>Listing 4. Emulating N2O message delivery</figcaption>
             <code>
   on_message_delivered(ClientId, Username,
                      Message = #mqtt_message{topic   = Topic,
@@ -293,7 +297,7 @@ on_client_subscribe(ClientId, Username, TopicTable, _Env) ->
     <section>
         <a name=js><h3>MQTT JavaScript Client</h3></a>
         <figure>
-            <figcaption>Code 4. mq.js</figcaption>
+            <figcaption>Listing 5. mq.js</figcaption>
             <code>
 var topic = module + "_" + params.room || "lobby",
     mqtt = new Paho.MQTT.Client("127.0.0.1", 8083, ''),
@@ -350,7 +354,7 @@ MQTT_start();
             <a href="http://127.0.0.1:8000/spa/login.htm">http://127.0.0.1:8000/spa/login.htm</a>
         </p>
         <figure>
-            <figcaption>Picture 2. EMQ Plugin</figcaption>
+            <figcaption>Picture 4. EMQ Plugin</figcaption>
             <img src="img/emq.png">
         </figure>
     </section>
@@ -363,7 +367,7 @@ MQTT_start();
             <a href="https://github.com/emqtt">https://github.com/emqtt</a> Github organization.
         </p>
         <figure>
-            <figcaption>Picture 3. MQTT 3.1.1 vs MQTT 5.0</figcaption>
+            <figcaption>Picture 5. MQTT 3.1.1 vs MQTT 5.0</figcaption>
             <img src="img/mqtt-v5.svg">
         </figure>
         <p>
@@ -371,7 +375,7 @@ MQTT_start();
             Our fork is based on the latest EMQ master and is dedicated for building with our MAD build tool.
         </p>
         <figure>
-            <figcaption>Code 5. Setup MQTT flavoured N2O.</figcaption>
+            <figcaption>Listing 6. Setup MQTT flavoured N2O.</figcaption>
             <pre>
 $ brew install erlang
 $ curl -fsSL https://raw.github.com/synrc/mad/master/mad > mad \
@@ -388,119 +392,74 @@ sys     0m5.065s
 $ mad rep
 Configuration: [{n2o,
                     [{port,8000},
-                    {app,review},
-                    {mode,dev},
-                    {route,routes},
-                    {formatter,bert},
-                    {minify,
-                        {"apps/review/priv/static",
-                        ["deps/n2o/priv/bullet.js","deps/n2o/priv/n2o.js",
-                        "apps/review/priv/mq.js","deps/n2o/priv/ftp.js",
-                        "deps/n2o/priv/protocols/bert.js",
-                        "deps/n2o/priv/protocols/nitrogen.js",
-                        "deps/n2o/priv/utf8.js",
-                        "deps/n2o/priv/validation.js"]}},
-                    {log_modules,config},
-                    {log_level,config},
-                    {log_backend,n2o_log},
-                    {origin,<<"*">>},
-                    {auto_session,disabled},
-                    {pickler,n2o_pickle},
-                    {erroring,n2o_error},
-                    {event,pickle}]},
+                     {app,review},
+                     {pickler,n2o_secret},
+                     {formatter,bert},
+                     {log_modules,config},
+                     {log_level,config}]},
                 {emq_dashboard,
                     [{listeners_dash,
-                        [{http,18083,[{acceptors,4},{max_clients,512}]}]}]},
+                         [{http,18083,[{acceptors,4},{max_clients,512}]}]}]},
                 {emq_modules,
                     [{modules,
-                        [{emq_mod_presence,[{qos,1}]},
-                        {emq_mod_subscription,[{<<"%u/%c/#">>,2}]},
-                        {emq_mod_rewrite,
-                            [{rewrite,"x/#","^x/y/(.+)$","z/y/$1"},
-                            {rewrite,"y/+/z/#","^y/(.+)/z/(.+)$",
-                                "y/z/$2"}]}]}]},
+                         [{emq_mod_presence,[{qos,1}]},
+                          {emq_mod_subscription,[{<<"%u/%c/#">>,2}]},
+                          {emq_mod_rewrite,
+                              [{rewrite,"x/#","^x/y/(.+)$","z/y/$1"},
+                               {rewrite,"y/+/z/#","^y/(.+)/z/(.+)$",
+                                   "y/z/$2"}]}]}]},
                 {emqttd,
                     [{listeners,
-                        [{http,8083,[{acceptors,4},{max_clients,512}]},
-                        {tcp,1883,[{acceptors,4},{max_clients,512}]}]},
-                    {sysmon,
-                        [{long_gc,false},
-                        {long_schedule,240},
-                        {large_heap,8000000},
-                        {busy_port,false},
-                        {busy_dist_port,true}]},
-                    {session,
-                        [{upgrade_qos,off},
-                        {max_inflight,32},
-                        {retry_interval,20},
-                        {max_awaiting_rel,100},
-                        {await_rel_timeout,20},
-                        {enable_stats,off}]},
-                    {queue,[]},
-                    {allow_anonymous,true},
-                    {protocol,
-                        [{max_clientid_len,1024},{max_packet_size,64000}]},
-                    {acl_file,"etc/acl.conf"},
-                    {plugins_etc_dir,"etc/plugins/"},
-                    {plugins_loaded_file,"etc/loaded_plugins"},
-                    {pubsub,
-                        [{pool_size,8},{by_clientid,true},{async,true}]}]},
+                         [{http,8083,[{acceptors,4},{max_clients,512}]},
+                          {tcp,1883,[{acceptors,4},{max_clients,512}]}]},
+                     {sysmon,
+                         [{long_gc,false},
+                          {long_schedule,240},
+                          {large_heap,8000000},
+                          {busy_port,false},
+                          {busy_dist_port,true}]},
+                     {session,
+                         [{upgrade_qos,off},
+                          {max_inflight,32},
+                          {retry_interval,20},
+                          {max_awaiting_rel,100},
+                          {await_rel_timeout,20},
+                          {enable_stats,off}]},
+                     {queue,[]},
+                     {allow_anonymous,true},
+                     {protocol,
+                         [{max_clientid_len,1024},{max_packet_size,64000}]},
+                     {acl_file,"etc/acl.conf"},
+                     {plugins_etc_dir,"etc/plugins/"},
+                     {plugins_loaded_file,"etc/loaded_plugins"},
+                     {pubsub,
+                         [{pool_size,8},{by_clientid,true},{async,true}]}]},
                 {kvs,
                     [{dba,store_mnesia},
-                    {schema,[kvs_user,kvs_acl,kvs_feed,kvs_subscription]}]}]
+                     {schema,[kvs_user,kvs_acl,kvs_feed,kvs_subscription]}]}]
 Applications:  [kernel,stdlib,gproc,lager_syslog,pbkdf2,asn1,fs,ranch,mnesia,
                 compiler,inets,crypto,syntax_tools,xmerl,gen_logger,esockd,
-                kvs,cowlib,goldrush,public_key,lager,ssl,cowboy,mochiweb,n2o,
-                emqttd,review,active,erlydtl,mad,emqttc,nitro,rest,sh,syslog]
+                cowlib,goldrush,public_key,lager,ssl,cowboy,mochiweb,emqttd,
+                erlydtl,kvs,mad,emqttc,nitro,rest,sh,syslog,review]
 Erlang/OTP 19 [erts-8.3] [source] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false] [dtrace]
 
 Eshell V8.3  (abort with ^G)
-1> 18:23:08.249 [info] Application lager started on node nonode@nohost
-18:23:08.359 [info] Application ssl started on node nonode@nohost
-18:23:08.409 [info] Application cowboy started on node nonode@nohost
-18:23:08.415 [info] Application mochiweb started on node nonode@nohost
-18:23:08.506 [info] Application n2o started on node nonode@nohost
 starting emqttd on node 'nonode@nohost'
 Nonexistent: []
-emqttd ctl is starting...[ok]
-emqttd hook is starting...[ok]
-emqttd router is starting...[ok]
-emqttd pubsub is starting...[ok]
-emqttd stats is starting...[ok]
-emqttd metrics is starting...[ok]
-emqttd pooler is starting...[ok]
-emqttd trace is starting...[ok]
-emqttd client manager is starting...[ok]
-emqttd session manager is starting...[ok]
-emqttd session supervisor is starting...[ok]
-emqttd wsclient supervisor is starting...[ok]
-emqttd broker is starting...[ok]
-emqttd alarm is starting...[ok]
-emqttd mod supervisor is starting...[ok]
-emqttd bridge supervisor is starting...[ok]
-emqttd access control is starting...[ok]
-emqttd system monitor is starting...[ok]
 Plugins: [{mqtt_plugin,emq_auth_username,"2.1.1",
-                    "Authentication with Username/Password",false},
-        {mqtt_plugin,emq_dashboard,"2.1.1","EMQ Web Dashboard",false},
-        {mqtt_plugin,emq_modules,"2.1.1","EMQ Modules",false},
-        {mqtt_plugin,emq_persistence,"1.1.2","N2O over MQTT Bridge",false}]
-Names: [emq_dashboard,emq_persistence]
+                       "Authentication with Username/Password",false},
+          {mqtt_plugin,emq_dashboard,"2.1.1","EMQ Web Dashboard",false},
+          {mqtt_plugin,emq_modules,"2.1.1","EMQ Modules",false},
+          {mqtt_plugin,n2o,"4.5-mqtt","N2O Server",false}]
+Names: [emq_dashboard,n2o]
 dashboard:http listen on 0.0.0.0:18083 with 4 acceptors.
-18:23:11.715 [info] started Apps: [emq_dashboard]
-18:23:11.715 [info] load plugin emq_dashboard successfully
-18:23:11.715 [info] Application emq_dashboard started on node nonode@nohost
-18:23:11.775 [info] started Apps: [emq_persistence]
-18:23:11.775 [info] load plugin emq_persistence successfully
-18:23:11.775 [info] Application emq_persistence started on node nonode@nohost
+Async Start Attempt {handler,"timer",n2o,system,n2o,[],[]}
+Proc Init: init
 mqtt:ws listen on 0.0.0.0:8083 with 4 acceptors.
 mqtt:tcp listen on 0.0.0.0:1883 with 4 acceptors.
 emqttd 2.1.1 is running now
+>
             </pre>
-        </figure>
-        <figure>
-            <figcaption>Picture 4. N2O Loop under emqttd_ws_client_sup</figcaption>
-            <img src="img/observer-mqtt.png">
         </figure>
     </section>
 </main>
