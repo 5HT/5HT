@@ -63,7 +63,7 @@
 </aside>
 <main>
     <section>
-        <h3>Web Framework w/o Web Server?</h3>
+        <a name=intro><h3>Web Framework w/o Web Server?</h3></a>
         <p>
             Usually, Web Framework uses HTTP or WebSocket endpoints.
             But what if we need to connect application on devices with TCP/UDP transports?
@@ -98,7 +98,7 @@
     </section>
 
     <section>
-        <a name="modules"><h3>N2O: Protocol Server for MQTT</h3></a>
+        <a name=modules><h3>N2O: Protocol Server for MQTT</h3></a>
         <p>
             N2O 4.5 MQTT is what you get when you reduce everything duplicating MQTT features.
             On the other hand, 4.5 is a completely N2O-compatible embeddable protocol relay
@@ -136,7 +136,7 @@
 
 
     <section>
-        <h3>N2O things deprecated due to MQTT</h3>
+        <a name=""><h3>N2O things deprecated due to MQTT</h3></a>
         <p>
             N2O_start and n2o.js are no longer used in MQTT version of N2O.
             Instead of N2O_start, MQTT_start and mqtt.js should be used for session control replacement.
@@ -161,7 +161,7 @@
     </section>
 
     <section>
-        <h3>EMQ/Cowboy/Mochiweb Endpoints</h3>
+        <a name=endpoints><h3>EMQ/Cowboy/Mochiweb Endpoints</h3></a>
         <p>
             All N2O/MQTT messages which go directly to TCP and/or WebSocket.
             However there are some endpoints which are not TCP sockets, even non-sockets,
@@ -183,7 +183,7 @@
     </section>
 
     <section>
-        <h3>MQTT Sessions</h3>
+        <a name=sessions><h3>MQTT Sessions</h3></a>
         <p>
             N2O is working entirely in the context of <b>ws_client</b> processes of EMQ, just as it is working on top of ranch processes of cowboy.
             No additional <b>gen_server</b> is being introduced.
@@ -197,7 +197,7 @@
     </section>
 
     <section>
-        <h3>N2O and MQTT Formatters</h3>
+        <a name=formatters><h3>N2O and MQTT Formatters</h3></a>
         <p>
            N2O supports <b>TEXT</b>, <b>JSON</b>, <b>XML</b>, <b>BERT</b>,
            <b>MessagePack</b> formatters but you can add your own implementations either.
@@ -209,7 +209,7 @@
     </section>
 
     <section>
-        <a name="sample"><h3>Sample Application</h3></a>
+        <a name=sample><h3>Sample Application</h3></a>
         <figure>
             <figcaption>Code 3. Sample Web Application written in NITRO DSL</figcaption>
             <code>
@@ -234,7 +234,7 @@
     </section>
 
     <section>
-        <h3>EMQ Plugin Implementation</h3>
+        <a name=plugin><h3>EMQ Plugin Implementation</h3></a>
         <p>
             Here you will see the implementation of N2O bridge for EMQ.
             We will inject N2O loop inside EMQ session handlers. As you may know,
@@ -288,7 +288,7 @@ on_client_subscribe(ClientId, Username, TopicTable, _Env) ->
 
 
     <section>
-        <h3>MQTT JavaScript Client</h3>
+        <a name=js><h3>MQTT JavaScript Client</h3></a>
         <figure>
             <figcaption>Code 4. mq.js</figcaption>
             <code>
@@ -339,7 +339,7 @@ MQTT_start();
     </section>
 
     <section>
-        <h3>Enable EMQ Plugin</h3>        
+        <a name=dash><h3>Enable EMQ Plugin</h3></a>
         <p>
             The N2O over MQTT bridge is a drop-in plugin for EMQ broker.
             After starting the server you should enable N2O over MQTT bridge EMQ plugin on plugin page
