@@ -205,7 +205,7 @@ main section {
 main h3 {
     line-height: 1.2;
     font-size: 40px;
-    margin: 20px 10px;
+    margin: 20px 0;
    
 }
 
@@ -233,7 +233,7 @@ main a:hover {
 main ul {
     list-style-type: none;
     max-width: 850px;
-    margin: 20px;
+    margin: 20px 0;
 }
 
 main b {
