@@ -50,12 +50,16 @@
 
         <h3>Sources</h3>
         <div>
+            <a href="https://github.com/synrc/n2o"><img src="img/github.png"> synrc/n2o</a>
+            &mdash; N2O 2.9&mdash;4.4 FULL
+        </div>
+        <div>
             <a href="https://github.com/synrc/mqtt"><img src="img/github.png"> synrc/mqtt</a>
             &mdash; N2O 4.5 MQTT
         </div>
         <div>
             <a href="https://github.com/voxoz/mq"><img src="img/github.png"> voxoz/mq</a>
-            &mdash; EMQ, EMQ admin, REVIEW
+            &mdash; EMQ, EMQ Dashboard, REVIEW
         </div>
         <div>
             <a href="https://github.com/5HT/5ht.co/blob/master/mqtt.htm">
@@ -416,14 +420,6 @@ Configuration: [{n2o,
                 {emq_dashboard,
                     [{listeners_dash,
                          [{http,18083,[{acceptors,4},{max_clients,512}]}]}]},
-                {emq_modules,
-                    [{modules,
-                         [{emq_mod_presence,[{qos,1}]},
-                          {emq_mod_subscription,[{<<"%u/%c/#">>,2}]},
-                          {emq_mod_rewrite,
-                              [{rewrite,"x/#","^x/y/(.+)$","z/y/$1"},
-                               {rewrite,"y/+/z/#","^y/(.+)/z/(.+)$",
-                                   "y/z/$2"}]}]}]},
                 {emqttd,
                     [{listeners,
                          [{http,8083,[{acceptors,4},{max_clients,512}]},
