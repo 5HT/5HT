@@ -358,8 +358,20 @@ MQTT_start();
             <a href="http://127.0.0.1:8000/spa/login.htm">http://127.0.0.1:8000/spa/login.htm</a>
         </p>
         <figure>
-            <figcaption>Picture 4. EMQ Plugin</figcaption>
+            <figcaption>Picture 4. N2O 4.5 MQTT as EMQ Plugin</figcaption>
             <img src="img/emq.png">
+        </figure>
+        <p>
+        The nice thing about EMQ is that it enables session introspection for N2O connections.
+        The EMQ Dashboards is written in vue.js and a bit complex for admin application.
+        The possible and expecting hackaton is on rewriting EMQ admin with <b>hyperapp</b> and <b>n2o</b>.
+        The IBM library Paho is also too old and fat to fit N2O sizes. Some parts should be replaced
+        with more modern and compact pinger and connection respawning from <b>n2o.js</b>. This is
+        expecting further research and imporevement.
+        </p>
+        <figure>
+            <figcaption>Picture 5. Inspecting N2O sessions with EMQ</figcaption>
+            <img src="img/emq-sub.png">
         </figure>
     </section>
 
@@ -371,7 +383,7 @@ MQTT_start();
             <a href="https://github.com/emqtt">https://github.com/emqtt</a> Github organization.
         </p>
         <figure>
-            <figcaption>Picture 5. MQTT 3.1.1 vs MQTT 5.0</figcaption>
+            <figcaption>Picture 6. MQTT 3.1.1 vs MQTT 5.0</figcaption>
             <img src="img/mqtt-v5.svg">
         </figure>
         <p>
