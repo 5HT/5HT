@@ -10,8 +10,8 @@
                 <g id="Dharma-License">
                     <g id="Group" transform="translate(81.000000, 69.000000)">
                         <text id="Permission-to-use,-c" stroke="#979797" fill="#1C1C1C" sketch:type="MSTextLayer" font-family="Geometria" font-size="12" font-weight="260">
-                            <tspan x="2.67058824" y="124" fill="#000000">Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is </tspan>
-                            <tspan x="2.67058824" y="139" fill="#000000">hereby granted, provided that the above copyright notice and this permission notice appear in all copies.</tspan>
+                            <tspan x="2.67058824" y="124" fill="#4A4A4A">Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is </tspan>
+                            <tspan x="2.67058824" y="139" fill="#4A4A4A">hereby granted, provided that the above copyright notice and this permission notice appear in all copies.</tspan>
                         </text>
                         <text id="THE-SOFTWARE-IS-PROV" stroke="#979797" fill="#1C1C1C" sketch:type="MSTextLayer" font-family="Geometria" font-size="14" font-weight="260">
                             <tspan x="2.67058824" y="328" fill="#000000">THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES</tspan>
@@ -23,12 +23,12 @@
                             <tspan x="2.67058824" y="430" fill="#000000">OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</tspan>
                         </text>
                         <text id="Dharma-License" fill="#979797" sketch:type="MSTextLayer" font-family="Geometria" font-size="47.6946569" font-weight="260">
-                            <tspan x="0" y="45" fill="#000000">Dharma License</tspan>
+                            <tspan x="0" y="45" fill="#4A4A4A">Dharma License</tspan>
                         </text>
                         <text id="The-software-may-onl" fill="#979797" sketch:type="MSTextLayer" font-family="Geometria" font-size="28.6167942" font-weight="260">
-                            <tspan x="2.67058824" y="188.5" fill="#000000">The software may only be used for</tspan>
-                            <tspan x="2.67058824" y="224.5" font-size="28.617" fill="#000000">the great good and the true</tspan>
-                            <tspan x="2.67058824" y="260.5" font-size="28.617" fill="#000000">happiness of all sentient beings.</tspan>
+                            <tspan x="2.67058824" y="188.5" fill="#4A4A4A">The software may only be used for</tspan>
+                            <tspan x="2.67058824" y="224.5" font-size="28.617" fill="#4A4A4A">the great good and the true</tspan>
+                            <tspan x="2.67058824" y="260.5" font-size="28.617" fill="#4A4A4A">happiness of all sentient beings.</tspan>
                         </text>
                         <path d="M1.69411765,293.5 L671.435294,293.5" id="Line" stroke="#979797" sketch:type="MSShapeGroup"></path>
                     </g>
@@ -40,19 +40,19 @@
                         <path d="M135.665253,206.0027 C173.567242,206.0027 204.292875,184.077089 204.292875,157.030478 C204.292875,129.983866 173.567242,108.058255 135.665253,108.058255 C97.7632645,108.058255 67.0376318,129.983866 67.0376318,157.030478 C67.0376318,184.077089 97.7632645,206.0027 135.665253,206.0027 L135.665253,206.0027 Z" id="Oval-2" stroke="#979797" stroke-width="5" fill="#D8D8D8" sketch:type="MSShapeGroup"></path>
                         <g id="}" transform="translate(144.802363, 230.502700) rotate(90.000000) translate(-144.802363, -230.502700) translate(120.302363, 144.502700)" font-size="136.270448" font-family="Geometria" fill="#979797" sketch:type="MSTextLayer" font-weight="260">
                             <text>
-                                <tspan x="0.533066" y="129.369739" fill="#000000">}</tspan>
+                                <tspan x="0.533066" y="129.369739" fill="#9B9B9B">}</tspan>
                             </text>
                         </g>
                         <path d="M135.950015,172.499148 C159.225925,172.499148 178.094779,161.897797 178.094779,148.820368 C178.094779,135.742939 159.225925,125.141589 135.950015,125.141589 C112.674105,125.141589 93.8052518,135.742939 93.8052518,148.820368 C93.8052518,161.897797 112.674105,172.499148 135.950015,172.499148 L135.950015,172.499148 Z" id="Oval-3" stroke="#979797" stroke-width="5" fill="#D8D8D8" sketch:type="MSShapeGroup"></path>
                         <path d="M79,160.458918 L91,218.999998 L181.512171,219 L192,160.458918 L79,160.458918 L79,160.458918 Z" id="Rectangle-2" stroke="#979797" stroke-width="5" fill="#D8D8D8" sketch:type="MSShapeGroup"></path>
                         <g id="\=" transform="translate(121.000000, 175.000000)" font-size="31.7399358" font-family="Arial" fill="#979797" sketch:type="MSTextLayer" font-weight="normal">
                             <text>
-                                <tspan x="0.266283" y="29" fill="#000000">\=</tspan>
+                                <tspan x="0.266283" y="29" fill="#9B9B9B">\=</tspan>
                             </text>
                         </g>
-                        <g id="}" transform="translate(135.576904, 50.483942) rotate(-90.000000) translate(-135.576904, -50.483942) translate(127.076904, 21.983942)" font-size="44.6060763" font-family="Geometria" fill="#979797" sketch:type="MSTextLayer" font-weight="260">
+                        <g id="}" transform="translate(133.576904, 45.483942) rotate(-90.000000) translate(-133.576904, -45.483942) translate(125.076904, 16.983942)" font-size="44.6060763" font-family="Geometria" fill="#979797" sketch:type="MSTextLayer" font-weight="260">
                             <text>
-                                <tspan x="0.266283" y="42.4535187" fill="#000000">}</tspan>
+                                <tspan x="0.266283" y="42.4535187" fill="#9B9B9B">}</tspan>
                             </text>
                         </g>
                         <rect id="Rectangle-3" fill="#D8D8D8" sketch:type="MSShapeGroup" x="88.9258517" y="127.160321" width="94.3246493" height="17.254509"></rect>
@@ -60,17 +60,17 @@
                             <ellipse id="Oval-3" stroke="#979797" stroke-width="5" fill="#D8D8D8" sketch:type="MSShapeGroup" cx="42.1447634" cy="39.2916667" rx="42.1447634" ry="39.2916667"></ellipse>
                             <g id="(-4" transform="translate(41.068368, 65.737350) rotate(-90.000000) translate(-41.068368, -65.737350) translate(34.568368, 44.237350)" font-size="33.5073922" font-family="Geometria" fill="#979797" sketch:type="MSTextLayer" font-weight="260">
                                 <text id="(">
-                                    <tspan x="0.015874" y="32.8344907" fill="#000000">(</tspan>
+                                    <tspan x="0.015874" y="32.8344907" fill="#9B9B9B">(</tspan>
                                 </text>
                             </g>
-                            <g id="(" transform="translate(24.661707, 31.629959) rotate(90.000000) translate(-24.661707, -31.629959) translate(19.661707, 15.629959)" font-size="24.7174337" font-family="Geometria" fill="#979797" sketch:type="MSTextLayer" font-weight="260">
+                            <g id="(" transform="translate(27.661707, 31.629959) rotate(90.000000) translate(-27.661707, -31.629959) translate(22.661707, 15.629959)" font-size="24.7174337" font-family="Geometria" fill="#979797" sketch:type="MSTextLayer" font-weight="260">
                                 <text>
-                                    <tspan x="0.0482545" y="23.6458333" fill="#000000">(</tspan>
+                                    <tspan x="0.0482545" y="23.6458333" fill="#9B9B9B">(</tspan>
                                 </text>
                             </g>
-                            <g id="(" transform="translate(58.161391, 31.130275) rotate(90.000000) translate(-58.161391, -31.130275) translate(53.161391, 15.130275)" font-size="24.7174337" font-family="Geometria" fill="#979797" sketch:type="MSTextLayer" font-weight="260">
+                            <g id="(" transform="translate(61.161391, 31.130275) rotate(90.000000) translate(-61.161391, -31.130275) translate(56.161391, 15.130275)" font-size="24.7174337" font-family="Geometria" fill="#979797" sketch:type="MSTextLayer" font-weight="260">
                                 <text>
-                                    <tspan x="0.5479382" y="23.6458333" fill="#000000">(</tspan>
+                                    <tspan x="0.5479382" y="23.6458333" fill="#9B9B9B">(</tspan>
                                 </text>
                             </g>
                         </g>
