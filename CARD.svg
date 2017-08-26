@@ -7,8 +7,8 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="CARD" sketch:type="MSLayerGroup">
             <rect id="Rectangle-1" stroke="#979797" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="0" width="550" height="910"></rect>
-            <text id="MAXIM" sketch:type="MSTextLayer" font-family="Geometria" font-size="60" font-weight="260" fill="#4A4A4A">
-                <tspan x="47" y="418">MAXIM</tspan>
+            <text id="Maxim" sketch:type="MSTextLayer" font-family="Geometria" font-size="60" font-weight="260" fill="#4A4A4A">
+                <tspan x="47" y="418">Maxim</tspan>
                 <tspan x="47" y="494">SOKHATSKY</tspan>
             </text>
             <text id="Synrc" sketch:type="MSTextLayer" font-family="Geometria" font-size="30" font-weight="260" fill="#9B9B9B">
