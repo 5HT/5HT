@@ -8,21 +8,23 @@
         <g id="CARD" sketch:type="MSLayerGroup">
             <rect id="Rectangle-1" stroke="#979797" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="0" width="550" height="910"></rect>
             <text id="Maxim" sketch:type="MSTextLayer" font-family="Geometria" font-size="60" font-weight="260" fill="#4A4A4A">
-                <tspan x="47" y="418">Maxim</tspan>
-                <tspan x="47" y="494">SOKHATSKY</tspan>
+                <tspan x="47" y="438">Maxim</tspan>
+                <tspan x="47" y="514">SOKHATSKY</tspan>
             </text>
             <text id="Synrc" sketch:type="MSTextLayer" font-family="Geometria" font-size="30" font-weight="260" fill="#9B9B9B">
-                <tspan x="256" y="98.728">Synrc</tspan>
-                <tspan x="256" y="135.728">Research</tspan>
-                <tspan x="256" y="172.728">Center</tspan>
+                <tspan x="245" y="100.728">Synrc</tspan>
+                <tspan x="245" y="137.728">Research</tspan>
+                <tspan x="245" y="174.728">Center</tspan>
             </text>
             <text id="Architecture-Consult" sketch:type="MSTextLayer" font-family="Geometria" font-size="30" font-weight="260" fill="#9B9B9B">
-                <tspan x="47" y="589">Architecture Consultant</tspan>
+                <tspan x="47" y="569">Architecture Consultant</tspan>
             </text>
-            <text id="n2o.space" sketch:type="MSTextLayer" font-family="Geometria" font-size="30" font-weight="260" fill="#4990E2">
-                <tspan x="47" y="779.272">n2o.space</tspan>
-                <tspan x="47" y="816.272">@5HT</tspan>
-                <tspan x="47" y="853.272">maxim@synrc.com</tspan>
+            <text id="n2o.space" sketch:type="MSTextLayer" font-family="Geometria" font-size="30" font-weight="260">
+                <tspan x="47" y="739.272" fill="#4990E2"></tspan>
+                <tspan x="47" y="776.272" fill="#4990E2">@5HT</tspan>
+                <tspan x="47" y="813.272" fill="#4A90E2">n2o.space</tspan>
+                <tspan x="190.76" y="813.272" fill="#4990E2"></tspan>
+                <tspan x="47" y="850.272" fill="#4990E2">maxim@synrc.com</tspan>
             </text>
             <g id="S" transform="translate(30.626747, 31.728000)" sketch:type="MSShapeGroup">
                 <g id="Page-1">
