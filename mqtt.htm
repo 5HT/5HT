@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="Maxim Sokhatsky" />
-    <title>N2O 4.5 MQTT</title>
-    <link rel="stylesheet" href="//n2o.space/new.css" />
+    <title>N2O-MQTT</title>
+    <link rel="stylesheet" href="//n2o.space/n2o.css" />
 </head>
 
 <body>
@@ -28,7 +28,7 @@
             <h3>Motivation</h3>
             <div>
                 Introduce N2O Protocols for commercial use on top of the MQTT protocol.
-                Minimize and remove all features, duplicated by the MQTT pub-sub broker. 
+                Minimize and remove all features, overlapped with MQTT pub-sub broker.
                 Provide an EMQ extension that immediately activates the N2O protocol
                 and its applications for all connected MQTT devices. Create a single
                 Erlang eco-system for Enterprise Protocol Federation and establish
@@ -38,31 +38,18 @@
         </section>
 
         <section>
-            <h3>Credits</h3>
-            <div>Maxim Sokhatsky, Synrc Research Center</div>
-            <div>Andy Martemyanov, Erlang One</div>
-            <div>Feng Lee, EMQ Enterprise</div>
-            <h3>Sources</h3>
-            <div>
-                <a href="https://github.com/synrc/n2o"><img src="/img/github.png"> synrc/n2o</a>
-                &mdash; N2O 2.9&mdash;4.4 FULL
-            </div>
-            <div>
-                <a href="https://github.com/synrc/mqtt"><img src="/img/github.png"> synrc/mqtt</a>
-                &mdash; N2O 4.5 MQTT
-            </div>
-            <div>
-                <a href="https://github.com/voxoz/mq"><img src="/img/github.png"> voxoz/mq</a>
-                &mdash; EMQ, EMQ Dashboard, REVIEW
-            </div>
-            <div>
-                <a href="https://github.com/5HT/5ht.co/blob/master/mqtt.htm">
-                <img src="//n2o.space/img/github.png"> edit</a> &mdash; if you've found any errors here
-            </div>
+            <a name=plugin><h3>MANUAL</h3></a>
+            <div><ul>
+           <li><a href="https://mqtt.n2o.space/man/n2o.htm">MQTT: N2O</a></font></li>
+           <li><a href="https://mqtt.n2o.space/man/n2o_async.htm">MQTT: N2O ASYNC</a></font></li>
+           <li><a href="https://mqtt.n2o.space/man/n2o_proto.htm">MQTT: N2O PROTO</a></font></li>
+           <li><a href="https://mqtt.n2o.space/man/n2o_vnode.htm">MQTT: N2O VNODE</a></font></li>
+            </ul></div>
             <br>
             <div>
-                APRIL 26, 2017 &copy; <a href="http://5ht.co/license.htm">DHARMA LICENSE</a>
+                26 APR 2017 &copy; <a href="http://5ht.co/license.htm">DHARMA LICENSE</a>
             </div>
+
         </section>
     </article>
 </aside>
@@ -105,7 +92,7 @@
     <section>
         <a name=modules><h3>N2O: Protocol Server for MQTT</h3></a>
         <p>
-            N2O 4.5 MQTT is what you get when you reduce everything duplicating MQTT features.
+            Starting from 4.5, N2O reduce everything duplicating MQTT features.
             On the other hand, 4.5 is a completely N2O-compatible embeddable protocol relay
             with limited features. And it takes only 25KB in Erlang.
         </p>
@@ -170,7 +157,7 @@
     </section>
 
     <section>
-        <a name=endpoints><h3>EMQ/Cowboy/Mochiweb Endpoints</h3></a>
+        <a name=endpoints><h3>Endpoints</h3></a>
         <p>
             All N2O/MQTT messages which go directly to TCP and/or WebSocket.
             However there are some endpoints which are not TCP sockets, even non-sockets,
@@ -390,7 +377,7 @@ MQTT_start();
         </p>
         <figure>
             <figcaption>Listing 6. Setup MQTT flavoured N2O.</figcaption>
-            <pre>
+            <code>
 $ brew install erlang
 $ curl -fsSL https://raw.github.com/synrc/mad/master/mad > mad \
             && chmod +x mad \
@@ -447,7 +434,8 @@ Applications:  [kernel,stdlib,gproc,lager_syslog,pbkdf2,asn1,fs,ranch,mnesia,
                 compiler,inets,crypto,syntax_tools,xmerl,gen_logger,esockd,
                 cowlib,goldrush,public_key,lager,ssl,cowboy,mochiweb,emqttd,
                 erlydtl,kvs,mad,emqttc,nitro,rest,sh,syslog,review]
-Erlang/OTP 19 [erts-8.3] [source] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false] [dtrace]
+Erlang/OTP 19 [erts-8.3] [source] [64-bit] [smp:4:4]
+              [async-threads:10] [hipe] [kernel-poll:false] [dtrace]
 
 Eshell V8.3  (abort with ^G)
 starting emqttd on node 'nonode@nohost'
@@ -465,7 +453,8 @@ mqtt:ws listen on 0.0.0.0:8083 with 4 acceptors.
 mqtt:tcp listen on 0.0.0.0:1883 with 4 acceptors.
 emqttd 2.1.1 is running now
 >
-            </pre>
+
+            </code>
         </figure>
     </section>
     <section>
