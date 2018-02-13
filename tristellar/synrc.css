@@ -23,7 +23,7 @@
     td > img { margin: 0px; }
 
 .wrap { width: 100%; margin: 10px auto; overflow: hidden; display: inline-block; }
-.swrap { width: 100%; padding-top: 10px; overflow: hidden; display: inline-block; background-color: #f5f5f5; }
+.swrap { width: 100%; padding-top: 10px; overflow: hidden; display: inline-block; background-color: #e5e5e5; }
 .lift { margin-top: -45px; }
 .left { width: 15%; float: left; text-align: right; margin: 20px; display: inline-block; }
 .comment { font-size: 14pt; margin-top: 0px; margin-bottom: 40px;  display: inline-block;background-color: #eeeeee; padding: 20px; }
