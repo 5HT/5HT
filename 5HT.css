@@ -22,7 +22,7 @@ a:hover { color:blue; }
 a:hover, a:active { outline: 0 }
 
 @font-face {
-    font-family: 'Lucida Unicode';
+    font-family: 'EB Garamond', serif;;
     font-weight: normal;
     font-style: normal
 }
