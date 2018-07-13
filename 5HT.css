@@ -20,11 +20,5 @@ ul {margin-left:70px;}
 a { color: blue; text-decoration: none }
 a:hover { color:blue; }
 a:hover, a:active { outline: 0 }
-
-@font-face {
-    font-family: 'EB Garamond', serif;
-    font-weight: normal;
-    font-style: normal
-}
 .block { margin-top: 15px; margin-left: 20px; min-width:200px; float: left; background-color: transparent; text-align: left; }
 .wrapper { min-width: 1200px; vertical-align: top; }
