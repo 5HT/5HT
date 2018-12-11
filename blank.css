@@ -33,7 +33,7 @@ nav a {
     font-size: 16px;
     border: 2px solid #dedede;
     background-color: white;
-    color: lightblue;
+    color: blue;
     text-decoration: none;
     margin: 5px 5px;
     padding: 7px 12px;
@@ -42,7 +42,7 @@ nav a {
 }
 
 nav a:visited {
-    color: lightblue;
+    color: CadetBlue;
 }
 
 nav a:hover {
@@ -92,7 +92,7 @@ aside section {
 aside h3 {
     font-size: 28px;
     text-transform: uppercase;
-    color: #00bcd4;
+    color: CadetBlue;
     padding: 20px 0 10px;
 }
 
@@ -107,11 +107,11 @@ aside img {
 
 aside a {
     text-decoration: none;
-    color: lightblue;
+    color: CadetBlue;
 }
 
 aside a:visited {
-    color: lightblue;
+    color: CadetBlue;
 }
 
 aside a:hover {
@@ -158,14 +158,14 @@ main p {
 }
 
 main a {
-    color: lightblue;
+    color: CadetBlue;
     text-decoration: none;
     margin: 0;
     border-bottom: 1px solid green;
 }
 
 main a:visited {
-    color: lightblue;
+    color: CadetBlue;
     border-bottom: 1px solid #4A90E2;
 }
 
