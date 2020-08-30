@@ -3,7 +3,7 @@
 Wandering Artist
 
 * Nyingma Longchen Nyingthig representative <a href="https://longchenpa.guru">longchenpa.guru</a>
-* Founder of the Groupoid Infinity activity, the formalization of mathematics <a href="https://groupoid.space">groupoid.space</a>
+* Founder of Groupoid Infinity dedicated to the formalization of mathematics <a href="https://groupoid.space">groupoid.space</a>
 * Author of K L1-interpreter and SMP/AMP real-time zero-copy runtime <a href="https://o83.github.io/platform.rs">platform.rs</a>
 * Author of N2O <a href="https://n2o.dev">n2o.dev</a>
 * Author of UNO <a href="https://erp.uno">erp.uno</a>
