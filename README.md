@@ -9,3 +9,5 @@ Wandering Artist
 * Author of UNO <a href="https://erp.uno">erp.uno</a>
 * Author of Депозити ПриватБанк <a href="https://deposits.privatbank.ua/static/doc/index.htm">deposits.privatbank.ua</a>
 * Author of МІА:Документообіг <a href="https://infotech.gov.ua/projects/mia-document-management">crm.erp.uno</a>
+
+![Stats](https://github-readme-stats.vercel.app/api?username=DavidAlphaFox&show_icons=true&count_private=true&hide_title=true)
