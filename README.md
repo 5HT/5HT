@@ -8,4 +8,4 @@ Wandering Artist
 * Author of N2O <a href="https://n2o.dev">n2o.dev</a>
 * Author of UNO <a href="https://erp.uno">erp.uno</a>
 * Author of Депозити ПриватБанк <a href="https://deposits.privatbank.ua/static/doc/index.htm">deposits.privatbank.ua</a>
-* Author of МІА:Документообіг <a href="https://infotech.gov.ua/projects/mia-document-management">crm.erp.uno</a>
+* Author of МІА:Документообіг <a href="https://crm.erp.uno">crm.erp.uno</a>
