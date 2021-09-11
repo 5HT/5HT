@@ -1,6 +1,6 @@
 <h1>Namdak Tonpa</h1>
 
-Wandering Artist
+Streaming its truth
 
 * Emeritus at Nyingma Longchen Nyingthig Ukraine <a href="https://longchenpa.guru">longchenpa.guru</a>
 * Emeritus at Groupoid Infinity <a href="https://groupoid.space">groupoid.space</a>
