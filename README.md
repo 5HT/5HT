@@ -1,7 +1,5 @@
 <h1>Namdak Tonpa</h1>
 
-Streaming its truth
-
 * Emeritus at Nyingma Longchen Nyingthig Ukraine <a href="https://longchenpa.guru">longchenpa.guru</a>
 * Emeritus at Groupoid Infinity <a href="https://groupoid.space">groupoid.space</a>
 * Author of K L1-interpreter and SMP/AMP real-time zero-copy runtime <a href="https://github.com/o83/n2o">platform.rs</a>
