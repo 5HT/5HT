@@ -8,7 +8,7 @@ The real fun was:
 While these were mostly hard time works:
 
 * Author of APL L1-interpreter and SMP/AMP real-time zero-copy runtime <a href="https://github.com/o83/n2o">platform.rs</a>
-* Author of N2O <a href="https://n2o.dev">n2o.dev</a> and N2O.TECH <a href="https://n2o.tech">n2o.tech</a>
+* Author of N2O <a href="https://n2o.dev">n2o.dev</a>
 * Author of ERP.UNO <a href="https://erp.uno">erp.uno</a>
 * Author of FORMAL.UNO <a href="https://formal.uno">formal.uno</a>
 * Author of Депозити ПриватБанк <a href="https://deposits.privatbank.ua/static/doc/index.htm">deposits.privatbank.ua</a>
