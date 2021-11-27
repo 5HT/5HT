@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="Maxim Sokhatsky" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet" />
+<title>MD</title>
+<link rel="stylesheet" href="https://n2o.dev/blank.css?v=2"/>
+<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+<link rel="manifest" href="/img/site.webmanifest" />
+<style>
+@media print {
+    .pagebreak { page-break-after: always; }
+}
+</style>
+</head>
+<body>
+<nav>
+    <a href="https://5ht.co">5HT</a>
+    <a href="index.html">MD</a>
+    <a href="#" style="background:#ededed;">YOSHIDA</a>
+</nav>
+<header>
+</header>
+<main>
+<article>
+  <section>
+    <h3>The Rewritable MiniDisc System</h3>
+
+    <p align=center>Tadao Yoshida<br>
+       Advanced Development Laboratories<br>
+       Sony Corporation, Tokyo, Japan</p>
+
+    <p>Reprinted from the Proceedings of the IEEE,USA<br>
+       vol. 82 no. 10 pp. 1492-1500, OCT 1994.</p>
+
+    <h3>Abstract</h3>
+
+    <p>The MiniDisc system was designed with the obvious objective of replacing the conventional Compact Cassette tape recorder system. The MiniDisc format defines two types of optical discs. One is a recordable magneto-optical disc for user recording and another is a conventional read-only disc for music-software publishing. Audio data compression is used to achieve 74 min of playing time on a 64-mm disc. By means of a built-in buffer memory called Shock Resistant Memory, MiniDisc can be used for outdoor portable applications with great ease. Furthermore, MiniDisc was evolved into the MD Data system and with a data capacity of 140 Mbytes and a very compact size, the MD Data system is expected to become one of the standards for removable data storage systems. </p>
+
+
+    <h3>1. Introduction</h3>
+
+    <p>In 1992 the MiniDisc system was introduced in the consumer audio market as a new digital audio playback and recording system (Fig. 1). The introduction time was just ten years after the introduction of the Compact Disc (CD). As is known, CD has effectively replaced the vinyl LP records in the audio disc market. CD technology is based on 16-bit quantization and 44.1-kHz sampled digital audio recording. The CD sound quality was fairly improved compared to any consumer analog recording equipment.</p>
+
+    <figure><figcaption>Fig.1. Example of commercial MiniDisc player.</figcaption><img src="img/fig1.gif"></figure>
+
+    <p>Before starting the CD business, many engineers engaged in the development of the CD solely for its improvement in sound quality, but after the introduction of the CD player into the market, we found out that the consumer became aware of the quick random-access characteristic of the optical disc system. In addition, the size of the 12-cm disc was easy to handle compared to that of the LP. The longer lifetime for both the media and the player strongly supported the acceptance of the CD format. The next target of development was obviously to be the rewritable CD. SONY and Philips jointly developed this system and made it a technical reality in 1989. Two different recordable CD systems were established. One is the write-once CD named CD-R and the other is the re-writable CD named CD-MO.</p>
+    <p>Sales of cassette tapes had been decreasing since 1989, and Sony felt that the compact cassette system was approaching the end of its format life. Even if recordable CD were to be accepted by the consumer, it would still be difficult to break into the portable market. Here, portable compact cassette dominated because of its strong resistance to vibration and its compactness. Clear targets for a new disc system were to overcome these weaknesses. Sony was able to achieve this by introducing a disc system called MiniDisc (MD).</p>
+    <p>Magneto-optical disc recording technology has been used for computer data storage system for several years. Based on this technology, we had developed direct overwriting technology with a similar recording density as Compact Disc. Additionally, we employed a shock-resistant memory control for portable use and applied a digital audio compression system called ATRAC (Adaptive TRansform Acoustic Coding) that enabled us to use a 64-mm disc size. Recent technological improvement of semiconductors helped to realize this technology.</p>
+
+    <figure><figcaption>Fig.2. Technical position of MiniDisc.</figcaption><img src="img/fig2.gif"></figure>
+
+    <p>Similar to the way the CD-ROM was realized, the MD Data system was developed based on audio MD. A data capacity of no less than 140 Mbytes, combined with a dedicated file structure present new possibilities to implement the MD Data disc system in several different computer systems as well as future equipment. (Fig 2).</p>
+
+    <h3>2. System Configuration</h3>
+
+    <p>The small cartridge size was employed for easy handling and disc protection. The physical size of the cartridge, 72 mm (W) by 68 mm (D), and 5 mm thickness, resulted from detailed studies. There are two different types of recording layer and three different types of disc defined by the MD format. One is a conventional type of disc, similar to the CD, which has an aluminum reflective layer with a signal pit pattern. The second type of disc is a recordable disc that has a wide-groove sputtered magneto-optical recording layer. The third type of disc has both recorded pits and a recordable wide-groove sputtered magneto-optical recording layer. The wide groove is wobbled by a 22.05-kHz carrier modulated by address data. This type of pre-groove modulation helps the drive system to control not only the tracking servo but also supports the constant linear velocity (CLV) control and access control during record mode. Figure 3 shows the type of MD discs (Figs. 4, 5). </p>
+
+    <figure><figcaption>Fig.3. MiniDisc disc type and groove/pit layout.</figcaption><img src="img/fig3.gif"></figure>
+
+    <p>It is mandatory for the MD system to be able to play back these three types of discs. This means that the MD recorder/player is equipped with a dual-function optical pick-up for the read-out of recorded pit patterns and the magneto-optical disc. </p>
+
+    <figure><figcaption>Fig.4. Pre-mastered pit.</figcaption><img src="img/fig4.gif"></figure>
+
+    <p>The MD disc substrate is manufactured by using injection molding methods. Therefor, it is relatively easy to keep an optimal shape of the clamping area to allow for proper loading. Figure 6 shows the cross-sectional view of the disc substrate housed in the cartridge. The optical disc must be centered when it is mounted in the drive unit. As with the CD, the center is aligned using the edge of the inner circumference of the polycarbonate substrate as a reference. Constructed from simple steel, the plate is roughly positioned on the opposite side of the clamping area, to ensure proper clamping and centering. This simple method can also reduce the mechanical stress near the center area of the polycarbonate disc. This way it also helps to avoid birefringence of the polycarbonate substrate. </p>
+
+    <figure><figcaption>Fig.5. Recordable groove.</figcaption><img src="img/fig5.gif"></figure>
+
+    <p>The cartridge has a shutter. On the premastered MD, the shutter covers only the bottom side. In the case of the recordable MD, the shutter covers both sides (Fig. 7). This type of simple cartridge and disc configuration helps to reduce the production cost. We feel that this is essential if the media is to be used for music and other fields of software publishing. </p>
+
+    <figure><figcaption>Fig.6. Cross-sectional view of MD disc.</figcaption><img src="img/fig6.gif"></figure>
+
+    <p>The recorded signal of the premastered pits and of the recordable MD are very similar to that of the CD. Eight-to-Fourteen Modulation (EFM) and Cross Interleaved Reed-Solomon Code (CIRC) are employed. The optical readout parameters of the MD disc, such as laser wavelength, track pitch, Numerical Aperture (NA) of optical pick up, etc., are almost the same as that of Compact Disc. (Table 1). </p>
+
+    <figure><figcaption>Fig.7. Configuration of recordable MiniDisc.</figcaption><img src="img/fig7.gif"></figure>
+
+    <p></p>
+
+    <h3>3. Magnetic-Field Modulation Overwriting</h3>
+
+    <p>The recording/playback MD records digital signals using magneto-optical recording by a magnetic-field modulation system. This technology was taken from the rewritable CD (CD-MO) technology. The optical head and the contact magnetic head are located opposite to each other, sandwiching the disc (Fig. 8). In the case of the magnetic-field modulation system, a semiconductor laser continuously radiates using approximately 4.5-mW power. When the laser spot is irradiated on the disc, the layer surface temperature goes up to about the Curie temperature (approximately 180C). As soon as the laser spot passes on, the layer surface temperature is reduced. This process is continuously repeated. When the magnetic field of N and S are added around the area where the laser spot is irradiated, each "1" or "0" is recorded with the isothermal line of the Curie temperature as the border boundary. At that time the shape and length of the "1" and "0" recorded area is determined (Fig. 9). If the inversion speed of the magnetic field is fast enough, it is possible to write in a pit of about 0.3-um pitch even with the combination of a light beam with the wavelength about 780 nm and an NA (Numerical Aperture) = 0.45 lens. Furthermore, the "1" and "0" areas will become symmetrical, which is a characteristic of the magnetic-field modulation system. </p>
+
+    <figure><figcaption>Fig.8. Magnetic-field modulation overwrite system.</figcaption><img src="img/fig8.gif"></figure>
+
+    <p>A different system altogether is used in a laser modulation system that records the signal by switching the level of the semiconductor laser power. The direction to which the magnetic fields are added is only in one direction. The area where the laser light is irradiated will be "1" and the area where no recording is made will be "0". The recording pattern will become nonsymmetrical. In addition to this, there is another problem with the laser modulation system. It is vulnerable to fluctuation in recording power. When the recording power fluctuates, the positions where the edge is started to be written or finished are easily distorted. The length of the pattern will fluctuate. </p>
+
+    <figure><figcaption>Fig.9. Comparison of recorded patterns on the disc.</figcaption><img src="img/fig9.gif"></figure>
+
+    <p>The magnetic-field modulation system enjoys one more advantage; namely, that it is highly resistant to disc tilt. When the disc is tilted, the light spot is distorted. With the laser modulation system the shape of the recorded pattern is determined by the light spot. This distortion can be quite prominent. The magnetic-field modulation system, however, uses a laser beam in order to raise the temperature of the magneto-optical layer. It does not determine the shape of the recorded pattern. Therefore, when the disc is tilted at the time of recording and the beam spot is distorted, there is less of an effect. </p>
+
+    <figure><figcaption>Fig.10. Tangential skew tolerance.</figcaption><img src="img/fig10.gif"></figure>
+
+    <p>Figure 10 shows the result of the experiment. The chart shows the fluctuation of the block error rate when the disc is tilted and recorded/played back. Even when the disc is tilted +/- 1.5deg parallel to the track, the block error rate stays almost stable as long as it is not tilted at the time it is read. Figure 11 shows the data taken when the disc is tilted in the direction toward the radius. The results are almost identical to those when it is tilted parallel to the track. As mentioned so far, there are scores of advantages in the magnetic-field modulation system. These advantages hold the promise of high recording and playback reliability in the mass-production stage of the MD system. </p>
+
+    <figure><figcaption>Fig.11. Radial skew tolerance.</figcaption><img src="img/fig11.gif"></figure>
+
+    <p>However, it may seem difficult to realize the production of the magnetic head. We need to mention how to solve this issue. Employing a contact over-write head is a simple solution to this problem. Fortunately, the back side of the MD disc needs to be coated with a thin protective layer to protect the recording layer from the environment. And additionally, the layer is controlled to reduce the chance of the friction forces going lower than the limited value. So that, if the over-write magnetic head roughly keeps in contact with this layer, it will render a magnetic field with appropriate strength. A very high durability of the contact cycle can be achieved, e.g., more than a million passes. It is also important to mention that the driving power of the head is small enough to be given by battery energy. Thus by employing the magnetic-field modulation overwrite system, the following characteristics are obtained:</p>
+
+    <p>&mdash; Capability of direct over-writing.<br>
+    &mdash; High recording density (0.6 um/bit).<br>
+    &mdash; Suitable for pit-edge modulation (EFM).<br>
+    &mdash; Wide recording power margin.<br>
+    &mdash; Wide margin of skew and tilt between disc and optical head. <br>
+   </p>
+
+    <h3>4. Data Structure</h3>
+
+    <p>The MD system employs almost the same modulation and error correction code as that of the CD. Eight-to-Fourteen Modulation (EFM) and the Cross Interleave Reed-Solomon Code (CIRC) are employed as the error correction code. It is well known that the combination of the EFM and CIRC provide a high potential of error correction possibility and high recording density. The "naked" CD disc is able to provide sufficient data reliability for a long period. It shows that if the disc is enclosed in a cartridge, we can expect to increase the reliability. Hence we were strongly motivated to use the same system. </p>
+
+    <p>Different from the audio CD, we modified the interleave sequences slightly into a pattern suitable for keeping the interpolation between each audio sampling sequences to a continuous data sequence. We called it ACIRC (Advanced Cross Interleave Reed-Solomon Code). In case an uncorrectable error occurs during readout of the data from the MD disc, this modification helps to minimize the lack of the CD-ROM sync header. As mentioned before, MD uses compressed audio data, recorded by grouping the data into blocks. The block format is very similar to the CD-ROM mode-2 standard. In CD-ROM, we use a block address based on that of the CD's subcode address, so that we use the physical address data based on playing time. CD and CD-ROM use minutes, seconds, and frames. With MD we replaced the unit of the address from a time-base oriented one to binary-code based on frame (block) units. We call this unit (frame, block) a "sector." Because of the long interleaved ACIRC error correction code, three sectors must be used as "linking sectors." If the user changes or adds new data to the MD disc, two or three sectors for every start and end position of the new data need to be recorded. </p>
+
+
+    <figure><figcaption>Fig.12. MiniDisc data configuration. </figcaption><img src="img/fig12.gif"></figure>
+
+    <p>Variable size of the write data causes some difficulty in managing address control, therefore, we introduced the cluster unit, which constitutes the minimum unit of write or over-write of data to the disc. One cluster consists of 36 sectors. 32 sectors of one cluster are used for main data recording and 4 sectors are used for data linking or additional sub data (Fig 12). As mentioned, the pregroove of the recordable area is wobbled by the 22.05-kHz carrier which is modulated by the address data. The address is the same as the sector and cluster number. The drive unit is able to find the right address during any write and read sequence from the wobbled groove. In the inner part of the information groove, a TOC (Table of Contents) is recorded by pre-mastered pits. Several sectors are defined for the usage of disc identification and for additional information related to the disc type. In the recordable MD, the TOC information contains some parameters that are used in the recording. Optimum recording power, start and end address for user recording, etc., are recorded. In the pre-mastered MD, the TOC information includes the track allocation table, track name table, recording date table, etc. The track allocation table includes an address table that points out music track start and end addresses of the program area. Track name and date table are optionally used. The U-TOC (User Table of Contents) is recorded after recording or editing has been done on the recordable MD. The track allocation table of the U-TOC manages all program areas the same way. A maximum of 255 music tracks are defined by using the track allocation table. In addition, this allocation table supports the linking of several pieces of isolated data to appear as a continuous music track. In combination with the shock-resistant memory, the MD system is able to automatically link the isolated pieces. Thus the MD system offers easy and reliable operation. </p>
+
+   <h3>5. ATRAC Audio Data Compression</h3>
+
+    <p>With a diameter of 64 mm, which is smaller than a CD, MiniDisc can hold only 1/5 of the data. Therefore, we need data compression of 5:1 in order to offer 74 min of playback time. A high-quality audio compression technology called ATRAC is used for MiniDisc. </p>
+
+
+    <p>The ATRAC encoding process starts with the 16-bit quantization and 44.1-kHz sampled stereo audio signal. The key to ATRAC's efficiency is its unique method of analysis. ATRAC employs a nonuniform slitting in both frequency and time axes, reflecting psychoacoustic principles. </p>
+
+
+    <figure><figcaption>Fig.13. Block diagram of ATRAC encoder.</figcaption><img src="img/fig13.gif"></figure>
+
+    <p>The encoding processes are divided into three steps (Fig. 13). First is the Quadrature Mirror Filters (QMF's) block. Second, the Modified Discrete Cosine Transform (MDCT) block. Third, there is a Bit Allocation block. First, the signal is divided into three subbands by using two stages of QMF filters. Each band covers 0-5.5 kHz, 5.5-11 kHz, or 11-22 kHz. After that, each of the three subbands is transformed into the frequency domain by using the MDCT. </p>
+
+    <p>The transform block size is adaptively chosen. There are two modes, long mode: 11.6 ms for all frequency bands and short mode: 1.45 ms for the high-frequency band and 2.9 ms for mid- and low-frequency bands. Normally, the long mode is chosen to provide optimum frequency resolution. However, problems may occur during attack portions of the signal. Specifically, the quantization noise is spread over the entire MDCT block time. Just before the attack of the sound, one may hear some noise. Therefore, ATRAC automatically switches to the short mode to avoid this type of noise. </p>
+
+    <p>The MDCT spectral coefficients are the grouped into a Block. The spectral values are quantized by using two parameters. One is word length, another is scale factor. The scale factor defines the full-scale range of he quantization and the word length defines the resolution of the scale. Each Block Floating Unit (BFU) has the same word length and scale factor, reflecting the psychoacoustic similarity of the grouped frequencies. The scale factor is chosen from a fixed table and reflects the magnitude of the spectral coefficients in each BFU. The word length is determined by the bit allocation algorithm. For each sound frame (512 data samples) the following information is stored on disc:
+    1) MDCT block size mode (long or short);
+    2) word length data for each BFU;
+    3) scale factor code for each BFU;
+    4) quantized spectral coefficients. </p>
+
+    <p>The data size of each sound frame is fixed as 212 bytes. On the disc, 11 stereo sound frames are recorded every 2 sectors. In case of monaural recording, twice the amount of time can be recorded on the disc. </p>
+
+    <p>The bit allocation algorithm divides the available data bits between the various BFU's. ATRAC does not specify a bit allocation algorithm. The word length of each BFU is stored on the MiniDisc along with the quantized spectra, so that the decoder is independent from the allocation algorithm. This allows for an evolutionary improvement of the encoder without changing the MiniDisc format. The decoding process is divided into two steps. The decoder first reconstructs the MDCT spectral coefficients from the quantized values, by using the word length and scale factor parameters. The coefficients are transformed back into the time domain by inverse MDCT using either the long mode or the short mode as specified in the parameters. Finally, the three time-domain signals are synthesized into the output signal by QMF synthesis filters. </p>
+
+    <h3>6. Shock-Resistant Memory</h3>
+
+    <p>A conventional optical disc system may easily mistrack when subjected to shock and vibration. Therefore, it was believed for a long time that the magnetic-tape medium represented the best solution for outdoor use. However, car-mounted CD players are protected from external shock by mechanical suspension. In hand-held equipment, such as the Walkman, it is difficult to use mechanical suspension because it requires too much space. Therefore, we needed another way to overcome this problem. </p>
+
+    <p>We knew from experience that shock and vibration are not continuous. Therefore, placed between the optical readout pickup and the ATRAC decoder the MiniDisc player employs semiconductor memory as an electric data buffer. If we use a 4-Mbit memory, approximately 12 s of compressed audio sound can be stored in memory. When the optical pickup starts to read data from the disc it takes less than a few seconds to fill up the memory because there is a 5-times bit rate difference between optical readout and the ATRAC decoder. So that during a normal playback situation, the optical pickup is actually reading the data intermittently in order to keep the memory fully loaded. If the pickup loses its position due to mechanical shock and the flow of data into memory is interrupted, data will continue to come out of the memory, enabling playback to continue for about 12 s. Once the laser resumes its original position, it will read data into the memory again. Due to address information found throughout the disc at 13.3-ms intervals, the laser can usually reposition itself with 1 s (Fig. 14). Recently, Compact Disc player manufacturers have also begun using almost the same method. Consequently, an optical disc playback system offers more than enough potential to be used for outdoor and field applications. </p>
+
+    <figure><figcaption>Fig.14. Shock resistant memory control.</figcaption><img src="img/fig14.gif"></figure>
+
+    <h3>7. MD-Data Format</h3>
+
+    <p>Based on the original MiniDisc audio format, the MD-Data system was developed in July 1993. The MD-Data disc and key devices (optical pickup and LSI chips) are almost the same as those of the MD audio system. Therefore, the manufacturing infrastructure of MD Data is commonly used with that of MD Audio. Actually, it is similar to the way CD-ROM is manufactured. The MD-Data disc has approx. 140-Mbyte data capacity (Fig. 15). By featuring a variation of disc type (pre-mastered disc/read-only disc, recordable, and hybrid disc) and compact size, the MD-Data system is expected to be a new standard in data storage and publishing media systems. </p>
+
+    <figure><figcaption>Fig.15. Format comparison between MD and MD-data.</figcaption><img src="img/fig15.gif"></figure>
+
+    <p>Even though the MD Data and MD Audio specifications are very similar, the physical specifications of MD Audio had to be improved. Also, we think it is an important point for the audio customer to avoid confusion between MD Data and MD Audio. Therefore, the cartridge shape of MD Data is slightly different. Figure 15 shows the difference. In particular, improvement of data quality and a higher data transfer rate was required. Therefore, part of the specification was changed in order to achieve those targets. In addition, we have introduced the MD-Data system with a dedicated file structure which supports application in a multiplatform environment. </p>
+
+    <p>The MD-Data volume and file structure was developed to cope with the MD's physical limitations. The data track, similar to the music track on the MD Audio, is defined in the TOC and the U-TOC. The first cluster is used for a boot cluster, and a further 16 clusters are used for the Volume Management Area (VMA), where all files and directory management information are gathered. Because the VMA is physically centralized and is usually cached in semiconductor memory, the number of accesses and rewriting operations are minimized. Even more, considering the physical cluster actually means a minimum rewriting unit, the MD-Data file system can manage a logical block size ranging from 2 to 64 kbytes. These block sizes are uniquely selected depending on the application by the user. The file system can also support a hierarchical directory structure, short- and long-file names, additional information, etc. It allows easy connection of MD Data to various host systems and allows for media exchanges between different systems (Table 2). </p>
+
+    <h3>8. Conclusion</h3>
+
+    <p>Considering the many advantages of the disc media, we can expect that MiniDisc will replace the Compact Cassette in the near future. When this occurs, we are certain that the MiniDisc player unit will be smaller than the current Walkman Compact Cassette player, largely due to the MD's cartridge size. In order to realize this, the key issue is to downsize the relatively bulky electronics into silicon. The key issue here is the huge number of gates and the total number of LSI chips and this will soon be overcome by the progress in LSI design rules. At that time we can also expect broad application of the MD-Data format. </p>
+
+    <h3>References</h3>
+
+
+    <p>[1] K. Tutui, H. Suzuki, O. Shimoyoshi, M. Sonohara, K. Akagiri, and R. M. Heddie, <b>ATRAC: Adaptive transform acoustic coding for MiniDisc</b>, presented at the Audio Engineering Society 93rd Conv., Oct. 1992.</p>
+    <p>[2] K. Tsurushima, T. Yoshida, K. Fujiie, K. Akagiri, and D. H. Kawakami, <b>MiniDisc: A disc-based digital recording format for portable audio applications</b>, presented at the Audio Engineering Society 93rd Conv., Oct. 1992.</p>
+    <p>[3] R. Ando, K. Fujiie, T. Yoshida, K. Watanabe, and T. Nagai, <b>High density magneto-optical disk capable of overwriting by magnetic field modulation</b>, IEEE Translation of J. Magn. in Japan, vol. 3, no. 8, Aug. 1988.</p>
+    <p>[4] T. Yoshida, <b>Optical recording system in MiniDisc</b>, in Proc, ODS '93. pp. 33-35. Std. ISO-10149, "Compact Disc Read Only System Description," Int. Standardization Org., Geneva, Switzerland.</p>
+
+
+    <h4>About the Author</h4>
+
+    <p>Tadao Yoshida received the Bachelor of Arts degree in electronics communication from Waseda University, Tokyo, Japan, in 1973. Currently, he is the General Manager of the Advanced Development Laboratory, Sony Corporation, Tokyo. At Sony, he has helped to develop the Compact Disc System, Magneto-Optical Compact Disc (CD-MO) System, the Global Positioning System (GPS), and the Applied Car Navigation system. </p>
+
+   <br><center>&dot;</center>
+
+   <div id="utterances" class="utterances" > </div>
+   <script src="https://utteranc.es/client.js" repo="5HT/tonpa.guru" issue-number="21" theme="github-light" crossorigin="anonymous" async> </script>
+
+  </section>
+</article>
+</main>
+<footer>5HT <span class="heart">❤</span> SONY</footer>
+<script>function drop(){document.getElementById("dropdown").classList.toggle("show");}</script>
+</body>
+</html>
