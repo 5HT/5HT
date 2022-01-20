@@ -3,7 +3,7 @@
 The real fun was:
 
 * Emeritus at Nyingma Longchen Nyingthig Ukraine <a href="https://longchenpa.guru">longchenpa.guru</a> for tibetan studies
-* Emeritus at Groupoid Infinity <a href="https://groupoid.space/institute/">groupoid.space/institute</a> for formalization of mathematics
+* Emeritus at Groupoid Infinity <a href="https://groupoid.space">groupoid.space</a> for formalization of mathematics
 
 While these were mostly hard time works:
 
