@@ -2,7 +2,7 @@
 
 The real fun was:
 
-* Emeritus at Nyingma Longchen Nyingthig Ukraine <a href="https://longchenpa.guru">longchenpa.guru</a> for tibetan studies (2010—2017)
+* Emeritus at Nyingma Longchen Nyingthig Ukraine <a href="https://longchenpa.guru">longchenpa.guru</a> for tibetan studies (2010—2016)
 * Emeritus at Groupoid Infinity <a href="https://groupoid.space">groupoid.space</a> for formalization of mathematics (2016—2022)
 
 While these were mostly hard time works:
