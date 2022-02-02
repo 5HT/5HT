@@ -12,6 +12,6 @@ While these were mostly hard time works:
 * Author of ERP.UNO <a href="https://erp.uno">erp.uno</a>
 * Author of FORMAL.UNO <a href="https://formal.uno">formal.uno</a>
 * Author of Депозити ПриватБанк <a href="https://deposits.privatbank.ua/static/doc/index.htm">deposits.privatbank.ua</a>
-* Author of МІА:Документообіг <a href="https://crm.erp.uno">crm.erp.uno</a>
+* Author of МІА: Документообіг <a href="https://crm.erp.uno">crm.erp.uno</a>
 
 [![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3D5HT%26type%3Dpatrons&style=flat)](https://patreon.com/5HT) 
