@@ -15,4 +15,3 @@ While these were mostly hard time works:
 * Author of МІА: Документообіг <a href="https://crm.erp.uno">crm.erp.uno</a> (2019—2022)
 * Author of Anders: Modal HoTT Proof Assistant <a href="https://homotopy.dev">homotopy.dev</a> (2021—2022)
 
-[![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3D5HT%26type%3Dpatrons&style=flat)](https://patreon.com/5HT) 
