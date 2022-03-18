@@ -14,9 +14,3 @@ While these were mostly hard time works:
 * Author of FORMAL.UNO Монографія <a href="https://formal.uno">formal.uno</a> (2017—2019)
 * Author of МІА: Документообіг <a href="https://crm.erp.uno">crm.erp.uno</a> (2019—2022)
 * Author of Anders: Modal HoTT Proof Assistant <a href="https://homotopy.dev">homotopy.dev</a> (2021—2022)
-
-<br><br>
-<form action="https://www.paypal.com/donate" method="post" target="_top">
-<input type="hidden" name="hosted_button_id" value="YM4RVGNQGVM7Q" />
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-</form>
