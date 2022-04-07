@@ -13,6 +13,6 @@ While these were mostly hard time works:
 * Author of APL L1-interpreter and SMP/AMP real-time zero-copy runtime <a href="https://github.com/o83/n2o">platform.rs</a> (2016—2017)
 * Author of FORMAL.UNO Монографія <a href="https://formal.uno">formal.uno</a> (2017—2019)
 * Author of МІА: Документообіг <a href="https://crm.erp.uno">crm.erp.uno</a> (2019—2022)
-* Author of Anders: Modal HoTT Proof Assistant <a href="https://homotopy.dev">homotopy.dev</a> (2021—2022)
+* Author of Anders: Modal HoTT Proof Assistant <a href="https://anders.groupoid.space>anders.groupoid.space</a> (2021—2022)
 
 All my works are licensed under the terms of <a href="https://5ht.co/license/">DHARMA LICENSE</a>
