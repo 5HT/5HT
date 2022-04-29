@@ -9,7 +9,7 @@
     <div class=left style="font-size:32pt; padding-top:32px;">&nbsp;</div>
     <div class=box>
         <h1>Квадстеллар</h1>
-        <h2>Платформа для PCIe експериментів</h2>
+        <h2>Багато PCIe ліній</h2>
         <p><small>TLDR; Сттаття про DIY PC комп`ютер на базі платформи X299.</small></p>
     </div>
     <div class=right>
@@ -26,12 +26,14 @@
     <div class=box>
         <p> Виникла ідея побудувати комп'ютер для тестування одночасної роботи до восьми NVMe дисків.
             Для такої кількісті підходять тільки декілька платформ де використовуються процесори з
-            достатньою кількістю PCIe ліній: X266, C261, TRX40, що було описано в
+            достатньою кількістю PCIe ліній:
+            <a href="https://ark.intel.com/content/www/us/en/ark/products/122941/intel-x299-chipset.html">X266</a>,
+            <a href="https://www.intel.com/content/www/us/en/products/sku/97338/intel-c621-chipset/specifications.html">C261</a>,
+            <a href="https://en.wikipedia.org/wiki/List_of_AMD_chipsets#sTRX4_chipsets">TRX40</a>, або
+            <a href="https://en.wikipedia.org/wiki/List_of_AMD_chipsets#sWRX8_chipsets">WRX80</a> що було описано в
             <a href="https://tonpa.guru/stream/2020/2020-09-02 Коллекция компьютеров.htm">попередніх випусках</a>.
             В цій статті ми вибрали платформу X299.</p>
 
-        <img src="quad2.jpg" width=450>
-        <img src="quad1.jpg" width=450>
 
     </div>
     <div class=right>
@@ -39,8 +41,8 @@
         <a href="#case"><b>Корпус</b></a><br>
         <a href="#atx"><b>Блок живлення</b></a><br>
         <a href="#mb"><b>Материнська плата</b></a><br>
-        <a href="#case"><b>Процесор</b></a><br>
-        <a href="#case"><b>Пам'ять</b></a><br>
+        <a href="#cpu"><b>Процесор</b></a><br>
+        <a href="#mem"><b>Пам'ять</b></a><br>
         <a href="#cool"><b>Система охолодження</b></a><br>
         <a href="#video"><b>Графічна плата</b></a><br>
         <a href="#ssd"><b>Дискова підсистема</b></a><br>
@@ -53,51 +55,74 @@
     <div class=left><b>Корпус</b></div>
     <div class=box>
 
-        <p> Собирая компьтер игрового класса, всегда полезно обратить внимание на корпуса,
-            предлагаемые производителями систем охлаждения. Есть вероятность,
-            что инженер спроектировавший корпус подумал об обдуве компонент, а не
-            переставил местамы кубы в паралепипеде.</p>
+        <p> Традиційно був вибраний корпус з роздільними секціями для SATA дисків,
+            для побудови NAS, окремим відсіком для відеокарти, і окремим відсіком
+            для блока живлення, що, навіть при збільшенні розмірів, виправдовує
+            таке розміщення. Ми використовуємо стенд без декоративних паналей,
+            для максимального розсіювання, в цих корпусах воно виправдане.</p>
 
-     <img src="fe389b49f74a4698a111d2cfdb2cfd32.jpg" width=100%>
+        <img src="quad2.jpg" width=300>
+        <img src="quad1.jpg" width=300>
 
-        <p> Если посмотреть на Mac Pro, то при первом же взгляде возникает доверие к такой
-            системе охлаждения, так как она симметричная. Например в ригах, где видеокарты
-            выстроены чип над чипом, ребрами, ассиметрично, самая горячая всегда будет
-            последняя видекарта. Один из способов построения сбалансированной системы &mdash;
-            это обеспечение симметричного расположения компонент. В данном случае идет речь об
-            отсеках корпуса Deepcool Tristellar. Благодаря тому, что видеокарта расположена
-            в отдельном отсеке, воздух, который ее обдувает не перемешивается с воздухом, который
-            радиаторы материнской платы, в третьем отсеке находится пул трехдюймовых винчестеров,
-            оптический привод и блок питания. </p>
-
-         <a name="cool"></a>
-
-        <center><img src="46335_900.jpg" width="100%"></center>
-
-        <p> Для отсека материнской платы было решено использовать
-            водяную систему охлаждения закрытого типа для энтузиастов-новичков
-            на один низкочастотный вентилятор от того же производителя, Deepcool Captain 120EX.
-            Корпус как будто специально спроектирован, чтобы уместить в одном отсеке материнскую
-            плату Mini-ITX и одновентиляторную систему охлаждения. Причем существует два сбособа
-            расположения трубок, на рисунке показан наш способ.
-            </p>               
-                                            
     </div>
     <div class=right>
-        <div class=comment>Beijing Deepcool Industries Co., Ltd &mdash; китайская компания, которая разрабатывает
-             интерсные корпуса и системы охлаждения, а также блоки питания и вентиляторы.</div>
+        <div class=comment>Beijing Deepcool Industries Co., Ltd &mdash; китайска компанія, яка виробляє
+             цікаві корпуса та системи охолождення, а також блоки живлення та вентилятори.</div>
     </div>
 </div>
 
+<a name="case"></a>
+<div class=wrap>
+    <div class=left><b>Блок<br>живлення</b></div>
+    <div class=box>
+
+        <p> </p>
+
+    </div>
+    <div class=right>
+        <div class=comment>Компанія Seasonic була постачальником блоків живлення в перші IBM PC.</div>
+    </div>
+</div>
+
+
+<a name="mb"></a>
+<div class=swrap>
+    <div class=left><b>Материнська плата</b></div>
+    <div class=box>
+
+        <p> </p>
+
+        <img src="rampage.jpg" height=300>
+        <img src="sn.jpg" height=300>
+
+    </div>
+    <div class=right>
+        <div class=comment>На плати ASUS ми перейшли в 1999 році, одразу після TYAN.</div>
+    </div>
+</div>
+
+<a name="cpu"></a>
+<div class=wrap>
+    <div class=left><b>Процесор</b></div>
+    <div class=box>
+
+        <p> </p>
+
+        <img src="i7.jpg" height=300>
+        <img src="i9.jpg" height=300>
+
+    </div>
+    <div class=right>
+        <div class=comment>На плати ASUS ми перейшли в 1999 році, одразу після TYAN.</div>
+    </div>
+</div>
 
 <hr>
 
 <div class=wrap>
     <div align=right style="margin-right: 50px;margin-bottom: 20px;">
-        Сборка компьютера &mdash; 15.6.2020 <b>Александр Плосконос</b> &mdash;
-        <a href="http://www.e-dopomoga.kiev.ua/">e-dopomoga.kiev.ua</a><br>
-           4.1.2018 <b>Максим Сохацкий</b> &mdash;
-        <a href="http://vaio.synrc.com/">vaio.synrc.com</a>
+        Білд &mdash; 3.5.2020 <b>Олександр Плосконос</b><br>
+           3.5.2022 <b>Максим Сохацький</b>
     </div>
 </div>
 
