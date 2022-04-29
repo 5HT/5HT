@@ -1,0 +1,49 @@
+
+    A:link      { font-weight: normal; color: blue; }
+    A:visited   { font-weight: normal; color: darkblue; }
+    A:hover     { font-weight: normal; color: blue; cursor:pointer; }
+
+    BODY { font-size:18pt; font-family: local; margin: 0px; }
+    TD { font-size:18pt; font-family: local; margin: 0px; padding: 0px; }
+    .tab { margin-left: -10px; }
+    .tab tbody { display: none; }
+    .tab tbody tr:hover { color: white; background-color: #bebebe; }
+    .tab thead tr:hover { color: white; }
+    .tab tbody tr td { font-size:18pt; font-family: local; margin: 0px; padding: 10px; background-color: #dfdfdf; }
+    .tab tbody tr td:first-child { font-size:18pt; font-family: local; margin: 0px; padding: 10px; width: 23px; text-align: center; background-color: white; }
+    .tab thead tr td:first-child { font-size:18pt; font-family: local; margin: 0px; padding: 10px; width: 23px; text-align: center; }
+    .tab thead tr td { font-size:18pt; font-family: local; margin: 0px; padding: 10px; background-color: silver; }
+    TR { font-size:18pt; font-family: local; margin: auto; padding: 0px;}
+    H2 { color: darkblue; font-size:24pt; margin-top: -2px; margin-bottom: 10px; }
+    H3 { color: darkblue; font-size:24pt; margin-top: -10px; margin-bottom: -20px; }
+    P { font-size:18pt; margin-top: 0px; margin-bottom: 20px; }
+    hr { width: 100%-0; margin: 0px; }
+    img { margin-bottom: 20px; }
+    table { padding: 30px; }
+    td > img { margin: 0px; }
+
+.wrap { width: 100%; margin: 10px auto; overflow: hidden; display: inline-block; }
+.swrap { width: 100%; padding-top: 10px; overflow: hidden; display: inline-block; background-color: #e5e5e5; }
+.lift { margin-top: -45px; }
+.left { width: 15%; float: left; text-align: right; margin: 20px; display: inline-block; }
+.comment { font-size: 14pt; margin-top: 0px; margin-bottom: 40px;  display: inline-block;background-color: #eeeeee; padding: 20px; }
+.comment:hover { color: blue; background-color: silver; }
+.list { font-size: 14pt; margin-top: 0px; margin-bottom: 7px;  display: inline-block;background-color: #eeeeee; padding: 20px; }
+.swrap .list { background-color: #dfdfdf;  }
+.list:hover { color: blue; background-color: silver; }
+.right { width: 23%; float: left; text-align: left; margin: 20px;  display: inline-block; }
+.box  { width: 50%; float: left; text-align: left; margin: 20px; display: inline-block;}
+.clear { clear: both; display: normal; }
+.last { width: 0px; float: left; text-align: left; margin-bottom: -20px;  display: inline-block; }
+.hcb-shadow-r { resize:none;font-size:16pt; }
+.submit { font-size:16pt; }
+.hcb-icon { display:none; }
+.likes { display:none; }
+.home-desc { display:none; }
+.gravatar { padding: 10px; }
+
+@font-face {
+  font-family: 'local';
+  src: url("Geometria-Light.otf");
+  font-weight: normal;
+  font-style: normal; }
