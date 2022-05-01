@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="synrc.css?v=1" type="text/css" rel="stylesheet">
+<link href="synrc.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 
@@ -35,6 +35,11 @@
             В цій статті ми вибрали саму дешеву з перелічених платформу X299. Крім того ці платформи це єдиний спосіб отримати
             більше ніж 64ГБ оперативної пам'яті. У даному випадку 128ГБ, яка буде використовуватися як дисковий кеш RocksDB.
             Таким чином замість Triple-SLI ми забиваємо всі доступні PCIe лінії дисками.</p>
+
+        <p> Крім того конвертація DOCX в PDF та накладання КЕП на першу сторінку PDF це функції які
+            найгірше масштабуються, тому велика кількість дисків та велика кількість ядер може компенсувати
+            цю проблему для SaaS конфігурації. Це тестовий стенд повинен дати відповіді на ці питання.
+            Передбачається групування баз даних організацій по фізичним NVMe дискам.</p>
 
     </div>
     <div class=right>
@@ -83,7 +88,11 @@
     <div class=left><b>Блок<br>живлення</b></div>
     <div class=box>
 
-        <p> Тривалість гарантійного терміну на блоки живлення Seasonic Prime 1000W складає 12 років. Ціна &mdash; $300.</p>
+        <p> Тривалість гарантійного терміну на блоки
+            живлення <a href="https://seasonic.com/prime-tx">Seasonic Prime TX-1000</a>
+            складає 12 років. Ціна &mdash; $500.</p>
+
+        <img src="tx.png">
 
     </div>
     <div class=right>
@@ -97,7 +106,9 @@
     <div class=box>
 
         <p> Для кожної платформи ми купуємо два процесори: один найнижчої і один найвищої категорії.
-            У даному випадку два HEDT-процесори Core-X для LGA2066: i7-7820X та i9-10980XE.
+            У даному випадку два HEDT-процесори Core-X для LGA2066:
+            <a href="https://ark.intel.com/content/www/us/en/ark/products/123767/intel-core-i77820x-xseries-processor-11m-cache-up-to-4-30-ghz.html">i7-7820X</a>
+            та <a href="https://ark.intel.com/content/www/us/en/ark/products/198017/intel-core-i910980xe-extreme-edition-processor-24-75m-cache-3-00-ghz.html">i9-10980XE</a>.
             Ресурс процесорів більший ніж ресурс його актуальності. Ціна молодшого (на 28 ліній) $250 і старшого (на 48 ліній) $1000.</p>
 
         <img src="i7.jpg" height=300>
@@ -150,7 +161,7 @@
     <div class=box>
 
         <p> В ASUS є багато плат для X299 але нас цікавили тільки STRIX X299-E та RAMPAGE VI EXTREME OMEGA,
-            була вибрана остання. Ресурс материнської плати може сягати 20 років.
+            була вибрана остання. Ресурс материнської плати може сягати 20 років. Гарантійна підтримка 7 років.
             Ціна плати RAMPAGE $800, STRIX &mdash; $300. Гарантія на RAMPAGE діє
             до середини липня 2023 року у той час як клієнтська платформа скайлейків
             Z370 вже перестала підтримуватися.</p>
@@ -183,8 +194,7 @@
     <div class=left><b>Графічна <br>плата</b></div>
     <div class=box>
 
-        <p> Так як скайлейки <a href="https://tonpa.guru/stream/2020/2020-09-13%20Процессоры%20Intel.htm">SKL-X,
-            CLS-X</a> не містять відеоадаптеру потрібно
+        <p> Так як скайлейки SKL-X, CLS-X не містять відеоадаптеру потрібно
             вибрати карту яка займає мінімальну кількість PCIe ліній. У нашому випадку
             це GT 1030 PCIe 3.0 4x за $100. Такі плати живуть довго.</p>
 
@@ -197,17 +207,40 @@
 </div>
 
 <a name="con"></a>
-<div class=wrap>
+<div class=swrap>
     <div class=left><b>Висновки</b></div>
     <div class=box>
 
-        <p> Таким чином ми закриваємо сторінку історії скайлейків зібравши чотири
-            процесори одразу у двох сигментах Desktop Client та HEDT.
-            Надзвичайно дорогі та ексклюзивні платформи LGA3647 (Purley, C621),
-            LGA4189 (Ice Lake, C621A) не дозволяють будувати виправдані
-            конфігурації, хоча це можливо. Будемо очікувати на майбутню
-            платформу LGA4766 (Sapphire Rapids, W790).
-       </p>
+        <p>Нова <a href="https://tonpa.guru/stream/2020/2020-09-13%20Процессоры%20Intel.htm">історія
+           процесорів Intel</a> після скайлейків починається з платформи LGA4189 для
+           процесорів платформи Ice Lake та Cooper Lake. Їхній бекпорт в старий 14++ нм техпроцес
+           який називається Rocket Lake (як наприклад i9-11900K) доступний для платформи LGA1200,
+           та Alder Lake для платформи LGA1700. Все ще очікується Sapphire Rapids для LGA4766.</p>
+
+       <p> Таким чином ми закриваємо сторінку історії скайлейків зібравши чотири
+           процесори одразу у двох сигментах Desktop Client (Z370, Z390) та HEDT (Basin Falls, X299).
+           Надзвичайно дорогі та ексклюзивні платформи LGA3647 (Purley, C621),
+           LGA4189 (Lewisburg, C621A) не дозволяють гнучко будувати конфігурації. </P>
+
+       <figure><table cellspacing=10 width=600 bgcolor=white>
+       <thead>
+       <th>Nm</th><th>Arch</th><th>Gen</th><th>Code</th><th>Segments</th><th>Core</th>
+       </thead>
+       <tbody>
+       <tr><td>10</td><td>Comet Lake</td><td>10</td><td>CML</td><td>U,H,S</td><td>Skylake</td></tr>
+       <tr><td>10</td><td>Ice Lake</td><td>10</td><td>ICL</td><td>Y,U,H,X,W,SP</td><td>Sunny Cove</td></tr>
+       <tr><td>14++</td><td>Cooper Lake</td><td>10</td><td>CPL</td><td>X,W,SP</td><td>Sunny Cove</td></tr>
+       <tr><td>14++</td><td>Rocket Lake</td><td>11</td><td>RKL</td><td>S</td><td>Sunny Cove</td></tr>
+       <tr><td>10+</td><td>Tiger Lake</td><td>11</td><td>TGL</td><td>U,H</td><td>Willow Cove</td></tr>
+       <tr><td>10+</td><td>Alder Lake</td><td>12</td><td>ADL</td><td>U,S,H,P</td><td>Golden Cove</td></tr>
+       <tr><td>10+</td><td>Sapphire Rapids</td><td>12</td><td>SPR</td><td>SP,X,W</td><td>Golden Cove</td></tr>
+       </tbody></table></figure>
+
+        <p> Тим хто хоче використовувати процесори Intel Core покоління вже сьогодні
+            пропоную починати відразу з LGA1700 (Alder Lake, Z690) які показують порівняну
+            потужність в іграх та інших GPU застосуваннях за одиницю ціни. Я ж буду
+            очікувати на майбутню платформу Xeon Workstation з сокетом LGA4766 під кодовою назвою
+            Sapphire Rapids на чіпсеті W790.</p>
 
     </div>
     <div class=right>

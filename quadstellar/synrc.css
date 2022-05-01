@@ -4,23 +4,23 @@
     A:hover     { font-weight: normal; color: blue; cursor:pointer; }
 
     BODY { font-size:18pt; font-family: local; margin: 0px; }
-    TD { font-size:18pt; font-family: local; margin: 0px; padding: 0px; }
+    TD { font-size:12pt; font-family: local; margin: 0px; padding: 0px; }
     .tab { margin-left: -10px; }
     .tab tbody { display: none; }
     .tab tbody tr:hover { color: white; background-color: #bebebe; }
     .tab thead tr:hover { color: white; }
-    .tab tbody tr td { font-size:18pt; font-family: local; margin: 0px; padding: 10px; background-color: #dfdfdf; }
+    .tab tbody tr td { font-size:14pt; font-family: local; margin: 0px; padding: 10px; background-color: #dfdfdf; }
     .tab tbody tr td:first-child { font-size:18pt; font-family: local; margin: 0px; padding: 10px; width: 23px; text-align: center; background-color: white; }
     .tab thead tr td:first-child { font-size:18pt; font-family: local; margin: 0px; padding: 10px; width: 23px; text-align: center; }
     .tab thead tr td { font-size:18pt; font-family: local; margin: 0px; padding: 10px; background-color: silver; }
-    TR { font-size:18pt; font-family: local; margin: auto; padding: 0px;}
+    TR { font-size:12pt; font-family: local; margin: auto; padding: 0px;}
     H2 { color: darkblue; font-size:24pt; margin-top: -2px; margin-bottom: 10px; }
     H3 { color: darkblue; font-size:24pt; margin-top: -10px; margin-bottom: -20px; }
     P { font-size:18pt; margin-top: 0px; margin-bottom: 20px; }
     hr { width: 100%-0; margin: 0px; }
     img { margin-bottom: 20px; }
     table { padding: 30px; }
-    td > img { margin: 0px; }
+    td > img { margin: 0px; font-size:14pt;}
 
 .wrap { width: 100%; margin: 10px auto; overflow: hidden; display: inline-block; }
 .swrap { width: 100%; padding-top: 10px; overflow: hidden; display: inline-block; background-color: #e5e5e5; }
