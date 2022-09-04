@@ -9,7 +9,7 @@ The real fun was:
 
 While these were mostly hard time works:
 
-* Author of N2O <a href="https://n2o.dev">n2o.dev</a> (2013—2022) Перша Erlang платформа
+* Author of N2O <a href="https://n2o.dev">n2o.dev</a> (2013—2022) Перша Erlang платформа, Open Source Сайнерсі Україна
 * Author of ERP.UNO <a href="https://erp.uno">erp.uno</a> (2015—2022) Перша Державна система
 * Author of Депозити ПриватБанк <a href="https://deposits.privatbank.ua/static/doc/index.htm">deposits.privatbank.ua</a> (2015—2016)
 * Author of APL L1-interpreter and SMP/AMP real-time zero-copy runtime <a href="https://github.com/o83/n2o">platform.rs</a> (2016—2017)
