@@ -16,7 +16,7 @@ While these were mostly hard time works:
 * Author of FORMAL.UNO Монографія <a href="https://formal.uno">formal.uno</a> (2017—2019) Перша формальна система
 * Author of МІА: Документообіг <a href="https://crm.erp.uno">crm.erp.uno</a> (2019—2022) CRM, X.509 система
 * Author of Anders: Modal HoTT Proof Assistant <a href="https://anders.groupoid.space">anders.groupoid.space</a> (2021—2022)
-* Co-Author of МІА: Реєстри <a href="https://cartulary.erp.uno">cartulary.erp.uno</a> (2022—2023) CRM, ERP, IoT, GPS, ArcGIS
+* Co-Author of МІА: Реєстри <a href="https://cartulary.erp.uno">cartulary.erp.uno</a> (2020—2023) CRM, ERP, IoT, GPS, ArcGIS
 
 All my works are licensed under the terms of <a href="https://5ht.co/license/">DHARMA LICENSE</a>
 
