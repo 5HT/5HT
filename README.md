@@ -19,3 +19,13 @@ While these were mostly hard time works:
 * Co-Author of МІА: Реєстри <a href="https://cartulary.erp.uno">cartulary.erp.uno</a> (2022—2023) CRM, ERP, IoT, GPS, ArcGIS
 
 All my works are licensed under the terms of <a href="https://5ht.co/license/">DHARMA LICENSE</a>
+
+Книжки та збірки, які видав Максим Сохацький. Його авторства (1-4,7), Євгенії Сохацької, його мами (6) та Джігме Лінгпи (5) записаної Додрубченом:
+
+1. Перша формальна система 2021
+2. Перша державна система 2022
+3. Топовий програміст 2021
+4. Ідея Нації 2022
+5. Ньондро Лонгчен Нінгтік 2022
+6. Пік Сохацькості 2022
+7. Заповіт 2023
