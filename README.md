@@ -22,7 +22,7 @@ All my works are licensed under the terms of <a href="https://5ht.co/license/">D
 
 Книжки та збірки, які видав Максим Сохацький. Його авторства (1-4,7), Євгенії Сохацької, його мами (6) та Джігме Лінгпи (5) записаної Додрубченом:
 
-1. ISBN 978-617-8027-07-0 <a href="https://longchenpa.github.io/idea/texts/idea.pdf">Ідея Нації 2022</a>
+1. ISBN 978-617-8027-07-0 <a href="https://longchenpa.github.io/azov/texts/idea.pdf">Ідея Нації 2022</a>
 2. ISBN 978-617-8027-10-0 <a href="https://formal.uno/monography.pdf">Перша формальна система 2021</a> 
 3. ISBN 978-617-8027-23-0 <a href="https://formal.uno/tex/books/erp/erp.pdf">Перша державна система 2022</a>
 3. ISBN 978-617-8027-27-8 <a href="https://longchenpa.github.io/top/texts/top.pdf">Топовий програміст 2021</a>
