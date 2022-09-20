@@ -20,12 +20,12 @@ While these were mostly hard time works:
 
 All my works are licensed under the terms of <a href="https://5ht.co/license/">DHARMA LICENSE</a>
 
-Книжки та збірки, які видав Максим Сохацький. Його авторства (1-4,7), Євгенії Сохацької, його мами (6) та Джігме Лінгпи (5) записаної Додрубченом:
+Книжки та збірки, які видав Максим Сохацький. Його авторства (2-6), Євгенії Сохацької, його мами (7) та Джігме Лінгпи (1) записаної Додрубченом:
 
-1. ISBN 978-617-8027-07-0 <a href="https://longchenpa.github.io/azov/texts/idea.pdf">Ідея Нації 2022</a>
-2. ISBN 978-617-8027-10-0 <a href="https://formal.uno/monography.pdf">Перша формальна система 2021</a> 
-3. ISBN 978-617-8027-23-0 <a href="https://formal.uno/tex/books/erp/erp.pdf">Перша державна система 2022</a>
-3. ISBN 978-617-8027-27-8 <a href="https://longchenpa.github.io/top/texts/top.pdf">Топовий програміст 2021</a>
-5. ISBN 978-1-62540-054-3 <a href="https://longchenpa.guru/gter.ma/snying.thig.rtsa.pod/texts/sngon.'gro/index.pdf">Ньондро Лонгчен Нінгтік 2022</a>
-6. Пік Сохацькості 2022
-7. Заповіт 2023
+1. ISBN 978-1-62540-054-3 <a href="https://longchenpa.guru/gter.ma/snying.thig.rtsa.pod/texts/sngon.'gro/index.pdf">Ньондро Лонгчен Нінгтік 2022</a>
+2. ISBN 978-617-8027-07-0 <a href="https://longchenpa.github.io/azov/texts/idea.pdf">Ідея Нації 2022</a>
+3. ISBN 978-617-8027-10-0 <a href="https://formal.uno/monography.pdf">Перша формальна система 2021</a> 
+4. ISBN 978-617-8027-23-0 <a href="https://formal.uno/tex/books/erp/erp.pdf">Перша державна система 2022</a>
+5. ISBN 978-617-8027-27-8 <a href="https://longchenpa.github.io/top/texts/top.pdf">Топовий програміст 2021</a>
+6. Заповіт 2023
+7. Пік Сохацькості 2022
