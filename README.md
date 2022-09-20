@@ -22,7 +22,7 @@ All my works are licensed under the terms of <a href="https://5ht.co/license/">D
 
 Книжки та збірки, які видав Максим Сохацький. Його авторства (3-9), Євгенії Сохацької, його мами (10) та Джігме Лінгпи (1-2) записаної Додрубченом:
 
-1. ISBN 978-1-62540-053-2 <a hrfe="https://longchenpa.guru/gter.ma/snying.thig.rtsa.pod/collections/1/prayerbook.pdf">Сборник Практик Лонгчен Ньингтик</a>
+1. ISBN 978-1-62540-053-2 <a href="https://longchenpa.guru/gter.ma/snying.thig.rtsa.pod/collections/1/prayerbook.pdf">Сборник Практик Лонгчен Ньингтик</a>
 2. ISBN 978-1-62540-054-3 <a href="https://longchenpa.guru/gter.ma/snying.thig.rtsa.pod/texts/sngon.'gro/index.pdf">Ньондро Лонгчен Нінгтік 2022</a>
 3. ISBN 978-1-62540-038-3 <a href="https://n2o.dev/books/n2o.pdf">No Bullshit Web Framework for Wild Web</a>
 4. ISBN 978-1-62540-052-9 <a href="https://n2o.dev/books/bpe.pdf">Business Processing for Enterprise Done Right</a>
