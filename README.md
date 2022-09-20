@@ -20,12 +20,15 @@ While these were mostly hard time works:
 
 All my works are licensed under the terms of <a href="https://5ht.co/license/">DHARMA LICENSE</a>
 
-Книжки та збірки, які видав Максим Сохацький. Його авторства (2-6), Євгенії Сохацької, його мами (7) та Джігме Лінгпи (1) записаної Додрубченом:
+Книжки та збірки, які видав Максим Сохацький. Його авторства (3-9), Євгенії Сохацької, його мами (10) та Джігме Лінгпи (1-2) записаної Додрубченом:
 
-1. ISBN 978-1-62540-054-3 <a href="https://longchenpa.guru/gter.ma/snying.thig.rtsa.pod/texts/sngon.'gro/index.pdf">Ньондро Лонгчен Нінгтік 2022</a>
-2. ISBN 978-617-8027-07-0 <a href="https://longchenpa.github.io/azov/texts/idea.pdf">Ідея Нації 2022</a>
-3. ISBN 978-617-8027-10-0 <a href="https://formal.uno/monography.pdf">Перша формальна система 2021</a> 
-4. ISBN 978-617-8027-23-0 <a href="https://formal.uno/tex/books/erp/erp.pdf">Перша державна система 2022</a>
-5. ISBN 978-617-8027-27-8 <a href="https://longchenpa.github.io/top/texts/top.pdf">Топовий програміст 2021</a>
-6. ISBN 978-617-8027-28-5 Заповіт 2023
-7. ISBN 978-617-8027-29-2 Пік Сохацькості 2022
+1. ISBN 978-1-62540-053-2 <a hrfe="https://longchenpa.guru/gter.ma/snying.thig.rtsa.pod/collections/1/prayerbook.pdf">Сборник Практик Лонгчен Ньингтик</a>
+2. ISBN 978-1-62540-054-3 <a href="https://longchenpa.guru/gter.ma/snying.thig.rtsa.pod/texts/sngon.'gro/index.pdf">Ньондро Лонгчен Нінгтік 2022</a>
+3. ISBN 978-1-62540-038-3 <a href="https://n2o.dev/books/n2o.pdf">No Bullshit Web Framework for Wild Web</a>
+4. ISBN 978-1-62540-052-9 Business Processing for Enterprise Done Right
+5. ISBN 978-617-8027-07-0 <a href="https://longchenpa.github.io/azov/texts/idea.pdf">Ідея Нації 2022</a>
+6. ISBN 978-617-8027-10-0 <a href="https://formal.uno/monography.pdf">Перша формальна система 2021</a> 
+7. ISBN 978-617-8027-23-0 <a href="https://formal.uno/tex/books/erp/erp.pdf">Перша державна система 2022</a>
+8. ISBN 978-617-8027-27-8 <a href="https://longchenpa.github.io/top/texts/top.pdf">Топовий програміст 2021</a>
+9. ISBN 978-617-8027-28-5 Заповіт 2023
+10. ISBN 978-617-8027-29-2 Пік Сохацькості 2022
