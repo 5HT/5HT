@@ -14,7 +14,7 @@ While these were mostly hard time works:
 * Author of Депозити ПриватБанк <a href="https://deposits.privatbank.ua/static/doc/index.htm">deposits.privatbank.ua</a> (2015—2016)
 * Author of APL L1-interpreter and SMP/AMP real-time zero-copy runtime <a href="https://github.com/o83/n2o">platform.rs</a> (2016—2017)
 * Author of FORMAL.UNO Монографія <a href="https://formal.uno">formal.uno</a> (2017—2019) Перша формальна система
-* Author of МІА: Документообіг <a href="https://crm.erp.uno">crm.erp.uno</a> (2019—2022) CRM, X.509 система
+* Author of МІА: Документообіг МВС України <a href="https://crm.erp.uno">crm.erp.uno</a> (2019—2022) CRM, X.509 система
 * Author of Anders: Modal HoTT Proof Assistant <a href="https://anders.groupoid.space">anders.groupoid.space</a> (2021—2022)
 * Co-Author of МІА: Реєстри <a href="https://cartulary.erp.uno">cartulary.erp.uno</a> (2020—2023) CRM, ERP, IoT, GPS, ArcGIS
 
