@@ -6,7 +6,7 @@
 * Інститут формальної математики та філософії «Групоїд Інфініті» <a href="https://groupoid.space">groupoid.space</a> for formalization of mathematics (2016—2022)
 * ДП «ІНФОТЕХ» <a href="https://infotech.gov.ua">infotech.gov.ua</a> for systems engineering (2019—2022)
 
-# Твори
+# Авторські твори
 
 * Автор N2O.DEV <a href="https://n2o.dev">n2o.dev</a> (2013—2022) Перша Erlang платформа, Open Source Сайнерсі Україна
 * Автор ERP.UNO <a href="https://erp.uno">erp.uno</a> (2015—2022) Перша Державна система
@@ -16,10 +16,6 @@
 * Автор «МІА: Документообіг» МВС України <a href="https://crm.erp.uno">crm.erp.uno</a> (2019—2022) CRM, X.509 система
 * Автор Модальної гомотопічної системи доведення теорем «Андерс» <a href="https://anders.groupoid.space">anders.groupoid.space</a> (2021—2022)
 * Співавтор «МІА: Реєстри» <a href="https://cartulary.erp.uno">cartulary.erp.uno</a> (2020—2023) CRM, ERP, IoT, GPS, ArcGIS
-
-# Ліцензія
-
-Всі мої твори видані під ліцензією <a href="https://5ht.co/license/">DHARMA LICENSE</a>
 
 # Книги та монографії
 
@@ -38,3 +34,7 @@
 10. DOI: 10.13140/RG.2.2.34143.12963 <a href="https://axiosis.github.io/articles/henk/pts_ua.pdf">Система доведення теорем з однією аксіомою</a>. 2017
 11. DOI: 10.13140/RG.2.2.25754.52169 <a href="https://axiosis.github.io/articles/per/anno_ua.pdf">Мінімальна система для вбудовування MLTT</a>. 2018
 12. DOI: 10.13140/RG.2.2.19043.63523 <a href="https://axiosis.github.io/articles/bloch/quantum.pdf">Мова для квантових комп'ютерів</a>. 2019
+
+# Ліцензія
+
+Всі мої твори видані під ліцензією <a href="https://5ht.co/license/">DHARMA LICENSE</a>
