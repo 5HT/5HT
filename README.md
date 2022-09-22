@@ -4,7 +4,7 @@
 
 * Релігійна організація «Лонгчен Нінгтік Україна» <a href="https://longchenpa.guru">longchenpa.guru</a> for tibetan studies (2010—2016)
 * Інститут формальної математики та філософії «Групоїд Інфініті» <a href="https://groupoid.space">groupoid.space</a> for formalization of mathematics (2016—2022)
-* ДП «ІНФОТЕХ» <a href="https://infotech.gov.ua">nfotech.gov.ua</a> for systems engineering (2019—2022)
+* ДП «ІНФОТЕХ» <a href="https://infotech.gov.ua">infotech.gov.ua</a> for systems engineering (2019—2022)
 
 # Твори
 
