@@ -1,6 +1,6 @@
 <h2 style="white-space: nowrap;"><a itemprop="sameAs" content="https://orcid.org/0000-0001-7127-8796" href="https://orcid.org/0000-0001-7127-8796" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;white-space: nowrap;">Namdak Tönpa <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png"> 🇺🇦</a></h2>
 
-# Емерітус
+# Афіліації
 
 * Релігійна організація «Лонгчен Нінгтік Україна» <a href="https://longchenpa.guru">longchenpa.guru</a> for tibetan studies (2010—2016)
 * Інститут формальної математики та філософії «Групоїд Інфініті» <a href="https://groupoid.space">groupoid.space</a> for formalization of mathematics (2016—2022)
