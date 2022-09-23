@@ -20,21 +20,20 @@
 
 # Книги та монографії
 
-1. ISBN 978-617-8027-10-0 <a href="https://formal.uno/monography.pdf">Перша формальна система</a>. 2021
-2. ISBN 978-617-8027-23-0 <a href="https://formal.uno/tex/books/erp/erp.pdf">Перша державна система</a>. 2022
+1. ISBN 978-617-8027-10-0 <a href="https://axiosis.github.io/books/uno/monography.pdf">Перша формальна система</a>. 2021
+2. ISBN 978-617-8027-23-0 <a href="https://axiosis.github.io/books/erp/erp.pdf">Перша державна система</a>. 2022
 3. ISBN 978-617-8027-27-8 <a href="https://axiosis.github.io/books/top/texts/top.pdf">Топовий програміст</a>. 2021
 4. ISBN 978-617-8027-07-0 <a href="https://axiosis.github.io/books/azov/texts/idea.pdf">Ідея Нації</a>. 2022
-5. ISBN 978-1-62540-054-3 <a href="https://longchenpa.guru/gter.ma/snying.thig.rtsa.pod/texts/sngon.'gro/index.pdf">Ньондро Лонгчен Нінгтік</a>. 2022
-6. ISBN 978-617-8027-28-5 Заповіт 2023
+5. ISBN 978-1-62540-054-3 <a href="https://axiosis.github.io/books/nendro/index.pdf">Ньондро Лонгчен Нінгтік</a>. 2022
 
 # Статті на нариси
 
-7. DOI: 10.13140/RG.2.2.27432.24327 <a href="https://n2o.dev/books/n2o.pdf">Феб-фреймворк для оптимізованих підприємств</a>. 2013
-8. DOI: 10.13140/RG.2.2.20721.35682 <a href="https://n2o.dev/books/bpe.pdf">Система управління процесами ПриватБанк</a>. 2015
-9. DOI: 10.13140/RG.2.2.14010.47045 <a href="https://axiosis.github.io/articles/anders/anders.pdf">Модальна гомотопічна мова математики</a>. 2021
-10. DOI: 10.13140/RG.2.2.34143.12963 <a href="https://axiosis.github.io/articles/henk/pts_ua.pdf">Система доведення теорем з однією аксіомою</a>. 2017
-11. DOI: 10.13140/RG.2.2.25754.52169 <a href="https://axiosis.github.io/articles/per/anno_ua.pdf">Мінімальна система для вбудовування MLTT</a>. 2018
-12. DOI: 10.13140/RG.2.2.19043.63523 <a href="https://axiosis.github.io/articles/bloch/quantum.pdf">Мова для квантових комп'ютерів</a>. 2019
+6. DOI: 10.13140/RG.2.2.27432.24327 <a href="https://n2o.dev/ua/books/vol.2/index.html">Фреймворк для підприємств ISO 20922</a>. 2013
+7. DOI: 10.13140/RG.2.2.20721.35682 <a href="https://n2o.dev/ua/books/vol.3/index.html">Система управління процесами ISO 19510</a>. 2015
+8. DOI: 10.13140/RG.2.2.34143.12963 <a href="https://axiosis.github.io/articles/henk/pts_ua.pdf">Одноаксіоматична система верифікації ПЗ</a>. 2017
+9. DOI: 10.13140/RG.2.2.25754.52169 <a href="https://axiosis.github.io/articles/per/anno_ua.pdf">Мінімальна система для вбудовування MLTT</a>. 2018
+10. DOI: 10.13140/RG.2.2.19043.63523 <a href="https://axiosis.github.io/articles/bloch/quantum.pdf">Мова для квантових комп'ютерів PLQ</a>. 2019
+11. DOI: 10.13140/RG.2.2.14010.47045 <a href="https://axiosis.github.io/articles/anders/anders.pdf">Модальна гомотопічна мова математики HTS</a>. 2021
 
 # Ліцензія
 
