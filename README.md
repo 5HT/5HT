@@ -2,10 +2,10 @@
 
 # Афіліації
 
-* Релігійна організація «Лонгчен Нінгтік Україна» <a href="https://longchenpa.guru">longchenpa.guru</a> Тибетологія (2010—2016)
-* Інститут формальної математики та філософії «Групоїд Інфініті» <a href="https://groupoid.space">groupoid.space</a> Формалізація Математики
-* Видавництво «Аксіосис» <a href="https://axiosis.top">axiosis.top</a> Аксіоматичні Системи (2013—2022)
-* Державна ІТ-компанія «ІНФОТЕХ» <a href="https://infotech.gov.ua">infotech.gov.ua</a> Системна Інженерія (2019—2022)
+* Релігійна організація «Лонгчен Нінгтік Україна» <a href="https://longchenpa.guru">longchenpa.guru</a>, Директор
+* Інститут формальної математики та філософії «Групоїд Інфініті» <a href="https://groupoid.space">groupoid.space</a>, Дослідник
+* Видавництво «Аксіосис» <a href="https://axiosis.top">axiosis.top</a>, Головний редактор
+* Державна ІТ-компанія «ІНФОТЕХ» <a href="https://infotech.gov.ua">infotech.gov.ua</a>, Провідний інженер-програміст
 
 # Авторські твори
 
