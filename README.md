@@ -10,7 +10,7 @@
 
 # Авторські твори
 
-* Автор N2O.DEV <a href="https://n2o.dev">n2o.dev</a> (2013—2022) Перша Erlang платформа, Open Source Сайнерсі Україна
+* Автор N2O.DEV <a href="https://n2o.dev">n2o.dev</a> (2013—2022) Перша телекомунікаційна система. Сайнерсі Україна
 * Автор ERP.UNO <a href="https://erp.uno">erp.uno</a> (2015—2022) Перша Державна система
 * Автор «Депозитів ПриватБанк» <a href="https://deposits.privatbank.ua/static/doc/index.htm">deposits.privatbank.ua</a> (2015—2016)
 * Автор SMP/AMP операційної системи та APL мови програмування для HFT трейдингу <a href="https://github.com/o83/n2o">platform.rs</a> (2016—2017)
