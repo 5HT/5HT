@@ -28,7 +28,7 @@
            зберігання та візуального редагування.</p>
 
         <p>У цій статті презентується концепт сучасного нового представника цієї когорти
-           редакторів — BE (Binary Editor) InfoSec Editor, який має наступні характеристики:</p>
+           редакторів — BE (Binary Editor) InfoSec Hex Editor, який має наступні характеристики:</p>
 
         <p>— Без залежностей, потрібно тільки C99/POSIX які є стандартом<br>
            — Без використання ncurses та S-Lang, тільки termios<br>
@@ -44,12 +44,11 @@
            — Повна підтримка x86 архітектури та її розширень у дизасемблері<br>
            — vi-подібна система команд та режимів<br>
            — Компактне ядро з підтримкою Maс та Linux<br>
-           — Система плагінів для дизасемблерів C API SDK як у foobar2000 та FAR<br>
            — Підтримка контейнерів обʼєктного коду ELF, Mach-O, PE/COFF<br>
            — Перша лінія дизасемблерів: EM64T, RISC-V, AArch64<br>
            — Друга лінія дизасемблерів: M68K, PowerPC, MIPS<br>
-           — Третя лінія дизасемблерів: CLR, JVM, BEAM, EFI Byte Code<br>
-           — Четверта лінія дизасемблерів: 8080/8085/Z80, 6502, HC08<br>
+           — Третя лінія дизасемблерів: PDP-11, 8080/8085/Z80, 6502, HC08<br>
+           — Четверта лінія дизасемблерів: CLR, JVM, BEAM, EFI Byte Code<br>
         </p>
 
         <h4>Параметри</h4>
@@ -63,14 +62,14 @@
 
         <figure><code>$ ./be
 Error: filename is expected.
-usage: be [-vhdbo] <filename>
+usage: be [-vhdboa] <filename>
 
 Options:
     -v           Get version information
     -h           Print usage info and exits
     -d           Launch ASM view by default
     -b bitness   CPU Bitness
-    -a arch      1:Intel, 2:ARM, 3:RISC-V, 4:PPC, 5:SH4
+    -a arch      1:EM64T, 2:ARM64, 3:RISC-V, 4:PPC, 5:SH-4, 6:M68K, 7:MIPS, 8:PDP-11
     -o octets    Octets per screen for HEX view
 </code></figure>
 
