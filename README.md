@@ -22,11 +22,9 @@
 
 Шоб подивитися і оцінити що таке http://n2o.dev та http://erp.uno достатньо скачати http://5ht.co/synrc.sh,
 http://5ht.co/erpuno.sh і запустити їх! Для інших організацій: http://5ht.co/axisosis.sh, http://5ht.co/longchenpa.sh,
-http://5ht.co/groupoid.sh, http://5ht.co/asmedit.sh.
+http://5ht.co/groupoid.sh, http://5ht.co/asmedit.sh. Загалом, разом з .git папками треба звільнити на машині 4ГБ:
 
 ```
-Загалом, разом з .git папками треба звільнити на машині 4ГБ:
-
 5HT@STELLAR:~/depot$ tree -L 1 .
 .
 ├── asmedit
