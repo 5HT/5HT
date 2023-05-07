@@ -32,10 +32,9 @@ http://5ht.co/groupoid.sh, http://5ht.co/asmedit.sh. Загалом, разом 
 ├── erpuno
 ├── groupoid
 ├── longchenpa
-├── synrc
-└── voxoz
+└── synrc
 
-7 directories, 0 files
+6 directories, 0 files
 5HT@STELLAR:~/depot$ du -hs ..
 3,8G..
 ```
