@@ -3,14 +3,14 @@
 git clone git@github.com:synrc/a64
 git clone git@github.com:synrc/active
 git clone git@github.com:synrc/avz
-git clone git@github.com:synrc/azure-crm
+#git clone git@github.com:synrc/azure-crm
 git clone git@github.com:synrc/base
 git clone git@github.com:synrc/bpe
 git clone git@github.com:synrc/ca
 git clone git@github.com:synrc/chat
 git clone git@github.com:synrc/cr
-git clone git@github.com:synrc/crm-pro
-git clone git@github.com:synrc/erz-crm
+#git clone git@github.com:synrc/crm-pro
+#git clone git@github.com:synrc/erz-crm
 git clone git@github.com:synrc/exe
 git clone git@github.com:synrc/form
 git clone git@github.com:synrc/fs

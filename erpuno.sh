@@ -36,7 +36,7 @@ git clone git@github.com:erpuno/mq
 git clone git@github.com:erpuno/nitro
 git clone git@github.com:erpuno/ocr
 git clone git@github.com:erpuno/office
-git clone git@github.com:erpuno/opn
+#git clone git@github.com:erpuno/opn
 git clone git@github.com:erpuno/pay
 git clone git@github.com:erpuno/plm
 git clone git@github.com:erpuno/pm
