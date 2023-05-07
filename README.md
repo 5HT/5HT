@@ -20,25 +20,6 @@
 * Співавтор «МІА: Реєстри» <a href="https://cartulary.erp.uno">cartulary.erp.uno</a> (2020—2023) CRM, ERP, IoT, GPS, ArcGIS
 * Автор інтерактивного дизасемблера BE <a href="https://5ht.co/be">5ht.co/be</a> EM64T, ARM64, RISC-V, SH-4, MIPS, PowerPC, M68K, PDP-11
 
-Шоб подивитися і оцінити що таке http://n2o.dev та http://erp.uno достатньо скачати http://5ht.co/synrc.sh,
-http://5ht.co/erpuno.sh і запустити їх! Для інших організацій: http://5ht.co/axisosis.sh, http://5ht.co/longchenpa.sh,
-http://5ht.co/groupoid.sh, http://5ht.co/asmedit.sh. Загалом, разом з .git папками треба звільнити на машині 4ГБ:
-
-```
-5HT@STELLAR:~/depot$ tree -L 1 .
-.
-├── asmedit
-├── axiosis
-├── erpuno
-├── groupoid
-├── longchenpa
-└── synrc
-
-6 directories, 0 files
-5HT@STELLAR:~/depot$ du -hs ..
-3,8G..
-```
-
 # Книги та монографії
 
 1. ISBN 978-617-8027-10-0 <a href="https://axiosis.github.io/books/uno/monography.pdf">Перша формальна система</a>. 2021
@@ -56,6 +37,27 @@ http://5ht.co/groupoid.sh, http://5ht.co/asmedit.sh. Загалом, разом 
 9. DOI: 10.13140/RG.2.2.25754.52169 <a href="https://axiosis.github.io/articles/per/anno_ua.pdf">Мінімальна система для вбудовування MLTT</a>. 2018
 10. DOI: 10.13140/RG.2.2.19043.63523 <a href="https://axiosis.github.io/articles/bloch/quantum.pdf">Мова для квантових комп'ютерів PLQ</a>. 2019
 11. DOI: 10.13140/RG.2.2.14010.47045 <a href="https://axiosis.github.io/articles/anders/anders.pdf">Модальна гомотопічна мова математики HTS</a>. 2021
+
+# Розповсюдження
+
+Шоб подивитися і оцінити що таке http://n2o.dev та http://erp.uno достатньо скачати http://5ht.co/synrc.sh,
+http://5ht.co/erpuno.sh і запустити їх! Для інших організацій: http://5ht.co/axisosis.sh, http://5ht.co/longchenpa.sh,
+http://5ht.co/groupoid.sh, http://5ht.co/asmedit.sh. Загалом, разом з .git папками треба звільнити на диску 4ГБ:
+
+```
+5HT@STELLAR:~/depot$ tree -L 1 .
+.
+├── asmedit
+├── axiosis
+├── erpuno
+├── groupoid
+├── longchenpa
+└── synrc
+
+6 directories, 0 files
+5HT@STELLAR:~/depot$ du -hs ..
+3,8G..
+```
 
 # Ліцензія
 
