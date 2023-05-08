@@ -56,7 +56,7 @@ http://5ht.co/groupoid.sh, http://5ht.co/asmedit.sh. Загалом, разом 
 
 6 directories, 0 files
 5HT@STELLAR:~/depot$ du -hs ..
-3,8G..
+3,8G
 ```
 
 # Ліцензія
