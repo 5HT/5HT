@@ -19,6 +19,7 @@
 * Автор Модальної гомотопічної системи доведення теорем «Андерс» <a href="https://anders.groupoid.space">anders.groupoid.space</a> (2021—2022)
 * Співавтор «МІА: Реєстри» <a href="https://cartulary.erp.uno">cartulary.erp.uno</a> (2020—2023) CRM, ERP, IoT, GPS, ArcGIS
 * Автор інтерактивного дизасемблера BE <a href="https://5ht.co/be">5ht.co/be</a> EM64T, ARM64, RISC-V, SH-4, MIPS, PowerPC, M68K, PDP-11
+* Автор повного ASN.1 DER компілятора в мову програмування Swift <a href="https://asn1.erp.uno">asn1.erp.uno</a> DER, Swift, Elixir
 
 # Книги та монографії
 
