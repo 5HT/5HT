@@ -3,7 +3,7 @@
 # Афіліації
 
 * Релігійна організація «Лонгчен Нінгтік Україна» <a href="https://longchenpa.guru">longchenpa.guru</a>, Директор
-* Інститут формальної математики та філософії «Групоїд Інфініті» <a href="https://groupoid.space">groupoid.space</a>, Науковий дослідник
+* Інститут формальної математики та філософії «Групоїд Інфініті» <a href="https://groupoid.space/institute/">groupoid.space</a>, Науковий дослідник
 * Видавництво «Аксіосис» <a href="https://axiosis.top">axiosis.top</a>, Головний редактор
 * ПриватБанк <a href="https://pb.ua">pb.ua</a>, Архітектор (2015-2016)
 * Державна ІТ-компанія «ІНФОТЕХ» <a href="https://infotech.gov.ua">infotech.gov.ua</a>, Провідний інженер-програміст (2019-2023)
