@@ -23,6 +23,7 @@
 * Автор повного ASN.1 DER компілятора в мову програмування Swift <a href="https://asn1.erp.uno">asn1.erp.uno</a> DER, Swift, Elixir
 * Автор проєкту захищеного месенжера <a href="https://chat.erp.uno">chat.erp.uno</a> DER, Swift, Elixir
 * Автор FHIR сервера <a href="https://hl7.erp.uno">hl7.erp.uno</a> Elixir
+* Автор АЦСК сервера Authority <a href="https://authority.erp.uno">authority.erp.uno</a> Elixir
 
 # Книги та монографії
 
