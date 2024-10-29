@@ -2,6 +2,7 @@
 
 # Афіліації
 
+* Архітектурна компанія Максима Сохацького «SYNRC» <a href="https://synrc.com">synrc.com</a>, Технічний директор (2005—2024)
 * Релігійна організація «Лонгчен Нінгтік Україна» <a href="https://longchenpa.guru">longchenpa.guru</a>, Директор (2011)
 * Інститут формальної математики та філософії «Групоїд Інфініті» <a href="https://groupoid.space/institute/">groupoid.space</a>, Старший науковий дослідник (2017)
 * Видавництво «Аксіосис» <a href="https://axiosis.top">axiosis.top</a>, Головний редактор (2022)
@@ -22,6 +23,7 @@
 * Автор повного ASN.1 DER компілятора в мову програмування Swift <a href="https://asn1.erp.uno">asn1.erp.uno</a> DER, Swift, Elixir
 * Автор проєкту захищеного месенжера <a href="https://chat.erp.uno">chat.erp.uno</a> DER, Swift, Elixir
 * Автор FHIR сервера <a href="https://hl7.erp.uno">hl7.erp.uno</a> Elixir
+* Автор PKI X.509 сервера Authority <a href="https://authority.erp.uno">authority.erp.uno</a> Elixir
 
 # Книги та монографії
 
