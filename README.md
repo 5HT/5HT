@@ -33,7 +33,7 @@
 4. ISBN: 978-617-8027-27-8 <a href="https://axiosis.github.io/books/top/top.pdf">Топовий програміст</a>
 5. ISBN: 978-617-8027-08-7 <a href="https://axiosis.github.io/books/axio/axio.pdf">Перша формальна система AXIO/1</a>
 6. ISBN: 978-617-8027-23-0 <a href="https://axiosis.github.io/books/erp/erp.pdf">Перша державна система ERP/1</a>
-7. ISBN: 978-617-8027-07-0 <a href="https://axiosis.github.io/books/azov/azov.pdf">Ідея Нації</a>
+7. ISBN: 978-617-8027-07-0 <a href="https://axiosis.github.io/books/azov/idea.pdf">Ідея Нації</a>
 8. ISBN: 978-617-8027-23-1 Заповіт
 
 
