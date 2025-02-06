@@ -25,7 +25,7 @@
 * Автор проєкту захищеного месенжера <a href="https://chat.erp.uno">chat.erp.uno</a> DER, Swift, Elixir (2023)
 * Автор FHIR сервера <a href="https://hl7.erp.uno">hl7.erp.uno</a> (2023)
 * Автор PKI X.509 сервера Authority <a href="https://authority.erp.uno">authority.erp.uno</a> (2024) для <a href="https://github.com/arvo-computer/">AR.VO Computer</a>
-* Автор ретро енциклопедії «Компіки Сохацького» <a href="https://top.5ht.co">top.5ht.co</a> (2019—2025)
+* Автор ретро-енциклопедії «Компіки Сохацького» <a href="https://top.5ht.co">top.5ht.co</a> (2019—2025)
 
 # Книги та монографії
 
