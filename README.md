@@ -2,13 +2,13 @@
 
 # Афіліації
 
-* Архітектурна компанія Максима Сохацького «SYNRC» <a href="https://synrc.com">synrc.com</a>, Технічний директор (2005—2024)
-* Релігійна організація «Лонгчен Нінгтік Україна» <a href="https://longchenpa.guru">longchenpa.guru</a>, Директор (2011)
+* Архітектурна компанія Максима Сохацького «SYNRC» <a href="https://synrc.com">synrc.com</a>, Технічний директор (2005—2025)
+* Релігійна організація «Лонгчен Нінгтік Україна» <a href="https://longchenpa.guru">longchenpa.guru</a>, Директор (2011—2025)
 * Інститут формальної математики та філософії «Групоїд Інфініті» <a href="https://groupoid.space/institute/">groupoid.space</a>, Старший науковий дослідник (2017)
-* Видавництво «Аксіосис» <a href="https://axiosis.top">axiosis.top</a>, Головний редактор (2022)
+* Видавництво «Аксіосис» <a href="https://axiosis.top">axiosis.top</a>, Головний редактор (2022—2025)
 * ПриватБанк <a href="https://pb.ua">pb.ua</a>, Архітектор (2015-2016)
 * Державна ІТ-компанія «ІНФОТЕХ» <a href="https://infotech.gov.ua">infotech.gov.ua</a>, Провідний інженер-програміст (2019—2023)
-* Державна ІТ-компанія «Електронне здоров'я» <a href="https://ehealth.gov.ua">ehealth.gov.ua</a>, Керівник відділу системного аналізу (2024)
+* Державна ІТ-компанія «Електронне здоров'я» <a href="https://ehealth.gov.ua">ehealth.gov.ua</a>, Керівник відділу системного аналізу (2024—2025)
 
 # Авторські твори
 
@@ -16,9 +16,9 @@
 * Автор ERP.UNO <a href="https://erp.uno">erp.uno</a> (2005—2024) Перша державна система. ERP/1
 * Автор «Депозитів ПриватБанк» <a href="https://deposits.privatbank.ua/static/doc/index.htm">deposits.privatbank.ua</a> (2015—2016)
 * Автор SMP/AMP операційної системи та APL мови програмування для HFT трейдингу <a href="https://github.com/o83/n2o">platform.rs</a> (2016—2017)
-* Автор Першої формальної системи <a href="https://groupoid.github.io/monography">axio.groupoid.space</a> (2017—2019) 
+* Автор першої формальної системи <a href="https://groupoid.github.io/monography">axio.groupoid.space</a> (2017—2019) 
 * Автор «МІА: Документообіг» МВС України <a href="https://crm.erp.uno">crm.erp.uno</a> (2019—2022) CRM, X.509 система
-* Автор Модальної гомотопічної системи доведення теорем «Андерс» <a href="https://anders.groupoid.space">anders.groupoid.space</a> (2021—2022)
+* Автор модальної гомотопічної системи доведення теорем «Андерс» <a href="https://anders.groupoid.space">anders.groupoid.space</a> (2021—2022)
 * Автор інтерактивного дизасемблера BE <a href="https://5ht.co/be">5ht.co/be</a> EM64T, ARM64, RISC-V, SH-4, MIPS, PowerPC, M68K, PDP-11
 * Автор повного ASN.1 DER компілятора в мову програмування Swift <a href="https://asn1.erp.uno">asn1.erp.uno</a> DER, Swift, Elixir
 * Автор проєкту захищеного месенжера <a href="https://chat.erp.uno">chat.erp.uno</a> DER, Swift, Elixir
@@ -27,13 +27,13 @@
 
 # Книги та монографії
 
-1. ISBN: 978-1-62540-054-3 <a href="https://axiosis.github.io/books/nendro/texts/nendro.pdf">Ньондро Лонгчен Нінгтік</a>
-2. ISBN: 978-617-8027-10-0 <a href="https://axiosis.github.io/books/monk/texts/monk.pdf">Божевільний монах</a>
+1. ISBN: 978-1-62540-054-3 <a href="https://axiosis.github.io/books/nendro/nendro.pdf">Ньондро Лонгчен Нінгтік</a>
+2. ISBN: 978-617-8027-10-0 <a href="https://axiosis.github.io/books/monk/monk.pdf">Божевільний монах</a>
 3. ISBN: 978-617-8027-23-1 <a href="https://axiosis.github.io/books/fp/fp.pdf">Формальна філософія FP/1</a>
-4. ISBN: 978-617-8027-27-8 <a href="https://axiosis.github.io/books/top/texts/top.pdf">Топовий програміст</a>
-5. ISBN: 978-617-8027-08-7 <a href="https://axiosis.github.io/books/uno/monography.pdf">Перша формальна система AXIO/1</a>
-6. ISBN: 978-617-8027-23-0 <a href="https://axiosis.github.io/books/sep/sep.pdf">Перша державна система ERP/1</a>
-7. ISBN: 978-617-8027-07-0 <a href="https://axiosis.github.io/books/azov/texts/idea.pdf">Ідея Нації</a>
+4. ISBN: 978-617-8027-27-8 <a href="https://axiosis.github.io/books/top/top.pdf">Топовий програміст</a>
+5. ISBN: 978-617-8027-08-7 <a href="https://axiosis.github.io/books/axio/axio.pdf">Перша формальна система AXIO/1</a>
+6. ISBN: 978-617-8027-23-0 <a href="https://axiosis.github.io/books/erp/erp.pdf">Перша державна система ERP/1</a>
+7. ISBN: 978-617-8027-07-0 <a href="https://axiosis.github.io/books/azov/idea.pdf">Ідея Нації</a>
 8. ISBN: 978-617-8027-23-1 Заповіт
 
 
