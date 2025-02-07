@@ -57,7 +57,7 @@ http://5ht.co/groupoid.sh, http://5ht.co/asmedit.sh. Загалом, разом 
 ```
 5HT@STELLAR:~/depot$ tree -L 1 .
 .
-├── asmedit
+├── bitedits
 ├── axiosis
 ├── erpuno
 ├── groupoid
