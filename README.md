@@ -16,7 +16,7 @@
 * Автор ERP.UNO <a href="https://erp.uno">erp.uno</a> (2005—2024) Перша державна система. ERP/1
 * Автор «Депозитів ПриватБанк» <a href="https://deposits.privatbank.ua/static/doc/index.htm">deposits.privatbank.ua</a> (2015—2016)
 * Автор SMP/AMP операційної системи та APL мови програмування для HFT трейдингу <a href="https://github.com/o83/n2o">platform.rs</a> (2016—2017)
-* Автор першої формальної системи <a href="https://groupoid.github.io/monography">axio.groupoid.space</a> (2017—2019) 
+* Автор першої формальної системи <a href="https://axio.groupoid.space">axio.groupoid.space</a> (2017—2019) 
 * Автор «МІА: Документообіг» МВС України <a href="https://crm.erp.uno">crm.erp.uno</a> (2019—2022) CRM, X.509 система
 * Автор модальної гомотопічної системи доведення теорем «Андерс» <a href="https://anders.groupoid.space">anders.groupoid.space</a> (2021—2022)
 * Автор інтерактивного дизасемблера BE <a href="https://5ht.co/be">5ht.co/be</a> EM64T, ARM64, RISC-V, SH-4, MIPS, PowerPC, M68K, PDP-11 (2022)
