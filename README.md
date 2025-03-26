@@ -26,6 +26,7 @@
 * Автор FHIR сервера <a href="https://hl7.erp.uno">hl7.erp.uno</a> (2023)
 * Автор PKI X.509 сервера Authority <a href="https://authority.erp.uno">authority.erp.uno</a> (2024) для <a href="https://github.com/arvo-computer/">AR.VO Computer</a>
 * Автор ретро-енциклопедії «Компіки Сохацького» <a href="https://computer.5ht.co">computer.5ht.co</a> (2019—2025)
+* Автор тактичного прувера для матаналізу «Лоран» <a href="https://laurent.groupoid.space">laurent.groupoid.space</a> (2025)
 
 # Книги та монографії
 
