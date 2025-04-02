@@ -1,0 +1,110 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+    <title>TV: Terminal Vision</title>
+    <link rel="stylesheet" href="https://n2o.dev/blank.css" />
+    <link rel="stylesheet" href="https://tonpa.guru/journal.css" />
+</head>
+<body>
+<main>
+    <section>
+
+        <h3>TV: Terminal Vision</h3>
+
+        <h4>Анотація</h4>
+
+        <center><a href="https://github.com/BitEdits"><img src="img/tv.png" width=150></a></center>
+        <br>
+
+        <p>Terminal Vision -- це новий mcedit.</p>
+
+        <p>— Робота під Windows, Linux, Mac, BSD;<br>
+           — Без залежностей, потрібно тільки C99/POSIX які є стандартом;<br>
+           — Без використання ncurses та S-Lang, тільки termios;<br>
+        </p>
+
+        <h4>Параметри</h4>
+
+        <p>Цей редактор можна також використовувати у якості вправи яка може замінити
+           написання консольних ігор типу Тетріса, Ксонікса, Арканоїда. Головним чином
+           це сцена яка обмежена вмістом текстового файлу.</p>
+
+        <figure><code>$ ./tv stream.txt
+        </code></figure>
+
+   <br><center>&dot;</center>
+
+        <figure><img src="img/1.png"></figure>
+
+   <br><center>&dot;</center>
+
+        <h4>Модальність режиму View</h4>
+
+        <p></p>
+
+        <P><b class=sel>LEFT</b> &mdash; курсор вліво на одну позицію в рядку вводу,<br>
+           <b class=sel>RIGHT</b> &mdash; курсор вправо на одну позицію в рядку вводу,<br>
+           <b class=sel>UP</b> &mdash; вставити в рядок вводу попередню команду з історії,<br>
+           <b class=sel>DOWN</b> &mdash; вставити в рядок вводу наступну команду з історії,<br>
+           <b class=sel>PGUP</b> &mdash; прокрутити історичний стрім виводу команд на екран вверх,<br>
+           <b class=sel>PGDOWN</b> &mdash; прокрутити історичний стрім виводу команд на екран вниз,<br>
+           <b class=sel>HOME</b> &mdash; перевести історичний стрім виводу команд на початок,<br>
+           <b class=sel>END</b> &mdash; перевести історичний стрім виводу команд в кінець,<br>
+           <b class=sel>F3</b> &mdash; вийти з редактора,<br>
+           <b class=sel>F4</b> &mdash; перейти в режим редагування.<br>
+        </p>
+
+        <h4>Модальність режиму редагування</h4>
+
+        <p></p>
+
+        <P><b class=sel>LEFT</b> &mdash; перейти на папку вищу,<br>
+           <b class=sel>RIGHT</b> &mdash; перейти на папку нижче,<br>
+           <b class=sel>UP</b> &mdash; перемістити курсор вибору файлу вверх,<br>
+           <b class=sel>DOWN</b> &mdash; перемістити курсор вибору файлу вниз,<br>
+           <b class=sel>PGUP</b> &mdash; прокрутити панель з файлами на екран вверх,<br>
+           <b class=sel>PGDOWN</b> &mdash; прокрутити панель з файлами на екран вниз,<br>
+           <b class=sel>HOME</b> &mdash; перейти на перший файл папки,<br>
+           <b class=sel>END</b> &mdash; перейти на останній файл папки,<br>
+           <b class=sel>ENTER</b> &mdash; перейти в папку або запустити файл,<br>
+           <b class=sel>F3</b> &mdash; перейти в режим тільки читання,<br>
+           <b class=sel>F4</b> &mdash; вийти з редактора.<br>
+        </p>
+
+        <h4>Модальність меню</h4>
+
+   <br><center>&dot;</center>
+
+        <figure><img src="img/2.png"></figure>
+
+   <br><center>&dot;</center>
+
+        <p><b class=sel>UP</b> &mdash; попередній пункт підлеглого меню,<br>
+           <b class=sel>DOWN</b> &mdash; попередній пункт підлеглого меню,<br>
+           <b class=sel>ENTER</b> &mdash; вибір пункту меню.</p>
+
+   <br><center>&dot;</center>
+
+      <h4>Код</h4>
+
+      <p>Репозиторій проекту <a href="https://github.com/BitEdits/sc">github.com/BitEdits/sc</a>
+         опубліковано під <a href="https://5ht.co/license">DHARMA</a> ліценцією, яка
+         забороняє використання Sokhatsky Commander для росіян та всіх хто з ними
+         повʼязаний. Для всіх інших це не відрізняється від ISC ліцензії.
+         Присвячується Марії Бєліковій.</P>
+
+   <br><center>&dot;</center>
+
+   <div id="utterances" class="utterances" > </div>
+   <script src="https://utteranc.es/client.js" repo="5HT/tonpa.guru"
+           issue-number="26" theme="github-light" crossorigin="anonymous" async> </script>
+
+</section>
+</main>
+<footer>Максим Сохацький, Київ</footer>
+</body>
+</html>

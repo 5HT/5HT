@@ -1,0 +1,148 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+    <title>SC: Sokhatsky Commander</title>
+    <link rel="stylesheet" href="https://n2o.dev/blank.css" />
+    <link rel="stylesheet" href="https://tonpa.guru/journal.css" />
+</head>
+<body>
+<main>
+    <section>
+
+        <h3>SC: Sokhatsky Commander</h3>
+
+        <h4>Анотація</h4>
+
+        <center><a href="https://github.com/BitEdits"><img src="img/sc.png" width=150></a></center>
+        <br>
+
+        <p>Є цілий клас файлових менеджеріву, серед яких Norton Commander,
+           Volkov Commander (Всеволода Волкова), Demos Commander (Серія Вакуленко),
+           Dos Navigator, Total Commander, FAR Manager. Такі програми розширюють класичні шели з історією команд додатковими можливостями:
+           більш швидка навігація по файловій системі через курсори, розширений статусом копіювання файлів, вбудовані радактори файлів.
+           Командер Сохацького побудований згідно наступних принципів: </p>
+
+        <p>— Робота під Windows, Linux, Mac, BSD;<br>
+           — Без залежностей, потрібно тільки C99/POSIX які є стандартом;<br>
+           — Без використання ncurses та S-Lang, тільки termios;<br>
+           — Модальність редагування HEX і редактор <a href="https://sokhatsky.art/bineditor/">BE: Binary Editor</a>;<br>
+           — Маленький розмір (бінарі 35KB, рядків 1KLOC, 5 С файлів на 64KB);<br>
+           — Коректна передача управління терімінальним програмам;<br>
+           — Базова функціональність історії команд і їх виводів.<br>
+        </p>
+
+        <h4>Параметри</h4>
+
+        <p>Цей редактор можна також використовувати у якості вправи яка може замінити
+           написання консольних ігор типу Тетріса, Ксонікса, Арканоїда. Головним чином
+           це сцена яка обмежена файловою системою, а дійство вібувається
+           у вікні терміналу, один рядок якого виділений під ввід команд.</p>
+
+        <figure><code>$ ./sc
+        </code></figure>
+
+        <h4>Модальність історії команд</h4>
+
+        <p>Історія команд і їх ввід це головна задача шелів. Так як командери є
+           розвиненими шелами, для них це не виняток &mdash; їх головна мета полягає
+           не в навігації по файлам, як це може здатися не перший погляд, а ввід команд
+           і зберігання їх історії разом з їх виводом в єдиному просторі.</p>
+
+        <P><b class=sel>LEFT</b> &mdash; курсор вліво на одну позицію в рядку вводу,<br>
+           <b class=sel>RIGHT</b> &mdash; курсор вправо на одну позицію в рядку вводу,<br>
+           <b class=sel>UP</b> &mdash; вставити в рядок вводу попередню команду з історії,<br>
+           <b class=sel>DOWN</b> &mdash; вставити в рядок вводу наступну команду з історії,<br>
+           <b class=sel>PGUP</b> &mdash; прокрутити історичний стрім виводу команд на екран вверх,<br>
+           <b class=sel>PGDOWN</b> &mdash; прокрутити історичний стрім виводу команд на екран вниз,<br>
+           <b class=sel>HOME</b> &mdash; перевести історичний стрім виводу команд на початок,<br>
+           <b class=sel>END</b> &mdash; перевести історичний стрім виводу команд в кінець,<br>
+           <b class=sel>INSERT</b> &mdash; преключити режим INS,<br>
+           <b class=sel>DELETE</b> &mdash; видалити символ під курсором,<br>
+           <b class=sel>ENTER</b> &mdash; ввести команду і записати її історію,<br>
+           <b class=sel>BACKSPACE</b> &mdash; видалити символ зліва від каретки,<br>
+           <b class=sel>SYMBOLS</b> &mdash; вставити або перезаписати символ (INS режим).
+        <p>
+
+        <p>Командер як розвинений шел &mdash; це середовище вводу команд.</p>
+
+   <br><center>&dot;</center>
+
+        <figure><img src="img/1.png"></figure>
+
+        <figure><img src="img/5.png"></figure>
+
+   <br><center>&dot;</center>
+
+        <h4>Модальність панелей</h4>
+
+        <p>Головна мета модальності панелей &mdash; запропонувати користувачу м'язову
+           пам'ять до його файлів на його системі через Lynx Like Motion курсорну навігацію.</p>
+
+        <P><b class=sel>LEFT</b> &mdash; перейти на папку вищу,<br>
+           <b class=sel>RIGHT</b> &mdash; перейти на папку нижче,<br>
+           <b class=sel>UP</b> &mdash; перемістити курсор вибору файлу вверх,<br>
+           <b class=sel>DOWN</b> &mdash; перемістити курсор вибору файлу вниз,<br>
+           <b class=sel>PGUP</b> &mdash; прокрутити панель з файлами на екран вверх,<br>
+           <b class=sel>PGDOWN</b> &mdash; прокрутити панель з файлами на екран вниз,<br>
+           <b class=sel>HOME</b> &mdash; перейти на перший файл папки,<br>
+           <b class=sel>END</b> &mdash; перейти на останній файл папки,<br>
+           <b class=sel>ENTER</b> &mdash; перейти в папку або запустити файл.<p>
+
+        <p>Командер &mdash; це шел з курсорною навігацією по файловим панелям.</p>
+
+   <br><center>&dot;</center>
+
+        <figure><img src="img/4.png"></figure>
+
+   <br><center>&dot;</center>
+
+        <h4>Модальність меню</h4>
+
+        <p><b class=sel>LEFT</b> &mdash; попередній пункт головного меню,<br>
+           <b class=sel>RIGHT</b> &mdash; наступний пункт головного меню,<br>
+           <b class=sel>UP</b> &mdash; попередній пункт підлеглого меню,<br>
+           <b class=sel>DOWN</b> &mdash; попередній пункт підлеглого меню,<br>
+           <b class=sel>ENTER</b> &mdash; вибір пункту меню,<br>
+           <b class=sel>ESC</b> &mdash; вихід з модальності меню.</p>
+
+   <br><center>&dot;</center>
+
+        <figure><img src="img/2.png"></figure>
+
+   <br><center>&dot;</center>
+
+        <h4>Модальність вікон</h4>
+
+        <p><b class=sel>SYMBOLS</b> &mdash; прописні літери кнопок діалогового вікна,<br>
+           <b class=sel>ENTER</b> &mdash; вибір кнопки,<br>
+           <b class=sel>ESC</b> &mdash; вихід з модальності вікна.</p>
+
+   <br><center>&dot;</center>
+
+        <figure><img src="img/3.png"></figure>
+
+   <br><center>&dot;</center>
+
+      <h4>Код</h4>
+
+      <p>Репозиторій проекту <a href="https://github.com/BitEdits/sc">github.com/BitEdits/sc</a>
+         опубліковано під <a href="https://5ht.co/license">DHARMA</a> ліценцією, яка
+         забороняє використання Sokhatsky Commander для росіян та всіх хто з ними
+         повʼязаний. Для всіх інших це не відрізняється від ISC ліцензії.
+         Присвячується Марії Бєліковій.</P>
+
+   <br><center>&dot;</center>
+
+   <div id="utterances" class="utterances" > </div>
+   <script src="https://utteranc.es/client.js" repo="5HT/tonpa.guru"
+           issue-number="26" theme="github-light" crossorigin="anonymous" async> </script>
+
+</section>
+</main>
+<footer>Максим Сохацький, Київ</footer>
+</body>
+</html>
