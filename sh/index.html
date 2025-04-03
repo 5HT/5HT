@@ -1,0 +1,93 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Sokhatsky" />
+    <title>SH: Bourne Shell</title>
+    <link rel="stylesheet" href="https://n2o.dev/blank.css" />
+    <link rel="stylesheet" href="https://tonpa.guru/journal.css" />
+</head>
+<body>
+<main>
+    <section>
+
+        <h3>SH: Mini Shell</h3>
+
+        <h4>Анотація</h4>
+
+        <center><a href="https://github.com/BitEdits/sh/"><img src="img/sh.png" width=150></a></center>
+        <br>
+
+        <p>Mini Shell -- це реімплементація Bourne Shell.</p>
+
+        <p>— Робота під Windows, Linux, Mac, BSD;<br>
+           — Без залежностей, потрібно тільки C99/POSIX які є стандартом;<br>
+           — Вбудовані команди;<br>
+           — Мова програмування Bourne Shell.<br>
+        </p>
+
+        <h4>Параметри</h4>
+
+        <p>Цей шелл можна також використовувати у якості вправи для написання консольних додатків.
+           Головним чином це сцена яка обмежена мовою інтерпретатора команд.</p>
+
+        <figure><code>$ ./sh
+        </code></figure>
+
+        <h4>Вбудовані команди</h4>
+
+        <p>Вбудовані команди, які підтримують майже всі шели.</p>
+
+        <P><b class=sel>cd</b> &mdash; змінити поточну директорію,<br>
+           <b class=sel>echo</b> &mdash; надрукувати змінну, текст чи вираз<br>
+           <b class=sel>exit</b> &mdash; вийти з шела,<br>
+           <b class=sel>pwd</b> &mdash; надрукувати поточну директорію,<br>
+           <b class=sel>read</b> &mdash; прочитати ввід користувача,<br>
+           <b class=sel>source</b> &mdash; виконати шел програму,<br>
+           <b class=sel>set</b> &mdash; встановити опцію шела,<br>
+           <b class=sel>unset</b> &mdash; видалити змінну чи функцію,<br>
+           <b class=sel>export</b> &mdash; встановити змінну середовища,<br>
+           <b class=sel>alias</b> &mdash; створити синонім для команди,<br>
+           <b class=sel>unalias</b> &mdash; видалити синонім для команди,<br>
+           <b class=sel>type</b> &mdash; перейти в режим редагування,<br>
+           <b class=sel>test</b>, <b class=sel>[</b> &mdash; 2-елімінатор,<br>
+        </p>
+
+        <h4>Мова програмування</h4>
+
+        <p>Мова програмування сумісна навіть з першими шелами.</p>
+
+        <P><b class=sel>if</b>, <b class=sel>then</b>, <b class=sel>elif</b>, <b class=sel>fi</b> &mdash; елімінатор 0-вимірної сфери,<br>
+           <b class=sel>case</b>, <b class=sel>esac</b> &mdash; патерн мачінг,<br>
+           <b class=sel>for</b>, <b class=sel>while</b>, <b class=sel>until</b>, <b class=sel>do</b> &mdash; математична індукція,<br>
+           <b class=sel>function</b> &mdash; лямбда абстракція,<br>
+           <b class=sel>()</b>, <b class=sel>[]</b>, <b class=sel>{}</b> &mdash; три види операторних дужок,<br>
+           <b class=sel>|</b> &mdash; пайп,<br>
+           <b class=sel>&amp;</b> &mdash; бек,<br>
+           <b class=sel>&amp;&amp;</b> &mdash; і,<br>
+           <b class=sel>||</b> &mdash; або,<br>
+           <b class=sel>``</b> &mdash; командне макро-цитування.<br>
+        </p>
+
+   <br><center>&dot;</center>
+
+      <h4>Код</h4>
+
+      <p>Репозиторій проекту <a href="https://github.com/BitEdits/sh">github.com/BitEdits/sh</a>
+         опубліковано під <a href="https://5ht.co/license">DHARMA</a> ліценцією, яка
+         забороняє використання Sokhatsky Commander для росіян та всіх хто з ними
+         повʼязаний. Для всіх інших це не відрізняється від ISC ліцензії.</P>
+
+   <br><center>&dot;</center>
+
+   <div id="utterances" class="utterances" > </div>
+   <script src="https://utteranc.es/client.js" repo="5HT/tonpa.guru"
+           issue-number="26" theme="github-light" crossorigin="anonymous" async> </script>
+
+</section>
+</main>
+<footer>Максим Сохацький, Київ</footer>
+</body>
+</html>
