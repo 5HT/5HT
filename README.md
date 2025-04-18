@@ -1,16 +1,47 @@
-## Hi there 👋
-
-<!--
-**5HT/5HT** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<header>
+    <a href="https://n2o.dev"><img src="https://openmoji.org/data/color/svg/1F9E7.svg" /></a>
+    <h1>DHARMA</h1>
+</header>
+<aside>
+    <article>
+        <section>
+            <h3>LEGAL</h3>
+            <div>Copyright &copy; <a href="https://tonpa.guru/">Namdak Tonpa</a></div><br>
+            <div>Permission to use, copy, modify, and/or distribute this software
+                 for any purpose with or without fee is hereby granted, provided
+                 that the above copyright notice and this permission notice appear in all copies.
+            </div>
+        </section>
+        <section>
+            <h3>PERMISSION NOTICE</h3>
+            <div>
+                 YOU CANNOT USE THIS SOFTWARE IN ANY (PROVABLE BY MONEY TRACE)
+                 PROCESS CHAIN OF EXTERMINATING UKRAINIANS BY ANY MEANS
+                 OF FASCIST ACTIONS AGAINST OUR TERRITORIAL INTEGRITY,
+                 CULTURAL DIVERSITY BY APPLYING MILITARY INVASIONS,
+                 ECONOMICAL WARS, HUMANITARIAN DISASTERS, ARTFICIAL HOLODOMORS,
+                 GENOCIDE, RAPING, LOOTING, ROBBERIES, SPREADING FAKE INFORMATION,
+                 AND OTHER CONTEMPORARY WEAPONS OF WAR AT SCALE OR IN INVIDIVUAL MANNER.
+            </div><br>
+            <div>
+                 YOU CANNOT USE THIS SOFTWARE BY ANY MEANS IN INTEREST OF LEGAL
+                 ENTITIES OR INDIVIDUALS WHO IS SUPPORTING NOW OR WAS SUPPORTING
+                 BACK THEN FASCISM, RUSCISM, COMMUNISM, CHAUVINISM, HUMILIATION,
+                 AND OTHER SUPPRESSIVE IDEOLOGIES IN DIFFERENT EXPRESSIONS.
+            </div>
+        </section>
+    </article>
+</aside>
+<main>
+    <section>
+        <p> THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+            WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+            MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+            ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+            WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+            ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+            OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+        </p>
+            <figure><img src="https://5HT.co/BUDDHA.svg" width=200></figure>
+    </section>
+</main>
