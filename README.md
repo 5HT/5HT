@@ -1,5 +1,5 @@
 <header>
-    <a href="https://n2o.dev"><img src="https://openmoji.org/data/color/svg/1F9E7.svg" /></a>
+    <a href="https://n2o.dev"><img src="https://openmoji.org/data/color/svg/1F9E7.svg" width=100/></a>
     <h1>DHARMA</h1>
 </header>
 <aside>
