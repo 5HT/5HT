@@ -38,6 +38,6 @@
             ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
             OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         </p>
-            <center><img src="https://5HT.co/BUDDHA.svg" width=100></center>
+            <div align=center><img src="https://5HT.co/BUDDHA.svg" width=100></div>
     </section>
 </main>
