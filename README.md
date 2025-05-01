@@ -22,8 +22,8 @@
                  GENOCIDE, RAPING, LOOTING, ROBBERIES, SPREADING FAKE INFORMATION,
                  AND OTHER CONTEMPORARY WEAPONS OF WAR AT SCALE OR IN INVIDIVUAL MANNER.
             </div><br>
-            <div style="font-size:16px;margin:10px;background-color:black;color:white;">
-                ＳＴＯＰ ＫＩＬＬＩＮＧ ＵＫＲＡＩＮＩＡＮＳ ＴＨＥ ＣＯＵＮＴＥＲ ＲＥＮＤＥＲＳ ＴＥＮＳ ＯＦ ＭＩＬＬＩＯＮＳ
+            <div style="font-size:16px;margin:10px;background:black;color:white;">
+                 𝗦𝗧𝗢𝗣 𝗞𝗜𝗟𝗟𝗜𝗡𝗚 𝗨𝗞𝗥𝗔𝗜𝗡𝗜𝗔𝗡𝗦, 𝗧𝗛𝗘 𝗖𝗢𝗨𝗡𝗧𝗘𝗥 𝗥𝗘𝗡𝗗𝗘𝗥𝗦 𝗧𝗘𝗡𝗦 𝗢𝗙 𝗠𝗜𝗟𝗟𝗜𝗢𝗡𝗦.
             </div><br>
             <div>
                  YOU CANNOT USE THIS SOFTWARE BY ANY MEANS IN INTEREST OF LEGAL
