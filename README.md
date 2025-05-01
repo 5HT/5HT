@@ -22,7 +22,7 @@
                  GENOCIDE, RAPING, LOOTING, ROBBERIES, SPREADING FAKE INFORMATION,
                  AND OTHER CONTEMPORARY WEAPONS OF WAR AT SCALE OR IN INVIDIVUAL MANNER.
             </div><br>
-            <div style="font-size:16px;">
+            <div style="font-size:16px;margin:10px;background-color:black;color:white;">
                 ＳＴＯＰ ＫＩＬＬＩＮＧ ＵＫＲＡＩＮＩＡＮＳ ＴＨＥ ＣＯＵＮＴＥＲ ＲＥＮＤＥＲＳ ＴＥＮＳ ＯＦ ＭＩＬＬＩＯＮＳ
             </div><br>
             <div>
