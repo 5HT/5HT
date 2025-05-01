@@ -23,7 +23,7 @@
                  AND OTHER CONTEMPORARY WEAPONS OF WAR AT SCALE OR IN INVIDIVUAL MANNER.
             </div><br>
             <div style="font-size:16px;">
-                 🅢🅣🅞🅟 🅚🅘🅛🅛🅘🅝🅖 🅤🅚🅡🅐🅘🅝🅘🅐🅝🅢 🅣🅗🅔 🅒🅞🅤🅝🅣🅔🅡 🅡🅔🅝🅓🅔🅡🅢 🅣🅔🅝🅢 🅞🅕 🅜🅘🅛🅛🅘🅞🅝🅢
+                ＳＴＯＰ ＫＩＬＬＩＮＧ ＵＫＲＡＩＮＩＡＮＳ ＴＨＥ ＣＯＵＮＴＥＲ ＲＥＮＤＥＲＳ ＴＥＮＳ ＯＦ ＭＩＬＬＩＯＮＳ
             </div><br>
             <div>
                  YOU CANNOT USE THIS SOFTWARE BY ANY MEANS IN INTEREST OF LEGAL
