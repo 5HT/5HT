@@ -22,9 +22,9 @@
                  GENOCIDE, RAPING, LOOTING, ROBBERIES, SPREADING FAKE INFORMATION,
                  AND OTHER CONTEMPORARY WEAPONS OF WAR AT SCALE OR IN INVIDIVUAL MANNER.
             </div><br>
-            <div>
-                 STOP KILLING UKRAINIANS,
-                 THE COUNTER RENDERS TENS OF MILLIONS.
+            <div style="font-size:16px;">
+                 🆂🆃🅾🅿 🅺🅸🅻🅻🅸🅽🅶 🆄🅺🆁🅰🅸🅽🅸🅰🅽🆂  
+🆃🅷🅴 🅲🅾🆄🅽🆃🅴🆁 🆁🅴🅽🅳🅴🆁🆂 🆃🅴🅽🆂 🅾🅵 🅼🅸🅻🅻🅸🅾🅽🆂
             </div><br>
             <div>
                  YOU CANNOT USE THIS SOFTWARE BY ANY MEANS IN INTEREST OF LEGAL
