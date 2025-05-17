@@ -74,6 +74,7 @@
 * Автор FHIR сервера <a href="https://hl7.erp.uno">hl7.erp.uno</a> (2023)
 * Автор PKI X.509 сервера Authority <a href="https://authority.erp.uno">authority.erp.uno</a> (2024) для <a href="https://github.com/arvo-computer/">AR.VO Computer</a>
 * Автор ретро-енциклопедії «Компіки Сохацького» <a href="https://computer.5ht.co">computer.5ht.co</a> (2019—2025)
+* Автор Sokhatsky Commander <a href="https://sc.5ht.co">sc.5ht.co</a> (2025)
 * Автор тактичного прувера для матаналізу «Лоран» <a href="https://laurent.groupoid.space">laurent.groupoid.space</a> (2025)
 * Автор прувера для квантової мови TED-K «Урс» <a href="https://urs.groupoid.space">urs.groupoid.space</a> (2025)
 * Автор періодичного видання «Групоїд Інфініті» (звіт результатів) <a href="https://groupoid.space">groupoid.space</a> (2025)
