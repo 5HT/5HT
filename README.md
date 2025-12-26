@@ -50,18 +50,18 @@
 
 # Афіліації
 
-* Архітектурна компанія Максима Сохацького «SYNRC» <a href="https://synrc.com">synrc.com</a>, Технічний директор (2005—2025)
-* Релігійна організація «Лонгчен Нінгтік Україна» <a href="https://longchenpa.guru">longchenpa.guru</a>, Директор (2011—2025)
+* Архітектурна компанія Максима Сохацького «SYNRC» <a href="https://synrc.com">synrc.com</a>, Технічний директор (2005—2026)
+* Релігійна організація «Лонгчен Нінгтік Україна» <a href="https://longchenpa.guru">longchenpa.guru</a>, Директор (2011—2026)
 * Інститут формальної математики та філософії «Групоїд Інфініті» <a href="https://groupoid.space/institute/">groupoid.space</a>, Старший науковий дослідник (2017)
-* Видавництво «Аксіосис» <a href="https://axiosis.top">axiosis.top</a>, Головний редактор (2022—2025)
+* Видавництво «Аксіосис» <a href="https://axiosis.top">axiosis.top</a>, Головний редактор (2022—2026)
 * ПриватБанк <a href="https://pb.ua">pb.ua</a>, Архітектор (2015-2016)
 * Державна ІТ-компанія «ІНФОТЕХ» <a href="https://infotech.gov.ua">infotech.gov.ua</a>, Провідний інженер-програміст (2019—2023)
-* Державна ІТ-компанія «Електронне здоров'я» <a href="https://ehealth.gov.ua">ehealth.gov.ua</a>, Керівник відділу системного аналізу (2024—2025)
+* Державна ІТ-компанія «Електронне здоров'я» <a href="https://ehealth.gov.ua">ehealth.gov.ua</a>, Керівник відділу системного аналізу (2024—2026)
 
 # Авторські твори
 
-* Автор N2O.DEV <a href="https://n2o.dev">n2o.dev</a> (2013—2024) Перша телекомунікаційна система. Сайнерсі Україна
-* Автор ERP.UNO <a href="https://erp.uno">erp.uno</a> (2005—2024) Перша державна система. ERP/1
+* Автор N2O.DEV <a href="https://n2o.dev">n2o.dev</a> (2013—2026) Перша телекомунікаційна система. Сайнерсі Україна
+* Автор ERP.UNO <a href="https://erp.uno">erp.uno</a> (2005—2026) Перша державна система. ERP/1
 * Автор «Депозитів ПриватБанк» <a href="https://deposits.privatbank.ua/static/doc/index.htm">deposits.privatbank.ua</a> (2015—2016)
 * Автор SMP/AMP операційної системи та APL мови програмування для HFT трейдингу <a href="https://github.com/o83/n2o">platform.rs</a> (2016—2017)
 * Автор першої формальної системи <a href="https://axio.groupoid.space">axio.groupoid.space</a> (2017—2019) 
