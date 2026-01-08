@@ -70,7 +70,7 @@
 * Автор інтерактивного дизасемблера BE <a href="https://be.5ht.co">be.5ht.co</a> EM64T, ARM64, RISC-V, SH-4, MIPS, PowerPC, M68K, PDP-11 (2022)
 * Автор філателістичного архіву Укрпошти <a href="https://5ht.github.io/5ht.cx.ua/">5ht.cx.ua</a> (2023)
 * Автор повного ASN.1 DER компілятора в мову програмування Swift <a href="https://asn1.n2o.dev">asn1.n2o.dev</a> DER, Swift, Elixir (2023)
-* Автор проєкту захищеного месенжера <a href="https://chat.erp.uno">chat.erp.uno</a> DER, Swift, Elixir (2023)
+* Автор проєкту захищеного месенжера <a href="https://x509.chat">x509.chat</a> DER, Swift, Elixir (2023)
 * Автор FHIR сервера <a href="https://hl7.erp.uno">hl7.erp.uno</a> (2023)
 * Автор PKI X.509 сервера Authority <a href="https://ca.n2o.dev">ca.n2o.dev</a> (2024)
 * Автор ретро-енциклопедії «Компіки Сохацького» <a href="https://computer.5ht.co">computer.5ht.co</a> (2019—2025)
