@@ -110,12 +110,13 @@ http://5ht.co/groupoid.sh, http://5ht.co/asmedit.sh. Загалом, разом 
 ```
 5HT@STELLAR:~/depot$ tree -L 1 .
 .
-├── bitedits
-├── axiosis
+├── synrc
 ├── erpuno
+├── bitedits
+├── zencrypted
 ├── groupoid
-├── longchenpa
-└── synrc
+├── axiosis
+└── longchenpa
 
 6 directories, 0 files
 5HT@STELLAR:~/depot$ du -hs ..
