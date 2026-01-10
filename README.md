@@ -115,8 +115,8 @@ http://5ht.co/groupoid.sh, http://5ht.co/asmedit.sh. Загалом, разом 
 ├── bitedits
 ├── zencrypted
 ├── groupoid
-├── axiosis
-└── longchenpa
+├── longchenpa
+└── axiosis
 
 6 directories, 0 files
 5HT@STELLAR:~/depot$ du -hs ..
