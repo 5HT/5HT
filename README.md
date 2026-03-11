@@ -80,8 +80,8 @@
 * Автор періодичного видання «Групоїд Інфініті» (звіт результатів) <a href="https://groupoid.space">groupoid.space</a> (2025)
 * Автор тактичного протоколу Link32 і референсної імплементації Skynet <a href="https://bitedits.github.io/skynet">bitedits.github.io/skynet</a> (2025)
 * Автор операційної системи для дронів Skynet RT <a href="https://bitedits.github.io/rt/">bitedits.github.io/rt/</a> (2025)
-* Автор мінімальної індуктивної системи Frank <a href="https://frank.groupoid.space/">frank.groupoid.space/</a> (2026)
-* Автор тактичної системи доведення теорем Christine <a href="https://christine.groupoid.space/">christine.groupoid.space/</a> (2026)
+* Автор мінімальної індуктивної системи Frank <a href="https://frank.groupoid.space/">frank.groupoid.space/</a> (2025)
+* Автор тактичної системи доведення теорем Christine <a href="https://christine.groupoid.space/">christine.groupoid.space/</a> (2025)
 
 # Книги та монографії
 
