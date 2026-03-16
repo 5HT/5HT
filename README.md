@@ -84,6 +84,11 @@
 * Автор мінімальної індуктивної системи Frank <a href="https://frank.groupoid.space/">frank.groupoid.space</a> (2025)
 * Автор тактичної системи доведення теорем Christine <a href="https://christine.groupoid.space/">christine.groupoid.space</a> (2025)
 
+# Авторські твори після 2026 року
+
+Disclaimer: після 2026 року перевірити чи користувався Максим Сохацький моделями неможливо, тому жодна людина у світі
+не зможе довести, що унікальний код Максим написав самостійно без використання LLM моделей.
+
 # Книги та монографії
 
 1. ISBN: 978-1-62540-054-3 <a href="https://axiosis.github.io/books/nendro/nendro.pdf">Ньондро Лонгчен Нінгтік</a>
