@@ -61,7 +61,7 @@
 
 # Авторські твори
 
-* Автор N2O.DEV <a href="https://n2o.dev">n2o.dev</a> (2013—2026) Телесистеми Сохацького. SYNRC
+* Автор N2O.DEV <a href="https://n2o.dev">n2o.dev</a> (2013—2026) Фреймворк Сохацького. SYNRC
 * Автор ERP.UNO <a href="https://erp.uno">erp.uno</a> (2005—2026) Системи Електронного Урядування. ERP/1
 * Автор «Депозитів ПриватБанк» <a href="https://deposits.privatbank.ua/static/doc/index.htm">deposits.privatbank.ua</a> (2015—2016)
 * Автор системи з однією аксіомою <a href="https://henk.groupoid.space">henk.groupoid.space</a> (2015) 
