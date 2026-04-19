@@ -85,7 +85,8 @@
 * Автор операційної системи для дронів Skynet RT <a href="https://bitedits.github.io/rt/">bitedits.github.io/rt</a> (2025)
 * Автор мінімальної індуктивної системи Frank <a href="https://frank.groupoid.space/">frank.groupoid.space</a> (2025)
 * Автор тактичної системи доведення теорем Christine <a href="https://christine.groupoid.space/">christine.groupoid.space</a> (2025)
-* Автор Sokhatsky Messenger Protocol <a href="https://protocol.zencrypted.uk/">protocol.zencrypted.uk</a> (2026)
+* Автор Протоколу Сохацького <a href="https://protocol.zencrypted.uk/">protocol.zencrypted.uk</a> (2026)
+
 # Авторські твори після 2026 року
 
 Disclaimer: після 2026 року перевірити чи користувався Максим Сохацький моделями неможливо, тому жодна людина у світі
