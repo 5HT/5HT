@@ -76,7 +76,7 @@
 * Автор повного ASN.1 DER компілятора в мову програмування Swift <a href="https://asn1.zencrypted.uk">asn1.n2o.dev</a> DER, Swift, Elixir (2023)
 * Автор проєкту захищеного месенжера <a href="https://zencrypted.github.io/x509.chat">x509.chat</a> DER, Swift, Elixir (2023)
 * Автор FHIR сервера <a href="https://hl7.erp.uno">hl7.erp.uno</a> (2023)
-* Автор PKI X.509 сервера Authority <a href="https://ca.n2o.dev">ca.n2o.dev</a> (2024)
+* Автор PKI X.509 сервера з профілями безпеки <a href="https://ca.n2o.dev">ca.n2o.dev</a> (2024)
 * Автор ретро-енциклопедії «Компіки Сохацького» <a href="https://computer.5ht.co">computer.5ht.co</a> (2019—2025)
 * Автор Sokhatsky Commander <a href="https://sc.5ht.co">sc.5ht.co</a> (2025)
 * Автор тактичного прувера для матаналізу «Лоран» <a href="https://laurent.groupoid.space">laurent.groupoid.space</a> (2025)
