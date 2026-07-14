@@ -87,7 +87,7 @@
 * Автор мінімальної індуктивної системи Frank <a href="https://frank.groupoid.space/">frank.groupoid.space</a> (2025)
 * Автор тактичної системи доведення теорем Christine <a href="https://christine.groupoid.space/">christine.groupoid.space</a> (2025)
 * Автор Протоколу Сохацького <a href="https://protocol.zencrypted.uk/">protocol.zencrypted.uk</a> (2026)
-* Автор RTP стеку на GStreamer (Ericsson OpenWebRTC) <a href="https://rtp.zencrypted.uk/rtp.pdf">rtp.zencrypted.uk/rtp.pdf</a> (2026)
+* Автор RTP стеку на GStreamer (Ericsson OpenWebRTC) <a href="https://rtp.zencrypted.uk">rtp.zencrypted.uk</a> (2026)
 
 # Авторські твори після 2026 року
 
