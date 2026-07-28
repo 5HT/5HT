@@ -89,6 +89,7 @@
 * Автор Протоколу Сохацького <a href="https://protocol.zencrypted.uk/">protocol.zencrypted.uk</a> (2026)
 * Автор TURN сервера — форку eturnal від ProcessOne <a href="https://turn.erp.uno">turn.erp.uno</a> (2026)
 * Автор RTP стеку на GStreamer (Ericsson OpenWebRTC) <a href="https://rtp.zencrypted.uk">rtp.zencrypted.uk</a> (2026)
+* Автор SEC-LINE OS з підвищеними вимогами по безпеці <a href="https://os.synrc.com/os.pdf">os.synrc.com</a> (2026)
 
 # Авторські твори після 2026 року
 
