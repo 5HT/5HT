@@ -91,6 +91,7 @@
 * Автор RTP стеку на GStreamer (Ericsson OpenWebRTC) <a href="https://rtp.zencrypted.uk/">rtp.zencrypted.uk</a> (2026)
 * Автор операційної системи OS.1 з підвищеними вимогами по безпеці <a href="https://os.synrc.com/">os.synrc.com</a> (2026)
 * Автор гіпервізора і unikernel-мікроядра для операційної системи OS.1 <a href="https://hv.synrc.com/">hv.synrc.com</a> (2026)
+* Автор японської операційної системи B-System (BTRON 3.20) для OS.1 гіпервізора <a href="https://bitedits.github.io/btron/">bitedits.github.io/btron</a> (2026)
 
 # Авторські твори після 2026 року
 
