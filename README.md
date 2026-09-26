@@ -53,7 +53,7 @@
 * Архітектурна компанія «Криптографічні Телесистеми» <a href="https://synrc.com">synrc.com</a>, Технічний директор (2005—2026)
 * Релігійна організація «Лонгчен Нінгтік Україна» <a href="https://longchenpa.guru">longchenpa.guru</a>, Директор (2011—2026)
 * Інститут математики «Групоїд Інфініті» <a href="https://groupoid.space/institute/">groupoid.space</a>, Старший науковий дослідник (2017—2026)
-* Видавництво «Аксіосис» <a href="https://axiosis.top">axiosis.top</a>, Головний редактор (2022—2026)
+* Видавництво «Аксіосис» <a href="https://axiosis.github.io/axiosis.top/">axiosis.top</a>, Головний редактор (2022—2026)
 * ПриватБанк <a href="https://pb.ua">pb.ua</a>, Архітектор Депозитів (2015-2016)
 * Державна ІТ-компанія «ІНФОТЕХ» <a href="https://infotech.gov.ua">infotech.gov.ua</a>, Провідний інженер-програміст (2019—2023)
 * Державна ІТ-компанія «Електронне здоров'я» <a href="https://ehealth.gov.ua">ehealth.gov.ua</a>, Керівник відділу системного аналізу (2024—2026)
