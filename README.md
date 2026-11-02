@@ -93,6 +93,8 @@
 * Автор операційної системи OS.1 з підвищеними вимогами по безпеці <a href="https://os.synrc.com/">os.synrc.com</a> (2026)
 * Автор гіпервізора і unikernel-мікроядра для операційної системи OS.1 <a href="https://hv.synrc.com/">hv.synrc.com</a> (2026)
 * Автор японської операційної системи B-System (BTRON 3.20) для OS.1 гіпервізора <a href="https://btron.pro/">btron.pro</a> (2026)
+* Автор японського емулятора R800 MSX для BTRON <a href="https://msx.btron.pro/">msx.btron.pro</a> (2026)
+* Автор мікропроцесорної архітектури BX FPGA RTL <a href="https://bx.btron.pro/">bx.btron.pro</a> (2026)
 
 # Авторські твори після 2026 року
 
